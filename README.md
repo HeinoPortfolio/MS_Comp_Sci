@@ -4,7 +4,7 @@ The table below shows the order the courses were taken.  The listing above does 
 
 **Course Number**|**Directory**|**Course Description**| Status
 |:-----:|:-----:|:-----| :-----: |
-1 | [Intro Prog]() | | Need
+1 | [Intro Prog]() | | In Progress
 2 | [Discrete Structures]() |  |Need
 3 | [Data Visualization]() |  | Need
 4 | [Data Analytics]()| | Need
