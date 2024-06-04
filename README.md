@@ -4,7 +4,7 @@ The table below shows the order the courses were taken.  The listing above does 
 
 **Course Number**|**Directory**|**Course Description**| Status
 |:-----:|:-----:|:-----| :-----: |
-1 | [Intro Prog]() |Introduction to programming in a contemporary, mainstream, high-level programming language such as Python. Use of numeric and textual data. Use of data structures such as arrays, lists, sets, and dictionaries/maps such as those implemented by hash tables. Students are expected to be comfortable with algebraic notation as expressed in high school mathematics. | In Progress
+1 | [Intro Prog]() |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries. | In Progress
 2 | [Discrete Structures]() |  |Need
 3 | [Data Visualization]() |  | Need
 4 | [Data Analytics]()| | Need
