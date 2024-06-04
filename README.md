@@ -4,10 +4,10 @@ The table below shows the order the courses were taken.  The listing above does 
 
 **Course Number**|**Directory**|**Course Description**| Status
 |:-----:|:-----:|:-----| :-----: |
-1 | [Intro Prog]() |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries. | In Progress
+1 | [Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries. | In Progress
 2 | [Discrete Structures]() |  |Need
-3 | [Data Visualization]() |  | Need
-4 | [Data Analytics]()| | Need
+3 |[Data Analytics]()|  | Need
+4 | [Data Visualization]()| | Need
 5 | [Modern DB Sys]() |  | Need
 6 | [Cybersecurity and Secure Software Design]() |   | Need
 7 | [Software Eng]()|  |  Need
