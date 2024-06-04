@@ -1,0 +1,1070 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head id="Head1">
+<!-- be_ixf, sdk, gho-->
+<meta name="be:sdk" content="dotnet_sdk_1.4.22" />
+<meta name="be:timer" content="16ms" />
+<meta name="be:orig_url" content="https%3a%2f%2fwww.bsu.edu%2facademics%2fcollegesanddepartments%2fonline%2facademic-programs%2fmasters%2fms-computer-science" />
+<meta name="be:capsule_url" content="https%3a%2f%2fixfd1-api.bc0a.com%2fapi%2fixf%2f1.0.0%2fget_capsule%2ff00000000277771%2f0588367774" />
+<meta name="be:norm_url" content="https%3a%2f%2fwww.bsu.edu%2facademics%2fcollegesanddepartments%2fonline%2facademic-programs%2fmasters%2fms-computer-science" />
+<meta name="be:api_dt" content="py_2023; pm_07; pd_09; ph_07; pmh_06; p_epoch:1688911565769" />
+<meta name="be:mod_dt" content="py_2023; pm_07; pd_09; ph_07; pmh_06; p_epoch:1688911565769" />
+<meta name="be:messages" content="0" />
+<script type='text/javascript'>
+if (window.BEJSSDKObserver === undefined) {
+  (function(BEJSSDKObserver, $, undefined) {
+    var observer = void 0;
+    var listeners = [];
+    var readySet = [];
+    var doc = window.document;
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+    function checkSelector(selector, fn, indexList) {
+      var elements = doc.querySelectorAll(selector);
+  /**
+    issues on IE @see https://www.codesd.com/item/javascript-es6-not-a-function-error.html
+    elements = Array.from(elements);
+
+    */
+    for (var i = 0, len = elements.length; i < len; i++) {
+      /* -1 means all instances */
+      if (indexList != -1 && !(i in indexList)) {
+        continue;
+      }
+      var element = elements[i];
+      for (var j = 0; j < readySet.length; j++) {
+        if (readySet[j] == element.className || readySet[j] == element.id) {
+          return;
+        }
+      }
+      if (element.className) {
+        readySet.push(element.className);
+      }
+      if (element.id) {
+        readySet.push(element.id);
+      }
+
+      if (!element.ready || MutationObserver==null) {
+        element.ready = true;
+        fn.call(element, element);
+      }
+    }
+  }
+
+  function checkListeners() {
+    listeners.forEach(function (listener) {
+      return checkSelector(listener.selector, listener.fn, listener.indexList);
+    });
+  }
+
+  function removeListener(selector, fn) {
+    var i = listeners.length;
+    while (i--) {
+      var listener = listeners[i];
+      if (listener.selector === selector && listener.fn === fn) {
+        listeners.splice(i, 1);
+        if (!listeners.length && observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      }
+    }
+  }
+
+/**
+ * Fire event on first js selector
+ * @param selector string to watch on
+ * @param fn       callback function
+ * @param index_list can be undefined which means only first one
+ *                   or -1 which means all
+ *                   or a list of allowable indexes
+ */
+ BEJSSDKObserver.jsElementReady = function(selector, fn, index_list) {
+  if (index_list === undefined) {
+    index_list = [];
+    index_list.push(0);
+  }
+
+  if (MutationObserver != null) {
+    if (!observer) {
+      observer = new MutationObserver(checkListeners);
+      observer.observe(doc.documentElement, {
+        childList: true,
+        subtree: true
+      });
+    }
+    listeners.push({ selector: selector, fn: fn, indexList: index_list });
+  } else {
+    /* <= IE8 */
+    if (!document.addEventListener) {
+      /* log("<=IE8 attachEvent assignment"); */
+      document.addEventListener = document.attachEvent;
+    }
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var elements = doc.querySelectorAll(selector);
+      for (var i = 0, len = elements.length; i < len; i++) {
+        /* -1 means all instances */
+        if (index_list != -1 && !(i in index_list)) {
+          continue;
+        }
+        var element = elements[i];
+        element.ready = true;
+        fn.call(element, element);
+      }
+    });
+  }
+
+  checkSelector(selector, fn, index_list);
+  return function () {
+    return removeListener(selector, fn);
+  };
+};
+}(window.BEJSSDKObserver = window.BEJSSDKObserver || {}));
+}
+var jsElementReady = window.BEJSSDKObserver.jsElementReady;
+
+if (window.BELinkBlockGenerator === undefined) {
+  (function(BELinkBlockGenerator, $, undefined) {
+    BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = 100;
+    BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = 200;
+
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE = 0;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE = 1;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE = 2;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE = 3;
+
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE = 0;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_POST_APPEND_ELEMENT = 1;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT = 2;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT = 3;
+
+    BELinkBlockGenerator.setMaximumHeadlineLength = function(length) {
+      BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = length;
+    };
+
+    BELinkBlockGenerator.setMaximumDescriptionLength = function(length) {
+      BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = length;
+    };
+
+    BELinkBlockGenerator.generateIndividualLinks = function(parentElement, linkStructure, link) {
+      var link_level_element_tag = linkStructure[0];
+      var link_level_element = document.createElement(link_level_element_tag);
+      var link_attribute_dictionary = linkStructure[1];
+      var allowable_elements = linkStructure[2];
+      var children_link_structures = linkStructure[3];
+      for (var link_attribute_key in link_attribute_dictionary) {
+        link_level_element.setAttribute(link_attribute_key, link_attribute_dictionary[link_attribute_key]);
+      }
+
+      var added_something = false;
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE)>=0) {
+        link_level_element.setAttribute('href', link.url);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE)>=0 && link.h1) {
+        var headline_text = link.h1;
+        if (headline_text.length > BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) {
+          headline_text = headline_text.substring(0, BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) + '...';
+        }
+        var text_node = document.createTextNode(headline_text);
+        link_level_element.appendChild(text_node);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE)>=0 && link.desc) {
+        var desc_text = link.desc;
+        if (desc_text.length > BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) {
+          desc_text = desc_text.substring(0, BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) + '...';
+        }
+        var text_node = document.createTextNode(desc_text);
+        link_level_element.appendChild(text_node);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE)>=0 && link.image) {
+        link_level_element.setAttribute('src', link.image);
+        added_something = true;
+      }
+/**
+    don't emit for empty links, desc, headline, image
+    except for parent structures where allowable_length=0
+    */
+    if (!added_something && allowable_elements.length != 0) {
+
+      return;
+    }
+    /* go depth first */
+    for (var childrenIndex=0; childrenIndex<children_link_structures.length; childrenIndex++) {
+      var childLinkStructure = children_link_structures[childrenIndex];
+      BELinkBlockGenerator.generateIndividualLinks(link_level_element, childLinkStructure, link);
+    }
+    parentElement.appendChild(link_level_element);
+  };
+
+  BELinkBlockGenerator.insertLinkBlocks = function(targetElement, replacementStrategy, overallStructure, linkStructure, links,
+                                                   titleStructure) {
+    if (targetElement == null) {
+      return;
+    }
+
+    if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE) {
+      while (targetElement.firstChild) {
+        targetElement.removeChild(targetElement.firstChild);
+      }
+    }
+
+    var previousElement = targetElement;
+    for (var i=0;i<overallStructure.length;i++) {
+      var level_definition = overallStructure[i];
+      var level_element_tag = level_definition[0];
+      var level_element = document.createElement(level_element_tag);
+      var attribute_dictionary = level_definition[1];
+      for (var attribute_key in attribute_dictionary) {
+        level_element.setAttribute(attribute_key, attribute_dictionary[attribute_key]);
+      }
+
+      /* need to place title structure */
+      if (titleStructure && titleStructure[0] == i) {
+        var title_element_tag = titleStructure[1];
+        var title_element = document.createElement(title_element_tag);
+        var title_attribute_dictionary = titleStructure[2];
+        var title_text_content = titleStructure[3];
+        for (var title_attribute_key in title_attribute_dictionary) {
+          title_element.setAttribute(title_attribute_key, title_attribute_dictionary[title_attribute_key]);
+        }
+
+        var title_text_node = document.createTextNode(title_text_content);
+        title_element.appendChild(title_text_node);
+
+
+        level_element.appendChild(title_element);
+      }
+
+      /* last level place links */
+      if (i == overallStructure.length-1) {
+        for (var link_i=0; link_i < links.length; link_i++) {
+          var link = links[link_i];
+          for (var linkStructureIndex=0;linkStructureIndex < linkStructure.length; linkStructureIndex++) {
+            BELinkBlockGenerator.generateIndividualLinks(level_element, linkStructure[linkStructureIndex], link)
+          }
+        }
+      }
+
+      /* first level child we need to check placement */
+      if (previousElement == targetElement) {
+        if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT) {
+          /* 2 means insert right before */
+          previousElement.insertBefore(level_element, targetElement.firstChild);
+        } else if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT) {
+          /* 3 means insert right before at parent level */
+          var parentElement = previousElement.parentElement;
+          parentElement.insertBefore(level_element, previousElement);
+        } else {
+          previousElement.appendChild(level_element);
+        }
+      } else {
+        previousElement.appendChild(level_element);
+      }
+      previousElement = level_element;
+    }
+  };
+}(window.BELinkBlockGenerator = window.BELinkBlockGenerator || {}))
+};
+</script>
+
+<style>
+.be-ix-link-block{clear:both; }
+.be-ix-link-block .be-related-link-container{display: flex;justify-content:left; text-align:left; padding: 10px 0; }
+.be-ix-link-block .be-related-link-container .be-label{display: inline-block;margin-right: 15px; font-style: normal; line-height: 1.5;color: #fff;font-weight: bold;font-size: 18px;}
+.be-ix-link-block .be-related-link-container .be-list{list-style:none;margin:0;padding: 0;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item{margin:0;padding: 0 0 0px 0;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a{text-transform: none;padding-right: 15px;    line-height: 2.1;font-size: 14px;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a:hover{}
+.be-ix-link-block .be-related-link-container .be-list{display:flex;width:auto}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item{display:flex;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item:last-child{margin-right:0}
+@media (max-width: 767px) {
+.be-ix-link-block .be-related-link-container{ display: block;text-align: left;width: 100%; padding-top: 20px;}
+.be-ix-link-block .be-related-link-container .be-label {width: 100%;margin:0;padding-bottom:10px}
+.be-ix-link-block .be-related-link-container .be-list {display: block;width: 100%;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item {display: block;margin:0;padding: 0 0 0px 0;line-height:1.5}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a{padding-right:0px;line-height: 1.5}
+}
+@media (min-width: 768px) {
+.be-ix-link-block .be-related-link-container{margin:0 15px}
+}
+</style>
+
+
+<script data-cfasync="false" id="marvel" data-customerid="f00000000277771" src="https://marvel-b2-cdn.bc0a.com/marvel.js"></script>
+<script type='text/javascript'>
+      function positionLinkBlock(targetContainer) {
+          if (targetContainer != null) {
+              var strLinkBlock = '<div class="be-related-link-container container"><div class="be-label">Also of Interest:</div><ul class="be-list"><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/kinesiology/academic-programs/bachelors-degrees/exercise-science">Exercise Science Major</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/math/academic-programs/major-actuarial-science">Actuarial Science Major</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science">Online Master of Science in Data Science</a></li></ul></div>';
+              targetContainer.insertAdjacentHTML('afterbegin', strLinkBlock);
+          }
+      }
+   
+      jsElementReady('.be-ix-link-block', positionLinkBlock);
+   
+  </script>
+
+<script>
+{(function() {
+  var becookiescript = document.createElement("script");
+  becookiescript.type = "text/javascript";
+  becookiescript.async = true;
+  becookiescript.id="becookiebarscriptid";
+  becookiescript.setAttribute("data-customerid","f00000000277771");
+  becookiescript.setAttribute("data-testmode","true");
+  becookiescript.setAttribute("data-cookielinkurl","https://connect.bsu.edu/privacy");
+  becookiescript.setAttribute("data-fullhtmltext","<div id='becookiebarpanelid' style='width: 100%; border-radius: 0px; background:#e5e5e5; display: flex; z-index: 1000; font-size: small; opacity: 1; position: fixed; bottom: 0px; right: 0px; color:#000; justify-content: center; visibility: hidden;'> <div id='becookie_desktop_outerdiv' style='width: 100%;display: flex;height: 60px;justify-content: center;margin: auto;align-items: center;vertical-align: middle;'> <div id='becookie_desktop_content' style='font-size: 14px;font-family:inherit;word-spacing: 1px;align-items: center;max-width: 100%;text-align: center;margin: 0 30px;font-weight: 400;'> <div style=''> <p id='becookie_text_content' style='padding: 0 4px;margin: 0px 0;display: inline-block;font-size: inherit;color: inherit;'> <span id='becookiebartextid' style=''>We use cookies to improve your experience.</span></p><p style='margin: 0;display: inline-block;padding: 0;font-size: inherit;color: inherit;font-weight: inherit;'> Please read our <button tabindex='1' aria-label='privacy policy' role='link' id='bepolicylinktextid' style='cursor: pointer;margin: 0;text-decoration: underline;color: inherit;font-weight: inherit;font-size: inherit;background: none; border: none; padding: 0;font-family: inherit;transition: none;' onclick='becookielinktextclicked()'>Privacy Policy</button> or click <button tabindex='2' aria-label='Accept privacy policy' role='button' id='becookiebarbuttonid' style='margin: 0;cursor: pointer;font-weight: bold;text-shadow: 0 0 black;text-decoration: underline;border: none;background: none;padding: 0;font-size: inherit;color: inherit;font-family: inherit;line-height: inherit;vertical-align:unset;transition: none;' onclick='beacceptcookie()'>Accept</button>.<button tabindex='3' aria-label='Close privacy policy banner' role='button' id='becookie_close_button' onclick='beclosecookie()' style='display: inline-block;font-size: 3.5vw;cursor:pointer;font-family: none;font-weight: 100;margin: 0 20px;background: none;border: none;padding: 0;color: inherit;box-shadow: none;position: absolute; top: 0px;right: -10px;transition: none;line-height: normal;'>×</button> </p></div></div></div></div>");
+  becookiescript.setAttribute("data-mobilefullhtmltext","<div id='becookiebarpanelid' style='display: flex;width: 100%;border-radius: 0px;background:#e5e5e5;z-index: 1000;opacity: 1;position: fixed;bottom:0px;left: 0px;color:#000;align-items: center;height: 60px;visibility: hidden;justify-content: center;font-family: inherit;'> <div style='max-width: 385px;display: flex;box-sizing: border-box;text-align: center;position: relative;'> <div id='becookiebartextid' style='font-size: 13px;line-height: 14px;text-transform: none;'> <p id='becookie_text_content' style='padding: 0 4px 0 0;margin: 0px 0;display: inline-block;font-size: inherit;color: inherit;line-height: 1.5;'> <span style='letter-spacing: initial;'>We use cookies to improve your experience.</span> </p><p style='margin: 0;display: inline-block;padding: 0;font-size: inherit;color: inherit;font-weight: inherit;line-height: 1.5;'> Please read our <button tabindex='1' aria-label='privacy policy' role='link' id='bepolicylinktextid' style='cursor: pointer;margin: 0;text-decoration: underline;color: inherit;font-weight: inherit;font-size: inherit;display: inline;font-family: inherit;background: none; border: none; padding: 0;transition: none;' onclick='becookielinktextclicked()'>Privacy Policy</button> or click <button tabindex='2' aria-label='Accept privacy policy' role='button' id='becookiebarbuttonid' style='margin: 0;cursor: pointer;font-weight: bold;text-shadow: 0 0 black;text-decoration: underline;border: none;background: none;padding: 0;font-size: inherit;color: inherit;font-family: inherit!important;line-height: inherit;vertical-align:unset;text-transform: none;transition: none;' onclick='beacceptcookie()'>Accept</button>. </p></div></div><button tabindex='3' aria-label='Close privacy policy banner' role='button' onclick='beclosecookie()' style='position: absolute;right: 9px;top: 4px;font-size: 28px;cursor:pointer;font-family:none;font-weight:100;color: inherit;margin: 0;padding: 0;background: none;border: none;line-height: 20px;vertical-align:unset;transition: none;'>×</button></div>");
+  becookiescript.setAttribute("data-control",`function beCookieBarCustomJs(){becookielog("running cookiebar custom js"); var windowsPlatforms=["Win32", "Win64", "Windows", "WinCE"]; function beCookieShowPanel(){var becookie_panel=document.querySelector("#becookiebarpanelid"); if (becookie_panel){becookie_panel.style.visibility="visible";}}var becookie_stylesheet_interval=window.setInterval(function (){var becookiebar=document.querySelector("#becookiebarid"); if (becookiebar){if (windowsPlatforms.indexOf(window.navigator.platform) !==-1){becookieAddStylesheet( "#becookie_close_button{font-size:26px !important;}", "screen and (min-width: 701px)" );}else{becookieAddStylesheet( "#becookie_close_button{font-size:23px !important;}", "screen and (min-width: 701px)" );}becookieAddStylesheet( "#becookie_desktop_content{font-size:13px !important}#becookie_desktop_content > div > p{padding: 0!important;}", "screen and (min-width: 701px) and (max-width: 1060px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:12px !important; line-height:12px !important;}#becookiebarpanelid > button{font-size:24px !important;}#becookiebarpanelid > div{max-width:334px !important;}", "screen and (max-width: 360px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:11px !important;", "screen and (max-width: 300px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:10px !important; line-height:10px !important;}#becookiebarpanelid > button{font-size:21px!important;}", "screen and (max-width: 275px)" ); becookieAddStylesheet( "#bepolicylinktextid:focus,#becookiebarbuttonid:focus,#becookie_close_button:focus{outline:auto!important;}" ); beCookieShowPanel(); clearInterval(becookie_stylesheet_interval);}}, 100); window.setTimeout(function (){clearInterval(becookie_stylesheet_interval);}, 15000); window.onresize=function (){setTimeout(beCookieShowPanel, 100);};}beCookieBarCustomJs();`);
+  becookiescript.src = "https://consents-cf.bc0a.com/consentbar/corejs/becookiebar.js";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(becookiescript, s);
+})();}
+</script>
+<meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TL87L6');</script>
+<!-- End Google Tag Manager -->
+<title>
+	Online Master in Computer Science | Ball State University
+</title><meta name="description" content="Explore Ball State University&#39;s Online Master&#39;s in Computer Science program. Build advanced skills in AI, software engineering, and more. Learn more today." /><link rel="canonical" href="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/ms-computer-science" /><meta property="og:title" content="Online Master in Computer Science" /><meta property="og:type" content="website" /><meta property="og:url" content="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/ms-computer-science" /><meta property="og:image" content="" /><meta property="og:description" content="Explore Ball State University's Online Master's in Computer Science program. Build advanced skills in AI, software engineering, and more. Learn more today." /><meta property="twitter:card" content="summary_large_image" /><meta property="twitter:site" content="@BallState" /><meta property="twitter:creator" content="@BallState" /><meta property="twitter:title" content="Online Master in Computer Science" /><meta property="twitter:description" content="Explore Ball State University&#39;s Online Master&#39;s in Computer Science program. Build advanced skills in AI, software engineering, and more. Learn more today." /><link rel="icon" href="/Components/Design/ResponsiveV2/Images/favicon.ico" type="image/x-icon" />
+     
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|Raleway:400,400i,600,600i,700,700i" rel="stylesheet" type="text/css" />
+    <link href="/Components/Design/ResponsiveV2/css/v-638193146760000000/all.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap theme -->
+    <link href="/Components/Design/ResponsiveV2/css/v-638193146760000000/bsu-bootstrap.css"  rel="stylesheet" />
+    <link href="/Components/Design/ResponsiveV2/css/v-638241704020000000/bsu-bootstrap-templates.css" rel="stylesheet" />
+    
+    <!--[if IE 9]><link rel="stylesheet" type="text/css" href="../../../../../Components/Common/Layouts/css/ie9.css" /><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/Components/Design/CSS/Renderings/v-638193146740000000/GlobalAlert.css" media="all" />
+
+     
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- The next line is a fallback in case the cdn didn't load. -->
+    <!-- Moved JS calls up here and commented out the jquery CDN because some functions weren't functioning reliably between page refreshes -->
+    <!-- <script>window.jQuery || document.write('<script src="/Components/Design/ResponsiveV2/js/jquery-1.11.1.min.js"><\/script>')</script> -->
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/jquery-1.11.1.min.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/bootstrap.min.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/plugins.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/actions.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries.. -->
+    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11231081-1']);
+      _gaq.push(['_setDomainName', 'bsu.edu']);
+      _gaq.push(['_trackPageview']);
+
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+ </script>
+<meta name="theme-color" content="#ba0c2f" /><meta name="msvalidate.01" content="331A84EFB90EF55CECD1938D28E9A9CE" />
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="QCA86-LJ885-6YH64-J69WY-27WWD",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"QCA86-LJ885-6YH64-J69WY-27WWD";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="nn5f3baxzcoewzgjikzq-f-d69df6788-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"36","ak.cp":"1268882","ak.ai":parseInt("762162",10),"ak.ol":"0","ak.cr":7,"ak.ipv":4,"ak.proto":"h2","ak.rid":"12ec1386","ak.r":44386,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.bpcip":"107.122.93.0","ak.cport":15063,"ak.gh":"23.192.164.75","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1690911411","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==jjvpMYy414PJpN3isgGe+81W529LosXJetrV7Qw2lLIaC8XWajQwHQb0kZnGNZbNR2DM9GbgwgekKzRJtaraT9y6bo2om+I+po31F+x2qyN0i0OS03kXWUuIhGXjAEon57m4TTKudmKakIlGxazjk79c7StMguoOTljxreSzLDQj8WeG8xCiB8pD/YAtUJKvrQaayQ4gaSpI2rcFZSsRHA5NB9NS8pbljcYXuEFJvtd5j2qoii/gLJOFW+FfIjRWML+AbzNBgru9hGckkHbPLTFyEoMY4Y48n26ztdFOQpe0PkU9gzXgpVcXFLyMzi9AF2EZ4AECz70sf/R8yxMhYszoNX68nsidmU2gUmiG+DbBN6WdC0x6NB+TYA2aAU9KTKy9xvaBLCBgLd+JkW7hfsyOFtiBgtHnOO5oWFdzNHE=","ak.pv":"8","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL87L6" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+    <form method="post" action="/academics/collegesanddepartments/online/academic-programs/masters/ms-computer-science" id="mainform">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['mainform'];
+if (!theForm) {
+    theForm = document.mainform;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZB67xSBGmtg2jIs28oAg7sbqkq5RLIsku3eBWDEZJM2Sb1OOEGp3NV5RIqIMllZwzQ2&amp;t=637814473746327080" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhviMTD9amHa-x5Wuyy6JWssHJqlWaeiS_tLB5lEF-JmHkHXLW0FGjeHgBiqkTnjAADGXG05zJIFIVRXqWghoCGhQB07U36WQpMYWrA9yn3pKV_n_PomSq86taEe7ePGVRrBG0lBZA0pUTftcXI-81zIk1&amp;t=49337fe8" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OKvDkOJf7n9lIyUSfRgNPWszzgjQRSa6bMsHOXDr5OnDjuxfCghzALro9iVs5u7HzsZOSSC05aZ5VpJHHtM4BtWQrMWjMq601VyhL5Ov7NR7tU0z0nzMcuuMlHiwAdsUpyT4Phe5JXbgqOKP2xwceMc1&amp;t=49337fe8" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BB8BB933" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="iJsAFhkZqO+HXKBzxgtCbnutEklVpttvJbbPGkfp3vNj2mvnQdz7aYhKKx3/p7mEMMLnMVl5J/2PGBC6bYvewfYsWRGdE2oSDI+DB46siySz9iVlduvOvk8EaxEFLzxU02BREs+aRaKFqVVA/QvQYWiGhVTazdsYbCS5ll0lrUJoyG20MpDEtU0ZPiCjAqEMunJ3K6Ddax3raIfOH0iN6w==" />
+</div>
+
+        <!-- NavBar -->
+        
+<div id="offcanvasOverlay"></div>
+<!-- Top utility menu for desktops -->
+<div id="topmenu" role="navigation">
+    <div class="container">
+        <ul class="topnavleft">
+            
+                    <li><a title="Admissions Information for Prospective Students" href="/admissions">Prospective Students</a></li>
+             
+                    <li><a title="Resources and Services for Current Students" href="/gateways/current-students">Current Students</a></li>
+             
+                    <li><a title="Resources and Services for Faculty and Staff" href="/gateways/faculty-and-staff">Faculty / Staff</a></li>
+             
+                    <li><a title="Services and Events for Alumni" href="/about/administrativeoffices/alumni">Alumni</a></li>
+             
+                    <li><a title="Tools and Information for Parents and Families" href="/gateways/parents">Parents</a></li>
+             
+        </ul>
+        <ul class="topnavright">
+             
+                    <li><a title="Search for Employees, Students, Departments, and More" href="/directory">Directory</a></li>
+             
+                    <li><a title="Contact Us" href="/about/contactus">Contact Us</a></li>
+             
+                    <li><a class="tacticalbtn" title="How to Apply to Ball State University" href="/admissions/apply">Apply</a></li>
+             
+                    <li><a class="tacticalbtn" title="Learn How You Can Give to Ball State University" href="/foundation/give">Make a Gift</a></li>
+             
+        </ul>
+    </div>
+</div>
+<!-- End Top utility menu -->
+<!-- Navbar with Utility menu -->
+<div id="navUtility" class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button id="btn-utility" type="button" class="navbar-toggle collapsed offcanvas-toggle" data-toggle="offcanvas" data-target="#utility-search" data-canvas="body" data-close_icon="fa-close">
+                <span class="sr-only">Toggle search</span>
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+
+            <a href="/" class="navbar-brand-inverse"><img src="/-/media/www/images/logos/bsu-logo_top.png?h=112&amp;iar=0&amp;w=402&amp;sc_lang=en&amp;hash=3187D6BEB27C01ED49593F9C4028E58A9BC318D4" class="center-block" alt="Ball State University" width="402" height="112" /></a>
+
+            <button type="button" class="navbar-toggle collapsed offcanvas-toggle dept" data-toggle="offcanvas" data-target="#main-menu" data-canvas="body">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+
+            <div class="navbar-form hidden-xs">
+                <div class="input-group input-group-sm">
+                    <input name="ctl09$txtSearchVisible" id="ctl09_txtSearchVisible" class="form-control" title="Search bsu.edu" aria-label="enter search term" type="text" placeholder="Search bsu.edu" />
+                    <span class="input-group-btn">
+                        <button onclick="__doPostBack('ctl09$btnSearchVisible','')" id="ctl09_btnSearchVisible" type="submit" aria-label="search go" class="btn btn-default"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.container -->
+
+    <div id="main-menu" class="navbar-offcanvas navmenu-fixed-right offcanvas navbar-subpage">
+        <div>
+            
+                    <h2 class="deptnavhead">Ball State Online</h2>
+            
+            <ul class="nav navbar-nav">
+                
+                            <li><a title='How Online Learning Works' href='/academics/collegesanddepartments/online/how-online-learning-works'>How Online Learning Works</a></li>
+                        
+                            <li><a title='Academic Programs' href='/academics/collegesanddepartments/online/academic-programs'>Academic Programs</a></li>
+                        
+                            <li><a title='Why Ball State Online' href='/academics/collegesanddepartments/online/why-ball-state-online'>Why Ball State Online</a></li>
+                        
+                            <li><a title='Services for Online Students' href='/academics/collegesanddepartments/online/services-for-students'>Services for Online Students</a></li>
+                        
+                            <li><a title='Costs and Paying for College' href='/academics/collegesanddepartments/online/costs'>Costs and Paying for College</a></li>
+                        
+                            <li><a title='Apply Now' href='/academics/collegesanddepartments/online/applynow'>Apply Now</a></li>
+                        
+                            <li><a title='Contact Us' href='/academics/collegesanddepartments/online/contact-us'>Contact Us</a></li>
+                        
+            </ul>
+            <!--/.nav .navbar-nav -->
+        </div>
+        <div>
+
+            
+                    <h2 class="homenavhead">Ball State University</h2>
+                    <ul class="nav navbar-nav">
+                        <li><a title="Ball State University Home Page" href="/">Home</a></li>
+                    </ul>
+            
+
+            <div class="utilnavwrapper">
+                <h5>Info For</h5>
+                <ul class="nav navbar-nav small">
+                    
+                        <li><a title="Admissions Information for Prospective Students" href="/admissions">Prospective Students</a></li>
+                    
+                        <li><a title="Resources and Services for Current Students" href="/gateways/current-students">Current Students</a></li>
+                    
+                        <li><a title="Resources and Services for Faculty and Staff" href="/gateways/faculty-and-staff">Faculty / Staff</a></li>
+                    
+                        <li><a title="Services and Events for Alumni" href="/about/administrativeoffices/alumni">Alumni</a></li>
+                    
+                        <li><a title="Tools and Information for Parents and Families" href="/gateways/parents">Parents</a></li>
+                    
+    
+                    <li class="divider"></li>
+                    
+                        <li><a title="Search for Employees, Students, Departments, and More" href="/directory">Directory</a></li>
+                    
+                        <li><a title="Contact Us" href="/about/contactus">Contact Us</a></li>
+                    
+                        <li><a class="tacticalbtn" title="How to Apply to Ball State University" href="/admissions/apply">Apply</a></li>
+                    
+                        <li><a class="tacticalbtn" title="Learn How You Can Give to Ball State University" href="/foundation/give">Make a Gift</a></li>
+                    
+                </ul>
+            </div> <!-- util nav wrapper -->
+            <!--/.nav .navbar-nav -->
+            <ul class="nav navbar-nav social rowone"><li><a class="fab fa-facebook-f" target="_blank" title="facebook" aria-label="facebook" href="https://www.facebook.com/ballstate/"></a></li><li><a class="fab fa-twitter" target="_blank" title="Twitter" aria-label="Twitter" href="https://twitter.com/ballstate"></a></li><li><a class="fab fa-instagram" target="_blank" title="Follow Ball State on Instagram" aria-label="Follow Ball State on Instagram" href="https://www.instagram.com/ballstateuniversity/"></a></li><li><a class="fab fa-youtube" target="_blank" title="Subscribe to Ball State&#39;s Official YouTube Channel" aria-label="Subscribe to Ball State&#39;s Official YouTube Channel" href="https://www.youtube.com/officialballstate"></a></li></ul><ul class="nav navbar-nav social rowsub"><li><a class="fab fa-linkedin-in" target="_blank" title="Follow Ball State on LinkedIn" aria-label="Follow Ball State on LinkedIn" href="https://www.linkedin.com/school/ball-state-university/"></a></li><li><a class="fab fa-snapchat" target="" title="Follow Ball State on Snapchat" aria-label="Follow Ball State on Snapchat" href="https://www.snapchat.com/add/ourballstate"></a></li></ul>
+            <!--/.nav .navbar-nav -->
+        </div>
+    </div>
+    <!--/#main-menu -->
+
+    <div id="utility-search" class="navbar-search offcanvas offcanvas-search navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="navbar-form">
+                        <div class="input-group input-group-sm">
+                         <input name="ctl09$txtSearchHidden" id="ctl09_txtSearchHidden" class="form-control" title="Search bsu.edu" aria-label="search term" type="text" placeholder="Search bsu.edu" />
+                        <span class="input-group-btn">
+                            <button onclick="__doPostBack('ctl09$btnSearchHidden','')" id="ctl09_btnSearchHidden" type="submit" aria-label="open search function" class="btn btn-default"><i class="fas fa-search" aria-hidden="true"></i></button>
+                            <span class="sr-only">Search Button</span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.container -->
+    </div>
+    <!--/#utility search -->
+
+</div>
+<!--/#navUtility .navbar .navbar-inverse -->
+
+        <!-- End NavBar-->
+         
+        <!-- Content Placeholder -->
+        
+         	<!-- Template: Subpage -->
+	<div id="template" class="subpage">
+	   
+        <!-- Header -->
+        <div id="content_0_ctl00_subdeptwrapper" class="sub-dept-wrap bg-primary-dark">
+    <div class="dept-page-header dwrap">
+        <div class="container">
+            <div class="row">
+                <div class='col-md-7 col-lg-8'><div class='sub-dept'><a href='/academics/collegesanddepartments/online'>Ball State Online</a></div></div>
+                <!-- PageHeader Placeholder -->
+                <div class='umc-cwu-widget cwu-sub-dept col-md-5 col-lg-4'><ul><li><a title='Facebook' class='fab fa-facebook-f' target='_blank' rel='noopener' href='https://www.facebook.com/ballstateonline/'></a></li><li><a title='Instagram' class='fab fa-instagram' target='_blank' rel='noopener' href='https://www.instagram.com/ballstateonline/'></a></li><li><a title='Twitter' class='fab fa-twitter' target='_blank' rel='noopener' href='https://twitter.com/BallStateOnline'></a></li><li><a title='YouTube' class='fab fa-youtube' target='_blank' rel='noopener' href='https://www.youtube.com/channel/UChR6LbdRN29-3scnSK0o6ug'></a></li><li><a title='Visit Our Blog' class='fas fa-rss' target='_blank' rel='noopener' href='https://blogs.bsu.edu/online/'></a></li></ul></div>
+                <!-- End PageHeader Placeholder -->
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+<div class="page-header">
+    <div class="container pageheadercontainer">
+        <div class="row pageheaderrow">
+            <div id="content_0_ctl01_phtitlecontrol" class="phtitlecontrol col-md-7 col-lg-8">
+                <div id="phtitlecontrolh1">
+                    <button id="ibeenclicked" type="button" class="btn btn-menu hidden-md hidden-lg">
+                        <span id="ibcSR" class="sr-only">Open for More Navigation</span>
+                        <span id="ibcIcon" class="collapsed">
+                            <span class="icon-bar top-bar"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
+                        </span>
+                        <span id="ibcVis">Open for More Navigation</span>
+                    </button>
+                    
+                    
+<div id="dropsubmenu" class="navmenu navmenu-default">
+    
+                       	    
+  <a class="navmenu-brand" href="/academics/collegesanddepartments/online">Ball State Online</a>
+
+  <div id="dropsubnavAccordion" class="panel-group" role="tablist">
+      
+	  <div class="panel">
+	    <div class="panel-heading" role="tab" id="dropheading1">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters" target="">Master's Degrees</a>
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+	  <div class="panel active">
+	    <div class="panel-heading" role="tab" id="dropheading2">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters/ms-computer-science" target="">Online Master of Science in Computer Science</a>
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+ 
+	</div>
+</div><!--/.navmenu Dropdown -->
+ 
+                    <h1 class="subpagetitlediv">Online Master of Science in Computer Science</h1>
+                </div>
+                <!-- PageHeaderTop Placeholder -->
+                
+<ol class="breadcrumb">
+    
+	            <li><a href="/">Home</a></li>
+	        
+	            <li><a href="/academics">Academics</a></li>
+	        
+	            <li><a href="/academics/collegesanddepartments">Colleges and Departments</a></li>
+	        
+	            <li><a href="/academics/collegesanddepartments/online">Ball State Online</a></li>
+	        
+	            <li><a href="/academics/collegesanddepartments/online/academic-programs">Academic Programs</a></li>
+	        
+	            <li><a href="/academics/collegesanddepartments/online/academic-programs/masters">Master's Degrees</a></li>
+	        
+        <li class="active">Online Master of Science in Computer Science</li>
+                    
+        
+</ol>
+                <!-- End PageHeaderTop Placeholder -->
+            </div> 
+            <!-- PageHeaderBottom Placeholder -->
+            
+
+ 	<!-- Component: Buttons -->
+<div id="content_0_ctl01_pageheaderbottom_0_divViewOne" class="col-md-5 col-lg-4 div-view-one">
+	 	<div class="row dsc-btn-link-menu-row">
+	 	    
+		            	 		<div class="col-xs-4 dsc-btn-link-menu-col">
+	 		<a href="https://www.coursera.org/degrees/ms-computer-science-ball-state/landing" rel="noopener noreferrer" class="btn btn-default" target="_blank">Request Information</a>
+	 		</div>
+		      
+		            	 		<div class="col-xs-4 dsc-btn-link-menu-col">
+	 		<a href="https://admissions.bsu.edu/portal/coursera" rel="noopener noreferrer" class="btn btn-primary" target="_blank">Enroll Now</a>
+	 		</div>
+		      
+              
+	 	</div>
+	</div>
+
+
+
+	<!-- End Component: Buttons -->
+
+            <!-- End PageHeaderBottom Placeholder --> 
+        </div>
+        <!-- PageHeaderTags Placeholder -->
+        
+
+<ul class="tag-bar-list">
+    <li class='tag-item'><a title='Technology' href='/academics/programs-start-page?tag=Technology&degree=Masters&delivery=Online' class='tag-btn tag-tag'>Technology</a></li><li class='tag-item'><a title='Masters' href='/academics/programs-start-page?degree=Masters' class='tag-btn tag-tag'>Master's</a></li><li class='tag-item'><a title='Online' href='/academics/programs-start-page?delivery=Online' class='tag-btn tag-tag'>Online</a></li><li class='tag-item'><a title='College of Sciences and Humanities' href='/academics/programs-start-page?college=College of Sciences and Humanities' class='tag-btn tag-tag'>College of Sciences and Humanities</a></li>
+</ul>
+
+        <!-- End PageHeaderTags Placeholder --> 
+    </div>
+    <!--/.container -->
+</div>
+        <!-- End Header -->
+
+<div class="container">
+    <!-- SubHeading Section -->
+    
+    <!-- End SubHeading Section -->
+    <div class="row">
+        <div class="col-md-9 col-md-push-3 main-content">
+            
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><div class="editor-breakout center" style="background-color:#ba0c2f;">
+<p style="font-size: 3.5em; line-height: 1.2em;"><span class="rteText-white"><strong>100% Online Degree</strong></span></p>
+<p style="font-size: 2.8em; text-align: right; line-height: 1.2em;"><span class="rteText-white"><strong>Delivered on&nbsp;<img src="https://marvel-b1-cdn.bc0a.com/f00000000277771/sitecorecms.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/-/media/aa64b2fbd35444249b649d2be70efdb9.ashx?h=40&amp;w=240&amp;sc_lang=en&amp;hash=DC972A93B2E93DF630E113902C0D4A1332A36676" style="width: 240px; height: 40px;" alt="Coursera logo" be_marvel="1" onerror="this.onerror=null;this.src='-/media/aa64b2fbd35444249b649d2be70efdb9.ashx?h=40&w=240&sc_lang=en'"></strong></span></p>
+</div></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p>Ball State University has partnered with Coursera, one of the largest online learning platforms in the world, to bring you an online master of science in computer science. The curriculum is designed by Ball State University, courses are taught by our accomplished faculty, and content is delivered through the Coursera platform.</p>
+<p>Whether you come from a computer science or non-technical background, our performance-based admissions simplify the road toward your career goals.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: Buttons -->
+
+
+<div class="component buttons isMobileStacked text-center clearfix">
+    <div class="btn-group " role="group">
+        <!-- Buttons Placeholder --> 
+            
+
+<div class="btn-wrapper">
+    <div class="btn-container">
+        <a href="https://www.coursera.org/degrees/ms-computer-science-ball-state/landing" rel="noopener noreferrer" class="btn btn-default" target="_blank"><span class="fas fa-link"></span> Learn More and Request Information</a>
+       
+    </div>
+</div>
+
+
+<div class="btn-wrapper">
+    <div class="btn-container">
+        <a href="https://admissions.bsu.edu/portal/coursera" rel="noopener noreferrer" class="btn btn-primary" target="_blank"><span class="fas fa-pencil-alt"></span> Enroll Now</a>
+       
+    </div>
+</div>
+ 
+        <!-- End Buttons Placeholder -->
+
+    </div>
+</div>
+<!-- End Component: Buttons -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>About the Master's in Computer Science</h2>
+<p>Ball State&rsquo;s online master&rsquo;s in computer science emphasizes applications and specializations with hands-on learning experience in state-of-the-art areas such as machine learning, data analytics, cybersecurity, and software engineering.&nbsp;You will also be offered opportunities to engage in research through a selection of courses that include student-led research projects.</p>
+<p>You can also enhance your student experience in more specialized areas with electives such as AI, web development, and data visualization. The curriculum will incorporate industry content to enhance career outcomes, preparing graduates for roles in software development, network and systems engineering, and more. </p>
+<h2>Who Should Enroll </h2>
+<p>The short answer is anyone! This program is built for learners of all educational backgrounds and career experiences. Whether you&rsquo;re working in an entry-level position and want to advance your career, or you want to change careers entirely, we&rsquo;ll help you achieve your goals.</p>
+<h3>Performance-Based Admissions</h3>
+<p>You can gain acceptance into the master&rsquo;s of computer science through our performance-based admissions. No tests, application fees, or transcripts required. You will complete three 3-credit courses, and if you earn a cumulative 3.0 GPA or better, then you will be fully admitted into the program.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Career Outcomes </h2>
+<p>
+Earning your master’s in computer science will open career opportunities in any sector: business, government, technology, and more. Growth projections in computer science employment are expected to increase by nearly 12.5 percent nationwide within the next eight years (Source: Lightcast™ – lightcast.io).  </p>
+<p>You will be ready for the following jobs after graduation. </p>
+<ul>
+    <li>Software developer </li>
+    <li>Network and systems engineer </li>
+    <li>Back-end developer </li>
+    <li>Front-end developer </li>
+    <li>Information security analyst</li>
+    <li>Database developer </li>
+    <li>Quality assurance engineer </li>
+    <li>And more</li>
+</ul></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Why Coursera?</h2>
+<p>Ball State is intentional about the organizations we work with. Our priority is always our students. Coursera shares the same commitment to bringing flexible, affordable, job-relevant online learning to individuals and organizations worldwide. Since its inception, Coursera partners with other accredited and well-known public institutions to offer credit-bearing courses and degree programs that involve rigorous study and proven outcomes for graduates of these programs.  </p>
+<p>The 100 percent online master’s in computer science <strong>curriculum is built and owned entirely by Ball State and you will still earn a reputable Ball State degree</strong>. </p>
+<p>The degree is designed with the adult learner and working professional in mind. You will complete your course work through the Coursera online learning platform. Courses are asynchronous, meaning you can complete them at a pace that fits into your daily routine without worrying about being late to class. Many students take one or two courses at a time to balance work, classes, and other responsibilities. </p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Curriculum Overview </h2>
+<h3>Pathway Courses (9 credits) </h3>
+<p>Even if you have no prior background in computer science, you’ll be able to cover essential topics in these pathway courses. </p>
+<ul>
+    <li>CS 601&nbsp;Computer Programming and Data Structures (3 credits)<br>
+    or CS 617 Introduction to Programming (3 credits) — <strong>Offered Fall 2023</strong></li>
+    <li>CS 602 Discrete Structures and Algorithms (3 credits) </li>
+    <li>DSCI 605 Data Visualization (3 credits) — <strong>Offered Fall 2023</strong></li>
+</ul>
+<h3>Core Courses (12 credits) </h3>
+<p>In these courses, you’ll learn data analysis, cybersecurity, software engineering, and networking skills. This core knowledge will be important as you take on any future specialization. </p>
+<ul>
+    <li>CS 621 Data Analytics (3 credits) </li>
+    <li>CS 636 Modern Database Systems with Applications (3 credits) </li>
+    <li>CS 647 Cybersecurity and Secure Software Design (3 credits) </li>
+    <li>CS 690 Software Engineering (3 credits) </li>
+</ul>
+<h3>Research Courses (6 credits) </h3>
+<p>You’ll develop an applied research project in the courses shown here. At least two of these courses are required (additional courses from this list may count as electives).</p>
+<ul>
+    <li>CS 626 Artificial Intelligence (3 credits)</li>
+    <li>CS 639 Seminar in Computer Science (up to 6 credits) </li>
+    <li>CS 668 Graphs, Algorithms and Applications (3 credits) </li>
+    <li>CS 681 Applications of Computability (3 credits) </li>
+</ul>
+<h3>Elective Courses (9 credits, choose three courses) </h3>
+<p>With advanced elective courses for your specialization, you’ll build knowledge and skills in a chosen area. Nine additional elective credit hours will be required from these courses. </p>
+<ul>
+    <li>CS 618 Full Stack Web Development (3 credits) </li>
+    <li>CS 619 Advanced Operating Systems and Networking (3 credits) </li>
+    <li>CS 626 Artificial Intelligence (3 credits) </li>
+    <li>CS 639 Seminar in Computer Science (up to 6 credits) </li>
+    <li>CS 654 Machine Learning and Data Mining (3 credits) </li>
+    <li>CS 668 Graphs, Algorithms and Applications (3 credits) </li>
+    <li>CS 681 Applications of Computability (3 credits) </li>
+    <li>DSCI 604 Data Storage and Management (3 credits) </li>
+    <li>DSCI 606 Intro to Cloud Computing (3 credits)</li>
+</ul></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p></P><div style='width: 100%;' class='editor-breakout center'><h2>Want to Learn More?</h2>
+<p>Do you have questions about this program or online learning? We&rsquo;re here to help! You may request more information, or feel free to reach out directly to one of our staff.</p>
+<div class="row">
+<div class="col-sm-6">
+<p style="text-align: center;"><a href="https://www.coursera.org/degrees/ms-computer-science-ball-state/landing" class="rteBtn-default" target="_blank" rel="noopener noreferrer">Request Information</a></p>
+</div>
+<div class="col-sm-6">
+<p style="text-align: center;"><a href="/academics/collegesanddepartments/online/contact-us" class="rteBtn-default">Contact Us</a></p>
+</div>
+</div></div><P></p></div>
+<!-- End Component: RTE -->
+
+            <!-- Related Items Placeholder -->
+                <div class='row'><div class='col-xs-12'><div class='component rte'><h3 class='tag-sub-title rteBorderBottom-white'>Related Programs</h3></div></div></div>
+<div class='related-article-list-row row'><div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'><div class='component tag-light'><a href='/academics/collegesanddepartments/online/academic programs/masters/ms ics' rel='noopener' class='tag-light-link' title='Online Master of Science in Information and Communication Science'><div class='tag-light-div' style='background-image: url(/-/media/www/images/admissions/online/cics-og.jpeg?sc_lang=en)'></div><div class='tag-light-details'><div class='tag-light-wrapper'><div class='tag-light-inner'><div>Online Master of Science in Information and Communication Science</div></div></div></div></a></div></div><div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'><div class='component tag-light'><a href='/academics/collegesanddepartments/online/academic programs/masters/career technical education' rel='noopener' class='tag-light-link' title='Master's in Career and Technical Education | Online'><div class='tag-light-div' style='background-image: url(/-/media/www/departmentalcontent/onlineanddistanceed/newphotos/oneline-cte-masters.jpg?sc_lang=en)'></div><div class='tag-light-details'><div class='tag-light-wrapper'><div class='tag-light-inner'><div>Master's in Career and Technical Education | Online</div></div></div></div></a></div></div>
+<div><div class='component buttons isMobileStacked clearfix text-right'><div class='btn-group related-programs' role='group'><div class='btn-wrapper'><div class='btn-container'></div></div></div></div></div></div>
+            <!-- End Related Items Placeholder -->
+        </div>
+        <div id="content_0_toposidebar" class="col-md-3 col-md-pull-9 sidebar">
+                
+
+
+                 
+            <div id="submenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+    
+                            	    
+
+  <a class="navmenu-brand" href="/academics/collegesanddepartments/online">Ball State Online</a>
+
+  <div id="subnavAccordion" class="panel-group" role="tablist">
+      
+	  <div class="panel">
+	    <div class="panel-heading" role="tab" id="heading1">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters" target="">Master's Degrees</a>
+	        <!-- <button data-toggle="collapse" data-parent="#subnavAccordion" href="#subnavCollapse1" aria-expanded="true" aria-controls="subnavCollapse1"><span class="fa"></span></button> -->
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+	  <div class="panel active">
+	    <div class="panel-heading" role="tab" id="heading2">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters/ms-computer-science" target="">Online Master of Science in Computer Science</a>
+	        <!-- <button data-toggle="collapse" data-parent="#subnavAccordion" href="#subnavCollapse1" aria-expanded="true" aria-controls="subnavCollapse1"><span class="fa"></span></button> -->
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+ 
+	</div>
+</div><!--/.navmenu .navmenu-fixed-left .offcanvas -->
+ 
+            
+<script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/emailCopyCode.js"></script>
+
+<!-- scriptmanager placeholder -->
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('content_0$twocolumnleftcomp_0$EventScriptManager', 'mainform', ['tcontent_0$twocolumnleftcomp_0$AJAXemail_SubContact','content_0_twocolumnleftcomp_0_AJAXemail_SubContact'], [], [], 90, '');
+//]]>
+</script>
+
+<!-- code placeholder -->
+<div class="dsc-subcontact panel-group"><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-title">Ball State Online</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-map-marker-alt"></span></div><div class="dsc-contact-body">David Letterman Communication and Media Building, Room 131<br/>Muncie, IN 47306</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-clock"></span></div><div class="dsc-contact-body">Monday-Friday: 7:30a.m. - 4 p.m. Eastern time<br/></div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-phone-alt"></span></div><div class="dsc-contact-body">800-872-0369<br/>765-285-1581</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-paper-plane"></span></div><div class="dsc-contact-body"><div id="content_0_twocolumnleftcomp_0_AJAXemail_SubContact" class="iViewEmailAJAXPanel">
+	<input type="submit" name="content_0$twocolumnleftcomp_0$b1control_SubContact" value="View Email Address" id="content_0_twocolumnleftcomp_0_b1control_SubContact" class="iViewEmailAJAXButton" />
+</div></div></div></div>
+        </div>
+        <!--/col-md-3 -->
+    </div>
+</div>
+<!--/.container -->
+
+
+	</div>
+	<!-- End Template: Subpage -->
+
+        <!-- End Content Placeholder -->
+        <!-- Footer -->
+        
+<footer id="footer" style="border: none;">
+    <div class="bluefooter">
+        <div class="container">
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Academics and Admissions</h4>
+<ul>
+    <li><a href="/admissions">Admissions</a></li>
+    <li><a href="/academics/collegesanddepartments/graduate-school">Graduate School</a></li>
+    <li><a href="/admissions/international">International</a></li>
+    <li><a href="/academics/collegesanddepartments/online">Online Education</a></li>
+    <li><a href="/admissions/financial-aid-and-scholarships">Financial Aid and Scholarships</a></li>
+    <li><a href="/academics/collegesanddepartments">Colleges and Departments</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Helpful Links</h4>
+<ul>
+    <li><a href="/campuslife/healthcenter/morres">COVID-19 Resources</a></li>
+    <li><a href="/map">Map and Directions</a></li>
+    <li><a href="/calendar">Calendar of Events</a></li>
+    <li><a href="/about/contactus">Contact Us</a></li>
+    <li><a href="/academics/libraries">University Libraries</a></li>
+    <li><a href="https://bsu.peopleadmin.com/" title="Employment Opportunities at Ball State">Employment Opportunities</a></li>
+    <li><a href="/about/inclusive-excellence">Inclusive Excellence</a></li>
+    <li><a href="/about/visit">On-Campus Resources</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Resources</h4>
+<ul>
+    <li><a href="http://my.bsu.edu" title="Resources for Ball State Affiliates">myBSU</a></li>
+    <li><a href="/gateways/business-partners">Business Partners</a></li>
+    <li><a href="/about/administrativeoffices/emergency-preparedness">Emergency Preparedness</a></li>
+    <li><a href="/about/accessibility">Accessibility</a></li>
+    <li><a href="/about/administrativeoffices/oirds/student-consumer">Consumer Disclosures</a></li>
+    <li><a href="https://magazine.bsu.edu" title="Ball State Magazine">Magazine</a></li>
+    <li><a href="/news">News Center</a></li>
+    <li><a href="/about/university-policies">University Policies</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <style>
+.be-ix-link-block .be-related-link-container .be-label {
+    display: none;
+}
+.be-ix-link-block .be-related-link-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    max-width: 100%;
+}
+.be-ix-link-block .be-related-link-container .be-list {
+    display: block;
+}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item {
+    display: list-item;
+}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a {
+    padding-right: 0;
+    line-height: normal;
+}
+</style>
+<h4>Also of Interest</h4>
+<div class="be-ix-link-block"></div>
+            </div>
+            <div class="col-xs-12 subfooterline">
+                <div class="col-xs-12 subfooterline" style="margin-top: 20px; border-top: 1px solid #fff;">
+    <div style="display: table; width: 100%; max-width: 400px; margin: 0 auto; margin-top: 20px;">
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.facebook.com/ballstate" target="_blank" title="Facebook"><span class="fab fa-facebook-f"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://twitter.com/BallState" target="_blank" title="Twitter"><span class="fab fa-twitter"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.youtube.com/officialballstate" target="_blank" title="YouTube"><span class="fab fa-youtube"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.instagram.com/ballstateuniversity/" target="_blank" title="Instagram"><span class="fab fa-instagram"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.linkedin.com/school/ball-state-university/" target="_blank" title="LinkedIn"><span class="fab fa-linkedin-in"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.tiktok.com/@ballstate/" target="_blank" title="TikTok"><span class="fab fa-tiktok"></span></a></div>
+    </div>
+<div id="ns-btn-two">
+<a href="/about/social-media-directory">VIEW SOCIAL MEDIA DIRECTORY</a>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+	<div class="container">
+		<div class="row">
+            <div class='footerlogo' style='background-image: url(/-/media/www/images/sectionbackgrounds/home/plus_right_left.jpg?sc_lang=en);'><a href='/' title='Ball State University'><img alt='Ball State University' src='/-/media/www/images/home/bsu_weflyvert_rgb_footer.png?sc_lang=en' /></a></div>
+			<div class="footerbottom">
+                <div class="contactline">Ball State University 2000 W. University Ave. Muncie, IN 47306 800-382-8540 and 765-289-1241</div>
+                <div class="lastline"><ul class="list-inline">
+    <li><strong>Copyright &copy; 2023 Ball State University</strong></li>
+    <li><a href="/about/administrativeoffices/employee-relations/policies-and-legal-information/equal-opportunity-and-affirmative-action-policy">Equal Opportunity and Affirmative Action Policy</a></li>
+    <li><a href="/about/administrativeoffices/general-counsel">Legal Information</a></li>
+    <li><a href="/about/administrativeoffices/disability-services/about/contact">TTY Numbers</a></li>
+    <li><a href="/sitemap">Sitemap</a></li>
+</ul></div>
+			</div>
+		</div><!--/.row -->
+	</div><!--/.container -->
+</footer>
+        <!-- End Footer -->
+        
+<!-- Modal window template -->
+<div id="dscModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+         <!-- Close (X) button -->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <div class="dsc-iframe-wrap">
+      	    <!-- iFrame for the link href to show -->
+	  	    <iframe frameborder="0"></iframe>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <!-- Close button -->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>      
+    </div>
+  </div>
+</div>
+        <!-- End Modal Popup Template -->
+    </form>
+    
+    <script>jQuery.noConflict();</script>
+    
+
+    
+  </body>
+</html>
