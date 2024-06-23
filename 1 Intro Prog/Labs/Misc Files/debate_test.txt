@@ -1,0 +1,28 @@
+This is a line with no person listed on it.  It should be ignored.
+
+
+WALLACE: We do not want to analize the moderator, so we should ignore this line also.
+
+(APPLAUSE)  Again, ignore everything except the two candidates BIDEN and TRUMP.
+
+BIDEN: First Paragraph for Biden.
+
+TRUMP: First Paragraph for Trump.
+
+BIDEN: Second Paragraph for Biden.
+
+WALLACE: Moderator says things, but we do not care.
+
+This is the moderator continuing to a second paragraph.
+
+BIDEN: Third Paragraph for Biden.
+
+Here is another paragraph for Biden, but because it does not start with his name, we will ignore it.
+
+TRUMP: Second Paragraph for Trump.
+
+Likewise, these are more Trump words, but we will ignore lines that don't start with his name.
+
+BIDEN: Fourth paragraph for Biden.
+
+More lines to ignore!
