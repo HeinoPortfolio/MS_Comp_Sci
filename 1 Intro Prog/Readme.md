@@ -1,7 +1,7 @@
 # Course Overview
-Introductory software development using a high-level programming language, **Python**, for information system applications. Structured programming, data types, functions, arrays, pointers, and recursion were covered.
+Introductory software development using a high-level programming language, **Python**, for information system applications. Structured programming, data types, functions, arrays, and recursion were covered.  A course in  Python. Use of numeric and textual data. Use of data structures such as arrays, lists, sets, and dictionaries such as those implemented by hash tables.
 
-This is the repository for the Introduction to Programming course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the course. 
+This is the repository for the **Introduction to Programming** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the course. 
 
 # Competencies
 - Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.
@@ -12,7 +12,7 @@ This is the repository for the Introduction to Programming course. This page wil
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
-- Python 
+- Python fundamentals
 - Using the following libraries: TextBlob, Pandas, and other popular models
 - Data visualization
 - Data cleaning
@@ -20,13 +20,10 @@ The concepts and technologies used to create and complete the assessments are th
 
 # Files and a Brief Description of Their Purpose
 
-|**File Name**|**Purpose**|**Additional Comments**|
+|**Folder Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|| |
-|||
-|| |
-|||  |
-|  |  |  |
-| | |  |
-||| |
-||| |
+|Assignment Files|Weekly assignments | Weekely assignments that went along with the course material.  These are the work-ups for the Jupyter notebooks that are found in the another folder in this repository. These files are Python scripts (.py).
+|Jupyter Notebook Assignment|Notebooks|  Jupyter notebooks that were completed for the  assignments covering the weekly material. 
+|Labs| Project labs |  Extensive projects that were assigned over the course of the term.
+|Reflections|Reflection assignments| Relections on the topics that were covered during the weekly topics. |
+
