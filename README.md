@@ -6,13 +6,13 @@ The table below shows the order the courses were taken.  The listing above does 
 |:-----:|:-----:|:-----| :-----: |
 1 | [Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries. | In Progress
 2 | [Discrete Structures]() |  |Need
-3 |[Data Analytics]()|  | Need
-4 | [Data Visualization]()| | Need
+3 |[Applications of Computability]()|  | Need
+4 | [Data Analytics]()| | Need
 5 | [Modern DB Sys]() |  | Need
 6 | [Cybersecurity and Secure Software Design]() |   | Need
 7 | [Software Eng]()|  |  Need
 8 | [AI]()|  | Need
-9 | [Open]() | |  Need
-10 | [Software Eng]() |  | Need
-11 | [Full Stack Web Development]() |  | Need
+9 | [Graphs, Algorithms and Applications]() | |  Need
+10 | [Full Stack Web Development]() |  | Need
+11 | [ Machine Learning and Data Mining]() |  | Need
 12 | [Cloud Computing]() | | Need
