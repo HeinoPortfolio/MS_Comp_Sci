@@ -5,7 +5,6 @@ This is the repository for the **Introduction to Programming** course. This page
 
 # Competencies
 - $`\textcolor{blue}{\text{Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.}}`$
-- $`\textcolor{blue}{\text{Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.}}`$
 - $`\textcolor{blue}{\text{Calculate the value of expressions and explain the effect of statements in the python programming language.}}`$
 - $`\textcolor{blue}{\text{Identify, compare, evaluate, and use the formal elements of procedural abstraction including parameters, local variables, and return values.}}`$
 - $`\textcolor{blue}{\text{Write programs that use 1- and 2-dimensional data structures to represent aggregate data and iteration to compute over the structures.}}`$
