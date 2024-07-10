@@ -23,9 +23,9 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|| |
-|||
-|| |
+|Project1.ipynb| |
+|Project2.ipynb||
+|Project good Copy.ipynb| |
 |||  |
 |  |  |  |
 | | |  |
