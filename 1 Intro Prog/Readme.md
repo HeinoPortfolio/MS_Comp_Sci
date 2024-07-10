@@ -16,7 +16,7 @@ The concepts and technologies used to create and complete the assessments are th
 - Python fundamentals
 - Using the following libraries: TextBlob, Pandas, and other popular models
 - Data visualization
-- Data cleaning
+- Data cleaning (Data munging)
 - Webscraping
 
 # Files and a Brief Description of Their Purpose
