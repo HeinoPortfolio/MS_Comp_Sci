@@ -1,6 +1,6 @@
 # MS_Comp_Sci
 
-The table below shows the order the courses were taken.  The listing above does not reflect the order that they were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
+The table below shows the approximate order the courses were taken.  The listing above does not reflect the order that they were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
 **Course Number**|**Directory**|**Course Description**| Status
 |:-----:|:-----:|:-----| :-----: |
