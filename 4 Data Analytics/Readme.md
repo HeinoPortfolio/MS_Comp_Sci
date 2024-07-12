@@ -1,6 +1,9 @@
 # Course Overview
 
-This is the repository for the **Data Analytics** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the assessment. 
+This is the repository for the **Data Analytics** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the assessment.
+
+This course covered the processes of data acquisition, transformation, manipulation and visualization and their applications on large-scale unstructured, semi-structured and structured data. There was a dialogue on data analytics methods, algorithms, software, and systems. Made use of large-scale data processing systems. Offered insight into the current and future trends for big data analytics. 
+
 
 # Note
 - For addititional course work in data analytics go to my masters in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
