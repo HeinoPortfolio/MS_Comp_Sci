@@ -23,7 +23,7 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**Folder Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|Assignment Files|Weekly assignments | Weekely assignments that went along with the course material.  These are the work-ups for the Jupyter notebooks that are found in the another folder in this repository. These files are Python scripts (.py).
+|Assignment Files|Weekly assignments | Weekely assignments that went along with the course material.  These are the work-ups for the Jupyter notebooks that are found in the other folders in this repository. These files are Python scripts (.py).
 |Jupyter Notebook Assignment|Notebooks|  Jupyter notebooks that were completed for the  assignments covering the weekly material. 
 |Labs| Project labs |  Extensive projects that were assigned over the course of the term.  There were three in number.
 |Reflections|Reflection assignments| Relections on the topics that were covered during the weekly topics. |
