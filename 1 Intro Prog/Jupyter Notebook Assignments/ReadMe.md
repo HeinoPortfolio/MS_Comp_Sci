@@ -21,7 +21,7 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-| [Assignment3a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment3a.ipynb) | To gain familiarity with Jupyter Notebooks and simple function creation| Simple and introductory assignemtn that covers the basics of function use and creation.  It introduces how to use the Notebook in an the academic environment. 
+| [Assignment3a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment3a.ipynb) | To gain familiarity with Jupyter Notebooks and simple function creation| Simple and introductory assignment that covers the basics of function use and creation.  It introduces how to use the Notebook in an the academic environment. 
 |[Assignment3b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment3b.ipynb)|Practice defining (creating) a function, practice calling (using) a function and using interation| None
 |[Assignment4.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment4.ipynb)| Gain practice creating functions by creating two functions and integrating these functions into a single program| None
 |[Assignment5.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment5.ipynb)|A program that will loop through grades. These grades will stored in a simple list. The average of the grades willl be calculated | Makes use of a for loop |
