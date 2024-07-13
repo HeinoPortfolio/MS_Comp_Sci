@@ -24,4 +24,4 @@ The concepts and technologies used to create and complete the assessments are th
 |:-----:|:-----:|:-----|
 |Project1.ipynb|Project #1. Project that utilizes a simple menu to process a user request. The menu options are 1) run a function will generate a set of random numbers. 2) The dilbert function which will return the same number no matter how many times it is called. Graph the counts using the matplotlib library.  | Libraries used:  random and matplotlib
 |Project2.ipynb|Project #2.  This assignment will use functions to divide the applications tasks into samller component. | Libraries used:  requests and matplotlib Finish?????????????????????????????????
-|Project good Copy.ipynb| |
+|Project good Copy.ipynb|Project 3 ???? |
