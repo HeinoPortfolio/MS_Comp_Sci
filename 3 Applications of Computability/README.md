@@ -1,6 +1,6 @@
 # Course Overview
 
-Introductory course in computability, finite state machines, regular languages, context free grammars and parsing, Turing machines, complexity classes, applications including programming languages and compilers, network protocols, and natural language processing. Discuussed the imits of computation. Presented quantum, hyper-computation and other models of computation.
+Introductory course in computability, finite state machines, regular languages, context free grammars and parsing, Turing machines, complexity classes, applications including programming languages and compilers, network protocols, and natural language processing. Discussed the limits of computation. Presented quantum, hyper-computation and other models of computation.
 
 This is the repository for the **Applications of Computability** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the course. 
 
