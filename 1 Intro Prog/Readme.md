@@ -18,6 +18,7 @@ The concepts and technologies used to create and complete the assessments are th
 - Data visualization
 - Data cleaning (Data munging)
 - Webscraping
+- Using Jupyter Notbook to view and execute code
 
 # Files and a Brief Description of Their Purpose
 
