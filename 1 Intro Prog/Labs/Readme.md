@@ -6,7 +6,7 @@ In this folder, you will find the projects that were assigned during the course.
 # Competencies
 - Ability to read data from files and from various types of files.
 - Process data so that it is suitable for data analysis.
-- To create methods/function that can be reuse to perform the same function
+- To create methods/function that can be used to facilate code reuse.
 
 # Technologies and Concepts Used
 
