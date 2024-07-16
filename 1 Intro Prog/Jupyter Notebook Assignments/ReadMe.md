@@ -3,8 +3,8 @@ This directory holds the Jupyter Notebooks that were created for the weekly assi
 
 # Competencies
 - The ability to write functions to facilitate code reuse
-- The ability to to use control structures (loopin and conditional statements).
-- The ability to create a tuple.
+- The ability to to use control structures (looping and conditional statements).
+- The ability to create a tuple, lists, dictionaries, and other structures.
 
 # Technologies and Concepts Used
 
@@ -25,8 +25,8 @@ The concepts and technologies used to create and complete the assessments are th
 |[Assignment3b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment3b.ipynb)|Practice defining (creating) a function, practice calling (using) a function and using interation| None
 |[Assignment4.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment4.ipynb)| Gain practice creating functions by creating two functions and integrating these functions into a single program| None
 |[Assignment5.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment5.ipynb)|A program that will loop through grades. These grades will stored in a simple list. The average of the grades willl be calculated | Makes use of a for loop |
-|[Assignment6a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment6a.ipynb)  | Assignment to convert a string to a list of individual characters. Use the **slice()** operator to create a list that contains every other character in the original list. Function in this program: 1. Returns an integer that represents the number of times the letter 'e' is found in a string. 2) A function that takes uses one argument and returns every other characted from that string. Function that will return a tuple that contains the only the first 5 characters in a string.   | None |
-|[Assignment6b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment6b.ipynb) | |  |
+|[Assignment6a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment6a.ipynb)  | Assignment to convert a string to a list of individual characters. Use the **slice()** operator to create a list that contains every other character in the original list. Functions in this program: 1. Returns an integer that represents the number of times the letter 'e' is found in a string. 2) A function that takes uses one argument and returns every other characted from that string. Function that will return a tuple that contains the only the first 5 characters in a string.   | Makes use of the  **slice()** method. |
+|[Assignment6b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment6b.ipynb) | Practice manipulating lists. Practice using for loops with lists. Practice sorting loops. Functions in this program: 1) Functions that will append a new word as long it is not already in the list. 2) Functions accepts a list of words and returns a copy of the list with the words converted to **title case**.   | Makes use of the **title()** method. and the **sort()** method. |
 |[Assignment7a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment7a.ipynb)|| |
 |[Assignment7b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment7b.ipynb)|| |
 |[Assignment8.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment8.ipynb)|| |
