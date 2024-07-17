@@ -15,6 +15,8 @@ The concepts and technologies used to create and complete the assessments are th
    - pandas
    - math
    - numpy
+   - re
+   - 
 -
 
 # Assignment Files 
@@ -34,7 +36,7 @@ The concepts and technologies used to create and complete the assessments are th
 |[Assignment8.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment8.ipynb)|Practice in using text files.  To read in text from a file and then manipulate the contents of the file. Practiced using a **dictionary**.  First function was to read in the given file and add the words to the **dictionary**.  This function counted the number of times the word appeared in the text.  | Made use of the **split()** function.  This notebook made use of the **Macbeth.txt** file that is located in the directory. |
 |[Assignment9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment9.ipynb)|This assignment was to practice creating an ndarray. Additionally, this assignment was to practice using the concept of **slicing** to view subsets of an array. The assignment made use of a **DataFrame** to view the results. The first fucntion was to create an 2D array of student exam scores. The next function was to create the **DataFrame**.  This DataFrame had custom rows and column labels. | Concepts of **slicing** and the use of a **DataFrame** were used.  -- Custom columns and rows. |
 |[Assignment10.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment10.ipynb)|This assigment will practice ways on how to manipulate strings.  The first function is to center all words in a string vertically. This method will find the longest string. The function will output the each element of the string on a separate line.  These elements will be centered based on the length of the longest word. The second function will replace all occurrences of the word "the" with a grinning emoji. The third function will replace all  four letter words with a different emoji. The replacement emoji will change each time and will start with the grinning emojis. This function will return the string with the emojis inserted into it. | Makes use of **emojis**.  Uses f'some_text' format string|
-|[Assignment11a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11a.ipynb)|| |
+|[Assignment11a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11a.ipynb)|This is a program will translate English to pirate speak. It will use **regular expressions** to do the translation.  The first function will take a string and substitute a pirate word based on those words in the dictionary.  | Uses **regular expressions** and a **dictionary** |
 |[Assignment11b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11b.ipynb)|| |
 |[Assignment12a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12a.ipynb)|| |
 |[Assignment12b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12b.ipynb)|| |
