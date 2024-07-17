@@ -14,6 +14,7 @@ The concepts and technologies used to create and complete the assessments are th
    - random
    - pandas
    - math
+   - numpy
 -
 
 # Assignment Files 
@@ -31,7 +32,7 @@ The concepts and technologies used to create and complete the assessments are th
 |[Assignment7a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment7a.ipynb)|  Function that will multiply a list element by 100. Function # 2 will accomplich the same tasks as function as  the first function, but will use a **list comprehension** to accomplisth the task. | Uses a **list comprehension** and a formatted printed statement for the output.|
 |[Assignment7b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment7b.ipynb)|First function task is to convert a string containing a Roman numeral into and integer and then return the resulting number. |Create a **dictionary**.  |
 |[Assignment8.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment8.ipynb)|Practice in using text files.  To read in text from a file and then manipulate the contents of the file. Practiced using a **dictionary**.  First function was to read in the given file and add the words to the **dictionary**.  This function counted the number of times the word appeared in the text.  | Made use of the **split()** function.  This notebook made use of the **Macbeth.txt** file that is located in the directory. |
-|[Assignment9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment9.ipynb)|| |
+|[Assignment9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment9.ipynb)|This assignment was to practice creating an ndarray. Additionally, this assignment was to practice using the concept of **slicing** to view subsets of an array. The assignment made use of a **DataFrame** to view the results. The first fucntion was to create an 2D array of student exam scores. The next function was to create the **DataFrame**.  This DataFrame had custom rows and column labels. | Concepts of **slicing** and the use of a **DataFrame** were used.  -- Custom columns and rows. |
 |[Assignment10.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment10.ipynb)|| |
 |[Assignment11a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11a.ipynb)|| |
 |[Assignment11b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11b.ipynb)|| |
