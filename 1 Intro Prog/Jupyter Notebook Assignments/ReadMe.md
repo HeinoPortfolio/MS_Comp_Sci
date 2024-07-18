@@ -5,19 +5,21 @@ This directory holds the Jupyter Notebooks that were created for the weekly assi
 - The ability to write functions to facilitate code reuse
 - The ability to to use control structures (looping and conditional statements).
 - The ability to create a tuple, lists, dictionaries, and other structures.
-- Create list coomprehensions.
+- Create list comprehensions.
 
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
 * Libraries used:
+
    - random
    - pandas
    - math
    - numpy
    - re
-   - 
--
+   - TextBlob (NaiveBayesAnalyzer)
+   - nltk
+- Data cleaning, data analysis, and data visualization
 
 # Assignment Files 
 
@@ -37,9 +39,9 @@ The concepts and technologies used to create and complete the assessments are th
 |[Assignment9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment9.ipynb)|This assignment was to practice creating an ndarray. Additionally, this assignment was to practice using the concept of **slicing** to view subsets of an array. The assignment made use of a **DataFrame** to view the results. The first fucntion was to create an 2D array of student exam scores. The next function was to create the **DataFrame**.  This DataFrame had custom rows and column labels. | Concepts of **slicing** and the use of a **DataFrame** were used.  -- Custom columns and rows. |
 |[Assignment10.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment10.ipynb)|This assigment will practice ways on how to manipulate strings.  The first function is to center all words in a string vertically. This method will find the longest string. The function will output the each element of the string on a separate line.  These elements will be centered based on the length of the longest word. The second function will replace all occurrences of the word "the" with a grinning emoji. The third function will replace all  four letter words with a different emoji. The replacement emoji will change each time and will start with the grinning emojis. This function will return the string with the emojis inserted into it. | Makes use of **emojis**.  Uses f'some_text' format string|
 |[Assignment11a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11a.ipynb)|This is a program will translate English to pirate speak. It will use **regular expressions** to do the translation.  The first function will take a string and substitute a pirate word based on those words in the dictionary.  | Uses **regular expressions** and a **dictionary** |
-|[Assignment11b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11b.ipynb)|The purpose of the assignment is to review data that can be found on a webpage. It will make use of the **re** package.  It will make use of the MSDSwebsite.txt file that can be found in this directory. The first function will take a string for the file and return the contents of the file.  The second function will extract only the phone numbers, as a list, that were found in the file an no other information. The final function will extract all numbers that are five digits in length. | Uses the **re** package |
-|[Assignment12a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12a.ipynb)|| |
-|[Assignment12b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12b.ipynb)|| |
+|[Assignment11b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11b.ipynb)|The purpose of the assignment is to review data that can be found on a webpage. It will make use of the **re** package.  It will make use of the MSDSwebsite.txt file that can be found in this directory. The first function will take a string for the file and return the contents of the file.  The second function will extract only the phone numbers, as a list, that were found in the file an no other information. The final function will extract all numbers that are five digits in length. | Uses the **re** package.  Will read the text from a file. |
+|[Assignment12a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12a.ipynb)|This assignment will perform the following tasks.  First it will report the total number of words in the **corpus**. Will output the **noun phrases** that are found in the supplied text. Will determine the **polarity** and **subjectivity** of the corpus (**sentiment analysis**). There is a function will generate the word counts for the text. Another function will generate the noun phrases found in the text. There will be function that will perform sentiment analysis yielding  polarity and the subjectivity of the text. | Makes use of the **TextBlob** module, and the **nltk** module. This is a menu driven program.  Will read the text from a file. |
+|[Assignment12b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12b.ipynb)| Program will prompt the user to enter a sentence and it will perform sentiment analysis on the inputted text.  The program will output one of five **emojis** based on the sentiment of the sentence entered. There is a function that will determine the number of sentences in the text. Another function will report on the sentiment of the text.  The final function will utilize **NaiveBayesAnalyzer** for the sentiment of the text. | Makes use of **TextBlob** and **NaiveBayesAnalyzer**. |
 |[Assignment13.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment13.ipynb)|| |
 |[Assignment14.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment14.ipynb)|| |
 
