@@ -19,7 +19,11 @@ The concepts and technologies used to create and complete the assessments are th
    - re
    - TextBlob (NaiveBayesAnalyzer)
    - nltk
+   - Textatistic
+   - BeautifulSoup
+     
 - Data cleaning, data analysis, and data visualization
+- Web scraping
 
 # Assignment Files 
 
@@ -42,7 +46,7 @@ The concepts and technologies used to create and complete the assessments are th
 |[Assignment11b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment11b.ipynb)|The purpose of the assignment is to review data that can be found on a webpage. It will make use of the **re** package.  It will make use of the MSDSwebsite.txt file that can be found in this directory. The first function will take a string for the file and return the contents of the file.  The second function will extract only the phone numbers, as a list, that were found in the file an no other information. The final function will extract all numbers that are five digits in length. | Uses the **re** package.  Will read the text from a file. |
 |[Assignment12a.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12a.ipynb)|This assignment will perform the following tasks.  First it will report the total number of words in the **corpus**. Will output the **noun phrases** that are found in the supplied text. Will determine the **polarity** and **subjectivity** of the corpus (**sentiment analysis**). There is a function will generate the word counts for the text. Another function will generate the noun phrases found in the text. There will be function that will perform sentiment analysis yielding  polarity and the subjectivity of the text. | Makes use of the **TextBlob** module, and the **nltk** module. This is a menu driven program.  Will read the text from a file. |
 |[Assignment12b.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment12b.ipynb)| Program will prompt the user to enter a sentence and it will perform sentiment analysis on the inputted text.  The program will output one of five **emojis** based on the sentiment of the sentence entered. There is a function that will determine the number of sentences in the text. Another function will report on the sentiment of the text.  The final function will utilize **NaiveBayesAnalyzer** for the sentiment of the text. | Makes use of **TextBlob** and **NaiveBayesAnalyzer**. |
-|[Assignment13.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment13.ipynb)|| |
+|[Assignment13.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment13.ipynb)|This assignment will connect to a website, and extract text using BeautifulSoup pacakge.  It will remove any **HTML** tags and then return the cleaned text for further processing. One function will use the **Textatistic** library to return a readability score for the text.  A function will perform sentiment analysis providing the polarity score. A function will print the first N sentences of the text.    | Makes use of **Textatistic** and **BeautifulSoup**.  Determines a readability score (Dale-Chall readability score).|
 |[Assignment14.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/1%20Intro%20Prog/Jupyter%20Notebook%20Assignments/Assignment14.ipynb)|| |
 
 
