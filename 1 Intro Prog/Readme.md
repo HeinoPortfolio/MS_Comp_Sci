@@ -19,14 +19,14 @@ The concepts and technologies used to create and complete the assessments are th
 - Data cleaning (Data munging)
 - Webscraping
 - Using Jupyter Notbook to view and execute code
-- Using Python libraries and their associated fucntions to accomplish required tasks
+- Using Python libraries and their associated functions to accomplish required tasks
 
 # Files and a Brief Description of Their Purpose
 
 |**Folder Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
 |Assignment Files|Weekly assignments | Weekely assignments that went along with the course material.  These are the work-ups for the Jupyter notebooks that are found in the other folders in this repository. These files are Python scripts (.py).
-|Jupyter Notebook Assignment|Notebooks|  Jupyter notebooks that were completed for the  assignments covering the weekly material. 
+|Jupyter Notebook Assignment|Notebooks|  Jupyter notebooks that were completed for the assignments covering the weekly material. 
 |Labs| Project labs |  Extensive projects that were assigned over the course of the term.  There were three in number.
 |Reflections|Reflection assignments| Relections on the topics that were covered during the weekly topics. |
 
