@@ -1,7 +1,7 @@
 # Course Overview
 Introductory graduate-level software development course using a high-level programming language, **Python**, for information system applications. Structured programming, data types, functions, arrays, and recursion were covered.  A course in  Python. Use of numeric and textual data. Use of data structures such as arrays, lists, sets, and dictionaries such as those implemented by hash tables.
 
-This is the repository for the **Introduction to Programming** course. This page will contain the coursework files that were completed during the term.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the course. 
+This is the repository for the **Introduction to Programming** course. This page will contain the coursework files that were completed during the term.  You will find sample code that was used to create the assignments and a brief description of the concepts or technology used to pass the course. 
 
 # Competencies
 - $`\textcolor{blue}{\text{Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.}}`$
