@@ -14,7 +14,7 @@ This is the repository for the **Introduction to Programming** course. This page
 
 The concepts and technologies used to create and complete the assessments are the following:
 - Python fundamentals
-- Using the following libraries: TextBlob, Pandas, and other popular libraries
+- Using the following libraries: TextBlob, Pandas, and other popular libraries/modules
 - Data visualization
 - Data cleaning (Data munging)
 - Webscraping
