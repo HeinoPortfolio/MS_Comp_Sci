@@ -1,7 +1,7 @@
 # Course Overview
 The basics of discrete structures and algorithms such as relations, functions, basic logic, combinatorial techniques, sorting, searching, regular languages, and finite state automata.
 
-This is the repository for the **Discrete Strucutures and Algorithms** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignment and a brief description of the concepts or technology used to pass the course. 
+This is the repository for the **Discrete Strucutures and Algorithms** course. This page will contain the coursework files that are completed during the course.  You will find sample code that was used to create the assignments and a brief description of the concepts or technology used to pass the course. 
 
 # Competencies
 - $`\textcolor{blue}{\text{???}}`$
