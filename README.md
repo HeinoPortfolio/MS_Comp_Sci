@@ -5,7 +5,7 @@ The master's degree consisted of twelve courses. There were six core or foundati
 The table below shows the approximate order the courses were taken.  The listing below does not reflect the order that they were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
-|:-----:|:-----:|:-----| :-----: | :-----:|
+|:-----:|:-----:|:-----: | :----- | :-----:|
 1 | [Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) | Core |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries.  |$`\textcolor{blue}{\text{Completed}}`$ 
 2 | [Discrete Structures](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/2%20Discrete%20Structures) | Core | ???? |$`\textcolor{green}{\text{In Progress}}`$
 3 |[Applications of Computability](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/3%20Applications%20of%20Computability)| Research |  ???? | $`\textcolor{red}{\text{Need}}`$
