@@ -31,8 +31,8 @@ The concepts and technologies used to create and complete the assessment are the
 # Files and a Brief Description of Their Purpose
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
+|:-----:|:-----|:-----|
+|MISC|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some were created by the instructor of the course.  This will be noted on the file where appropriate.
 |||
 || |
 |||  |
