@@ -9,7 +9,7 @@ This directory will hold miscellaneous files. These files were not all created b
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
 |[Sample_code.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Sample_code.ipynb)| Review file for concepts in Python | This file was not soley created by me.  It was created as a tutorial of the course. It was used to re-enforce concepts that are needed for the course.|
-|  |  |  |
+|  [Sample_Code_Module_3.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Sample_Code_Module_3.ipynb)| Review file for concepts in Python  | This file was not soley created by me.  It was created as a tutorial of the course. It was used to re-enforce concepts that are needed for the course. |
 | | |  |
 ||| |
 ||| |
