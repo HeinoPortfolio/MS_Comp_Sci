@@ -32,7 +32,7 @@ The concepts and technologies used to create and complete the assessment are the
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----|:-----|
-|MISC|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some were created by the instructor of the course.  This will be noted on the file where appropriate.
+|[MISC](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/MISC)|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some were created by the instructor of the course.  This will be noted on the file where appropriate.
 |||
 || |
 |||  |
