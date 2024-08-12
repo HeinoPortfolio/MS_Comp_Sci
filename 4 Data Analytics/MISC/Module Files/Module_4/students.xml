@@ -1,0 +1,23 @@
+<students>
+	<student>
+		<id>675432</id>
+		<fname>John</fname>
+		<lname>Smith</lname> 
+		<bdate>1999-01-02</bdate>
+		<major>CS</major>
+	</student>
+	<student>
+		<id>522134</id>
+		<fname>Mary</fname>
+		<lname>Johnsons</lname>
+		<bdate>988-11-27</bdate>
+		<major>Music</major>
+	</student>
+	<student>
+		<id>632197</id>
+		<fname>Kyle</fname>
+		<lname>Green</lname>
+		<bdate>2001-07-31</bdate>
+		<major>CS</major>
+	</student>
+</students>

@@ -1,0 +1,6 @@
+
+
+
+[{"id":"675432", "fname":"John", "lname":"Smith", "bdate":"1999-01-02", "major":"CS"}, 
+{"id":"522134", "fname":"Mary", "lname":"Johnsons", "bdate":"1988-11-27", "major":"Music"},
+{"id":"632197", "fname":"Kyle", "lname":"Green", "bdate":"2001-07-31", "major":"CS"}]
