@@ -14,7 +14,7 @@ This directory will hold miscellaneous files. These files were not all created b
 |[Module_5.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_5.ipynb)|Review of how deal with empty/missing values and how to deal the duplicates.  How to merge frames is presented.|  File used can be found in directory Module Files --> Module 5|
 |[Module_6.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_6.ipynb)|Covers creation of boxplots, histograms, line charts and others.| File used can be found in directory Module Files --> Module 6 |
 |[Module_7.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_7.ipynb)|Data analytics of non-numerical data. WIth a focus on categorical and nominal data.| File used can be found in directory Module Files --> Module 7 |
-||| File used can be found in directory Module Files --> Module 5 |
+|[Module_8.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_8.ipynb)|Time series data analytics and visualization. Uses datetime| File used can be found in directory Module Files --> Module 8 |
 ||| File used can be found in directory Module Files --> Module 5 |
 ||| File used can be found in directory Module Files --> Module 5 |
 ||| File used can be found in directory Module Files --> Module 5 |
