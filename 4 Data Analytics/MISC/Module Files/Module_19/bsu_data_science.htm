@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="Head1">
+<!-- be_ixf, sdk, gho-->
+<meta name="be:sdk" content="dotnet_sdk_1.4.22" />
+<meta name="be:timer" content="79ms" />
+<meta name="be:orig_url" content="https%3a%2f%2fwww.bsu.edu%2facademics%2fcollegesanddepartments%2fonline%2facademic-programs%2fmasters%2fms-data-science" />
+<meta name="be:capsule_url" content="https%3a%2f%2fixfd1-api.bc0a.com%2fapi%2fixf%2f1.0.0%2fget_capsule%2ff00000000277771%2f961315313" />
+<meta name="be:norm_url" content="https%3a%2f%2fwww.bsu.edu%2facademics%2fcollegesanddepartments%2fonline%2facademic-programs%2fmasters%2fms-data-science" />
+<meta name="be:api_dt" content="py_2023; pm_08; pd_05; ph_00; pmh_43; p_epoch:1691221400290" />
+<meta name="be:mod_dt" content="py_2023; pm_08; pd_05; ph_00; pmh_43; p_epoch:1691221400290" />
+<meta name="be:messages" content="0" />
+<script type='text/javascript'>
+if (window.BEJSSDKObserver === undefined) {
+  (function(BEJSSDKObserver, $, undefined) {
+    var observer = void 0;
+    var listeners = [];
+    var readySet = [];
+    var doc = window.document;
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+    function checkSelector(selector, fn, indexList) {
+      var elements = doc.querySelectorAll(selector);
+  /**
+    issues on IE @see https://www.codesd.com/item/javascript-es6-not-a-function-error.html
+    elements = Array.from(elements);
+
+    */
+    for (var i = 0, len = elements.length; i < len; i++) {
+      /* -1 means all instances */
+      if (indexList != -1 && !(i in indexList)) {
+        continue;
+      }
+      var element = elements[i];
+      for (var j = 0; j < readySet.length; j++) {
+        if (readySet[j] == element.className || readySet[j] == element.id) {
+          return;
+        }
+      }
+      if (element.className) {
+        readySet.push(element.className);
+      }
+      if (element.id) {
+        readySet.push(element.id);
+      }
+
+      if (!element.ready || MutationObserver==null) {
+        element.ready = true;
+        fn.call(element, element);
+      }
+    }
+  }
+
+  function checkListeners() {
+    listeners.forEach(function (listener) {
+      return checkSelector(listener.selector, listener.fn, listener.indexList);
+    });
+  }
+
+  function removeListener(selector, fn) {
+    var i = listeners.length;
+    while (i--) {
+      var listener = listeners[i];
+      if (listener.selector === selector && listener.fn === fn) {
+        listeners.splice(i, 1);
+        if (!listeners.length && observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      }
+    }
+  }
+
+/**
+ * Fire event on first js selector
+ * @param selector string to watch on
+ * @param fn       callback function
+ * @param index_list can be undefined which means only first one
+ *                   or -1 which means all
+ *                   or a list of allowable indexes
+ */
+ BEJSSDKObserver.jsElementReady = function(selector, fn, index_list) {
+  if (index_list === undefined) {
+    index_list = [];
+    index_list.push(0);
+  }
+
+  if (MutationObserver != null) {
+    if (!observer) {
+      observer = new MutationObserver(checkListeners);
+      observer.observe(doc.documentElement, {
+        childList: true,
+        subtree: true
+      });
+    }
+    listeners.push({ selector: selector, fn: fn, indexList: index_list });
+  } else {
+    /* <= IE8 */
+    if (!document.addEventListener) {
+      /* log("<=IE8 attachEvent assignment"); */
+      document.addEventListener = document.attachEvent;
+    }
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var elements = doc.querySelectorAll(selector);
+      for (var i = 0, len = elements.length; i < len; i++) {
+        /* -1 means all instances */
+        if (index_list != -1 && !(i in index_list)) {
+          continue;
+        }
+        var element = elements[i];
+        element.ready = true;
+        fn.call(element, element);
+      }
+    });
+  }
+
+  checkSelector(selector, fn, index_list);
+  return function () {
+    return removeListener(selector, fn);
+  };
+};
+}(window.BEJSSDKObserver = window.BEJSSDKObserver || {}));
+}
+var jsElementReady = window.BEJSSDKObserver.jsElementReady;
+
+if (window.BELinkBlockGenerator === undefined) {
+  (function(BELinkBlockGenerator, $, undefined) {
+    BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = 100;
+    BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = 200;
+
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE = 0;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE = 1;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE = 2;
+    BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE = 3;
+
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE = 0;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_POST_APPEND_ELEMENT = 1;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT = 2;
+    BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT = 3;
+
+    BELinkBlockGenerator.setMaximumHeadlineLength = function(length) {
+      BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = length;
+    };
+
+    BELinkBlockGenerator.setMaximumDescriptionLength = function(length) {
+      BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = length;
+    };
+
+    BELinkBlockGenerator.generateIndividualLinks = function(parentElement, linkStructure, link) {
+      var link_level_element_tag = linkStructure[0];
+      var link_level_element = document.createElement(link_level_element_tag);
+      var link_attribute_dictionary = linkStructure[1];
+      var allowable_elements = linkStructure[2];
+      var children_link_structures = linkStructure[3];
+      for (var link_attribute_key in link_attribute_dictionary) {
+        link_level_element.setAttribute(link_attribute_key, link_attribute_dictionary[link_attribute_key]);
+      }
+
+      var added_something = false;
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE)>=0) {
+        link_level_element.setAttribute('href', link.url);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE)>=0 && link.h1) {
+        var headline_text = link.h1;
+        if (headline_text.length > BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) {
+          headline_text = headline_text.substring(0, BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) + '...';
+        }
+        var text_node = document.createTextNode(headline_text);
+        link_level_element.appendChild(text_node);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE)>=0 && link.desc) {
+        var desc_text = link.desc;
+        if (desc_text.length > BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) {
+          desc_text = desc_text.substring(0, BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) + '...';
+        }
+        var text_node = document.createTextNode(desc_text);
+        link_level_element.appendChild(text_node);
+        added_something = true;
+      }
+      if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE)>=0 && link.image) {
+        link_level_element.setAttribute('src', link.image);
+        added_something = true;
+      }
+/**
+    don't emit for empty links, desc, headline, image
+    except for parent structures where allowable_length=0
+    */
+    if (!added_something && allowable_elements.length != 0) {
+
+      return;
+    }
+    /* go depth first */
+    for (var childrenIndex=0; childrenIndex<children_link_structures.length; childrenIndex++) {
+      var childLinkStructure = children_link_structures[childrenIndex];
+      BELinkBlockGenerator.generateIndividualLinks(link_level_element, childLinkStructure, link);
+    }
+    parentElement.appendChild(link_level_element);
+  };
+
+  BELinkBlockGenerator.insertLinkBlocks = function(targetElement, replacementStrategy, overallStructure, linkStructure, links,
+                                                   titleStructure) {
+    if (targetElement == null) {
+      return;
+    }
+
+    if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE) {
+      while (targetElement.firstChild) {
+        targetElement.removeChild(targetElement.firstChild);
+      }
+    }
+
+    var previousElement = targetElement;
+    for (var i=0;i<overallStructure.length;i++) {
+      var level_definition = overallStructure[i];
+      var level_element_tag = level_definition[0];
+      var level_element = document.createElement(level_element_tag);
+      var attribute_dictionary = level_definition[1];
+      for (var attribute_key in attribute_dictionary) {
+        level_element.setAttribute(attribute_key, attribute_dictionary[attribute_key]);
+      }
+
+      /* need to place title structure */
+      if (titleStructure && titleStructure[0] == i) {
+        var title_element_tag = titleStructure[1];
+        var title_element = document.createElement(title_element_tag);
+        var title_attribute_dictionary = titleStructure[2];
+        var title_text_content = titleStructure[3];
+        for (var title_attribute_key in title_attribute_dictionary) {
+          title_element.setAttribute(title_attribute_key, title_attribute_dictionary[title_attribute_key]);
+        }
+
+        var title_text_node = document.createTextNode(title_text_content);
+        title_element.appendChild(title_text_node);
+
+
+        level_element.appendChild(title_element);
+      }
+
+      /* last level place links */
+      if (i == overallStructure.length-1) {
+        for (var link_i=0; link_i < links.length; link_i++) {
+          var link = links[link_i];
+          for (var linkStructureIndex=0;linkStructureIndex < linkStructure.length; linkStructureIndex++) {
+            BELinkBlockGenerator.generateIndividualLinks(level_element, linkStructure[linkStructureIndex], link)
+          }
+        }
+      }
+
+      /* first level child we need to check placement */
+      if (previousElement == targetElement) {
+        if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT) {
+          /* 2 means insert right before */
+          previousElement.insertBefore(level_element, targetElement.firstChild);
+        } else if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT) {
+          /* 3 means insert right before at parent level */
+          var parentElement = previousElement.parentElement;
+          parentElement.insertBefore(level_element, previousElement);
+        } else {
+          previousElement.appendChild(level_element);
+        }
+      } else {
+        previousElement.appendChild(level_element);
+      }
+      previousElement = level_element;
+    }
+  };
+}(window.BELinkBlockGenerator = window.BELinkBlockGenerator || {}))
+};
+</script>
+
+<style>
+.be-ix-link-block{clear:both; }
+.be-ix-link-block .be-related-link-container{display: flex;justify-content:left; text-align:left; padding: 10px 0; }
+.be-ix-link-block .be-related-link-container .be-label{display: inline-block;margin-right: 15px; font-style: normal; line-height: 1.5;color: #fff;font-weight: bold;font-size: 18px;}
+.be-ix-link-block .be-related-link-container .be-list{list-style:none;margin:0;padding: 0;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item{margin:0;padding: 0 0 0px 0;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a{text-transform: none;padding-right: 15px;    line-height: 2.1;font-size: 14px;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a:hover{}
+.be-ix-link-block .be-related-link-container .be-list{display:flex;width:auto}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item{display:flex;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item:last-child{margin-right:0}
+@media (max-width: 767px) {
+.be-ix-link-block .be-related-link-container{ display: block;text-align: left;width: 100%; padding-top: 20px;}
+.be-ix-link-block .be-related-link-container .be-label {width: 100%;margin:0;padding-bottom:10px}
+.be-ix-link-block .be-related-link-container .be-list {display: block;width: 100%;}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item {display: block;margin:0;padding: 0 0 0px 0;line-height:1.5}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a{padding-right:0px;line-height: 1.5}
+}
+@media (min-width: 768px) {
+.be-ix-link-block .be-related-link-container{margin:0 15px}
+}
+</style>
+
+
+<script data-cfasync="false" id="marvel" data-customerid="f00000000277771" src="https://marvel-b2-cdn.bc0a.com/marvel.js"></script>
+<script type='text/javascript'>
+      function positionLinkBlock(targetContainer) {
+          if (targetContainer != null) {
+              var strLinkBlock = '<div class="be-related-link-container container"><div class="be-label">Also of Interest:</div><ul class="be-list"><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/csh/academic-programs/data-analytics/computational-data-analytics">Computational Data Analytics Concentration</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/csh/academic-programs/data-analytics">Data Analytics Major</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/bachelors/data-analytics">Bachelor&#39;s in Data Analytics With a...</a></li></ul></div>';
+              targetContainer.insertAdjacentHTML('afterbegin', strLinkBlock);
+          }
+      }
+   
+      jsElementReady('.be-ix-link-block', positionLinkBlock);
+   
+  </script>
+
+<script>
+{(function() {
+  var becookiescript = document.createElement("script");
+  becookiescript.type = "text/javascript";
+  becookiescript.async = true;
+  becookiescript.id="becookiebarscriptid";
+  becookiescript.setAttribute("data-customerid","f00000000277771");
+  becookiescript.setAttribute("data-testmode","true");
+  becookiescript.setAttribute("data-cookielinkurl","https://connect.bsu.edu/privacy");
+  becookiescript.setAttribute("data-fullhtmltext","<div id='becookiebarpanelid' style='width: 100%; border-radius: 0px; background:#e5e5e5; display: flex; z-index: 1000; font-size: small; opacity: 1; position: fixed; bottom: 0px; right: 0px; color:#000; justify-content: center; visibility: hidden;'> <div id='becookie_desktop_outerdiv' style='width: 100%;display: flex;height: 60px;justify-content: center;margin: auto;align-items: center;vertical-align: middle;'> <div id='becookie_desktop_content' style='font-size: 14px;font-family:inherit;word-spacing: 1px;align-items: center;max-width: 100%;text-align: center;margin: 0 30px;font-weight: 400;'> <div style=''> <p id='becookie_text_content' style='padding: 0 4px;margin: 0px 0;display: inline-block;font-size: inherit;color: inherit;'> <span id='becookiebartextid' style=''>We use cookies to improve your experience.</span></p><p style='margin: 0;display: inline-block;padding: 0;font-size: inherit;color: inherit;font-weight: inherit;'> Please read our <button tabindex='1' aria-label='privacy policy' role='link' id='bepolicylinktextid' style='cursor: pointer;margin: 0;text-decoration: underline;color: inherit;font-weight: inherit;font-size: inherit;background: none; border: none; padding: 0;font-family: inherit;transition: none;' onclick='becookielinktextclicked()'>Privacy Policy</button> or click <button tabindex='2' aria-label='Accept privacy policy' role='button' id='becookiebarbuttonid' style='margin: 0;cursor: pointer;font-weight: bold;text-shadow: 0 0 black;text-decoration: underline;border: none;background: none;padding: 0;font-size: inherit;color: inherit;font-family: inherit;line-height: inherit;vertical-align:unset;transition: none;' onclick='beacceptcookie()'>Accept</button>.<button tabindex='3' aria-label='Close privacy policy banner' role='button' id='becookie_close_button' onclick='beclosecookie()' style='display: inline-block;font-size: 3.5vw;cursor:pointer;font-family: none;font-weight: 100;margin: 0 20px;background: none;border: none;padding: 0;color: inherit;box-shadow: none;position: absolute; top: 0px;right: -10px;transition: none;line-height: normal;'>×</button> </p></div></div></div></div>");
+  becookiescript.setAttribute("data-mobilefullhtmltext","<div id='becookiebarpanelid' style='display: flex;width: 100%;border-radius: 0px;background:#e5e5e5;z-index: 1000;opacity: 1;position: fixed;bottom:0px;left: 0px;color:#000;align-items: center;height: 60px;visibility: hidden;justify-content: center;font-family: inherit;'> <div style='max-width: 385px;display: flex;box-sizing: border-box;text-align: center;position: relative;'> <div id='becookiebartextid' style='font-size: 13px;line-height: 14px;text-transform: none;'> <p id='becookie_text_content' style='padding: 0 4px 0 0;margin: 0px 0;display: inline-block;font-size: inherit;color: inherit;line-height: 1.5;'> <span style='letter-spacing: initial;'>We use cookies to improve your experience.</span> </p><p style='margin: 0;display: inline-block;padding: 0;font-size: inherit;color: inherit;font-weight: inherit;line-height: 1.5;'> Please read our <button tabindex='1' aria-label='privacy policy' role='link' id='bepolicylinktextid' style='cursor: pointer;margin: 0;text-decoration: underline;color: inherit;font-weight: inherit;font-size: inherit;display: inline;font-family: inherit;background: none; border: none; padding: 0;transition: none;' onclick='becookielinktextclicked()'>Privacy Policy</button> or click <button tabindex='2' aria-label='Accept privacy policy' role='button' id='becookiebarbuttonid' style='margin: 0;cursor: pointer;font-weight: bold;text-shadow: 0 0 black;text-decoration: underline;border: none;background: none;padding: 0;font-size: inherit;color: inherit;font-family: inherit!important;line-height: inherit;vertical-align:unset;text-transform: none;transition: none;' onclick='beacceptcookie()'>Accept</button>. </p></div></div><button tabindex='3' aria-label='Close privacy policy banner' role='button' onclick='beclosecookie()' style='position: absolute;right: 9px;top: 4px;font-size: 28px;cursor:pointer;font-family:none;font-weight:100;color: inherit;margin: 0;padding: 0;background: none;border: none;line-height: 20px;vertical-align:unset;transition: none;'>×</button></div>");
+  becookiescript.setAttribute("data-control",`function beCookieBarCustomJs(){becookielog("running cookiebar custom js"); var windowsPlatforms=["Win32", "Win64", "Windows", "WinCE"]; function beCookieShowPanel(){var becookie_panel=document.querySelector("#becookiebarpanelid"); if (becookie_panel){becookie_panel.style.visibility="visible";}}var becookie_stylesheet_interval=window.setInterval(function (){var becookiebar=document.querySelector("#becookiebarid"); if (becookiebar){if (windowsPlatforms.indexOf(window.navigator.platform) !==-1){becookieAddStylesheet( "#becookie_close_button{font-size:26px !important;}", "screen and (min-width: 701px)" );}else{becookieAddStylesheet( "#becookie_close_button{font-size:23px !important;}", "screen and (min-width: 701px)" );}becookieAddStylesheet( "#becookie_desktop_content{font-size:13px !important}#becookie_desktop_content > div > p{padding: 0!important;}", "screen and (min-width: 701px) and (max-width: 1060px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:12px !important; line-height:12px !important;}#becookiebarpanelid > button{font-size:24px !important;}#becookiebarpanelid > div{max-width:334px !important;}", "screen and (max-width: 360px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:11px !important;", "screen and (max-width: 300px)" ); becookieAddStylesheet( "#becookiebartextid{font-size:10px !important; line-height:10px !important;}#becookiebarpanelid > button{font-size:21px!important;}", "screen and (max-width: 275px)" ); becookieAddStylesheet( "#bepolicylinktextid:focus,#becookiebarbuttonid:focus,#becookie_close_button:focus{outline:auto!important;}" ); beCookieShowPanel(); clearInterval(becookie_stylesheet_interval);}}, 100); window.setTimeout(function (){clearInterval(becookie_stylesheet_interval);}, 15000); window.onresize=function (){setTimeout(beCookieShowPanel, 100);};}beCookieBarCustomJs();`);
+  becookiescript.src = "https://consents-cf.bc0a.com/consentbar/corejs/becookiebar.js";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(becookiescript, s);
+})();}
+</script>
+<meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TL87L6');</script>
+<!-- End Google Tag Manager -->
+<title>
+	Master's Degree in Data Science Online Program | Ball State University
+</title><meta name="description" content="Through Ball State&#39;s online master&#39;s in data science, you’ll gain high-demand skills and practices with big data. See classes you will take and learn more about the masters degree in data science online program." /><link rel="canonical" href="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science" /><meta property="og:title" content="Master's in Data Science | Online" /><meta property="og:type" content="website" /><meta property="og:url" content="https://www.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science" /><meta property="og:image" content="https://www.bsu.edu/-/media/www/departmentalcontent/math/images/masters-in-data-science-pic.jpg?sc_lang=en" /><meta property="og:description" content="Through Ball State's online master's in data science, you’ll gain high-demand skills and practices with big data. See classes you will take and learn more about the masters degree in data science online program." /><meta property="twitter:card" content="summary_large_image" /><meta property="twitter:site" content="@BallState" /><meta property="twitter:creator" content="@BallState" /><meta property="twitter:title" content="Master&#39;s in Data Science | Online" /><meta property="twitter:description" content="Through Ball State&#39;s online master&#39;s in data science, you’ll gain high-demand skills and practices with big data. See classes you will take and learn more about the masters degree in data science online program." /><meta property="twitter:image" content="https://www.bsu.edu/-/media/www/departmentalcontent/math/images/masters-in-data-science-pic.jpg?sc_lang=en" /><link rel="icon" href="/Components/Design/ResponsiveV2/Images/favicon.ico" type="image/x-icon" />
+     
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i|Raleway:400,400i,600,600i,700,700i" rel="stylesheet" type="text/css" />
+    <link href="/Components/Design/ResponsiveV2/css/v-638193146760000000/all.min.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap theme -->
+    <link href="/Components/Design/ResponsiveV2/css/v-638193146760000000/bsu-bootstrap.css"  rel="stylesheet" />
+    <link href="/Components/Design/ResponsiveV2/css/v-638241704020000000/bsu-bootstrap-templates.css" rel="stylesheet" />
+    
+    <!--[if IE 9]><link rel="stylesheet" type="text/css" href="../../../../../Components/Common/Layouts/css/ie9.css" /><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/Components/Design/CSS/Renderings/v-638193146740000000/GlobalAlert.css" media="all" />
+
+     
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- The next line is a fallback in case the cdn didn't load. -->
+    <!-- Moved JS calls up here and commented out the jquery CDN because some functions weren't functioning reliably between page refreshes -->
+    <!-- <script>window.jQuery || document.write('<script src="/Components/Design/ResponsiveV2/js/jquery-1.11.1.min.js"><\/script>')</script> -->
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/jquery-1.11.1.min.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/bootstrap.min.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/plugins.js"></script>
+    <script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/actions.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries.. -->
+    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11231081-1']);
+      _gaq.push(['_setDomainName', 'bsu.edu']);
+      _gaq.push(['_trackPageview']);
+
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+ </script>
+<meta name="theme-color" content="#ba0c2f" /><meta name="msvalidate.01" content="331A84EFB90EF55CECD1938D28E9A9CE" />
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="QCA86-LJ885-6YH64-J69WY-27WWD",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"QCA86-LJ885-6YH64-J69WY-27WWD";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="jsftf4tildhaszgw3boa-f-2cee1000b-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"36","ak.cp":"1268882","ak.ai":parseInt("762162",10),"ak.ol":"0","ak.cr":34,"ak.ipv":4,"ak.proto":"h2","ak.rid":"12e88840","ak.r":40962,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.bpcip":"76.139.50.0","ak.cport":59137,"ak.gh":"23.47.221.9","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1691801692","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==OC4k+sOdLYujXmexs21LEj95jThArgFrfxsYTfIuAYsalfQBBL8JM4+bBgBZqI6Rc1R9US6EFRRMMahhlyCoif492UDRzcjIQguL59oyNt2NwdNNA97E2MUiFVJtppd3okStEQQO38yyx1zkeyXFQEUZNlglPtar+eapO/WcWn7x1Wb3ftpME0u2t0RySKRqwsPuoWl0V59bYEsFJ0g4HsrMuDSowDexu4yG/NMkNPpXDvMgtnGVw2tcxl5gAxI6dQjMOK0JWZj0vBDdFIxgY6hCpfFpq9Gc4OHky1Vwi1mUzv8osJLFJBszDuV3nlgXh2Xg6ybAaWJQWh4MgaTIkkBvT2fx+mtbEh6Bnz0KVFSMehsN8RF8Q+nkzfhkLYYLz/y9BR7Iujo324OdW5nkJzZ7kA5KTwyB5Hi5zykehgk=","ak.pv":"8","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL87L6" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    
+    <form method="post" action="/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science" id="mainform">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="GYHpzWKIamBD+sgcGaeODI/zwMUB1Arfb0wX/zwSrImAgy8uKTMQShVOu/lGR6fBIVY6ZJB00qkRPL8+bIBJdgVzDvBfh6iKyMxUKuaSnj8ffDGwPl4eS/mGtAdwsUqorDb5U7q6RYnqeLWTi6XYSACr21MXmoPpOMrpoMpYU1ir5hNcCr2Hujb/h76a+CJaMtyaboDs/BPXt/R0UmLj/R9jyiXdzJ2S0XRDxtT67W9fvJcEzeAtGTkfxsLOoaX9cyvwXGoozg9ZlsAtd5RF4f4xJplo6W28Gx27bJdqrzc5GllvORWpmYlGuh11cz9onQn3YKDNVcxDVbeFMAwu+4UX3XcJ4u0SYe/QXfntIzuRTyUB5g4QKyS1ix2YCtgiEgudj1Kpd14mmPlurNUyPhLNk2BbI/ftb2eOg7+8kg5VVn11gGd4Ay7L6VRqU3MNog6zVU6eHPN1qAIOgfjjNO1Q0X4Nm7Gdxl9gpsTuEZM7n4ASHYq64t0ECaFgLQnClE3wlBmGX18MLkotTD5UNbBcJcj3tKwgJ1AzzvKjnGdPCpqIfQlgJaI6lORyhUz6SGJ5QbvJbLl1cEAyIWkX0l2ssF2ha7viKbAQ7/IlgSlyuz/QSK5TLRAivzDkFqpoSyKtA6g4KtGXPzUPRmXU3QO7HMHoPKYHY3uUveRBQNy+zUZCFCcmW1+IG+N3jBOX2wDmC2Gf5LBlBwg7Csie8xZ0rw2W+R7cgsLdDfyd8wUe0DjOfJ4V534MvkfZ91zC6Cidm88iGv971qyq2WS3AQFIqGOjfSQubGPGPbr6E/8MePV/IK5KbP2sa10rXxs+sthQEnm4eAoSthYPCBpWfw3x5VIExxHgyK36cfrlxzmlJICKQ9v02+XgujKSjze4WI/cQCaDUPyWkbzfStLbjfzofSnj2kQmLTVNN8JhnzGFpOXLvk6mvfNghbMFsoujFbYbsSuwlSlSQawDS7wchYMzLC2HyEnWXomDWSjdl9Gw/TX01BfKqhKGaND3zGuw1SqFKQv1XB7ThPy/EDE4h/uuyn+QcP2+psrskXmXKTq+GxzJU0/+yX5RzxMWGyKpmBba+yP4bkY2mZsfNF7MClmfEwBoHxv1THuuNkUktgffS9FDl7pPBBHaQh/VUaLoXZfgCj85z3QhQ422cpX1FwZ69UIkA23ypwl3kQNoOSsZQLTofQZMWQaKJ32giTw6dcme90zEXa6wvZW7KcNTMRLRR5+TB2YbT/xFffoscgjebW4zBaf2ErJVFddK6SStsbrL6RvNEOAiDnf1aWS6R9bs4jf+eMwEPkIUGLXe6tWoiHmok5Z8KPDkt9Ci6BJKEpm63azBhlzSl9kXr8QDhWGHSmt7VPAFqegAlewRCWmwtGkRkcqPymhYGd00vRWuafZrZ+PM1uZ9sX2pnTtvjCcOcrZjFe6Fb6woZdGVkmjVbzBpUkSMHMHDhXMzBX5g0Mz/CPUBKyQoCVzhXjodeHeM89jeJfbGWHRx5BFIbK7OfaITGUqav5FHY4KGYScEKjsdUjTAl/3xftGfm5KA5cKUhoroeFBmWPCyA0K+8r5fnU4CCqFmyn1Ckjnhst6typczn95K8zhc3PSe76VEwyjQcQLJjTW1wlTTHgfzyAdCDRIvOe8pqolPSCNjZCPZvAV1j2MEdsdp73o3ZT7bHpTyJd6DjtYi3yCpv+maR49x2WKUMxwc2MfKoSpyV6WekNG01AeBaud6bq5y68nEZNbYXxsuIiaSsSy8vAaGoISP4yeuP7SUForZOcJQe0zhAjM1OPtnRC7pIJ3ZuKerw14FWzMczAU1rFovp9+uyuG0o3iXGs2+V+mUp5WpuAQhfVkvQCogxx1bBXPrOK7/OH8+zXT1LPDqcjRA0Uz7SCQALlDmiQo1xmT4+ouZ5Lprp2AeTP5itOnqCrnFc0pK3WyPr9LN+V9AcRq60Lk+miIpxe7gN6XvJF9p0xLr7OZGI5nfmFcEd7zeq+RH1jmrfKAdb0ooycJNwWrXk2BOFNEuDpmzeHDwra4lHob8LHkhChM2UKRPC1BIzDvygtEYJJh5cQIZ58S5WYkJl9F+MLccnZ9Row8wrip08chEPcf8RcAqmuMvddKbFL6gSZfocoMZfTZSBZT6TC6Ut/QMsJ0M4B9NB68zi8yh3mNjvGSPu4WhfKm0Cc47Fs5suJsXwWejMU4y6hE6UyZUoSqTiQZoplg//9VV3uDvJhgyYGbMsU7o4FoHKUKn2jfKgpIcuccnqGmu0xTlSviafMVeB9RNDMmGZaqfjUaG+atV5z7TPIdTLiVe/9oNdDj9Q7ITdCUV/6fWH3HiZmwzi1erl85btGOC5W0LR7PaqxjPo8ykl36q48cDPXb7XPA1TlmaG2YftfpM5SL8VBf0mt9gMTeXG+YecbArf+84/8//W/ydW4oa1hF4f3ypRj9pYfJq08aZ/2UZ9eLygrjTwTrSfViqdLWWcTmnz4fn2UeubWLMzAo7lMI6O0C1W69R/DmaXkaW8zZeyk+XUFJ5CUYYKdWb94yHrnGnWtAhgXelKrAm7i6IjlGY3GgbCpqovRFUJ5U/1pey3lb5YWCL1p2fuPkM9SPKlLfa2zntHG//MegEEuuRK0011ObhxLUhTPiTvPhGwjZldNaWyZh1xCiLyzIAkNqY0uDcaCKyoGzuZVvyldeUw0SfZ8bc7Rv2/OdgZpWG5tHghvr9eVkJ/EUgKm7Y6eO5TJ4zDkGyrsCAQZAeuGVpsUampjqSn7D68jPYy6ZXxY8A/XoaBNa5HRb6aUPIg+N5nEGebUdpb630PpdJ/rwupDu6zgyni/umz8gb9F66FVmDQ3S2yUzAYAf/OJ6D6MR/t9yoE1I/eJuydtnb2vtVW4671/pvvFBnyHbYh3bQ6l6uGYl4c3ao4c/LhKwDCJu0aYPyy/6mJu9Mcr1pvRSP7dlXjJyYeuM1BW3W8KaASh86tkNjTeT6peiGh+Rt9WVI7WcUFJHEmLjTLCgQTJDmFBfpbDNGDUXsrLQhyGcsGGcyenMmMucoduX/Y6lzIFmtsHG9LJfH0wZWtMlRk81MXmnTGlLfDew9dn0RBoY6s8Tkk12URSP0CGai+52ywT6+W08eHPLRYgmV/Tm481QDHJGfCNkD7H88sZFejG6kZR2QF6fDdJoeq0/uNorSXZeGzfAVkSTOWORnwrYEvkQDj8RA5P+B/Fw4V1qjNKRsBdZkotJWeFXJKsEJisRHvbDVjpvNDIUiQ6Rcz/FzibiMZlquE2KM+oKTzzCnkn7qMhVHwWfJy1X/tuI4QTRznuUUyJLeTzKHBYHPZr8SkH6OqojVJiVxAqyc0v2tk2N0OjctuRlpKxxg2ppx1tSAOEJHSVkZAJhhcx+5u6aZ9q9P1FvdDuWHslSuLf7oktBvSWtKAfIB/snS8KDlzmjjBAhdRoDT8lHEKfkWBJ7PuDpbdjfhj8Cz2M5Cx5upeB7j3rADyEl0eE19ybdQhGikBGePNcUPNLJPTdY9RoQ5FvRHLHsjCJW/yBs9wqxYXlb1JePWJi8w0nGG172shvfzMZVKnfETzBWU6i/aw9w4Cj3BhOgVMVmYBwZzsaFHUsT6Y1XSrT14BEubcQbwOZBA3GcOo0bPsluLDvfX9K9OBUQo9/YhayynBvLUYur5+MQendmVq47wyvzrzH9E36zIpwUbB3EWE3tapMMiEzdMWj1JBiVqWMpnZmW/wIwaFj8l4i4MkNUPQNHy/OO+L5f7mE30JFYzrsqcS67xCe4GMrLjGFxL2y4ykWV8y3XUhUW2obaA7P/N96wUlvT6sqCkaaGyfn41zq6ccS9CJkizrd9vbWv8Nxx6v8zjz81+6hjuwzH+HZlrRFlPc6CilUYJ1sqkJBSZkFPWE0QOcED7DNWLY9qR6ARo2gSQkO6QP9vBtsxEg0lnmGksNG0eV7GBt1Hlr5RxwBDDSnN9JvUFjNduXbTUyQ2EC/LLHX/HmXmnX2fmbIJ22bbKqdIpBC8fDF32wlulHklhOMx8MhLG9xqiOCaDxsZV1JVxBViw1Ac6RJEGLuik8kCTZUdOmpU33OxBUARzPwuGuTHayKTajuDVcrmzn8QwaTGCRNxAtFtx8kVcdEMAYi2vZ+VFCxQYj3sWl6vDR60M0pzlLEoqRVUcdPvsziJtUU/AGQbG5zG6NqaizBGeC4LlD2zDh8plQM+7B6QQcLHvciMtV9OKCK/7o06hoOv6+G8Nvby2N6Xg2wl4swaZudE3vIoCcc5vmF2SgBEjb8iCm1qGd8z4BQ95Yl6tFsTVs+0gMNYi9d5KuTqwFvrQr3gRaNEViwb+ry+0tnBCZHOXIl5IuCidFvjgvel4nDF/qBUBdZhqeAcT6pBbVJ+yH+jjky8ZIqnlgtm/6uC3FmRKCaiIks8dXvzt4BaM1WJs60v2n1NWiKPy3WLUBv8/55zKj3DNqY6zOIl5jJRk5ZZpa0WpiSj/MldE9SLxZOcbJ2DF0jUvij6zhiaY2VDMSPJJyX2xHEVJqeeI3bmmEH4PuxWQTJn9I2fUjkmzEw5WYAB6UURtHdLdu7QXdNlvUm9wIbzCb9h/LP+hS7uRcmqrrV7UgsIO/6XaeYUNwAzFsq0OMKFZqAMeotzW152RSndHJM59jZOJBGXU4RNZpT+TDZzfGN2wO4950Hbg5/jdKflUT+2LOHRW5AsygmPxzMO41TmjhuEr5thkkuvTPCltApc3mLq//r91E1vHFATZKpWhDTbqsuArDFRnu+kQYdcO/HzXXYbVeHYYlFOBhlZ18BinPRyDELINDrXIAkydHDwZr5VPCY6Ey2YSzh+gC4l9N5wKzPWzAaSYpjGHYbZpwgW4nrXDxeJ6atzFwvb/fAYji/vLK2989ArrTDEd9tz2/rBCnF+FO72f06Q0r+N5cpzCZDEczXhpW3cDOz/cRJyl4NrMQOdXeGyCNRj5EFGpBlNWR47k/VES0pr9DzgUDeYJyp/OjayalsTmNAsNAPUv30wlfscLPpVP5CvV4YV42OTxYXxEYDQzaod5LWr3PNb7Rc1xX/tQ+d+pu9y/jb5bx8JYqofl4A2xDcx1TNJ+4fsCP3r7aU/RQgHNno8yIICXdo7iaFLQJEyod60+8ufU/wmQsELyBuq6nCdG17PlVvMlElwp6z+rhR8JoNYx1fu4DAyrSkcdXGhp1F+XNZb02XkGGWCUzjwgt35OrVnA3bDXCDiQR4BYZEqUvi7F3YXRjVSYMEElhzB3U1FZyiZrIiRCDg6Y9uNwWLHWFPnBpUynq/d3+GhYXeI876IoxoKA9hTWnYd7myv7eUfPVSBRQrskBcjfSHJ44uyqykXmd1SVp99FXEgbFahvhvjvlLu/hOFhW+PGFSzpSGjW+lfcd/DUTxIXjpi2tHF41o1UVAOKHHW7r9uz1apMX6FkRSLdSXt930h/ZLLg+FwBgSqzwnlvAHEf7cyZkfSKMzzsaFqrO2HQbI0hGTP4RYOFzAnu4n64aEqG0QH3Y4qnhHUAYE3Otrn5EONYaKMZmCV9HhfSpAwzec4RwGVUTt3r8xwsYT2FsjIXR8UVswxO2ezjM2M/HMydnBgjsVorIiJVAk2zvbvFd3Ixy/7Qm0In63XedQVH6QeGIP2vjXpxJoxVyeymi5HZdrywzSYt9IA3CKvEqe5/UyQW2jihQk6HG/q1LdFCd7ANZH9bENlbeOsCMXLj/zlANuFYjROUrSiAqUHuvulZ4H+xqw/ZzrTqoCSgn8PBg73M1Ec5yzaANs1v+EVqtmXn54NWRHCCXiJhKtuStQAi7b3pXevenbN5jpkzPSZu1tMHpAbdnw5BhrnYp/mcp6wEccPytI94C/KaJYWcTyS88hCX82X+CdcnKjdImjuRJVbB+8V8pHNlPc04xPnAGPDS3TfnLo9Vgtour3swO+xCmPZJnYXSW57JvB0VI2leU+uBTk32gyqa+sz5KH7WGlSRaCxjnCJPOy5hnsVI0mdrsI7GctEAdEWP6XxXnXjdKeZ4H0XKFvn5vhDxPNM5dMFEvsTWZdUp1YMvxZ4EWtNeuO8+OQ5UCv0hCNKve5EaJK0WxHuax6LNIMSaA+HpC9EiivS6bzi/tt0ZF2BZwpCkdvJgq2t/kBKrgM3Wt2/+a8sMM3yukfxn51J9s8wPWnDxmXoQ52l5QARHwG+0iwFHkvQhjMZQjNRQEjsDTD4y6WQyqGvjJSeh4kUH8dPcvAvhncTWrnj1QZDHwpYsZ8K8THPZCh/QSs1onmgzhTvjtnZgiKD27SQYuRt6RNVwQTN8PaesaLqexlYiaBy8MCkvs0VpqmIKhXfVkGCuoqkuRvzfBTNcK4Fpx+1ftxqYYMFR8z4Ps6lsYaVzE80hddvCdu1VktCLodphp2LTTYeiyAuyCihA4G5zlj8xvgW2AxlMx1jcSO7FF6vJcEHftu1siBz7lycOeCuMFx+Gbvvotn4fm9NbFeWdsTNAP/3YL4RhjFwYZ+KE1HwUjoLQ5dp0c9ipo6uG0r/e+QnQdzlz1D7SGHPnab/i5eil1PoV4xsbvW49+ipxFZWRcWlW8sfHb5EaIw+Ar0Mm1qIDh/FdTq2zGWyXiWq3h2VbR2LugPX8D5W+Ky46ADmnY7uG+nmOnq4BXiRr/aGMCAylipvfB5OvO1cM0szg4xvbz212EwYXDu9gnxl+jtJ5kZN4tQa7PZyqG4weTKJkCmMGXYeoWo4Aet1zWu0b7blQJXLZYHyHCoq0qJnhIDIp8jCH/JajpKXKEmp0Bp3oPWHTVh6uCo3ZxAKa/Oa8+lSjYF/XoaCSqOxknNuvJdY9VLYTI/8JuRYwzg0NcU0cR4rjtVDEdtwqkSEv6qDIDZtG76SOyXcMo7g3UL2XJA9e4ueX23xmWwLt2lM6BcJZ4FF1LfHy7ds76yGP+xBb59vuZPTwLiOdJBeLKpBXfY3rnQgqqtoHgCQHGvD8Clpp1k5Jlla0T58YoJr5iUdHxu1GF2LlxPams0gyHXVCoGbGZOgDhrqt+7Bh+5VLNeYzXsEatsE625aJcz6cwGwVTGMf0/ZUcOKR5Z0Bpeiwh8AvEQRWjSo1je7fa006S6TTAU9xGK9YctNng0C8e0PpYhREXnDEG3O6+6EmM/LrlYUMQWtFFRpGfZa+JaaUFL9O16P11x/ukY+sD+NT0c2W9u6g9+YMAvs6ZYv4pii/NNnCHHxIx5CgjvIFQ4uhRQCW85hDo92GStXWOMvI76HQ8EZT+MURZAwVYwNsdWeXblsU/DRPYldEZdsSsx26wRsLZTLrkRK0tM/BwFmO6xSQ50XxHtB/uVVbD9h/5Ruh1Dr6gqt65Q7Ekdz329iKITC1Goj2Pkev6Uwb4hZ1+vqk3s9OnOlr/LyuK6pJs6aJyVh+uBj0y11MvGN37i8Shk00QaG3LjPMdauCp6h2tTmjb2lSTWn7AhpX+QZLLSBLKRgNYqonFNzNVvewRwkmyj+JH+kTCxHJm9gfFgX/VZanGstPk4DelSYD/oFWeVJhDrl7HZ9UecEyArEMW4Y1C/ss0qK0WcHQF0hxbbzwGG1GgH5KhBDIi843KNFgV9xmkw86cHofy5I8xPNo/kRulF60jcCUAPxWZsdo+fnqVGe0YzBS+tmNRHz5CfvhDpNa+C5uMbMapO2JN1TrSwrGN2kOao8vzh5zRjQOLbWNESQNL0Be1evfIFpNFZcUzKpxBJmSbG2COGMAJVby6a74b/gI86b9gPoxT6ijfWMaIUuFtUfTiLJqDybtFUia0+DsietLyZe2I3MYDaSpDMJt5z+CR7sQkv0uEDdQysOpzJuu+oXDLb/2jYlP5IVzAYRs8KfyP7fORQiGVdfBtEZn0SYg4mM9+gPX6dIdKA/g8L7pK5Fv/LPc5pOJmca7lq0zIghkEIQdbLE6HoR1EkVw3iOTpT2XP9mDvvu3dHRoyyBXiC6jYGVF/R6mtcEU12t7hgJLfcsw+r/qKgcmcuuhRM9q7M+UrgdFI372bzy7PfGD7d3qFpwyTZhnzl5afJW642fOQsKcUMlYaJ3vlE815D6YoB6iU8JiWIgtOq/S6pcH6yHq6uZvBEJxbypYJ1oDfFJqKJTM4PWernwkvVDLmQZYh/pf+hYhVp3YrgcxSXX2HysQGznLtYv5JX18hod/KKeOJ6uol1uZE3H0xqkneQDSP8ReL8eDGY4pfZSNsEwYKSw493cQkNBeT5qWONCXNIOtsjoObkoQWL/3U2YnEeSkWu7XsYnfcsAiHdbyAVtRZ6uPW5x5UcteDK6DzdkDqrG7+gmM6XKMKsJp7v0qYqDTDCg4M3r4rGLmaXFkuce4g3G8BRxStSbgYfnjdcUO1RlcAqQCmqEjjUCz7c6tiUTSaFeiVI6XiA0wpDIE9bGRg1sTqPuuz1BKtUXHafbaMfVUNyYOvcqYcKsuc6+Jb/bXN/Q34LBT9TlP8VTi5pmnPw+puC34Xf4K2tm/BswerrehzYeXVEciNAKFOtHuwItNHJgqr2mHEw7JEC9A1TB3cPftJOATyKfEfuldfsB2Kky8Ua2SeWls+nA5nxgBJCfzDjmCuC31y2MfbGfUdRDyIoo0nXFPfeO/iTPgU2MduG/FQNxVCelUyKNd6gCxHx531ZLicdWbQbQReWEaXAZZfp2ku7sKHUTUXaWtccxLNULGjsbF4DdiJXvhcyzm+SR9+vNOI3UuOOPZbiJHPhYJA4ft2CSs4BqC+F3PCx78pgH36vqbIdZwVZuHUKKuVe6OYMARq3haAB6hzJcH4ZAduIFJ2isnO/U79DA8K5BRkO6mmmULunzPlhQLvM/oaiA6xN2z0ByubFpCtPsrqK6qLh0Fj9WnQr4q5adDo4zzgSohp0fz/GDqAyg6j7H8q5gunPoKJxsJzq8P+uWW7YlnMXn0c7J6CjqFziORZrmLmvwxHysuH4sJN1GoIxOflEf8pEodYXb/YafgbGXMptfsTB9Jk/8r7J+s4Y5YwkiBI2mhc6iRN3Pxh5ppn1qnId9Oirou0S0pCQoqnidpmNX5ammoXbUEQXe0aJIXxWWLMlbOFBO2T9QaGa63OQ/zvUKjZ8zpNMnHuSh6IYUNT7r897yn7Y2f7Cc8h4enSQx3baDehBzxKtSwuTHNAHCLN6VflUAZsW/LuvXE7XkNHY2PJcaRdBMoXwbbYuSwmzDHE/XaQfaPF3afLRUZGj5GHT4CLirtVYvTkP8pIFg/Nf5bodeDVj0fTMnxR8fy/hFPk9QqjVjic2RKmHmN2y1qusDahp1iLIh8NfrOVZjXWx0LUvcRY8KrgDQYxbdi8Ya3SMbPXDuDeZC+ZoGGvEN8fsXVQ7BpRgWqhI2fYnsX4dZwAfmVoEJxpbkS+nAtEmvF4Sa20Nhc4DXXERhEE31uDIKLS5bTy2T/TYN7tV9vcwX3ShQ8NSrIg2qihYzMnU6+sxpsGbLaUhNksz/iBmVoau9u7/hxBp6xFibP3wYO4ZEnDZ6EVZhri6IAqZGz9BX+WwKd4hG20M5CkFq88gVrpWF/DXNABZ19vNS3qdnwAwZIiGigapSUxlNf2RPGROjeD+aySDT51i92TfWgNgbmkKSi1Uz8yH3icE3KQevI1ZTrwtEbtiprGSrI1xCdgXJhE21DVvGtp7SYZY3/qlqHnHWaIiAdiPqMONCHRjjfqc1BnOl2WrBuqUhR6maKl94JUODfLL55IFt0nDbFyPLN6TxPz2xcjzAXysEgA+WADjt+FpB8sYnOELDqrHjS5TI7Hs3XdLLusdPq6yhmPM67ltdsEi5q5HGBTpALsIiSoLvCm3Fpq2XIYYDQbmVHhwh91Mg7fZt220lmcMUZjufH6E8fAR+m8gHCsb5WYmA2nYotEg8ptvQuHw4X8c5tMuqQ5FqzMJtro8cP7AojWB/8lF9rmvz87c4cjTv9LfxJf55/Ti5NM9gd349qpVlqhy90qniooqPXXDOlLOidEAlhoInWY56l/DAWA5INcvIaLFywmnnYVNTix/KCkYFeCHDH4S914uVrDaO68w7eqLkjwP1Dr6fdgodJ2fcFDvOMyIJbjA7okGyPfN7gdgrqlvoAKhQo4E8siW8JynVHLUfqNiu8pBgZyHqJdIv+KFU4ZDYv+ok5FQg98ROWKxrtpEuAOSDMNXLJlKukjngFn5utvSUWn6l47rXRBbCf+CVOKZYuNKpoJGHK4yJc3Rnj3CKB0evKUMDktj9wWBlZ/Ix7CtOMhISxvnjYf/XyC8qVEUeL5D0BMrfQl8ggwq0UFEb9itwjKUfbid6imbIyiPkbTB5SYjrXsdTBG4rpo1Hsl1AGvfALwJg4ObXZktFWFsnHGJEAkijISn9t9vSzcC1Ts2+OW0vwgYNERc1CaYj/Nq2xyTu7hBr/P+LNfbNLiwnJDAmpjtq/7haLYCOM0Y0J1E4egQS9RBngCxDyRba5u28ZZMnM+jAeVYFbGwVTfJKP1xQy30jNPSs4ZH1DpUU0tPm5YwYvqO2XeSTOER6r6ZxChUanYIbFg9OS7kkSw4DYFFB8OnoU8pASHeexj0rgCVgHDNP9Kqkikt+OSGh8gDE+HV3op4mfCcH0QTX4jrbNA9fJLKslvaYGP2j6sMKYxhCL3AcNTulphfwZlbEio9P11EIjKpVQSkPyYH9+Dl8yq2B+U9qGsf/OJ7A/K/JBH2W9QkSHiMTPTUyeXGHJd2v/9m6KSy3G8bcj7SvdRTFFWsmrtJPu8GqFJK2OYZJQ4L1HgRmGApYqXL2lq0ZKfRnzt7c+VOF7C4Ru8NyqG9/rixwhUiTlAKy/eP7pr5sRvgpueNnSJJKWOqWAZpFkl0fpJ+2xpnTVvLQiK5oCp/QJspdFMePycjnE7hhe9PCYO1mgVjPUcPzsbEf2mCGRgC+VQckRejqAt+CbV3qDwOa8Q69m+PZN+WaZ58619lps+UHAT8qFZWEK4LjBF7OXEu/wK9njM7/JZUOK5LefMztAS2LPwpyFTsGHNFjqzRsebv59qHnt4yHF/poQuHuqVgxDnKhxSQHsMF/ptRON0x8NSi7iAi3Lugi+M5v8oDG+MctXi3QJ0TJWEfZXBLy4R3KiK1ERMqS/nv0B5hUzmv29q4VqJiGmQZ3dEj4J5FE1TR2llGf1279kvqA86KaoCARDvDWbWhlExb8m78CiDAWtaLM4dmkGuZqbSJfY3dbi1PqD+4Oj2a4Q02tIz4duW4m2SLhU81Ru8Ll5JnYnXwo+f4g2/81RTULT5eq857ylBr4FgvbL/jfibmMS1O1iFrjrBf+afmhqnJ89Zq8KhP5mqT4zk3gLVvDVMg/ZeF7JdKeEKiYKPyxXqvxoHy6Y0G4s4QMZtMX83y6hSl61v43zWw+8c5pP8UQN7dcXBa7sibqobbc77gx+6Bbkhwm6xhouGRe8z99oTtNveYvHPS4E967rmZzLKknpWFlNLoRy0kguzziJCwFFJBpaPPQrAOJCS8OaKesSX+NBZWclAyETYvbRk1Y79OkpDw+fkON+wE5+M1dgVX6wRf4zDGwFvkSo7SzGvb0u79mMiw5Wvs07QxEdlF5yhTlXiUogjR26Fhfw9WqHmiDnKIz+RAFUiPXZAW9+8gC8D21nZW/jotVkkQjT8MnzPxPecxp9Zr2VrA0+NtbNp2DSONMwlTEd9Vzh70hBbuOzCpZt3Z0l4XZRaHQCyjmyK2FP97Fs0c3htcybbcpBcqNx6HoDanLs77O5MscW13yVPg9hjG4hC7m40N+RditDavsG6K6ulSgLLeLgBMmXHtjzHBDhfEFQqOloOKDMqRU2vGW/GI0w7r3slpecsRR7TBfGLUG/p6EYg7pzdc/KUTm1zfuDkSaPC+nk4hH9oKiUxjlIrk4xdeWTLKOLVrrM/+cWvbuu97yTquH5jZQPC3b6hmB+NnMnckSq1FPGUnts2UJPRsvSyxitbJ2tjY9Y449NYdCCm8RbjJO7+zBUbzEzlvPLDzCeIv28wZof7lCj70j+HlesO3P95V6aZbLBfb+X64rroNcmOsyy8F3I/ZxjWaoGRjMbJY/cUqiAccy6FCR98SCLx2/cbaYCGiqsDWrUbU9WIZdfJVCr582DFFjk7OWrL0/GExfXIxe/waezcv8hg4sYZBatuafDo9ow3XTBvMOPX3BY1TYbCPhZbqQJCCdUjRTYyMtjpPnmPSuJSl0C1OT8A1CTpceIHfPU+fJJXIRhJXgblKqSspdm6/Yr7MWLwBjc7iAELZxf8mCHUWfrZX6iiLYnW3CERBUCfhGspJSkILfrjrw6SoZZMLuZpp5yeZON9gLJsPdhg5vzDeI2gSBTny6XDgfIW6nRNQlfG9DgpdEqLPn/3hiuaDLH31+BePuStpi2mqp1GZkKXnnqfjeVIxJQayIIWDdb09hHbhPa6m3BpqA7ORnkR5VjniO5oivY8v9IyXddbZWVa8NqY36CjAHYblKmrNBESCnx13Ils86ek1O5VhJ+WruBS0ZpcaSWS9Wc7M6ogV/lMUFSTskOiMZYKFD/5doFGV4AMqgYxGrL7WhIhJekgnCgzNOmqodSC/IULNIBSNrwKeiq7e2FReY88as3QFvA3eNyvmnjjOaTq6odGwrb375Dr1KwhQC0QKY06rsoA1c/SCS8WGuV1peS0A2X+l/k9crm3pc7O39OuaDnxltT3bdaOXCCypB9u3S62xc7by0K+igBKwSdlU8uhrvPvBAZguDADndb94K1v4Uzs7Zf6cXtCmqWyMZB2XmH3KUojNtfbuWhLpYa/0FtcQ9rOy60/PLeb6L6jF2YzbtyfsRs/saUUEa8t6xVhG6BPy/ZobAh4z+KJRAftasnSrRVzyteAQgow6yzq+5719t5xJyit9pthOOa/fdnWDXJMVyl+aJqqZqv9+pyO5CimiWYbg4TDHLQhG/tyyd2ryh1boLGbCm080DG5jrTQ7A+cyQDY/I+jJmim7JjSY84sfp9SqhOuOtCZgTEXdQLgHdiQgi2f/6eR4HQ2y+DLRe+1oQhf8t6GFmMfdR7gtEsU46cMXsiTCy5e1BL1K/UYa+8yGt2bMHK/HYvu9gRPF1M1/H/crq7kNKaUlLUmHUGf3XNtSBEPzv9SgKdfRlYLp/lYt+fadB3QyvpJk1SN/qj2g8xjoZLxd5J1u9OXAqbZObKcRfapsXm3sUTRcgrOSAK8k8ftMHrT1LD7tBO9qqdH383pNSj8ToRJaXtqSr52A2UK6V7wyuPd6pFN6tWTp1kMgS1ZjRwLe8Bu2K+OkmDZjvxKxbQc5xpdVqf8vJ3mozfoQ764H5ue9GC//tTR9hE+R5J8ZYhqT77GrQgRFFEG6ufwRM1xpJ8sww9ffXi+UdhEx4qRZQjB0A5p4tMWDZPppx7bY1c0vHYhQyCy0jIidXxE2iA5kc8V4Z0Ss+rd9UjkzWd33qNA9UghTJe/nuzNMLqKF5irXmdJernaOC2y7qDpFZimXrZK4FGgL5wcTxGa2ocnPi8MC6DWIrqy46jR8MmTEEbVEQtEpy8PnTaHeo+EIOguw9wavdrIQDk1LHD9ckcGjRbRMc/CZHl7HwUgULX1ZFAZFIddq7RfHncFyfUBlnksCvuWQhbJUN/Cgfp4sa95j9QG0/WRog3PgWAUgvcEAWZI3qyl+Ao18FxCoZDGFWTEl0/hw+c70PEC/5eehCG7zMVzPcFZY0RPhbOzfnzjwZ/4zfLCbjVmq3gtm+h45HDIdzZJ7zlr3pwkZxcgkSSytXMTPY6pCZX+hHF/vAqBqV3QNGpCNLbDgmlvVJ5CQZn0s7GJMaFJASaH+siB1d117mTaftj4M/jHS80yuvg4FHqs0ncZy9T7qzok+9dMAz+z8sgb3ZxxFUAja+eLt3iXSgZ5Lb6tpbMVJfAB7h/Q8uJkG0J6zLlzPtn+HrBmoICHUOTQ/9pNo6Ifgp3ewf5bxp1Uwts+Uj9oiTqTKsnH/nvIv8Mx7FHgl31QTFy7rTh0GQ2ivlRKMrwqadKxjaCaWgsec7M6nBXxQMh4VA9bStQ/Jd6eNBumiD+D2C/ngyBbuxBWsWVJhBS0ewXR4ZD/vxpNnzzsrw2xAB6gdvaRRapkaO7ZZpmwrtEUG56LqV7/XNWmPpxLj/3pv8SRdX3Jp/w2FRJh2Bhj5NHm+2eRm6vrAML1UyvFpRCMkk6qAkF3nrqom2lhVPdcUQeCt6MmXmBANeq/U29Ss1ufFYahXJgitQlNlOVFIVkKD0hadL+dYA/xvz2KkU6EnZaT/PY0qIFyhWDCGaXjytHgvclpNc74tiY5eCy4fnjxcT9EutiebdE6bsCPBvA/IF3KIXHCXLoYSq5oxRAroOas/WxJcKGmoF9XZjJRZwBWDzm6Ki8K+dxO80eWw/71LCE49AgmEJF8t0ovulqxt27E9X1liKFur47WTv82xyYRiZiwBUqEs8ChEuWskjN/nWjhiP3+x1a0vrRY5hDl0SzBBsl9vlutj+HPC7kKlivkOk8oEfR71y6Ps7O7rl35njniOSFNTY/1mbz8OmlaY2OVWPJE/cexHXsZTPX32NyO2XvkAhsPVAE+HLsS6NtRRDtzCa08sLeHsEHUT5m49vF4F/PmTEWA3KAv/8DkHCjOdPxgjh+4eFPEQzzcTwgeQJk5qsEHU4OQKgU7smXev868uK/Dxfd2+Q2VnJlTt8vpy7fdbeSdNHem7rL7HHn8pQ5IFfk2ZOMOjjqrZRqNlHPyvFgYKfM0iakF/w2g/IrmmoVJ3pgX3FC//Ly9ayBRX+3DT2VqtYJXkWdb9WN9EzvzPxHViQeKxPESzCBWLsuh9HrHf8UojOPbAoYy84PDZ2XggpFydZykUqCyMJm675tcJ4oR1L+CeXP+ZyqFgeUWlio95PVukkVlKf24NopFlXmOocmWQSmX/0A5WBxCAKtpAkbvxcXdb3/rqDrNELZsoTyohqdn/bR1yFEUqG+iq9a3w0QaUivBMp4ulsBevNK3pnyghxLzOR72wxdEJmtKspe9B4eakNWznpIELJJ8U+nfM9ZnTB9kKvYHSkqO9kQw1wewamvTZyNrawftqBcYbzVXQUGlAZVRGSwE20YcUzGi1PHYM5uvanZNkDL/WNQlAoN4ehY4xOwyFkJM9CPuUxPHHxAxZ+bPi9sonGbPHZCzO3y/vKZJWn8SyKt4B2HX2/SAL2fKL9cABTM+VE/qufEl0QnGXY6c/elJ7EbBvoeZzV5CQ/zQu/Hd1YA+e1GuZHSwhIpgq8l9K8WwYBUmD81T2U5eX+hB9uoKxs/2tF8s4wfTD5L8Q19ocYwObfXTLUemU5EywHrpbaNwb5P8n7pr9ZBI9jI9cBi4GSf5E2+mGO/oN2VAQGru/mMjHtVEGEHA3hCWqcyWoESTjM8GyqnEHQJDE7MlMSHhYhLSxq5Gks5ApsAzdsVGoPHJX0K+xC8piNbJvdiuC6+XG7w8+SVPe+BxT2r+82JGIC5tKuPq49vPTngkCBikA55byWBQbzrzvf+TADvl439AhCXnslG1x7Q58iyK1i/l7kcBfUQOzkXqSdTZkKkeKsAfeJ9SJDwtAydr50403gkdjPdAqawGzFqQVWlr5FstD/1ZJk3+CJwTMhFdUlfxoM6hjQWUezE2j1V1TRd7aXhSfx/qPlTkVFYsxGs2yBgv06GHIo652ov/7LKLyAtHLnRhALX5Ysgu9/wvJyCKA5I6ltH5ACRpavI97LNdPfg/eIJwhlSOs0nKV3FJ2uGGEAf9TrzadRTKlYrnqwa5MA2XBGV4vUf7CMvYY6MAJ+3LT17w+MG50BKc5qIq6vhiCFIGRoIrvocIEhxKfxKx3lDwKy/O2dDUj2c06rsbrzdi3AKD6VV7snuDiYIn6+l9dClSmYpeLRDZJI4e8tS31zo4tUi1ng/GpXWktlyF7YQGhhtwNvYCSqLpH3M4JuwObVyCoYGZ4EpJ92b4Pdcox8UHVSX+C64SENFVGUWNAmqJA9gk3MEaJdlz+IZV1Qts6BP8G5jAew1NDUb0XOXkM9RUzRYc6tMwjieGqqJ3H8BijsderDVkQ2pOfRaRHn6oylJDc61SW6mjeK3+/myH60i6R85N0cG8IlS3O8LrtYPigP8LpiR7B9QZOfkvl1j0qsSvkogyXXBfeMLKfKg6cGrz9dYLe95fqn+ufULspeZD+ce59pjsthAsZeJzDWNarh3uRK7rn3h6/cBz9YjVVOxNuejkSW3dGjw6WK9P9pg6kgX2z5S2Fr0ROoVIb5956lMTwoHA5iRHPx2inIEoOWLdU0aEy0JGoLLFpeZW7VYf7YpK6+Yp2ULFBv5e6Vi2vkXMv6kGe9/E3MKsBLqIoaaiEc4Pw68gyJf44qFgonybAwrRFiROqyQ6Uom1kf2IhGR8a5+3gdV8HlKQxImyArEvn8MUkh5rsUFp0CbOl00W0hN8gidrLSv10wQDbulSbjmY19cK3Kfjsa1FnGevHYwMXRPLHbiTInRq0KYZr45/7bVKtCnD6+8BxvzLna86pkt1yBgjjWg1WWQZiTq3z89Hefw7840jbFR0nuQdOnaUHxUHvm31FCi3KDLYQxjbEYomlGNNweI02iyZCe0jegYEAtWT0NrVDbwKu1ivR6cmv4NWySpEbzL8SjYyxnvMo+tgkCAVIvXTqn0hisWfe30dNBnnnpV7nCfqheQBa2TSb6mtn2IaFb1kL0pdl+qC0lolPQrgrpJ3h+FW0uUX3eYxcdixE6V20kQ2tqYAXe0yhCHpMeZe1epE/Kd8dl+vCmWQpJevAEpaRBc8LYf9KcpwwEs5brh0QlWCk4kjjt594tzeFe0uGIiFZvLYQnwoalAUa+wG2uF2Sl8z9cmz9UXqk6oyl8jl3HiLE33lA//pqY7wPQ4rMRJb7J/t7bIeWxvk9XWx27m9hOCIRlIET2zwUlHllyk8tTiG14EF7BxbidPbV/3mgKNpOQi0LanLs1ZOmqdQSdGPHPiq88J6gjEua/Tm62cPYXOVYKlvN9xbqhRJ5T2cfTG95STT/JJadjXLaqQkAdJlwGFnaDfb370ZcdAG8vQAiMyRrc7zwAts+Z/yE2auMEkSYw2542rZQZgtFB6lCN3vQJ4kTNGEX/nceLc74L1nsPuJ/XxrwWr+Tj4H54+0jdCsbSfHFV3SgUjj9Qzcljg5y1HQzx1RFHeuZdpFJRe5hQmI5xFJnyymn86S+3C0vAnkr3aTICO9vyPeB7Z8AZN3ooWd+mx3xtJTn7xyYz+aZk/K6yAkQ5KpsURRb99KyfRENfB4Uh/Ef2Q6mg5HnKVXRyMWJ7ScNpEgR+emY9c8C9zHiW3AWIcyxTQ9ThCf2Ed3rsRDy+9JCrwXV7O9r9HCk9IVdA1OpjhGhTBSqX0OLvMOiqv4ukIeNkoU3RL3hIVAR9sGxQErQjSAz0bI2KP8YpbMf3cZUZgSwbDomyQuPZLpVBcS47sC6q5swP7eYHUzsNm1nDJvLFRhtGqpqZM6rqIy/AlI2KCi4x1zwB01pCXzt+e6Aj8kBtTUpYGbp7vM2mzfne6HqwWF2cH3FZ9GGaMm1d66QhAtT2w91FXiJ9HIBwhbUtIJabL2mhaAc41OzyVgFmbggAprZRKFpkiuQ6J3QG3fcd+0G+OL2OBNGGE1zDVdY9axsJbyyAAUcF0sueoC1WNRB7lxtCjNcp7t5hkSZOsdbbJGd8DaQ4pjhBaVfOTIlQOvaHLt6Cmi1TdNwhHlW4UxVGemA+O/p/KevQgrIymY4K9w6uya6wr8k3o6ojFqLfKFiOg62Al/+MdSRA1aZVtEj0b/7hppqg+aPqcm8UMokiQRp4y5BmmN6gis+23/L1c74D3ZlNXkjKbHRHDTLspG86vUKPtAy/hCeXtQjYf5ahOew3iwYUm/Kn/dWa6N1kEm3ylvvVm8hYOqX7HuEZR1RFzZDmImiROZA/66gVfuhla0yr7CPzKp/QcdlB5CSAwfJE1ewn3zvd8JpRB+q6jA839weabgNFD4kFdkUo2KvMwmxvjM8Vw4qcd1fheqc0v1qBSGY/YhGtlOSGR0kmTidI86VBafcQhkp0kzCDRje07DmT4lAKr3GXVqDOAujEzrr58foDVoydOCJqnIqiILQ57ZtexlRkT9l1XBxlLYpl3EZJMvWRaZrZq2eFEC3qt8SM+MkRUbyTyTzPuQ4aAHTRfGR4IVHj066bxwyAwZD1tKNL5AfV9Nk1KDhuRKsUavXtEWDMChdbwiLqRF0fV5ZU26aSzza6DBIixKv/fI/78qpaNurxTIZT1bNLCD444udwE+repUZzaMXMdqzZF5UpukSO7I602gw5tBRlYFkQpqzP4Fa2SeMk5fnUxQISAAYn0BJUBgAKlkoLIZE3dfrPo9u86pkJmI/+wNPdE9plhUc96pUf0GvWHPG7MHBY1zXFcQmU2BZ7DEI6pYFNvWbEvPIZ8v/rr4i+dAXyyJDv5xV57B3rp4KAAIJ6EH2m4CD9kTFr8AiTHNjbMMOKNg82KbGgbCUJxUlGCOghtUpVXlbQBLAVYgK7rsGHFEn1ALE4U+C+t8OPfjYiXIzZKs58Vk7AChxHT7Z1A7vK20t8H9cVrxDqO/X2KqPz6VjQFz7O/HbwFLyFocqd5wCvTCXKRfczb98svgT+Mo4h5zRU/oWbbQhUWT88IB0V8xktN5lRPQedi0pn7UKzxcdgu+1+1ETUqegeOmcFppYCYJOM1M5jN1sMLnjWGwAi2M38719hDg7t4RtDuazRIpNIo9/iW9foclqFcP5Rk2fBA/bvIFUIaml62Lv7Q5OMQVqNVOwrXN4ifK+sgyILUjKARG+gJKgf3Ac6RUdNDb6ETAV5d3WwSdDaJTpjdu/6+jyAYVb9uxK623nuMbWUAE/LBJUvYh8OKglaGwQei92EcrI719YTyLh7oBYFrTrFe1dSzikY+1S+9B3tBY5IxiL04xBaWtQYj7jUWL9RlTqIKCniRG2m8fBBH4co6SvnnDAd/cKTC1ZX303w8/x7uSoQzPlRhsxDC4mrY78AefI9+j3X3RnI/m6UsET8x87MUtN7Kj3BtKpvgulncQeG4Aaq0IeL2wrplmtb4GzDC1Pnd2avUyQEKAo2b8PO/5HmKjagD0A9Ru2vvsL+5KlhX/1KuP9ouJRVDcRdAt1ztR/u5hZeJpwXphqypSKlfIZiDONr7xSSEgiqV6/mCu+Vf+R+0drF8CIXpV/OPsy63Rb9YAxjX5kddSxN1r1t/pO0znLQ1+HFkI1ZcaPfgIxniX0SWXbiFt/DNBst/YRWUBnIju/6NZr2MSKCDY5wr3UTduLF/kt6fo9I15kRJMUTYs8AxCjLy87ck4zIpEVaP4eiyNY+kbnscbvq7BRJ6eTbdaLQRzFsB1CZ3O0iBCW5zN5ELKFTVfjIx2rNgWVjN+gWvrHvFu6ifaWgy/Ct2bna4Ylb6T5s5mZSK1rhYoPln/NGsTi+jW8s7pFhxsP0KthTRiXoZFnREItTEJKUI9umuUM7EbOr6V26Pukur7nf3nGlRbRk3irw01gC58iBrui6vdSKYBg9e1a51btFYy9g2sFjyym7fHpWSFi/7lDLic1jlKiUyzVe+zOt/7+EZZyg6exzK6/PvC0VQOJZa7CeU6kjGc29pmizwV+Rv14oLPV5lSKYad7XUmssU1BwJ7fLJmUANIvr7iZUM+QSOvDhNnfi2gvoVvzs3u1I8Pu5j/UxV2FNYPcbDuGix2dYQ0IrxVU0N4AKw5PJRrv7zoU7N+67skHf7wfnPG2nfwiCH7WsNo38oKf+v9CcXO8FYruVPNRiJnGVYT6Iat+w4YHvA936n4FbZKmbTxjat1TAodrmbiqDsGe38dEKqreD5doK3okNny75KsEm65GgbiZ21DCxfP8y9wbFUcr9gasGtK4PqyjlSu/UFBs4c08kUSjFlUkj7AU9nYDki3Pt6gAxqj940ZiE2slMhqIbmbXXL6UABO0wIOco4pvKuTk9Ws9oC1DSz6JG11Rf7BDzBCB11sGogtXDbF0OrgxbGer0Oj9IDqfQ+pEaMOD7OX946Y3rmkVAtqV305mAUXyR9wMc+G97wGBpA7fOqjMR+y92MnuCB88LW5ibzbXdSkyV2Lz1gnE42oHuNI2FLkSW+618SjfFqZoosnWw8lyRqtqBdOuIjPAp6iWhBXH7oCbwD4vT4yUBoMVliJQxMHtqTD+xKDccKUvQpNSfK1jaMv1k8SCWxXe/703esyqdSeTgabs8v/uefnziII1ofG7VWqYnq6X5eC9u85bm+wtp42WS0fUjNxau42Y5uZ2nUWgKoR/npTvGrcHuj89yJB529x+LclNrrHqsDp13PGLiK/v8vffdB+QoXKV/59vOEIw2GgtBlqw5U1i2YLaKNvABMy/3YCzco9tmAVKLTonQA0w4LAwgYz5yBVn4N7xg7VMSTSJMYpQbb7dMd5WZyBiIATtayCOOOdxMCVlWNI09UKLrC5Tiex/i3kffZ9FZwgyjueJgWSJQgUoeIgu7fnjL9a7vQAYQvavEe94kDzLs1F4sw6vyAZ9TP6PITwhDc+ZY3td4+3s7IwB2iVMzfLTYhEU2iqriJHHmYP6r0hBwkAb4vYZZvNNtdTdbLGWRs4CJv3rRVTPUWLKy26rUEjOSJk2VJBVeuJ+Ip7AaxoOl9apMbzqCh+NAIQmS9ZpJNu1E8nQxitGdxEknmnQUpzwjpLGGILv/IfMahKddg+MZieIqibB9FmF+J4HOMmtzVab0GnBif9MaNj3iVte1VRFVC33uKu2WCZVtHP2YbLc8QF37AVDiI75IPdF+zC6iQDNuEuLoA7ppERn1KaqNaqlIrPr5GYyaK1b7qcGN11Jf4jvwUNMBpP1tB6dXLcl1SF2Qmk9rfVxWh/DsE9LPO5sxdPw4WyQjI8l7+CWpfiyLmSrn7Oxqq1dmuk2Wo5b/bfCmVQ6f02oFZLZVdA3JwhyBuu7ouMcBb8fUlj3whRlig/oILB/5IYgPhrfV/mD+Iq4UVpr1LzKF2msa7xZpnGX5qoGLPckLP5Bot2z6JJr0oi396pFqhasV/6pVWlUcc9fTlbLozFHGuUtXVC9R/chR4WtDmvvka8Qw7O4BxlyFy6NNnL4eUYdtKU6o3IA/cB09mQcXhHcD+ZdfuQ9ow4+uN58Q6dYzP+LnMm1bY5sEm1Dhaj1MQ3TVE37F8cmZKSlxPJnFhS5G2t4+3eXvLz6nvQtqqRN+5EoXLVM6uEumITSjRWOoLV3kf8zTtbXaT7yZkALf3m8bTkHzicXjwubzVoZPJS/NDVy+z0S1e8ZslP1hUASBOiOwtO3tx9TE1/pf9gXlwdlHNfRwyxLg3NmltOWhulhy8JqwflLgTRTbUEWQPGkx8ePPrgfrjBC/N2DkNRCNn4jSI6pn+7vlxEFeJFGcL75RywrRpNpwQUw9q3X/3/uyri2CuKfyp6y/umyhOb/iNqCpx+wHVPO129UJFY4s0WeGK7lq/j7lCOtcDVCteGmF3Nsqe9oeilB2wyKegREs4DmqHXqP4GbDHW3z4WBcQ2CI9AfYig1NN/Fypu7KOuq/3f7JSefGaKYW8saHc/cW9g4VYJ+K+KzfuvLGMeDtwZq7c6AWiK32pHYI2CPV78bzgzX6rGDAnsi9Coh+h4nefyi7rO4DOF2jVs7SeSilBCflv14P8zRcWIm+7puJ5aZoWwGCzJzP3h+B9Xp0DvwB10wUj/Bp4q9iHTaotVRr+JfB1mdrqNrrLVS0dHikrTZsQAazFhs9L9cKCRF2Quh/dXgnxyI9X6AvV+JDl1lf2XBHzW7rkrUSJxBGwYgDxNQK4aXzVCO0OejGc9lqK7dJR+yXQfSp1LzOeJB1aTTXNaXYvBAkfntWSAKgoRsm5YCNe7pKAgvXJe4O/M5aEBYcpHr2iGMjcyk4t7elv4Bfs4Un27ifqmwzHzyWBhK1cGlCklh21yvzB1VJq+Cr6dK1yDHnpRw9DcBqPF6X/LZQvbiTsF/6+kFCExtJ4tFUIDjiXCoItqqsVKN50uE2He3HSFv7hepeEUaQLUpna0xZbNnKRTX3gw9nuWs3aFnNcQTwBHSvY1SMnHBbbI5BM5ZeYmwHc0RVbu4W78W69nn0qhMISH+HucGO8Y+Wy6I51Zu56mNU4e9e4WZULh/LV5fxKFlXuonFIcoXaQy0ZdA/d7G41Av/be6jCAV1ZJOre2RdcskmMyQPRKdTTsUuuqjZfpI2HjULj7q7Tz3aaNeUsQPKNa5VJiZ25S+t59wfKWMocf+DmRgHdZ1jgJGP9B+uY0fCQx2yBc7ep+h+K3S16CCbutV6s2mAARLR4R1eJHdI4F1NsNbHxE81dHuLnU0nV0mbvhvsg+Ui7Pjb3o8KdR1wJvc/OtxSn3qu+tUcJINh7rRBmEm5KDSLUaAbmCl6UPHWjvphK1d4vHBjHqUuHW/oGdisSxu4qpn1gOyx+KcUhfK9L27SWAPrpWj6TE+pp6IEkKtVXbnrC7d6Rals6JQy+oI5sKMTQtr/6DH37SnmHcnGvJBgZy8nuB5AUBzMfVIbQ+cuFe9Mne7EYQGSgASD08bvEzNnjX0uQemF0RBG5nADLGCEq+uAmQx7Aw4dqzFbbq8zqBANghyhbEPlfFn+t0PNPCakh/bqIihF8sBmsjI+rHBcaqQdST77N9BeLhyjVogNYiwtJSlXLS+3rldxyd4MCpmrZKyyUqmUGh+CkZBaiqFvG8n5B6wGaGldAcSsqj3W6AS1WVzCv/6AzQhLhuU5PzVZdkM5F0xxRv/zhGxNjcmlEoRBajfl4NGqHmxrt8zYrX6kqzTJYK2dsImPxkgErUA04tNkcVc/cXUXxbBpCozG6jnq3ObPnBz8KiS3JBsEIKrYiW7xDyx8SU4OZ7+hufj9cngA3ngAEQVsKOblFT7YVCFtb84rU4ZWFQzSZkbC/h/rh2XUY5gehJwG044oMrp/CbgRD2MaMfW/ul7T6SgbwlAC/ZGgwxCm4/XjviDoQNRpaLRLT3rWsS9cpsE2dHcb4Qw4YXsKblmYNfG3/zBRZCy4K6iIsI/WRVs6baUV4s/Z1o0ljhkpYKJkXP3W7e/qG/otxX3ZG55vrH0KhT/GC1tjp6LwPGr1N5qnDvAB5kujlu3Lv2Jt/VZu26OZMzwyOlFIwGmDE8ZjwCZw3AiOcRvup4LOLfBD/XVbVBvaEAjmz+H0/m2diQvyK6OjYzfx8h9lxvxDnLxGJgXNEGDaNHeDTP7SF75kITK8nucxIIVPZArH49DJpjsDHnXb+MYjwsJIvduC1fkFJvz16B3XXpto1LHDj1Nhm51+SvG2kKjMGHkIZa1FfeXGMN/n5OuQrvq7u8aM0hlPz9GK8eUmvr9A30LL3TVNISXSIJ4ojwkQIBiV0LXAyDaCHCDU72ixrWRuVNeY/q3XgrcZC2AaIbcsTQ+HSGfAzacB8STebBr675pLuy1tY/hm9pTnV22/lc6JUn1wm86f9puf3Ap6fNc5/9IaxMpTxtAZJ6Ogh6S/BFGntqUpkF2nMgUzNsNwoBmDLW6gHzUuD234hKnlovUnFg5Xt/XQGTGh8gWUwuWZkoR/7cB5s9FL7Eidd2U4V7Frb3gxoTdo74xb6GTUrmE7JOM7nVWo7VXJypjCTCiLJTbf8+mWtJjJFNpJc55rGvRn2GXDj0hkhf2pmwgltQdtVWhJMFss5gEO9GVUQcNSgLZJh+GgjXQsgJAzPHD+8zcACEelVTQUQeK2rmEyv4DdVCr1wxwT9hQLzGeoOg8ClZIRbwJNNsqHbxMCeTTWWjQqPcc3EukVkK5YIO6kurEJWUKgnyv+9JayfP2U5h/yN3kPGHnasKEeOylPsDeAzuUAG/ffAmgSd7G3Lv0r5N6KyTJI9NA/vSwiNhnFK85hM/Vew38pAaYZd7OUc1ytZ/CNglte7CpVkmj7DwqQFHxvmo0ZsTxVhR3k+TCiOyfbFupB+tgWdokZnb9ENTQlzMz/iQfJ4t2RAQUPRxPHKKmRz5AXLndQAzsrDTCmZkTDeai5G7mwu4SJrKOl3pIB841uatZONZ10pz2sth9GPx8Qp/q2SkZfNGZZi32wCufl7+7h5TH0IvEWfx6BiAfHgSNA5jmfaiaoxNM80Wj1wWUT/Mf6JWjwMhuvUNbtDm3I8syGN1VpYk78ShduYETD8/ZqJqc8W+LaOt74SlRD1yWro3ZJkqAE9ALC16I7ytxG/GU6ErTYwNpge9pZBmsrbg04gfRww7GvJHpbwyEoL/EcDqABpoJkpFk6HVGCVcFXVsoLWZ/TPwOvKOSuRcAw1UhlAO1IyEZjk9yjRZ5QKVygTiROyiOVIN9jR4W+LR3qO6tHqhWPCn5eVGeft8547YQ3eswMh7xXCI0hY2rHJ61bbSp22b74ykSR4PwZnqH8zfYM3Agvfm8Y5yO20RfK6JPHMs7KSsiPLoWOtddcv7ni/pE5FwDeTsYtBPHQGNAFvBy3dtOuPeiGS/5qx+QYCf+NbV0Ll7ZqXee9U9dMvnm6WQGS9Lgq/GFw/vzsO7PZG3bTimIidn6oyVPaMpZDV/mQLbzjh1IuM87C5dv5I90am2ycRD9hj+TnWuqPS0y+8AfPifd2unNsQXQ1Jv+szGp2sABDKZv6X/F/FSu7QRgUVc2blCXNPTJtSHPwyoBThtN99JYBpnExdVcMnZqQbw/31S9NbtxEuroeRoleEYxiGl+y9/vBRbgJ57kDNcWk51r7Sun4U43aV4FXT/yHKi0WLRdq6/tDHuPI3Zn+IlkLFqmhNiiG+mWoD4gxM7SDVZkKCPBn9WRdW6vfX3csn4lj6akQVQBzQii+JaC1ClK6y3ZP6swXvWgu4rmQCWDHMAG444z2eYE2xRKwoCW3OIZU1/bubZ7NzkxrvEig1GMK44/ci8wiuV/aTRnZhf8BSNkomCdLkohMfoo8Ycp2Jkm6rW0r52xAdby3IBoww7NYTAj1pph/NFDJ9AwH0mdfQNUd/5I6yVjntwzef85yocNku8A4/lThTONVblGSM7yGm+9cEDNqJtrwO46xC6AatjWsFs6dZmsGwCPpp1VZaS8gtwmPOqu9qBm03lTcfhkTiNqhzkxlXPS75s7vO7RyN/xSnfI7nOWREjhO9/zg8vwSp34Nxe1NRPDZZMg27L8xo3ntMFpT+gvfzWd/VC4DNu0kIDE60NzB/rg4P0qomHQczYLe8huVCZitm6X30PLQ74Qb0lFd0E2FRjfldY10hEufvv9NlR11RmI9QUWwNzBtDRsguQAGD+pwcUVvX2+hOGR5xaHA3t5tP2mvepTS/b8Qf8Ktu1WEgRHt1pwMwQ7QIyXeID32+ZTDbxIspzDMgomSwpP5FAuz6kUhnYcUdXvUSBpf2SMEMsMlycApgyU7GNrrw9w2a0Z1yPdmp8dmInXGSYL0TvME0fLOoa1N9w8O3pJTlnq+n+I1sC3/WsTDf2Nx/DFrEiRuJvekud5ZLtX12cQeIYs9NQ2nYybPfwJco/T0DOOBy+oRgn7T/yq7AjkvKz37FRGcCs9XfV2xTYbN+DVwXE+Ept9G1auEpPQl4fpTEHxr1FUMpzGQ8LgLpAEaKP3/M3zsxZXZsDO7Jw2JbsPNuKkmxjtKAOEnYrYYv88+BpzopcIuXPTbJ7N2GPCZUfx8gQKGtun7Tw6puT7/wMwPGuoDqe9TqH0x7g1Lq441usUFxPoUMhNomKQKkQpSX4aXfgevgtoPeqm9/yDwVppbEnZoXtlfdYNP7SvS9jvJQ5IHiVxa4wtpS2eExGCkdF/CPL6wkahPKUbil3N6/jYkACUPR05FthJb8NGXIe+XKU4528PaimJhBe7Q5ycBG/NEzKrDhaVEt2UQpDLCt2Duqgc30L5ndQ44f4xWlZL3TPAyMkwxB4zhGY6/ZjPy/GQdhkA22XyIlh8BqDACVJknELUWGm2qgezftJRZkX3Ct1BpzWgxSDXoTQzipmySwTJRZ+1607XKPYfcjVkgxRQ04hMvh0dHiI+oHJ8A3xmMfUC34M63yh0hveG2+KhyiRiCtccWDqRyxMwkfkq63n4KlDp4clEoJWfwxOl+qIi4nCoVFQ0AiuiKpltr5AGh8w0qb84fG+1V12pWiRwVyLG3dF2r6u9Vs+rlsy/RCT3eK83jGwwI7INwNcQ3VgHCf47H3wmqBGzLIAAE0pvkCT/KcM5so6H8+dkNwMyxBfFhRO3sJYK9KDVgYY43+6yePHfmI2AFT9pKTHCmnoVAK7T8FI67PY3xgJKjTOdvA4JI/QQ3oNHpmW3eOvy6RHYmD1myFbtmivICsfT1YKCfK/kUBZGet9sm/9W5YpvT+lgKunsP6YNFeFTW7AtFeVcOW/45OYchJRqt4pchX4ArsPX8O3STflOZrO4TI2ZrzBh8fH7t3QbcbMAddYsEL6Y6wseDvqgnWEP+p0HzHD+XGhqK2MqOuCklZJoLUCG94jI/5UoCiZUJw5HFY1lElNjsY0xdMJ1SXAIAwMamhuFGCH6xVIboFBQaCXlkB2oBUfvJKzGEmd1KlUeS0bLFkL9Rj//VIMlUJCZz9+XpY/Avaq70kIuHOWvtkPEGGt2bVEKjzLvq+JvEAZtGVinTNklfJToO7juss4vL2RxGG0lkNeXeot2lsyPKEOtTscIgdSYYFtTCIKTfHpDI1EA944O3pkSEuvbJCjUJHYw2mH9F7yFj0jcLELr4gj+rXUXw+/LQoNsJfz/v+fk1x8itjzfhl9/brWjYY26lhYssB15QkJQLE06T/aU6+LqlwLD3MEZYLld0lR+dSs/ZK0Z3VcQ6rtRnml8lq4T/qf7GyQaRkIr2M4fUgCP2BOy2Urshs5Sc3MWU4R5YPLbfrEoDiE0dpKAgcY+e42coZAFRkdmbK20hPrRjT6nfrbsu0n9Fuo5dAamrQZKAkp8MdCWLyGEAZtYGtRo4/mycuKR+7Byk/kOpLHVIvM6vQrmocSMuzbsSWMH0dqr/mGaqK3V8QrOqqceHNFXve98x6tB3nvxami8JFJ5V19vc/40iaOm4D+zc+stUx97xE1gzjRTvq+DxU8dut50aJpsOWVrdN7U4YhG9yROTGYqHn0okomuWLiGVoEDby3uOWrtypfy8uj4YSy3OC8bMhr5/h5c/ZUBI/s4yKt+PUbHLfXbj9hF6AhzwC3Fmpyl2Ocjyn5P8k2wKJe9X5ijdHau7xEIhbUP0Nf6WXt3MoFymoBFkzWLO89YZ+ouGOAHm5InPQyudh45X/Fgx+nKWLYrnm81kZT1swMWhM22Hvq120+NJ4ofSPW96UYqpquAfcyS/PPoqtmHCmudh54Cv8efWUxzUimLQYbzLsuvciRPpw+ji6vgf/XdwOIm4CfKFiJVfysFQ6MIF1n8jKIj5aAlFu0CR1Bi1ORIUW5Aw94s0satksbTxvyb29MZ0MC7HcQe86f8SAJ4Fmi4XcMMSlnRzrrhC6URapz/e9s3SYEruSe3W+GQY23ptS/Ccbc4mC//j6LeMowZ68zNEoi5MaPUfj3JRqWQp5fkiKXkGnv/Q1exqe+8idccov3dJwlhw6B1zH+36NRKmeO3DL5xFmR3m4nxH4qtWy9+sjX1eKOje2KhXNilFVrgVfO9ZfNOg8mu33y3V/gpSND18qUeRDCKj2vxlBsMYk4IKm7QF/mA64KJqtq8z5mbLGfkDbyrIRsH2oE6z1li6NqXyyB191Vrvlqqit1gFDyKyCwAsXA3rKqyoZvUUh7dCEtLPqpBpO2wFrvI8cM4x71IjAx89ktHOYIgxx9fecNgtxA2zP6mbi9SF8OAClC6JqngCTFfjRzx/eiR8p+XTSILzlS36q3c/tvbwhH+LogcZx4o7gFdE1knE7sb0uxAGcnKhgb0LlL3LFxD09HGag1gxV8vctu/g+OkDKdYoNfm5jyYXvU4v/dRk8LiuZ+tCYyQlJu2VALPbF8dLoe+mfq5raYFxK3cUt5r0zmNy3QPyRH3/MTIbVeimHdDup1OTQL6z9oALaC62FukfWuFh2mLFDixOB4LO5/6EGOR/NaQgkgGsQLZfMVSOtWLDbXtjy3Ptx3RFip8vcZtOLAqDaseb1s5nQPR7Jou0SXLttF9OYpn6Ew2giOjCRgzM0m4nec2YtfwzFVDRXFCAuqBcxrhrPDlHZYhOcin/V67ElazqL1m8iSs3Mc7nFw05lLHm5QQEsMRNbuZCDQ1SC5HZQ76T9CEPNeS6jkgPq9cUGwnaqJ04wB1ZjZNfFEY3n0N+FhOJtuELNwpEHS7dd2eOuVihTXM/fHO0GDFIZfJ9qYETAqaHD/NU0+Ce6VHizdDHCMbZ4TY+LMCwfkP2uzjeZOvMh4N3zRjzhEvaB2qLXJ/l9D5QvTvbPnp9ls6xjntLBiP9B1jsZWRCaa28RGX9jyytgEQjiovu7h3tie9wZn21R51fblxCazYhBYPfW+5oYcbSvZuHFa9f43J7VJrOtREwgM5QwwAoRA8TVZBlwcXWkrzeNSYQvijnWFyz7K3lhVPBpy/U8lyxmccw5dHMUYaAkzkzpB/UQQ3Iz4kS81E6pJUYZk/06wSPKno/njiEw9wXh4L+87aiChaIFlqwk/w2sdiCxu3ShBdOLFVVZU/AAVOGQwu/TbKsEXS42NG7b1gAuHnT2OsoViWBnZVz2ThyEIZ+itlKAYD5JzRFoRiVd9jpBdZ93k0gYsRJsCNpvsZvW6MLMFCYxGDkNXHPTo+P2+WhGg/zXpKXEiLLxPeeph5u77dOlnSLBUG0BAS+Blo8cFJdFm357hdPzWPrb4ra51FEiyL0WhTD3/Yxvn12oqC8gdNbcGtOwI4HsXX72goSpScCADT707M3Q/olIiN1oweElnVuK8TtXRm9aBELVZqTOs+lqaNDfPwkY+xKL9SMufCcpOGDsoJNWzGiUHn6yh+1JWnItQwXGxZriixExMoSpyHcRcN5OEDyLnU0DoWiusiTXQIUVKuuwuawXMXlcuq4DBsmuZLhYc4ZtvYv34C2dlYEXHal6/yWyY8WteXA0XAZmHPo62MCppqUhCtLhBTtmu/cf4vMfwVc8+WXSX8KnJyeSg/pbnEtQiWLPO2m/33I11TAVm1wB/ikkdgCzlUYynzFbIiibtWOm+6XQW4C4r3Sum8Mh+UrXaNjIbeP6u5U7QyiC7m8F0FpVzBeP+ZQzHFbu8WNMEX96iHMFHX5lu8OtYK+9+4ANgWu3s/6DCSF5hFK+4zu2/kTzsw9HukXW/9k0OJ4XSe+8XbiN3puDP35qc8U8arlOjFUe8eqySrYA3GqyajHWScW9HofO9OZba4TC1sPtDKLm2mOzozP/LJiMF8FnVQPJmzDSK3rje/5AEzQEzXCS3nCYQBeuVSIOAFy8OD7hDXsaVKFe2IDyYL6JDvaulWD6aRGdF6T0PxaE83qdinHGr3HbYW2twD8NKPIkO+h6ssvJRY0xWorEWEPO/0NNqVr6UoqQLPOF4YJnuVuseaDRNoauWBMVFcJWBTHueUaCpu2MU12gy+x+WRBrweL/fYihjD5xFVjJ7YwMFDYsrSP6ypIjShPwXp0rTxSEDEk1Dzq9tNPXl5P6dLyqw8qdFk0EpcnFIsro0T7MqBwKRNM6Cm7wI5hDfPWIIy2VWGvYDkBfuZ/r/4pZCi+igByCuX8zQrfunJaV3pHgcuCMj0xFCDdrluDtlbqxZVYSbsWOkusnfgfmAQfGVAIF5hgKK8M3f/OqnH9afqzulfdoHDCzRaZmmmT3onMw003X9QfOdtLkxAShulDe+yfNM+ZLRhc2T9jLxiiHPJ2cn4TspPVSS8aRnQU63HIUlZDS/Fz7+3HAjoUCy2m7nlgq6W8uSVHEQ0jClj0sLETF2b5ldZj7Rb+okV1orE6wP8sivudigcMsM8gHSIbmJ8dYsv5EjX/o1jU/IjbImAlIyoudIAT3h8Sra9lIjsoKmrq/CZEFyCtN9/c8U1xj+2ohUB6E9SkBpNU1XmWdU/wQzTFPILblT04td1FP+cvWWOtVAli/Lar7HtPbvisBElcXjRH7JOUGoW8Zfd/M30DJ+tkGTYg7L9Mipp+4B/gVmTOgX/leQHjjNMEMAlM6fBR+V/1Kh5UhuMbW5ZajBASpkUIhsBwJXriLP3dU5tmqIaQcI6t66eKkELq/PtyeaFhgydh+Sz5p6pzb1Pg/ONn7lOAwDNG0bR9Fm3ljM3BJasj1REieB4DFz3YECC3fzrLvVqaNZNLJpq4hz4mlTa6gqRyM74QExT7j68I05FmNRSrxHKkoh4KiHsBfP1aD40CDNvS8eAnAiHITmVlI8CGrzRzZWGTUVjCD0oD7YbI0g+ktRntfpRRlXLwaPrMDfyKott9hn0g6yKHrAj4hCo8pw0nHyjzEJ4MXmHrnR4/YH6xenNnwtqikAVoYhB9IbgOem2mrrxHhw37DOgDh7lecQ4W1/socVKIjBy0NnCBVCgsNPnF5UmAmrFq++Q6OoGh76jn4p0s+VoZNkxTvU2eACILPyDMkVf2LgE+59PdvZH+KaAbwLkARhTwiddZbE6J19Z98hEHqEQtTfIN4gUnRbEBLJn+6uj5pjp6MEtcgz0ELDFTgKOqkyI7K6R8oIfTP2AQcvwjz/qcY701p0XI+GkHQUUn1XLD/SaIMZTz3KVnYXG4r5SrZSD+dRGa+TgZp7D178E+puiKevFS48WNpBnmV/oTOpweeAFv0eZpeT01+ztEn7z3vGmC/7ZhReF1O6QObUwRwpaBsreDJpeUzonU+TaugiaPKUPvD8X8lZZWNI4AG2Aew3TtCOhCmWs+uPzg5oHtffKc0tivX1dDJF/kZWc5V4Lw+ltC483yud7VztcIgFkmFOP/S4MgBuwLD8M4acsvBT9rlHhmTXF1CeIl07Oe5f1D9WDFX19CkhGvV66eAo2gWtnlmGQ2adLhLP1PEx9LJ20XPrPzWmT97TxhpXefgrurW4t230ahd86v9k2UFEMXPdyF3V4gjttc33vk1cAxXmpJnUYyAhdJA888b6D3zVUtu9Eoy/tvwJtwLl3q94tqA8YTdSCQtGrhcVUGCRN41aPK11uPp2mBV5rB8cus1JtMdesR4wH09Dv7RRdit8+fKOB0z/Sy+BtjGVm+25PYoaApq8uMc48sJd0LVs4cD8dsLli6W8DoKd4pbkBOtVhL4J6j32QwB15++QAA0sv0KgsQZFEgzpGy+MpI65mO+R5qX/GY4R3u5d5FZYquL6Yck0bRbDLnjph/1pqGxFPKtIEYs+4+hD/ZfZ/piodBckfdk4Cm0P7UKChNeAca1GycFeriplcalcGPf7nCdc0t67eeHVCb50AhGoEKN3074vzaMmFIZFhd3zOSyH7OKRG/49dxAKDx1/IsgJVgJXbTITEUlkBm/a1YYnNp1NYs2pTlcZlYMrP91GjbCQLKg6wVtbgxyNWarWVoxjXXLv1swJOkjeB+jp1NpSefywwoq5BxFAxKi9MgmKCCYFb06ZUYr/g8e/QnTpnTkWAicc6b4FwoVWtHH1VenqUM42LzPOaj1ZdJO7tsMraposra+t41p9V+fxZbxPqveH3Y2TV7nMgGpH6J6RdR9s2pm41FhxZPFKVnPCn0fjsXuUS9HYHd8ZAsPK0XkVfwI9Mh8GOeZLr+xalpik9pBosMix0wptSYhHCIJfqY89+NF5OeGFp4tioKRYmZC8+8vXZeGZhnATQu2JhFhNcIIlx8yN/abviUNQspr2mkdpR3xjfAzb9KI7FJyjb3/H4kwAQAl8tJV+5tRTa2HpYIiqDKDEG8DdJEiG+R7hJunPkZEqGVd8AA5yNsUTLCibcHxiUkugwshGbdXHycJBK90OfE0nForYItGoRneOt46BEc8MIFcyAHOQCKeIGSgink3CErJLk8IlBHq4IyXN7w73ncIXKPIPhroaFwcA/zu28oKRKGmvxBmnu8zbrnRFBCRoex1xaL0hyEzgZeVWvya8RDrBNcATo4d4++FnIMIMUlQdLQBwwPYd3vBld/7pckK5rPmmX0xNy3Md5bpG+BxiYCT1GdhQFzbqTDn+JjoBt+/vxrR7LNxVwJROAEoq2bbDBcIfJzuoHYJ7Zq9k5NKvhZkXf+TAvqEFEOs8Ej1Gl5+SlQxz42QqqMYaQojlkFzyfM8rOGYp9R15wG4ZCF7qf2FOTdlQ8ltEvcKI55CiNrywNk+fzcqqHnrL0xyyJJy+e7bZA5ViGjMzDegwnliQJwAbnb2LsHrak6xmYwIY+LiOVsw0G2BNxpLltfpZKfeWd7JCma0xdK7D4DkERY29SSJIi2A2V97SzOUUiQj1vowwbpOB2sbNpc4RLFCGsuuLlsch/iDRD7gE8FbiRX7IXPeWl/1tWJwix8nn5CF3eri0Q6NIopLGDep7kXA/3dhZmKt2fTeD2XkJmg3CAbj+Grf5FnLTpohngGTM7I9l3AfDXVgxHXE+IhIZlIzvDv/d67ZEKz5mh4PELC6CegESEOFJOekhZkZV6KrkSjZBI+hezw9Wr1pxi5NDl5RFdA7kexNlg122Q/fmHlcSizMwzmU2RPL6qS6bPiaFH3Ath3mB3GRVRlQ1sZO6wIHHKHtvWlf4UYA53z0rQEbSIwON3Arw9GElFaE08EMoVG64GDQRDZpF3LrORjeOYe4/gN5iAkGUp/OFjCSjGZCGgZyN1igMGaktz8/FVXYP8woNiZhkcYX5Eiww2ddJwMDJ+Yq/QTQMuTMsGjxub6dTOX5qenSCWVbv6/LJgWZbiz0WzgRBShf3lMtpDMVOHh43rv4f1QlyrqCni4QZLg6JYQO9cH2KjZ3289RZlXdgV2tqDgJXe4H5yRdx1RlgwuTJHZNc6r8XRhQGjuHQ02fAyXrUs0MkFhjyokjyhW2kyneBFjzMYMOHP8FwfO4ZNPDkL45VgHL2Ce2Emk2IF3pUmyUgTlvkwEMXDPGKRoD6/Tk4wJIGQ5Yki8TaBQcZ0D3Jq8yZ90E+M85PtLXqn4W9BNMLTf4O6Xy43RJFmsHKRtHUU2fcwsm9MMpV7/tQ3Y2bf1VD3qtfJ7/A2Ifpd8urJFagK9/eDvGosloKUDat1SHcHEE6wPRfzEzh38B7k4pAP5S2qnOzNgl3vpBhAPxwXpV06rQiZ10I27DdNe6+Olee0vBRxDe4eLl+2Q7yOc4rW1kBrFOVyiIhSmVTEJYpQ+IiPbZYQiW7tocu6YXmWDhnSSelqBGLf4IXLR+lveIUja00ljoWiewcZnSXzBzmijgDcReG0SlQxkp+eBONETomu19ffzum5Fw2oZg8PgHBgwLeKoe1aZ1IU+M4w0mY/KNAMT5iQWpokUHY40kP4PgZdKg5WJDy8LXj9sTvEFdQd4Tu+zUCPbN0/JRG0d9MKi5j9mb8AOZpKx7/Hdj/Sw4rgm5n0oiaRKMS+BHCN84j9SxE/5NwugFDWsi4OicrdYarLWwCyobfvhtpJbv/UlWg5u/v5uxZzcBvcL6QaqhJ7vBjY3FuJy7L5QTHY/N84pBA1tpa2wxd6M0LBuutYXMW/yKobYllIWvJDH6DKEdwMYRq3GTI00NTiaQT6jvfUcwRK3MkOQuGdjAlxYp+azIZ9ab4ULil4xIHu3gxd0QjM3XjiYhNjDrACjtfgncYWjZkMwEpUwePXjZQbsre8N4LsnRptrXGKE9KKmj4+SPeYcVjxTKkNxm+uduAanJlye0M3Hxlp5l3NluGVGhcg6SdfON4+1fTaKD4wk7hbaWMijhxFTUQ/hl5bTdciG3TcAkbGOzKfrTcVlz5Nd42MmW3pYOtCBM5NWe6UrFoYQO8rkDaBpd5B31v2IEXJaBX3bk1ZM0LsYO6RjPBiRpwGni9LuZGGJt5Sl/LL9HMcVOnYW0WbtuwWmdu4tybIIXNKNTExB7FoMqBaSojevK0pUrMrLe2zs+HXJsIAe+O0cUHlYmsHVHhUREGYAG5ZItmBF87eJhI4ZmkSogSuJ00SXN2x1HovYGmsMF5qQqhm0d8/tEVGsw2ekknHoou+S6Y7/XtUQXlF6aX8dmKi+J0ixdJTzJPAppvy9yYliCqa2dWzAU7AeFwJq3fAGb8ukPlLKHIgAaZWOLH0fApjSchfgpUq+htMJRLXNPsJMzl+DET2vZRwgATB3AnCwNGJELR1tJBswbfrKYZ+kBuT+w2xU36wdhdIcHVvuNIBhA/SmTJlWxFke/PVw01/5Qoo03KVvWbfqWcUJq+rGpS4avGQ6iX9OwmJMztKag1iSiDPiXD58D/njx6QgGLK1U1HIBNvA13aUl5YMRLMhncQOOZ0mzGAou/p+Ea/FGslZSKN3XGwRHbapXSbKPF4dKTBhom7URU/Sxbxp0LTKfX2FD026GhmymCkzcIu5BBIfBZGNKUl8ty57t/vTsgqM+eqr5DLH1BR3V8heG4xmIa5VI6hXY2/9EJRhzYe9F5q3l2jDAcci3zFrC/XrHlmVSPak4wIndKV4N2og86pMXs7IXAPAS/utkOeEaH8f93oWHEafakCMOYyxA7eySXgeRo4WqezDNbHtByFjZ0aXnLCBSRXMwngWMUewhVujS0xbbqBlRXcW64UWIC+JC2riC+AkqpXzHfHEnkY1RzrdUwxQsTBZNZvjG+Qhu/oxC7dSU1Y50+XDofLtzCOIyhyyEF3FRte5Z/wcy3hcZg3w2mLYZrstqnpuGtbqLIZuDs7Vom3cjAt1khME58pULD+X2wxXbFOSKafJi3hAW12l+wYBQDF0UIfrIKdsz7jzjXMbP/bewEkvysplNopQiNVM1wek0rdjWaevL4dCHdmCGe3Zb68R3K7n+oV6eUYT87GErevWBRdl/pI3uVSxZnWRMLlKyUWN0Xvv5UB/3eaYchW4EDCTF2rlj4yaffwpei/ie12cqC7aww8EVkFm3m8k7HgVV/KbMW5ADnXd8l7vu0Dmg1MTKKtkFQt+U71Y9Z3zyeOBIT9B1iJA3geNQanBQgLeDc68V1yZgdPaXJhSh47eOHA733UjyTz2U0iDHjIgjV1z4fHXJfqB9LLwZ2F37lScI78YAIjum/sRpzdQ=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['mainform'];
+if (!theForm) {
+    theForm = document.mainform;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZB67xSBGmtg2jIs28oAg7sbqkq5RLIsku3eBWDEZJM2Sb1OOEGp3NV5RIqIMllZwzQ2&amp;t=637814473746327080" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhviMTD9amHa-x5Wuyy6JWssHJqlWaeiS_tLB5lEF-JmHkHXLW0FGjeHgBiqkTnjAADGXG05zJIFIVRXqWghoCGhQB07U36WQpMYWrA9yn3pKV_n_PomSq86taEe7ePGVRrBG0lBZA0pUTftcXI-81zIk1&amp;t=49337fe8" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OKvDkOJf7n9lIyUSfRgNPWszzgjQRSa6bMsHOXDr5OnDjuxfCghzALro9iVs5u7HzsZOSSC05aZ5VpJHHtM4BtWQrMWjMq601VyhL5Ov7NR7tU0z0nzMcuuMlHiwAdsUpyT4Phe5JXbgqOKP2xwceMc1&amp;t=49337fe8" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BB8BB933" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="qb0xFg+ChJbGMjl9KYie/e0X16F82n2S7wWjlJgDNU/ZaMG/QK/FDblOuuZyf469N3MG1NLGZfkOs6mWn1EZsg3ujAY0jAa0teohVzFWdWx59/PnF7axrzwrI81rQUgLLoYsIXY8+sd1OPqQ/URE+wokYE09AuYGG/ulNoXKmEKDQakZYXDuTnEhkmZYToZ+KQhDTprl37IKcLY4ctImaQ==" />
+</div>
+
+        <!-- NavBar -->
+        
+<div id="offcanvasOverlay"></div>
+<!-- Top utility menu for desktops -->
+<div id="topmenu" role="navigation">
+    <div class="container">
+        <ul class="topnavleft">
+            
+                    <li><a title="Admissions Information for Prospective Students" href="/admissions">Prospective Students</a></li>
+             
+                    <li><a title="Resources and Services for Current Students" href="/gateways/current-students">Current Students</a></li>
+             
+                    <li><a title="Resources and Services for Faculty and Staff" href="/gateways/faculty-and-staff">Faculty / Staff</a></li>
+             
+                    <li><a title="Services and Events for Alumni" href="/about/administrativeoffices/alumni">Alumni</a></li>
+             
+                    <li><a title="Tools and Information for Parents and Families" href="/gateways/parents">Parents</a></li>
+             
+        </ul>
+        <ul class="topnavright">
+             
+                    <li><a title="Search for Employees, Students, Departments, and More" href="/directory">Directory</a></li>
+             
+                    <li><a title="Contact Us" href="/about/contactus">Contact Us</a></li>
+             
+                    <li><a class="tacticalbtn" title="How to Apply to Ball State University" href="/admissions/apply">Apply</a></li>
+             
+                    <li><a class="tacticalbtn" title="Learn How You Can Give to Ball State University" href="/foundation/give">Make a Gift</a></li>
+             
+        </ul>
+    </div>
+</div>
+<!-- End Top utility menu -->
+<!-- Navbar with Utility menu -->
+<div id="navUtility" class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button id="btn-utility" type="button" class="navbar-toggle collapsed offcanvas-toggle" data-toggle="offcanvas" data-target="#utility-search" data-canvas="body" data-close_icon="fa-close">
+                <span class="sr-only">Toggle search</span>
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+
+            <a href="/" class="navbar-brand-inverse"><img src="/-/media/www/images/logos/bsu-logo_top.png?h=112&amp;iar=0&amp;w=402&amp;sc_lang=en&amp;hash=3187D6BEB27C01ED49593F9C4028E58A9BC318D4" class="center-block" alt="Ball State University" width="402" height="112" /></a>
+
+            <button type="button" class="navbar-toggle collapsed offcanvas-toggle dept" data-toggle="offcanvas" data-target="#main-menu" data-canvas="body">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+
+            <div class="navbar-form hidden-xs">
+                <div class="input-group input-group-sm">
+                    <input name="ctl09$txtSearchVisible" id="ctl09_txtSearchVisible" class="form-control" title="Search bsu.edu" aria-label="enter search term" type="text" placeholder="Search bsu.edu" />
+                    <span class="input-group-btn">
+                        <button onclick="__doPostBack('ctl09$btnSearchVisible','')" id="ctl09_btnSearchVisible" type="submit" aria-label="search go" class="btn btn-default"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.container -->
+
+    <div id="main-menu" class="navbar-offcanvas navmenu-fixed-right offcanvas navbar-subpage">
+        <div>
+            
+                    <h2 class="deptnavhead">Ball State Online</h2>
+            
+            <ul class="nav navbar-nav">
+                
+                            <li><a title='How Online Learning Works' href='/academics/collegesanddepartments/online/how-online-learning-works'>How Online Learning Works</a></li>
+                        
+                            <li><a title='Academic Programs' href='/academics/collegesanddepartments/online/academic-programs'>Academic Programs</a></li>
+                        
+                            <li><a title='Why Ball State Online' href='/academics/collegesanddepartments/online/why-ball-state-online'>Why Ball State Online</a></li>
+                        
+                            <li><a title='Services for Online Students' href='/academics/collegesanddepartments/online/services-for-students'>Services for Online Students</a></li>
+                        
+                            <li><a title='Costs and Paying for College' href='/academics/collegesanddepartments/online/costs'>Costs and Paying for College</a></li>
+                        
+                            <li><a title='Apply Now' href='/academics/collegesanddepartments/online/applynow'>Apply Now</a></li>
+                        
+                            <li><a title='Contact Us' href='/academics/collegesanddepartments/online/contact-us'>Contact Us</a></li>
+                        
+            </ul>
+            <!--/.nav .navbar-nav -->
+        </div>
+        <div>
+
+            
+                    <h2 class="homenavhead">Ball State University</h2>
+                    <ul class="nav navbar-nav">
+                        <li><a title="Ball State University Home Page" href="/">Home</a></li>
+                    </ul>
+            
+
+            <div class="utilnavwrapper">
+                <h5>Info For</h5>
+                <ul class="nav navbar-nav small">
+                    
+                        <li><a title="Admissions Information for Prospective Students" href="/admissions">Prospective Students</a></li>
+                    
+                        <li><a title="Resources and Services for Current Students" href="/gateways/current-students">Current Students</a></li>
+                    
+                        <li><a title="Resources and Services for Faculty and Staff" href="/gateways/faculty-and-staff">Faculty / Staff</a></li>
+                    
+                        <li><a title="Services and Events for Alumni" href="/about/administrativeoffices/alumni">Alumni</a></li>
+                    
+                        <li><a title="Tools and Information for Parents and Families" href="/gateways/parents">Parents</a></li>
+                    
+    
+                    <li class="divider"></li>
+                    
+                        <li><a title="Search for Employees, Students, Departments, and More" href="/directory">Directory</a></li>
+                    
+                        <li><a title="Contact Us" href="/about/contactus">Contact Us</a></li>
+                    
+                        <li><a class="tacticalbtn" title="How to Apply to Ball State University" href="/admissions/apply">Apply</a></li>
+                    
+                        <li><a class="tacticalbtn" title="Learn How You Can Give to Ball State University" href="/foundation/give">Make a Gift</a></li>
+                    
+                </ul>
+            </div> <!-- util nav wrapper -->
+            <!--/.nav .navbar-nav -->
+            <ul class="nav navbar-nav social rowone"><li><a class="fab fa-facebook-f" target="_blank" title="facebook" aria-label="facebook" href="https://www.facebook.com/ballstate/"></a></li><li><a class="fab fa-twitter" target="_blank" title="Twitter" aria-label="Twitter" href="https://twitter.com/ballstate"></a></li><li><a class="fab fa-instagram" target="_blank" title="Follow Ball State on Instagram" aria-label="Follow Ball State on Instagram" href="https://www.instagram.com/ballstateuniversity/"></a></li><li><a class="fab fa-youtube" target="_blank" title="Subscribe to Ball State&#39;s Official YouTube Channel" aria-label="Subscribe to Ball State&#39;s Official YouTube Channel" href="https://www.youtube.com/officialballstate"></a></li></ul><ul class="nav navbar-nav social rowsub"><li><a class="fab fa-linkedin-in" target="_blank" title="Follow Ball State on LinkedIn" aria-label="Follow Ball State on LinkedIn" href="https://www.linkedin.com/school/ball-state-university/"></a></li><li><a class="fab fa-snapchat" target="" title="Follow Ball State on Snapchat" aria-label="Follow Ball State on Snapchat" href="https://www.snapchat.com/add/ourballstate"></a></li></ul>
+            <!--/.nav .navbar-nav -->
+        </div>
+    </div>
+    <!--/#main-menu -->
+
+    <div id="utility-search" class="navbar-search offcanvas offcanvas-search navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="navbar-form">
+                        <div class="input-group input-group-sm">
+                         <input name="ctl09$txtSearchHidden" id="ctl09_txtSearchHidden" class="form-control" title="Search bsu.edu" aria-label="search term" type="text" placeholder="Search bsu.edu" />
+                        <span class="input-group-btn">
+                            <button onclick="__doPostBack('ctl09$btnSearchHidden','')" id="ctl09_btnSearchHidden" type="submit" aria-label="open search function" class="btn btn-default"><i class="fas fa-search" aria-hidden="true"></i></button>
+                            <span class="sr-only">Search Button</span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.container -->
+    </div>
+    <!--/#utility search -->
+
+</div>
+<!--/#navUtility .navbar .navbar-inverse -->
+
+        <!-- End NavBar-->
+         
+        <!-- Content Placeholder -->
+        
+         	<!-- Template: Subpage -->
+	<div id="template" class="subpage">
+	   
+        <!-- Header -->
+        <div id="content_0_ctl00_subdeptwrapper" class="sub-dept-wrap bg-primary-dark">
+    <div class="dept-page-header dwrap">
+        <div class="container">
+            <div class="row">
+                <div class='col-md-7 col-lg-8'><div class='sub-dept'><a href='/academics/collegesanddepartments/online'>Ball State Online</a></div></div>
+                <!-- PageHeader Placeholder -->
+                <div class='umc-cwu-widget cwu-sub-dept col-md-5 col-lg-4'><ul><li><a title='Facebook' class='fab fa-facebook-f' target='_blank' rel='noopener' href='https://www.facebook.com/ballstateonline/'></a></li><li><a title='Instagram' class='fab fa-instagram' target='_blank' rel='noopener' href='https://www.instagram.com/ballstateonline/'></a></li><li><a title='Twitter' class='fab fa-twitter' target='_blank' rel='noopener' href='https://twitter.com/BallStateOnline'></a></li><li><a title='YouTube' class='fab fa-youtube' target='_blank' rel='noopener' href='https://www.youtube.com/channel/UChR6LbdRN29-3scnSK0o6ug'></a></li><li><a title='Visit Our Blog' class='fas fa-rss' target='_blank' rel='noopener' href='https://blogs.bsu.edu/online/'></a></li></ul></div>
+                <!-- End PageHeader Placeholder -->
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+<div class="page-header">
+    <div class="container pageheadercontainer">
+        <div class="row pageheaderrow">
+            <div id="content_0_ctl01_phtitlecontrol" class="phtitlecontrol col-md-7 col-lg-8">
+                <div id="phtitlecontrolh1">
+                    <button id="ibeenclicked" type="button" class="btn btn-menu hidden-md hidden-lg">
+                        <span id="ibcSR" class="sr-only">Open for More Navigation</span>
+                        <span id="ibcIcon" class="collapsed">
+                            <span class="icon-bar top-bar"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
+                        </span>
+                        <span id="ibcVis">Open for More Navigation</span>
+                    </button>
+                    
+                    
+<div id="dropsubmenu" class="navmenu navmenu-default">
+    
+                       	    
+  <a class="navmenu-brand" href="/academics/collegesanddepartments/online">Ball State Online</a>
+
+  <div id="dropsubnavAccordion" class="panel-group" role="tablist">
+      
+	  <div class="panel">
+	    <div class="panel-heading" role="tab" id="dropheading1">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters" target="">Master's Degrees</a>
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+	  <div class="panel active">
+	    <div class="panel-heading" role="tab" id="dropheading2">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science" target="">Master&#39;s Degree in Data Science</a>
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+ 
+	</div>
+</div><!--/.navmenu Dropdown -->
+ 
+                    <h1 class="subpagetitlediv">Online Master of Science in Data Science</h1>
+                </div>
+                <!-- PageHeaderTop Placeholder -->
+                
+<ol class="breadcrumb">
+    
+</ol>
+                <!-- End PageHeaderTop Placeholder -->
+            </div> 
+            <!-- PageHeaderBottom Placeholder -->
+            
+
+ 	<!-- Component: Buttons -->
+<div id="content_0_ctl01_pageheaderbottom_1_divViewOne" class="col-md-5 col-lg-4 div-view-one">
+	 	<div class="row dsc-btn-link-menu-row">
+	 	    
+		            	 		<div class="col-xs-4 dsc-btn-link-menu-col">
+	 		<a href="https://www.coursera.org/degrees/ms-data-science-ball-state/landing" rel="noopener noreferrer" class="btn btn-default" target="_blank">Request Info</a>
+	 		</div>
+		      
+		            	 		<div class="col-xs-4 dsc-btn-link-menu-col">
+	 		<a href="https://admissions.bsu.edu/portal/coursera" rel="noopener noreferrer" class="btn btn-primary" target="_blank">Enroll Now</a>
+	 		</div>
+		      
+              
+	 	</div>
+	</div>
+
+
+
+	<!-- End Component: Buttons -->
+
+            <!-- End PageHeaderBottom Placeholder --> 
+        </div>
+        <!-- PageHeaderTags Placeholder -->
+        
+
+<ul class="tag-bar-list">
+    <li class='tag-item'><a title='Business and Management' href='/academics/programs-start-page?tag=Business and Management&degree=Masters&delivery=Online' class='tag-btn tag-tag'>Business and Management</a></li><li class='tag-item'><a title='Masters' href='/academics/programs-start-page?degree=Masters' class='tag-btn tag-tag'>Master's</a></li><li class='tag-item'><a title='Online' href='/academics/programs-start-page?delivery=Online' class='tag-btn tag-tag'>Online</a></li><li class='tag-item'><a title='College of Sciences and Humanities' href='/academics/programs-start-page?college=College of Sciences and Humanities' class='tag-btn tag-tag'>College of Sciences and Humanities</a></li>
+</ul>
+
+        <!-- End PageHeaderTags Placeholder --> 
+    </div>
+    <!--/.container -->
+</div>
+        <!-- End Header -->
+
+<div class="container">
+    <!-- SubHeading Section -->
+    
+    <!-- End SubHeading Section -->
+    <div class="row">
+        <div class="col-md-9 col-md-push-3 main-content">
+            
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><div class="editor-breakout center" style="background-color:#ba0c2f;">
+<p style="font-size: 3.5em; line-height: 1.2em;"><span class="rteText-white"><strong>100% Online Degree</strong></span></p>
+<p style="font-size: 2.8em; text-align: right; line-height: 1.2em;"><span class="rteText-white"><strong>Delivered on&nbsp;<img src="https://marvel-b1-cdn.bc0a.com/f00000000277771/sitecorecms.bsu.edu/academics/collegesanddepartments/online/academic-programs/masters/-/media/aa64b2fbd35444249b649d2be70efdb9.ashx?h=40&amp;w=240&amp;sc_lang=en&amp;hash=DC972A93B2E93DF630E113902C0D4A1332A36676" style="width: 240px; height: 40px;" alt="Coursera logo" be_marvel="1" onerror="this.onerror=null;this.src='-/media/aa64b2fbd35444249b649d2be70efdb9.ashx?h=40&w=240&sc_lang=en'"></strong></span></p>
+</div></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p>Ball State University has partnered with Coursera, one of the largest online learning platforms in the world, to bring you the online master of science in data science. The curriculum is designed by Ball State University, courses are taught by our accomplished faculty, and content is delivered through the Coursera platform.</p>
+<p>Whether you come from a data science or programming background or not, our performance-based admissions simplify the road toward your career goals.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: Buttons -->
+
+
+<div class="component buttons isMobileStacked text-center clearfix">
+    <div class="btn-group " role="group">
+        <!-- Buttons Placeholder --> 
+            
+
+<div class="btn-wrapper">
+    <div class="btn-container">
+        <a href="https://www.coursera.org/degrees/ms-data-science-ball-state/landing" rel="noopener noreferrer" class="btn btn-default" target="_blank"><span class="fas fa-link"></span> Learn More and Request Information</a>
+       
+    </div>
+</div>
+
+
+<div class="btn-wrapper">
+    <div class="btn-container">
+        <a href="https://admissions.bsu.edu/portal/coursera" rel="noopener noreferrer" class="btn btn-primary" target="_blank"><span class="fas fa-pencil-alt"></span> Enroll Now</a>
+       
+    </div>
+</div>
+ 
+        <!-- End Buttons Placeholder -->
+
+    </div>
+</div>
+<!-- End Component: Buttons -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>About the Master&rsquo;s in Data Science&nbsp;</h2>
+<p>Data science is not just a popular career path, it&rsquo;s one that&rsquo;s here to stay. Employers are searching for those with the skills and knowledge to transform data to push their organizations forward. Ball State's<strong> online-only master's in data science</strong> will help you gain these big data skills.&nbsp;</p>
+<p>The <strong>33-credit, non-thesis program</strong> provides you with 15 credits of core courses and 18 credits to <strong>focus your learning experience</strong>. The knowledge you gain in these courses can easily expand into several discipline-specific applications in the health, environmental, social, and behavioral sciences.</p>
+<h2>Who Should Enroll&nbsp;</h2>
+<p>The short answer is anyone! This program is built for learners of all educational backgrounds and career experiences. Whether you&rsquo;re working in an entry-level position and want to advance your career, or you want to change careers entirely, we&rsquo;ll help you achieve your goals.&nbsp;</p>
+<h3>Performance-Based Admissions&nbsp;</h3>
+<p>You can gain acceptance into the master&rsquo;s of data science through our performance-based admissions. No tests, application fees, or transcripts are required. You will complete three 3-credit courses, and if you earn a cumulative 3.0 GPA or better, then you will be fully admitted into the program.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p>Ball State University has partnered with Coursera, one of the largest online learning platforms in the world, to bring you the online master of science in data science. The curriculum is designed by Ball State University, courses are taught by our accomplished faculty, and content is delivered through the Coursera platform.</p>
+<p>Whether you come from a data science or programming background or not, our performance-based admissions simplify the road toward your career goals.</p></div>
+<!-- End Component: RTE -->
+<!-- Start Accordion --><div class='component accordion'><div class='panel-group' id='accordion2E2A610E09E14FC09228E81842742DBF_70679' role='tablist' aria-multiselectable='true'>
+
+</div></div><!-- End Accordion -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Current Ball State Data Science Students&nbsp;</h2>
+<p>Even though our data science courses will migrate to Coursera, if you are a current Ball State data science student you can continue your course plans through Canvas until you graduate. We will make sure you have access to all the courses you need to graduate on time. If you have any questions, reach out to your <a href="/academics/collegesanddepartments/online/contact-us/staffdirectory/ballstateonline/jenny-mcmath">Student Success Specialist </a><a href="/academics/collegesanddepartments/online/contact-us/staffdirectory/ballstateonline/jenny-mcmath">Dr. Jenny McMath</a>.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Career Outcomes&nbsp;</h2>
+<p>Growth projections in data science employment are expected to increase rapidly – nearly 20 percent, nationwide – within the next 10 years (Source: Lightcast™ – lightcast.io).</p>
+<p>Data science graduates usually transition into one of the following different occupation groups:&nbsp;</p>
+<ul>
+    <li>Software Development</li>
+    <li>Network and Systems Engineering</li>
+    <li>Business Analysis</li>
+    <li>Data Analysis and Mathematics</li>
+    <li>Front-end Application Design</li>
+    <li>Health IT Professional</li>
+    <li>Policy Analysis and Planning</li>
+</ul>
+<ul>
+</ul>
+<p>You’ll not only gain strong foundations in math, computer science, and statistics, you’ll also experience high-impact practices in big data that you can apply immediately in your current career. The skills you’ll learn are the same ones that are in high demand across the nation.</p>
+<ul>
+    <li>Data SciencePython</li>
+    <li>Machine Learning</li>
+    <li>SQL</li>
+    <li>Apache Hadoop</li>
+    <li>Big Data </li>
+    <li>Data Analysis</li>
+    <li> Predictive Modeling</li>
+    <li>Data Mining</li>
+    <li> SAS®</li>
+    <li>R</li>
+</ul>
+<p>In addition to these skills, we will prepare you to earn relevant industry certifications, such as those offered by SAS Institute, Inc. upon graduation.</p>
+<ul>
+    <li>SAS<sup>®</sup> Certified Specialist: Base Programming Using SAS<sup>®</sup> 9.4 </li>
+    <li>SAS<sup>®</sup> Certified Professional: Advanced Programming Using SAS<sup>®</sup> 9.4</li>
+    <li>SAS<sup>®</sup> Certified Big Data Professional Using SAS<sup>®</sup> 9</li>
+    <li>SAS<sup>®</sup> Certified Advanced Analytics Professional Using SAS<sup>®</sup> 9 </li>
+    <li>SAS<sup>®</sup> Certified Clinical Trials Programmer Using SAS<sup>®</sup> 9</li></ul></div>
+<!-- End Component: RTE -->
+
+<div class="component slider">
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <div id="BillboardSlider_2DB667799AEE46BE9BDC1BBF628EF499" class="carousel slide" data-ride="carousel">
+        
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        
+    <li data-target="#BillboardSlider_2DB667799AEE46BE9BDC1BBF628EF499" data-slide-to="0" class="active"></li>
+               
+    <li data-target="#BillboardSlider_2DB667799AEE46BE9BDC1BBF628EF499" data-slide-to="1" class=""></li>
+               
+    </ol>
+    <!-- End Indicators -->
+ 
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        
+                
+                    <!-- Item -->
+                    <div class="item active" role="option">
+                        <div class="row reorder-xs">
+                            <div class="content col-lg-5 col-md-5 col-sm-6 col-xs-12 col-xs-order-2">
+		                        <div class="component rte">
+		                            <h5>Master of science in data science offers more career options</h5>
+                                    <p>Anah Southard-Goebel Anah chose Ball State’s 100% online master of science in data science because she wanted the flexibility of working remotely while studying.</p>
+                                    <p><a target='_blank' class='dsc-slide-button' href='https://blogs.bsu.edu/online/2023/05/master-of-science-in-data-science-offers-more-career-options/'><span>Read Her Story</span></a></p>
+		                        </div>          
+		                    </div>
+                            <div class="media col-lg-7 col-md-7 col-sm-6 col-xs-12 col-xs-order-1">
+                                <div class="component image">
+                                    
+                                    <a href="https://blogs.bsu.edu/online/2023/05/master-of-science-in-data-science-offers-more-career-options/" rel="noopener noreferrer" target="_blank"><img src="/-/media/www/departmentalcontent/onlineanddistanceed/newphotos/1r3a2808-ds.png?h=600&amp;iar=0&amp;w=900&amp;sc_lang=en&amp;hash=C5CE5C35AAAA8F4E85FEFB7249F411D30BC4DB0D" class="img-responsive" alt="Anah Southard-Goebel smiling while seated in a cubicle" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Item -->
+                
+            
+                
+                    <!-- Item -->
+                    <div class="item " role="option">
+                        <div class="row reorder-xs">
+                            <div class="content col-lg-5 col-md-5 col-sm-6 col-xs-12 col-xs-order-2">
+		                        <div class="component rte">
+		                            <h5>Aihua Li, Master’s in Data Science Professor, is Living Example</h5>
+                                    <p>Aihua Li, assistant teaching professor of data science, uses herself as an example of what one can do with an advanced degree in data science. </p>
+                                    <p><a target='_blank' class='dsc-slide-button' href='https://blogs.bsu.edu/online/2022/07/aihua-li-masters-in-data-science-professor-is-living-example/'><span>READ HER STORY!</span></a></p>
+		                        </div>          
+		                    </div>
+                            <div class="media col-lg-7 col-md-7 col-sm-6 col-xs-12 col-xs-order-1">
+                                <div class="component image">
+                                    
+                                    <a href="https://blogs.bsu.edu/online/2022/07/aihua-li-masters-in-data-science-professor-is-living-example/" rel="noopener noreferrer" title="Aihua Li, Master’s in Data Science Professor" target="_blank"><img src="/-/media/www/departmentalcontent/onlineanddistanceed/newphotos/aihua-li.jpg?h=600&amp;iar=0&amp;w=900&amp;sc_lang=en&amp;hash=33AF4909838BF28C39DF1C256E801E48C9DD490A" class="img-responsive" alt="Aihua Li is standing in the office | Master&#39;s in Data Science" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Item -->
+                
+            
+    </div>
+    <!-- End Wrapper for slides -->
+
+        
+    <!-- Controls -->
+    <a class="left carousel-control" href="#BillboardSlider_2DB667799AEE46BE9BDC1BBF628EF499" role="button" data-slide="prev">
+    <span class="fas fa-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#BillboardSlider_2DB667799AEE46BE9BDC1BBF628EF499" role="button" data-slide="next">
+    <span class="fas fa-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+    </a>
+    <!-- End Controls -->
+        
+    </div>
+</div>
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><h2>Why Coursera?</h2>
+<p>Ball State is intentional about the organizations we work with. Our priority is always our students. Coursera shares the same commitment to bringing flexible, affordable, job-relevant online learning to individuals and organizations worldwide. Since its inception, Coursera has partnered with other accredited and well-known public institutions to offer credit-bearing courses and degree programs that involved rigorous study and proven outcomes for graduates of these programs.</p>
+<h2>Online, Flexible, Relevant, and Evolving Curricula </h2>
+<p>The 100 percent online master&rsquo;s in data science <strong>curriculum is built and owned entirely by Ball State and you will still earn a reputable Ball State degree</strong>.&nbsp;</p>
+<p>The degree is designed with the adult learner and working professional in mind. You will complete your course work through the Coursera online learning platform. Ball State is focused on the student experience. Even in an online learning environment, we place an emphasis on smaller class sizes, and greater personal attention from faculty to benefit you most. Courses are asynchronous, meaning you can complete them at a pace that fits into your daily routine without worrying about being late to class. Many students take one or two courses at a time to balance work, classes, and other responsibilities.</p></div>
+<!-- End Component: RTE -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p><span style="color: rgb(84, 88, 90); font-size: 32px; font-weight: 600; letter-spacing: 1px;">Curriculum Overview</span><br></p></div>
+<!-- End Component: RTE -->
+<!-- Start Accordion --><div class='component accordion'><div class='panel-group' id='accordion70777E4322244B1DA0845C3740BFF440_28553' role='tablist' aria-multiselectable='true'>
+<!-- Panel --><div class='panel panel-accordion'><div class='panel-heading' role='tab' id='heading62174F35A8DA446DBD15BD1F6DE3F331_4093'><h3 class='panel-title'><a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion70777E4322244B1DA0845C3740BFF440_28553' href='#accordion_pathwaycourses' data-target='#collapse62174F35A8DA446DBD15BD1F6DE3F331_4093' aria-expanded='false' aria-controls='collapse62174F35A8DA446DBD15BD1F6DE3F331_4093'>Pathway Courses<span class='sub-title'>9 Credits</span><span class='fas'></span></a></h3></div><div id='collapse62174F35A8DA446DBD15BD1F6DE3F331_4093' class='panel-collapse collapse' data-anchor='#accordion_pathwaycourses' role='tabpanel' aria-labelledby='heading62174F35A8DA446DBD15BD1F6DE3F331_4093'><div class='panel-body'><div><p>If you have no prior background in data science, you&rsquo;ll be able to cover essential topics in these pathway courses.&nbsp;</p>
+<ul>
+    <li>CS 617 Introduction to Programming (3 credits)</li>
+    <li>DSCI 601 Introduction to Data Science (3 credits) </li>
+    <li>DSCI 605 Data Visualization (3 credits)</li>
+</ul></div>
+
+</div></div></div><!-- Panel --><div class='panel panel-accordion'><div class='panel-heading' role='tab' id='heading504A54617685471A8454E7C8D0F5CDFF_73618'><h3 class='panel-title'><a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion70777E4322244B1DA0845C3740BFF440_28553' href='#accordion_corecourses' data-target='#collapse504A54617685471A8454E7C8D0F5CDFF_73618' aria-expanded='false' aria-controls='collapse504A54617685471A8454E7C8D0F5CDFF_73618'>Core Courses<span class='sub-title'>6 Credits</span><span class='fas'></span></a></h3></div><div id='collapse504A54617685471A8454E7C8D0F5CDFF_73618' class='panel-collapse collapse' data-anchor='#accordion_corecourses' role='tabpanel' aria-labelledby='heading504A54617685471A8454E7C8D0F5CDFF_73618'><div class='panel-body'><div><p>Through the core courses, you&rsquo;ll establish your understanding of statistical methods and programming.</p>
+<ul>
+    <li>DSCI 602 Statistical Methods for Data Science (3 credits)</li>
+    <li>CS 654 Machine Learning and Data Mining (3 credits)</li>
+</ul></div>
+
+</div></div></div><!-- Panel --><div class='panel panel-accordion'><div class='panel-heading' role='tab' id='headingCC75FB14D3194F6C8B8ED91AE9D4AEB2_3978'><h3 class='panel-title'><a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion70777E4322244B1DA0845C3740BFF440_28553' href='#accordion_computationalanalytics' data-target='#collapseCC75FB14D3194F6C8B8ED91AE9D4AEB2_3978' aria-expanded='false' aria-controls='collapseCC75FB14D3194F6C8B8ED91AE9D4AEB2_3978'>Computational Analytics<span class='sub-title'>6 Credits - Choose Two Courses</span><span class='fas'></span></a></h3></div><div id='collapseCC75FB14D3194F6C8B8ED91AE9D4AEB2_3978' class='panel-collapse collapse' data-anchor='#accordion_computationalanalytics' role='tabpanel' aria-labelledby='headingCC75FB14D3194F6C8B8ED91AE9D4AEB2_3978'><div class='panel-body'><div><p>The two courses in computational analytics will further round out your education.</p>
+<ul>
+    <li>CS 621&nbsp;Data Analytics (3 credits)</li>
+    <li>CS 636&nbsp;Advanced Database Systems (3 credits)</li>
+    <li>DSCI 604&nbsp;Data Storage and Management  (3 credits)</li>
+</ul></div>
+
+</div></div></div><!-- Panel --><div class='panel panel-accordion'><div class='panel-heading' role='tab' id='headingAA77E0C957144B28846B9D98C9FCB762_96431'><h3 class='panel-title'><a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion70777E4322244B1DA0845C3740BFF440_28553' href='#accordion_statisticalcomputingandmodeling' data-target='#collapseAA77E0C957144B28846B9D98C9FCB762_96431' aria-expanded='false' aria-controls='collapseAA77E0C957144B28846B9D98C9FCB762_96431'>Statistical Computing and Modeling<span class='sub-title'>6 Credits - Choose Two Courses</span><span class='fas'></span></a></h3></div><div id='collapseAA77E0C957144B28846B9D98C9FCB762_96431' class='panel-collapse collapse' data-anchor='#accordion_statisticalcomputingandmodeling' role='tabpanel' aria-labelledby='headingAA77E0C957144B28846B9D98C9FCB762_96431'><div class='panel-body'><div><p>The two courses in statistical computing and modeling will further round out your education.</p>
+<ul>
+    <li>MATH 612 Statistical Programming: Base SAS 9 (3 credits)</li>
+    <li>MATH 624&nbsp;Introduction to Statistical Learning (3 credits)</li>
+    <li>MATH 628&nbsp;Computational Methods in Statistics (3 credits)</li>
+    <li>SOC 686&nbsp;Categorical Data Analysis (3 credits)</li>
+</ul></div>
+
+</div></div></div><!-- Panel --><div class='panel panel-accordion'><div class='panel-heading' role='tab' id='heading1BB8A8F9DDB14E7788780123E83FF676_95625'><h3 class='panel-title'><a class='collapsed' role='button' data-toggle='collapse' data-parent='#accordion70777E4322244B1DA0845C3740BFF440_28553' href='#accordion_applicationelectives' data-target='#collapse1BB8A8F9DDB14E7788780123E83FF676_95625' aria-expanded='false' aria-controls='collapse1BB8A8F9DDB14E7788780123E83FF676_95625'>Application Electives<span class='sub-title'>6 Credits - Choose Two Courses</span><span class='fas'></span></a></h3></div><div id='collapse1BB8A8F9DDB14E7788780123E83FF676_95625' class='panel-collapse collapse' data-anchor='#accordion_applicationelectives' role='tabpanel' aria-labelledby='heading1BB8A8F9DDB14E7788780123E83FF676_95625'><div class='panel-body'><div><p>In your two elective courses, you&rsquo;ll develop specialized knowledge and skills so you can stand out to employers as you pursue a career in the field.</p>
+<ul>
+    <li>DSCI 607 Data Analytics for Environmental Sciences (3 credits)</li>
+    <li>DSCI 608 Data Analytics for Bioinformatics (3 credits)</li>
+    <li>DSCI 609 Data Analytics for Social Sciences (3 credits)</li>
+    <li>DSCI 610 Data Analytics for Health Sciences (3 credits)</li>
+</ul></div>
+
+</div></div></div>
+</div></div><!-- End Accordion -->
+
+<!-- Component: RTE -->
+
+
+
+ 
+<div class='component rte'><p></P><div style='width: 100%;' class='editor-breakout center'><h2>Want to Learn More?</h2>
+<p>Do you have questions about this program or online learning? We&rsquo;re here to help! You may request more information using our online form, or feel free to reach out directly to one of our staff.</p>
+<div class="row">
+<div class="col-md-6">
+<p style="text-align: center;"><a href="https://www.coursera.org/degrees/ms-data-science-ball-state/landing" class="rteBtn-default" target="_blank" rel="noopener noreferrer">Request Info</a>
+</p>
+</div>
+<div class="col-md-6">
+<p style="text-align: center;"><a href="/academics/collegesanddepartments/online/contact-us" class="rteBtn-default">Contact Us</a>
+</p>
+</div>
+</div></div><P></p></div>
+<!-- End Component: RTE -->
+
+            <!-- Related Items Placeholder -->
+                <div class='row'><div class='col-xs-12'><div class='component rte'><h3 class='tag-sub-title rteBorderBottom-white'>Related Programs</h3></div></div></div>
+<div class='related-article-list-row row'><div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'><div class='component tag-light'><a href='/academics/collegesanddepartments/online/academic programs/masters/mabized' rel='noopener' class='tag-light-link' title='Master’s in Business Education | Online'><div class='tag-light-div' style='background-image: url(/-/media/www/departmentalcontent/onlineanddistanceed/newphotos/biz-ed.jpg?sc_lang=en)'></div><div class='tag-light-details'><div class='tag-light-wrapper'><div class='tag-light-inner'><div>Master’s in Business Education | Online</div></div></div></div></a></div></div><div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'><div class='component tag-light'><a href='/academics/collegesanddepartments/online/academic programs/masters/maedadmin' rel='noopener' class='tag-light-link' title='Master's in Educational Administration and Supervision | Online'><div class='tag-light-div' style='background-image: url(https://www.bsu.edu/-/media/www/images/academics/degree-search-open-graph/shafer-tower-og.jpg?sc_lang=en)'></div><div class='tag-light-details'><div class='tag-light-wrapper'><div class='tag-light-inner'><div>Master's in Educational Administration and Supervision | Online</div></div></div></div></a></div></div><div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'><div class='component tag-light'><a href='/academics/collegesanddepartments/online/academic programs/masters/msintdesign' rel='noopener' class='tag-light-link' title='Master's Degree in Interior Design | Online'><div class='tag-light-div' style='background-image: url(/-/media/www/departmentalcontent/cmid/images/masters-interior-design.jpg?sc_lang=en)'></div><div class='tag-light-details'><div class='tag-light-wrapper'><div class='tag-light-inner'><div>Master's Degree in Interior Design | Online</div></div></div></div></a></div></div>
+<div><div class='component buttons isMobileStacked clearfix text-right'><div class='btn-group related-programs' role='group'><div class='btn-wrapper'><div class='btn-container'><a title='Find more' href='/academics/programs-start-page?tag=Business and Management&degree=Masters&delivery=Online' class='tag-btn tag-more'>Find more...</a></div></div></div></div></div></div>
+            <!-- End Related Items Placeholder -->
+        </div>
+        <div id="content_0_toposidebar" class="col-md-3 col-md-pull-9 sidebar">
+                
+
+
+                 
+            <div id="submenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+    
+                            	    
+
+  <a class="navmenu-brand" href="/academics/collegesanddepartments/online">Ball State Online</a>
+
+  <div id="subnavAccordion" class="panel-group" role="tablist">
+      
+	  <div class="panel">
+	    <div class="panel-heading" role="tab" id="heading1">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters" target="">Master's Degrees</a>
+	        <!-- <button data-toggle="collapse" data-parent="#subnavAccordion" href="#subnavCollapse1" aria-expanded="true" aria-controls="subnavCollapse1"><span class="fa"></span></button> -->
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+	  <div class="panel active">
+	    <div class="panel-heading" role="tab" id="heading2">
+	      <h4 class="panel-title">
+	        <a href="/academics/collegesanddepartments/online/academic-programs/masters/ms-data-science" target="">Master&#39;s Degree in Data Science</a>
+	        <!-- <button data-toggle="collapse" data-parent="#subnavAccordion" href="#subnavCollapse1" aria-expanded="true" aria-controls="subnavCollapse1"><span class="fa"></span></button> -->
+	      </h4>
+	    </div>
+          
+	  </div>
+      
+ 
+	</div>
+</div><!--/.navmenu .navmenu-fixed-left .offcanvas -->
+ 
+            
+<script src="/Components/Design/ResponsiveV2/js/v-638193146760000000/emailCopyCode.js"></script>
+
+<!-- scriptmanager placeholder -->
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('content_0$twocolumnleftcomp_0$EventScriptManager', 'mainform', ['tcontent_0$twocolumnleftcomp_0$AJAXemail_SubContact','content_0_twocolumnleftcomp_0_AJAXemail_SubContact'], [], [], 90, '');
+//]]>
+</script>
+
+<!-- code placeholder -->
+<div class="dsc-subcontact panel-group"><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-title">Ball State Online</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-map-marker-alt"></span></div><div class="dsc-contact-body">David Letterman Communication and Media Building, Room 131<br/>Muncie, IN 47306</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-clock"></span></div><div class="dsc-contact-body">Monday-Friday: 7:30a.m. - 4 p.m. Eastern time<br/></div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-phone-alt"></span></div><div class="dsc-contact-body">800-872-0369<br/>765-285-1581</div></div><div class="dsc-contact-wrap col-xs-12 col-sm-4 col-md-12"><div class="dsc-contact-left"><span class="fas fa-paper-plane"></span></div><div class="dsc-contact-body"><div id="content_0_twocolumnleftcomp_0_AJAXemail_SubContact" class="iViewEmailAJAXPanel">
+	<input type="submit" name="content_0$twocolumnleftcomp_0$b1control_SubContact" value="View Email Address" id="content_0_twocolumnleftcomp_0_b1control_SubContact" class="iViewEmailAJAXButton" />
+</div></div></div></div>
+        </div>
+        <!--/col-md-3 -->
+    </div>
+</div>
+<!--/.container -->
+
+
+	</div>
+	<!-- End Template: Subpage -->
+
+        <!-- End Content Placeholder -->
+        <!-- Footer -->
+        
+<footer id="footer" style="border: none;">
+    <div class="bluefooter">
+        <div class="container">
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Academics and Admissions</h4>
+<ul>
+    <li><a href="/admissions">Admissions</a></li>
+    <li><a href="/academics/collegesanddepartments/graduate-school">Graduate School</a></li>
+    <li><a href="/admissions/international">International</a></li>
+    <li><a href="/academics/collegesanddepartments/online">Online Education</a></li>
+    <li><a href="/admissions/financial-aid-and-scholarships">Financial Aid and Scholarships</a></li>
+    <li><a href="/academics/collegesanddepartments">Colleges and Departments</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Helpful Links</h4>
+<ul>
+    <li><a href="/campuslife/healthcenter/morres">COVID-19 Resources</a></li>
+    <li><a href="/map">Map and Directions</a></li>
+    <li><a href="/calendar">Calendar of Events</a></li>
+    <li><a href="/about/contactus">Contact Us</a></li>
+    <li><a href="/academics/libraries">University Libraries</a></li>
+    <li><a href="https://bsu.peopleadmin.com/" title="Employment Opportunities at Ball State">Employment Opportunities</a></li>
+    <li><a href="/about/inclusive-excellence">Inclusive Excellence</a></li>
+    <li><a href="/about/visit">On-Campus Resources</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <h4>Resources</h4>
+<ul>
+    <li><a href="http://my.bsu.edu" title="Resources for Ball State Affiliates">myBSU</a></li>
+    <li><a href="/gateways/business-partners">Business Partners</a></li>
+    <li><a href="/about/administrativeoffices/emergency-preparedness">Emergency Preparedness</a></li>
+    <li><a href="/about/accessibility">Accessibility</a></li>
+    <li><a href="/about/administrativeoffices/oirds/student-consumer">Consumer Disclosures</a></li>
+    <li><a href="https://magazine.bsu.edu" title="Ball State Magazine">Magazine</a></li>
+    <li><a href="/news">News Center</a></li>
+    <li><a href="/about/university-policies">University Policies</a></li>
+</ul>
+            </div>
+            <div class="col-sm-3 col-xs-12 footercolumn">
+                <style>
+.be-ix-link-block .be-related-link-container .be-label {
+    display: none;
+}
+.be-ix-link-block .be-related-link-container {
+    display: block;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    max-width: 100%;
+}
+.be-ix-link-block .be-related-link-container .be-list {
+    display: block;
+}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item {
+    display: list-item;
+}
+.be-ix-link-block .be-related-link-container .be-list .be-list-item a {
+    padding-right: 0;
+    line-height: normal;
+}
+</style>
+<h4>Also of Interest</h4>
+<div class="be-ix-link-block"></div>
+            </div>
+            <div class="col-xs-12 subfooterline">
+                <div class="col-xs-12 subfooterline" style="margin-top: 20px; border-top: 1px solid #fff;">
+    <div style="display: table; width: 100%; max-width: 400px; margin: 0 auto; margin-top: 20px;">
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.facebook.com/ballstate" target="_blank" title="Facebook"><span class="fab fa-facebook-f"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://twitter.com/BallState" target="_blank" title="Twitter"><span class="fab fa-twitter"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.youtube.com/officialballstate" target="_blank" title="YouTube"><span class="fab fa-youtube"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.instagram.com/ballstateuniversity/" target="_blank" title="Instagram"><span class="fab fa-instagram"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.linkedin.com/school/ball-state-university/" target="_blank" title="LinkedIn"><span class="fab fa-linkedin-in"></span></a></div>
+	<div style="display: table-cell; font-size: 32px;"><a rel="noopener noreferrer" href="https://www.tiktok.com/@ballstate/" target="_blank" title="TikTok"><span class="fab fa-tiktok"></span></a></div>
+    </div>
+<div id="ns-btn-two">
+<a href="/about/social-media-directory">VIEW SOCIAL MEDIA DIRECTORY</a>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+	<div class="container">
+		<div class="row">
+            <div class='footerlogo' style='background-image: url(/-/media/www/images/sectionbackgrounds/home/plus_right_left.jpg?sc_lang=en);'><a href='/' title='Ball State University'><img alt='Ball State University' src='/-/media/www/images/home/bsu_weflyvert_rgb_footer.png?sc_lang=en' /></a></div>
+			<div class="footerbottom">
+                <div class="contactline">Ball State University 2000 W. University Ave. Muncie, IN 47306 800-382-8540 and 765-289-1241</div>
+                <div class="lastline"><ul class="list-inline">
+    <li><strong>Copyright &copy; 2023 Ball State University</strong></li>
+    <li><a href="/about/administrativeoffices/employee-relations/policies-and-legal-information/equal-opportunity-and-affirmative-action-policy">Equal Opportunity and Affirmative Action Policy</a></li>
+    <li><a href="/about/administrativeoffices/general-counsel">Legal Information</a></li>
+    <li><a href="/about/administrativeoffices/disability-services/about/contact">TTY Numbers</a></li>
+    <li><a href="/sitemap">Sitemap</a></li>
+</ul></div>
+			</div>
+		</div><!--/.row -->
+	</div><!--/.container -->
+</footer>
+        <!-- End Footer -->
+        
+<!-- Modal window template -->
+<div id="dscModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+         <!-- Close (X) button -->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <div class="dsc-iframe-wrap">
+      	    <!-- iFrame for the link href to show -->
+	  	    <iframe frameborder="0"></iframe>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <!-- Close button -->
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>      
+    </div>
+  </div>
+</div>
+        <!-- End Modal Popup Template -->
+    </form>
+    
+    <script>jQuery.noConflict();</script>
+    
+
+    
+  </body>
+</html>
