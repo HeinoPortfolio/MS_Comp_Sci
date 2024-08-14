@@ -18,5 +18,7 @@ This directory will hold miscellaneous files. These files were not all created b
 |[Module_9.pdf](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_9.pdf) or [Module_9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_9.ipynb)|This notebook covers: Creating choropleth maps. Using Folium for mapping data. How to create heatmaps. Creating a pivot table with seaborn.| File used can be found in directory Module Files --> Module 9. <br><br> To view the Jupyter Notebook you will need to do so outisde of the repository.  To view the PDF just click on the PDF link.<br><br> **Note**: The PDF will not display all the graphics for the maps and other visuals|
 |[Module_10.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_10.ipynb)|Loading social network and web data| File used can be found in directory Module Files --> Module 10 |
 |[Module_11.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_11.ipynb)|Covers text processing, tokenizing strings, use of the NLTK toolkit, loading and using stopwords, stemming words, and lemmatizing words| File used can be found in directory Module Files --> Module 11 |
-||| File used can be found in directory Module Files --> Module 5 |
-||| File used can be found in directory Module Files --> Module 5 |
+||| File used can be found in directory Module Files --> Module 12 |
+||| File used can be found in directory Module Files --> Module 13 |
+||| File used can be found in directory Module Files --> Module 14 |
+||| File used can be found in directory Module Files --> Module 15 |
