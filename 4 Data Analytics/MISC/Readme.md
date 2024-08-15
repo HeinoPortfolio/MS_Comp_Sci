@@ -1,6 +1,6 @@
 # Purpose
 
-This directory will hold miscellaneous files. These files were not all created by me and some of these files were used for review.  They are included here to make it easier to review needed concepts at a later date.
+This directory holds miscellaneous files. These files were not all created by me and some of these files were used for review.  They are included here to make it easier to review needed concepts at a later date.
 
 
 # Files and a Brief Description of Their Purpose
@@ -18,7 +18,7 @@ This directory will hold miscellaneous files. These files were not all created b
 |[Module_9.pdf](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_9.pdf) <br> or <br> [Module_9.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_9.ipynb)|This notebook covers: Creating choropleth maps. Using Folium for mapping data. How to create heatmaps. Creating a pivot table with seaborn.| File used can be found in directory Module Files --> Module 9. <br><br> To view the Jupyter Notebook you will need to do so outisde of the repository.  To view the PDF just click on the PDF link.<br><br> **Note**: The PDF will not display all the graphics for the maps and other visuals|
 |[Module_10.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_10.ipynb)|Loading social network and web data| File used can be found in directory Module Files --> Module 10 |
 |[Module_11.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_11.ipynb)|Covers text processing, tokenizing strings, use of the NLTK toolkit, loading and using stopwords, stemming words, and lemmatizing words| File used can be found in directory Module Files --> Module 11 |
-||| File used can be found in directory Module Files --> Module 12 |
+|[Module_12.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_12.ipynb)|Covers text analytics, get the frequency of the words in the data, save a dataframe to a file, using matplotlib to generate a visual of the words, using WordCloud to generate a word cloud of the words, create a WordCloud with a Mask, and parts of speach tags (POS) are covered.| File used can be found in directory Module Files --> Module 12 |
 ||| File used can be found in directory Module Files --> Module 13 |
 ||| File used can be found in directory Module Files --> Module 14 |
 ||| File used can be found in directory Module Files --> Module 15 |
