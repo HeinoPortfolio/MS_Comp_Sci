@@ -21,4 +21,5 @@ This directory holds miscellaneous files. These files were not all created by me
 |[Module_12.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_12.ipynb)|Covers text analytics, get the frequency of the words in the data, save a dataframe to a file, using matplotlib to generate a visual of the words, using WordCloud to generate a word cloud of the words, create a WordCloud with a Mask, and parts of speach tags (POS) are covered.| File used can be found in directory Module Files --> Module 12 |
 |[Module_13.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_13.ipynb)|Covers using positive and negative lists to determine sentiment, using Emoji, and using Spacy| File used can be found on the Google Drive|
 |[Module_14.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_14.ipynb)|Covers machine learning, data classification, and create a Decision Tree Classifier| File used can be found on the Google Drive |
-||| File used can be found in directory Module Files --> Module 15 |
+|[Module_15.ipynb](https://github.com/HeinoPortfolio/MS_Comp_Sci/blob/main/4%20Data%20Analytics/MISC/Module_15.ipynb)|Covers regression analysis, using Scikit-Learn, mean absolute error, and mean squared error| None |
+|    |    |     |
