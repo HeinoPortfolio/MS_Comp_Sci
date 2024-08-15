@@ -1,0 +1,4 @@
+Data science is a great subject to study.
+Software programming is fun.
+I love both data and computer programming. 
+CS617 is programming for data science.
