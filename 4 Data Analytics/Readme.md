@@ -6,7 +6,7 @@ This course covered the processes of data acquisition, transformation, manipulat
 
 
 # Note
-- For addititional coursework in data analytics go to my master's degree repository in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
+- For addititional coursework in data analytics go to my master's degree in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
 
 # Competencies
 - $`\textcolor{blue}{\text{???}}`$
