@@ -6,7 +6,7 @@ This course covered the processes of data acquisition, transformation, manipulat
 
 
 # Note
-- For addititional coursework in data analytics go to my masters in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
+- For addititional coursework in data analytics go to my master's degree repository in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
 
 # Competencies
 - $`\textcolor{blue}{\text{???}}`$
@@ -32,7 +32,7 @@ The concepts and technologies used to create and complete the assessment are the
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----|:-----|
-|[MISC](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/MISC)|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some were created by the instructor of the course.  This will be noted on the file where appropriate.
+|[MISC](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/MISC)|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some of these files were created by the instructor of the course.  This will be noted on the file where appropriate.
 |[Labs](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/Labs)| Data analytics labs that cover topics that are found in the MISC folder|These are projects that were created to answer proposed questions in data analytics. These labs follow the curriculum of the course syllabus.
 || |
 |||  |
