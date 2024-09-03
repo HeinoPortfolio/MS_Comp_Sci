@@ -26,7 +26,7 @@ This course covered the processes of data acquisition, transformation, manipulat
 
 The concepts and technologies used to create and complete the assessment are the following:
 - Python 3.11
-- Various modules and/or libraries.  For example the following modules were used (Note: This is not an exhautive list, but only a sample.):
+- Various modules and/or libraries.  For example the following modules were used (Note: This is not an exhaustive list, but only a sample.):
   - Pandas
   - sklearn
 
