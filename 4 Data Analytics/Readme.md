@@ -9,24 +9,27 @@ This course covered the processes of data acquisition, transformation, manipulat
 - For addititional coursework in data analytics go to my master's degree in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
 
 # Competencies
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
+- $`\textcolor{blue}{\text{Identify possible data sources and data opportunities.}}`$
+- $`\textcolor{blue}{\text{Acquire, transform, and manipulate data using the Python programming language.}}`$
+- $`\textcolor{blue}{\text{Retrieve and process unstructured, semi-structured, and structured data.}}`$
+- $`\textcolor{blue}{\text{Perform data analytics}}`$
+- $`\textcolor{blue}{\text{Create and evaluate data visualizations}}`$
+- $`\textcolor{blue}{\text{Perform text analytics and visualizations}}`$
+- $`\textcolor{blue}{\text{Develop a standard pipeline for data analytics}}`$
 
 # Objectives
-- ???.
-- ???.
-- ???.
+- Become proficient in using the Python programming language as applied to data analysis and analytics.
+- Create visualizations that encompass the data in a relevant manner.
+
 
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessment are the following:
-- ????.
-- ???.
-- ???.
-- ????.
+- Python 3.11
+- Various modules and/or libraries.  For example the following modules were used (Note: This is not an exhautive list, but only a sample.):
+  - Pandas
+  - sklearn
+
 
 # Files and a Brief Description of Their Purpose
 
