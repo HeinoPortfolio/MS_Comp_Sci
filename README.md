@@ -7,9 +7,9 @@ The table below shows the approximate order the courses were taken.  The listing
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
 1 | [Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) | Core |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries.  |$`\textcolor{blue}{\text{Completed}}`$ 
-2 | [Discrete Structures](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/2%20Discrete%20Structures) | Core | ???? |$`\textcolor{green}{\text{In Progress}}`$
-3 |[Applications of Computability](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/3%20Applications%20of%20Computability)| Research |  ???? | $`\textcolor{red}{\text{Need}}`$
-4 | [Data Analytics](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics)|Core | ??? | $`\textcolor{green}{\text{In Progress}}`$
+2 | [Discrete Structures](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/2%20Discrete%20Structures) | Core | ???? |$`\textcolor{green}{\text{Need}}`$
+3 |[]()| ??????????? |  ???? | $`\textcolor{red}{\text{Need}}`$
+4 | [Data Analytics](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics)|Core | Graduate course in data analytics. The course covered data acquisition, transformation, manipulation, and how these were applied to large-scale unstructured, structured, and semi-structured data. The course introduced the application of different data analytics methods and algorithms to accomplish the preparation and analysis of the data.  | $`\textcolor{green}{\text{In Progress}}`$
 5 | [Modern DB Sys](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/5%20Modern%20DB%20Sys) | Core | ??? | $`\textcolor{red}{\text{Need}}`$
 6 | [Cybersecurity and Secure Software Design](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/6%20Cybersecurity%20and%20Secure%20Software%20Design) | Core | ???  | $`\textcolor{red}{\text{Need}}`$
 7 | [Software Eng](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/7%20Software%20Eng)|  Core | ??? |  $`\textcolor{red}{\text{Need}}`$
