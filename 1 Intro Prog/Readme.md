@@ -3,6 +3,8 @@ Introductory graduate-level software development course using a high-level progr
 
 This is the repository for the **Introduction to Programming** course. This page will contain the coursework files that were completed during the term.  You will find sample code that was used to create the assignments and a brief description of the concepts or technology used to pass the course. 
 
+**Note:** A certificate of completion can be found on my LinkedIn page.  The certificate can be found in the Licenses & certifications section of the page. It will show my grade for the course as well as listing it as a Ball State University credential that has been applied to a master's degree.  Click [here](https://www.linkedin.com/in/matthew-heino-25a9006/) to be taken to the LinkedIn page.
+
 # Competencies
 - $`\textcolor{blue}{\text{Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.}}`$
 - $`\textcolor{blue}{\text{Calculate the value of expressions and explain the effect of statements in the python programming language.}}`$
