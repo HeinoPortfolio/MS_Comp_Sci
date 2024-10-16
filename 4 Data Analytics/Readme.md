@@ -29,6 +29,8 @@ The concepts and technologies used to create and complete the assessment are the
 - Various modules and/or libraries.  For example the following modules were used (Note: This is not an exhaustive list, but only a sample.):
   - Pandas
   - sklearn
+  - WordCloud
+
 
 
 # Files and a Brief Description of Their Purpose
