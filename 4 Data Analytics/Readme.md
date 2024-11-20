@@ -42,7 +42,6 @@ The concepts and technologies used to create and complete the assessment are the
 |[MISC](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/MISC)|  This is a directory that holds files that do not fall into the other directories. | These files were not all created by me.  Some of these files were created by the instructor of the course.  This will be noted on the file where appropriate.
 |[Labs](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/Labs)| Data analytics labs that cover topics that are found in the MISC folder|These are projects that were created to answer proposed questions in data analytics. These labs follow the curriculum of the course syllabus.
 |[Other Items](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics/Other%20Items)| Other items that were used in the course. | None
-|[Final Project]()|Final project file.  This was a report based on the fundamentals of data analytics,|  |
-|||  |
+
 
 
