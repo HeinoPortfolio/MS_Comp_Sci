@@ -13,7 +13,7 @@ The program emphasized applications and specializations with hands-on learning e
 3 |[Data Visualization](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/3%20Data%20Visualization)| Elective |An introduction to the needs and tasks of data visualization. Topics include general principles and techniques to create effective data visualization, various kinds of data for visualization, and how to communicate with the audience through visualization. | $`\textcolor{green}{\text{In Progress}}`$
 4 | [Data Analytics](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics)|Core | Graduate course in data analytics. The course covered data acquisition, transformation, manipulation, and how these were applied to large-scale unstructured, structured, and semi-structured data. The course introduced the application of different data analytics methods and algorithms to accomplish the preparation and analysis of the data.  | $`\textcolor{blue}{\text{Completed}}`$
 5 |[Data Storage and Management](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/5%20Data%20Storage) | Core | An introduction to data storage and management used in data analytics systems. Topics include relational and NoSQL database systems, data storage and retrieval, data manipulation and transformation between different formats, and database integration within big data eco-systems. | $`\textcolor{green}{\text{In Progress}}`$
-6 | []() | ??? | ???  | $`\textcolor{red}{\text{Need}}`$
+6 | [Data Mining and Machine Learning]() | ??? | ???  | $`\textcolor{red}{\text{Need}}`$
 7 | []()|  ??? | ??? |  $`\textcolor{red}{\text{Need}}`$
 8 | []()| ??? |  ???? |  $`\textcolor{red}{\text{Need}}`$
 9 | []() | ??? |  ???? |  $`\textcolor{red}{\text{Need}}`$
