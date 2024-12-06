@@ -12,7 +12,7 @@ An introduction to the needs and tasks of data visualization. Topics include gen
 
 The concepts and technologies used to create and complete the assessments are the following:
 - R programming language
--
+- R markdown 
 - 
 - 
 - 
