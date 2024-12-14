@@ -13,7 +13,7 @@ You will find the course certificates of completion below.  **Note:** Some cours
 - [CS 621: Foundations of Data Analytics](https://www.coursera.org/account/accomplishments/verify/2E61BDHUK52A)
 - 
 
-# List of Courses Table
+# List of Courses
 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
