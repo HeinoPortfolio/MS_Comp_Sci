@@ -6,6 +6,15 @@ The listing below does not reflect the order that they were taken.  Some directo
 
 The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. 
 
+# Course Certificates
+You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.
+
+- [CS 617 Introduction to Programming](https://coursera.org/share/14866efec2f99f64d96823093dbc3aa7)
+- [CS 621: Foundations of Data Analytics](https://www.coursera.org/account/accomplishments/verify/2E61BDHUK52A)
+- 
+
+# List of Courses Table
+
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
 1 |[Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) | Core |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries.  |$`\textcolor{blue}{\text{Completed}}`$ 
