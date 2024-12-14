@@ -16,10 +16,10 @@ The concepts and technologies used to create and complete the assessments are th
 - 
 - 
 - 
-# Files and a Brief Description of Their Purpose
+# Directories and a Brief Description of Their Purpose
 
 
-|**Folder Name**|**Purpose**|**Additional Comments**|
+|**Directory  Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
 |Assignment Files| |
 |Jupyter Notebook Assignment||
