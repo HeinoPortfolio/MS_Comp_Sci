@@ -1,6 +1,6 @@
 # MS_Comp_Sci
 
-The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculm.  There were two research courses that were required. The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
+The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculum.  There were two research courses that were required. The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
 
 The listing below does not reflect the order that they were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
