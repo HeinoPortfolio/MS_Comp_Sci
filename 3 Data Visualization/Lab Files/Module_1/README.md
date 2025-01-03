@@ -2,7 +2,7 @@
 This directory will hold the files that were created during lecture and during the practice labs. 
 
 # Competencies
-Compentencies and objectives completed in Module 1:
+Competencies and objectives completed in Module 1:
 - Introduction to data visualization
 - Understanding R data types
 - Create R objects
