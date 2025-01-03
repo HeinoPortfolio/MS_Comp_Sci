@@ -23,7 +23,7 @@ The concepts and technologies used to create and complete the assessments are th
 |:-----:|:-----:|:-----|
 |Assignment Files| |
 |Jupyter Notebook Assignment||
-|Labs| |
+|Labs Files|Holds files from lectures and ungraded lab assignments|
 |Reflections||  |
 |  |  |  |
 | | |  |
