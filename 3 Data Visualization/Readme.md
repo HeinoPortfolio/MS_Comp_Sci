@@ -30,8 +30,8 @@ The concepts and technologies used to create and complete the assessments are th
 |:-----:|:-----:|:-----|
 |Assignment Files| |
 |Jupyter Notebook Assignment||
-|Labs Files|Holds files from lectures and ungraded lab assignments|
-|Reflections||  |
+|Labs Files|Holds files from lectures and ungraded lab assignments| Not all the files were created by me.  Some where created by the course instructor.  This will be noted in the **README** in the directory. 
+|||  |
 |  |  |  |
 | | |  |
 ||| |
