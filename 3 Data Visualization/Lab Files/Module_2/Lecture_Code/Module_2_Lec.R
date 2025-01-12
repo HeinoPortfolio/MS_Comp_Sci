@@ -7,6 +7,13 @@
 #   4) Preview the data using - View()
 #   5) Check the class using - class()
 #   6) Choose rows based criteria - filter()
+#   7) Group and summarize
+#   8) Rename columns
+#   9) Create columns
+#   10) Order Columns
+#   11) Create new variables using mutate()
+#   12) Order variables using arrange()
+#   13) Rename the variable using rename()
 #
 # ------------------------------------------------------------------------------
 library(tidyverse)
@@ -83,16 +90,84 @@ interviews_ch <- interviews %>%
   select(village:respondent_wall_type)
 
 
+# Group and Summarize ##########################
+# Note: group_by() and summarize are usually used together.
+#   Can use other functions in place of the mean(), can use max(), sum() 
+#   functions 
 
 
+#  View unique values in the column of the data frame 
+unique(interviews$village)
+
+# Group by a single column - village
+interviews2 <- interviews %>% 
+  group_by(village) %>%
+  summarize(mean_no_membrs = mean(no_membrs)) 
+
+# Group by multiple columns
+# mean_no_membrs is a **NEW** variable name
+
+interviews2 <- interviews %>% 
+  group_by(village, ) %>%
+  summarize(mean_no_membrs = mean(no_membrs)) 
 
 
+# Getting the TALLY of a specific category
+# Use the count() on a categorical value
+
+interviews %>% count(village)
 
 
+# Create new variables
+interviews3 <- interviews %>% 
+  mutate(people_per_room = no_membrs / rooms)
+
+view(inteviews3)
 
 
+# Order the variables' values
+# Note: arrange() can order the variables by ascending order
 
+interviews4 <- interviews %>% 
+  arrange(interview_date)
 
+view(inteviews4)
+
+# Descending order
+# is.na() - used to determine a missing value
+
+interviews4 <- interviews %>%
+  filter(!is.na(memb_assoc)) %>%
+  group_by(village, memb_assoc) %>%
+  summarize(mean_no_membrs = mean(no_membrs),
+            min_membrs = min(no_membrs)) %>%
+  arrange(desc(min_membrs))
+
+view(interviews4)
+
+# arrange by two variables
+# Note: village will ascending while min_membrs will be descending
+
+interviews5 <- interviews %>%
+  filter(!is.na(memb_assoc)) %>%
+  group_by(village, memb_assoc) %>%
+  summarize(mean_no_membrs = mean(no_membrs),
+            min_membrs = min(no_membrs)) %>%
+  arrange(village, desc(min_membrs))
+
+view(interviews5)
+
+# Renaming variables 
+
+interviews5 <- interviews %>%  
+  filter(!is.na(memb_assoc)) %>%
+  group_by(village, memb_assoc) %>%
+  summarize(mean_no_membrs = mean(no_membrs),
+            min_membrs = min(no_membrs)) %>%
+  arrange(desc(min_membrs))
+  
+
+interviews5 %>% rename("test" = "village")
 
 
 
