@@ -40,7 +40,7 @@ starwars
 #starwars %>% filter(species == 'Droid' | species == 'Human')
 
 # q7. bmi 
-st1 <- starwars %>% mutate("bmi" == mass / (height /100)^2)
-
+#st1 <- starwars %>% mutate(bmi = mass / (height /100)^2)
+st1 <- starwars %>% mutate("bmi" = mass / (height /100)^2)
 
 
