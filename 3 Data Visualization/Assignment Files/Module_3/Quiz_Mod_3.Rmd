@@ -1,0 +1,43 @@
+---
+title: "Quiz"
+author: "Matthew Heino"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1:
+
+```{r, echo=FALSE}
+
+1 + 1
+```
+Choice 2 Hide the plots? 
+```{r, fig.show='hide'}
+
+plot(cars)
+```
+
+Choice 3 hide the print results in the code console?
+```{r, results='hide'}
+# test
+print("You will not see the text output")
+
+```
+
+Choice 4 hide the code in the knitted file, but can see the result in the printed in the code console
+
+```{r, results='hide'}
+
+1+1
+```
+
+
+
+
+
+
+
