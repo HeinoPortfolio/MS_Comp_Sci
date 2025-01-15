@@ -1,0 +1,64 @@
+---
+title: "The basic R Markdown"
+author: "Matthew Heino"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data description
+
+The data used was from the Salaries.csv.  The data represents data for university teaching staff.  The data set is composed of 6 columns of data.
+The data set is composed of the following columns:
+
+* Variable 1: rank- This columns holds information about the position of the instructor within the university.
+* Variable 2: discipline- This column gives a single letter code to show what discipline the instructor is in.
+* Variable 3: yrs.since.phd- The number of years the instructor has help their PHD.
+* Variable 4: yrs.service- The years of service or the number of years the instructor has been employed by the university.
+* Variable 5: sex- The gender of the instructor.
+* Variable 6: salary- The current salary of the instructor.
+
+# Data wrangling
+
+The data needed to be prepared before it could be processed.  The question to be answered was the count of each position grouped by rank and sex
+
+* Step 1: Remove the yrs.since.phd and yrs.service columns from the data frame.
+* Step 2: Filter the data to remove observations where there is no value for salary.
+* Step 3: Group the results from step 2 by rank, discipline, and sex.
+* Step 4: Count the number of observations for each of the resulting groups.
+* Step 5: Create a wide format for the results from step 2. Will use sex an will create two new columns Female and male that will have the counts of each.
+* Step 6: Using the results from the creation of the wide format, convert the wide format to a long format
+
+```{r, warning=FALSE, echo=TRUE, message=FALSE}
+
+# load the packages
+library(tidyverse)
+#library(readr)
+
+#Set the working directory
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+#Read the csv file and dismiss the first three rows
+Salaries <- read_csv("Salaries.csv")
+
+# Select() first, then rename(), finally filter()
+
+Salaries_new <- Salaries_new <- Salaries %>% 
+  select(rank, discipline, sex, salary) %>%
+  filter(!is.na(salary)) %>%
+  group_by(rank, discipline, sex) %>%
+  count()
+
+# spread() for a wider table
+wide<- Salaries_new %>% 
+  spread(key=sex, value=n, fill=FALSE, convert=FALSE, drop=TRUE, sep=NULL)
+
+# gather() for a longer table
+long <- wide %>% 
+  gather(key=sex, value=n, 3:4, na.rm = TRUE, convert = FALSE, factor_key = FALSE)
+
+```
+
