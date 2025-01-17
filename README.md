@@ -9,8 +9,8 @@ The program emphasized applications and specializations with hands-on learning e
 # Course Certificates
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.
 
-- [CS 617: Introduction to Programming](https://coursera.org/share/14866efec2f99f64d96823093dbc3aa7) (Intro Prog)
-- [CS 621: Foundations of Data Analytics](https://www.coursera.org/account/accomplishments/verify/2E61BDHUK52A) (Data Analytics)
+- [CS 617: Introduction to Programming](https://coursera.org/verify/5TZTQ7N3KBV4) (Intro Prog)
+- [CS 621: Foundations of Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (Data Analytics)
 - [DSCI 604]() (Data Storage)
 - [DSCI 605]() (Data Visualization)
 - [CS ???]() (Data Mining and Machine Learning)
