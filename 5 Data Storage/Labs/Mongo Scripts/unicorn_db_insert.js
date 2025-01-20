@@ -125,3 +125,10 @@ db.unicorns.find({name: 'Roooooodles'})
 // To increment a value
 db.unicorns.update({name: 'Pilot'},
 	{$inc: {vampires: -2}})
+	
+	
+//
+db.unicorns.find()
+	.sort({weight: -1})
+	.limit(2)
+	.skip(1)
