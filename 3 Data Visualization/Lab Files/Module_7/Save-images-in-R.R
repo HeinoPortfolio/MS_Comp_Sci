@@ -1,6 +1,9 @@
 
 library(ggplot2)
-setwd("C:/Users/ali3/OneDrive - Ball State University/Desktop/Courses/Coursera/DSCI605/Week6")
+#setwd("C:/Users/ali3/OneDrive - Ball State University/Desktop/Courses/Coursera/DSCI605/Week6")
+
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
 df <- read.csv("Income by states.csv")
 
 #plot the basic histogram
@@ -22,12 +25,14 @@ png(file="Histogram_png.png",
 ggplot(df, aes(x=income)) + 
   geom_histogram(binwidth=5000,color="black", fill="blue")
 dev.off()
+
 #save as bmp: specify ppi with res
 bmp(file="Histogram_bmp.bmp",
     width=6, height=4, units="in")
 ggplot(df, aes(x=income)) + 
   geom_histogram(binwidth=5000,color="black", fill="blue")
 dev.off()
+
 #save as tiff
 tiff(file="Histogram_tif.tiff",
      width=6, height=4, units="in")
