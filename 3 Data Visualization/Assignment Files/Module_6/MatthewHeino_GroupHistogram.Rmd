@@ -30,6 +30,8 @@ The data needed to be prepared before it could be processed.  The steps are the 
 
 Loading the appropriate packages will also be necessary.
 
+**Note:** The classic theme has not been used. 
+
 
 ### Load the required packages
 
@@ -126,7 +128,7 @@ new_crime_rate_df %>%
 
 ```
 
-# 6) Histogram of the Crime Rate using Range Group
+### 6) Histogram of the Crime Rate using Range Group
 
 This is the histogram of the crime rate using Range Group and the second selection of colors.
 This histogram displays a ranged group based on   
