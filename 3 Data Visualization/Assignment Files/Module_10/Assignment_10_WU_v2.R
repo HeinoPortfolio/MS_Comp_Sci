@@ -22,7 +22,9 @@ bat_month <- bat_crime %>%
   mutate(yearmonth=paste0(year, month)) 
 
 # Delete a row from the table
-bat_month <- bat_month[-1, ]
+#bat_month <- bat_month[-1, ]
+bat_month <- head(bat_month, -1)
+
 
 bat_month$new_date <- paste(bat_month$month, bat_month$year,sep='-')
 
