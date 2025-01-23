@@ -398,9 +398,11 @@ RangeGroup and utilize the second color vector.</li>
 colors for the graphs</li>
 </ul>
 <p>The working directory was also set.</p>
-<pre class="r"><code>library(tidyverse)
+<pre class="r"><code>if(!require(colorspace)) {install.packages(&#39;colorspace&#39;)}; require(colorspace)
+if(!require(tidyverse)) {install.packages(&#39;tidyverse&#39;)}; require(tidyverse)
 
-if(!require(colorspace)) {install.packages(&#39;colorspace&#39;)}; require(colorspace)
+library(tidyverse)
+library(colorspace)
 
 #Set the working directory
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))</code></pre>
@@ -495,7 +497,7 @@ included in the provided data set.The years ran from 2007 to 2018.</p>
 <h3>6) Histogram of the Crime Rate using Range Group</h3>
 <p>This is the histogram of the crime rate using Range Group and the
 second selection of colors. This histogram displays a ranged group based
-on</p>
+on the range into which the crime rate falls.</p>
 <pre class="r"><code>new_crime_rate_df %&gt;%
   ggplot(aes(x=CrimeRate, color=as.factor(RangeGroup), fill=as.factor(RangeGroup))) + 
   geom_histogram(position = &quot;dodge&quot;, alpha=0.5, bins=10) +

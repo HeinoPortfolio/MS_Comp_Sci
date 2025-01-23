@@ -43,9 +43,11 @@ The required packages:
 The working directory was also set. 
 
 ```{r message=FALSE}
-library(tidyverse)
-
 if(!require(colorspace)) {install.packages('colorspace')}; require(colorspace)
+if(!require(tidyverse)) {install.packages('tidyverse')}; require(tidyverse)
+
+library(tidyverse)
+library(colorspace)
 
 #Set the working directory
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
@@ -131,7 +133,7 @@ new_crime_rate_df %>%
 ### 6) Histogram of the Crime Rate using Range Group
 
 This is the histogram of the crime rate using Range Group and the second selection of colors.
-This histogram displays a ranged group based on   
+This histogram displays a ranged group based on the range into which the crime rate falls.   
 
 ```{r}
 new_crime_rate_df %>%
