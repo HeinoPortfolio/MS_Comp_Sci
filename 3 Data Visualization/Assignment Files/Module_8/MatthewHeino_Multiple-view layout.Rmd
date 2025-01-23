@@ -1,0 +1,189 @@
+---
+title: "Multiple-view plots including histogram, boxplots and scatter plot with data provided"
+author: "Matthew Heino"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+```
+
+# Data Description
+
+The data is from the CSV file with the file name "Sampledata2.xlsx". The data represents the crime rate by state over a period of years.  The range of years is from 2007 to 2018. The data set is composed of three columns or variables. The columns are the following:
+
+* Variable 1: **State** - holds the name of the state where the data was collected
+* Variable 2: **Year** - the year in which the data was collected
+* Variable 3: **CrimeRate** - the crime rate
+
+# Data Wrangling 
+
+The data needed to be prepared before it could be processed. The steps are the following:
+
+* Step 1: Read in the data from the xlsx file ("Sampledata2.xlsx")
+* Step 2: View the contents of the data frame
+* Step 3: Create the colors for the graphs
+* Step 4: Create the histogram
+* Step 5: Create the scatter plot
+* Step 6: Grouped boxplot
+* Step 7: Create the multi-view plot of the histogram, scatterplot, and the boxplot
+
+Loading the appropriate packages will also be necessary.
+
+**Note:** The classic theme has not been used. 
+
+### Load the required packages
+
+The required packages:
+
+* tidyverse - to provide plotting functions and other  
+* colorspace - provide the color functions that are required to create colors for the graphs
+* GridExtra - for creating the arrangement of the plots
+* readxl - provides the ability to read the Excel file
+
+
+The working directory was also set. 
+
+```{r message=FALSE}
+
+if(!require(tidyverse)) {install.packages('tidyverse')}; require(tidyverse)
+if(!require(colorspace)) {install.packages('colorspace')}; require(colorspace)
+if(!require(gridExtra)) {install.packages('gridExtra')}; require(gridExtra)
+
+library(tidyverse)
+library(readxl)
+library(gridExtra)
+
+#Set the working directory
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+### 1) Read in the data from the xlsx file
+
+Read in the data from the xlsx file with the file name "Sampledata2.xlsx". Show the first six rows of the data frame and the last six rows to show what is in the data set.  This was see what is in the data. 
+
+```{r}
+
+crime_rates_df = readxl::read_xlsx('Sampledata2.xlsx')
+
+```
+
+### 2) Inspect the data
+
+View the composition of the data and see what columns are included. 
+```{r}
+
+head(crime_rates_df)
+tail(crime_rates_df)
+
+```
+The data set is composed of the following columns:
+
+* State - holds the name of the state where the data was collected
+* Year - the year in which the data was collected
+* CrimeRate - the crime rate
+
+### 3) Create the color vectors for the graphs
+
+This section of code will create the first vector of colors. This first vector is based on the number of distinct years in the data set.
+
+```{r}
+
+# Create the first color vector
+n_col = length(unique(crime_rates_df$Year))
+col1 = colorspace::diverge_hcl(n_col)
+
+```
+### 4) Create the histogram
+
+All the years that were in the data set are included in the figure below. The histogram was be created using the CrimeRate and the Year columns from the data set. It will utilize the **col1** variable to provide color to the graph.
+
+```{r}
+
+hist_plt <- ggplot(crime_rates_df,aes(x=CrimeRate, color=as.factor(Year), fill=as.factor(Year))) +
+  geom_histogram(position = "dodge", alpha=0.5, bins=10) +
+  scale_color_manual(values=col1) +
+  scale_fill_manual(values=col1, name="Year") +
+  labs(title="Crime Rate Histogram Plots", x="Crime rate per 100, 1000 people",
+       y="Count", color="Year") +
+  theme(plot.title=element_text(hjust=0.5),legend.key.height = unit(.10, 'cm'))+
+  ggtitle("Histogram Plot By Year")
+
+hist_plt
+
+```
+
+### 5) Create the scatter plot
+
+This plot is a line and point plot.  The data for this plot comes from creating a anew column the contains the mean of the crime rate. The plot runs from the year 2007 to 2018.
+
+```{r}
+
+crime_rates_df_new <- crime_rates_df %>%
+  group_by(Year) %>%
+  summarize(mean_rate=mean(CrimeRate),max_rate=max(CrimeRate), min_rate=min(CrimeRate))
+
+line_plt <- ggplot(crime_rates_df_new, aes(x = Year, y = mean_rate, lty="Mean Crime Rate" )) +
+  scale_linetype("Mean Crime Rate") +
+  geom_point(color='black', shape=10) + 
+  geom_line(color="blue") +
+  labs(title="Crime Rate Histogram Plots", x="Year",
+       y="Mean Crime Rate per 100, 1000 people over USA") +
+  theme(plot.title=element_text(hjust=0.5), legend.text = element_text(size =8),
+        legend.title = element_text(size = 8), legend.key.height = unit(.10, 'cm')) +
+  ggtitle("Point Line Plot Using Year and Mean Crime Rate")
+
+line_plt
+
+```
+
+### 6) Grouped boxplot
+
+This is a grouped box plot that shows the the distribution of the data across the years that are found in the data set.
+
+```{r}
+
+min <- min(crime_rates_df$Year)
+max <- max(crime_rates_df$Year)
+
+box_plt <- ggplot(crime_rates_df) + 
+  geom_boxplot(aes(x=Year, y= CrimeRate, fill=as.factor(Year), ),
+               outlier.colour="red", outlier.shape=8, outlier.size=2) +
+  guides(fill=guide_legend(title = 'Year',title.position = "top", nrow=6)) +
+  theme(legend.position = "right", legend.title.align=0.5) +
+  scale_x_continuous(breaks=seq(min, max, by=1)) + 
+  theme(plot.title=element_text(hjust=0.5)) +
+  ggtitle("Boxplot Grouped by Year")
+
+box_plt
+
+```
+
+### 7) Create the multi-view plot of the histogram, scatterplot, and the boxplot
+
+This layout uses the **grid.arrange()** function to arrange the the plots in an order that is similar to the solution. The **lay** variable contains a matrix to position the graphs.
+
+```{r}
+
+lay <- rbind(c(1, 1, 1, 2, 2, 2),
+             c(1, 1, 1, 2, 2, 2),
+             c(1, 1, 1, 2, 2, 2),
+             c(1, 1, 1, 2, 2, 2),
+             c(1, 1, 1, 2, 2, 2),
+             c(1, 1, 1, 2, 2, 2),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3),
+             c(3, 3, 3, 3, 3, 3))
+
+grid_plt <- grid.arrange(hist_plt, line_plt, box_plt, layout_matrix=lay)
+
+```
+
