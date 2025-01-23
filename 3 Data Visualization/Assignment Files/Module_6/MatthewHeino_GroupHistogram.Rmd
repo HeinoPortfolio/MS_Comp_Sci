@@ -1,12 +1,14 @@
 ---
-title: "Crime Rate"
+title: "Grouped Histogram in R"
 author: "Matthew Heino"
 date: "`r Sys.Date()`"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 # Data Description
 
@@ -22,11 +24,10 @@ The data needed to be prepared before it could be processed.  The steps are the 
 
 * Step 1: Read in the data from the CSV file ("Sampledata2.csv")
 * Step 2: View the contents of the data frame
-* Step 3: Remove the state variable from the data frame.
-* Step 4: Create the color vectors.
-* Step 5: Create the RangeGroup column.
-* Step 6: Create the first histogram based on the crime rate and the year and utilize the first color vector.
-* Step 7: Create the second histogram based on the crime rate and the RangeGroup and utilize the second color vector.
+* Step 3: Create the color vectors.
+* Step 4: Create the RangeGroup column.
+* Step 5: Create the first histogram based on the crime rate and the year and utilize the first color vector.
+* Step 6: Create the second histogram based on the crime rate and the RangeGroup and utilize the second color vector.
 
 Loading the appropriate packages will also be necessary.
 
@@ -37,12 +38,13 @@ Loading the appropriate packages will also be necessary.
 
 The required packages:
 
-* tidyverse - to provide plotting functions and other  
+* tidyverse - to provide plotting functions and other functionality 
 * colorspace - provide the color functions that are required to create colors for the graphs
 
 The working directory was also set. 
 
 ```{r message=FALSE}
+
 if(!require(colorspace)) {install.packages('colorspace')}; require(colorspace)
 if(!require(tidyverse)) {install.packages('tidyverse')}; require(tidyverse)
 
@@ -60,14 +62,15 @@ Read in the data from the CSV file with the file name "Sampledata2.csv". Show th
 
 ```{r}
 
-# Load the data 
 crime_rate_df <- read.csv("Sampledata2.csv")
+
 ```
 
 ### 2) Inspect the data
 
 View the composition of the data and see what columns are included. 
 ```{r}
+
 head(crime_rate_df)
 tail(crime_rate_df)
 
@@ -78,23 +81,7 @@ The data set is composed of the following columns:
 * Year - the year in which the data was collected
 * CrimeRate - the crime rate
 
-
-### 3) Create the color vectors for the graphs
-
-This section of code will create the first vector of colors. This first vector is based on the number of distinct years in the data set.  The second is coded with the colors red, blue, and green. These colors will be used to show the groups of the different crime rates.
-
-```{r}
-
-# Create the first color vector
-n_col = length(unique(crime_rate_df$Year))
-col1 = colorspace::diverge_hcl(n_col)
-
-# Create the second color vector
-col2 = c("green","blue","red")
-
-```
-
-### 4) Create a new column for the Range Group
+### 3) Create a new column for the Range Group
 In order to accomplish the graphs that are required.  There will be three variables.  The first two are available from the data set. The third is a newly created variable - the **RangeGroup**. This variable will group the crime rates into three distinct groups. The groups are the following:
 
 * Crime Rate < 250
@@ -112,9 +99,25 @@ new_crime_rate_df <- crime_rate_df %>% select(Year, CrimeRate) %>%
 
 ```
 
+### 4) Create the color vectors for the graphs
+
+This section of code will create the first vector of colors. This first vector is based on the number of distinct years in the data set.  The second is coded with the colors red, blue, and green. These colors will be used to show the groups of the different crime rates.
+
+```{r}
+
+# Create the first color vector
+n_col = length(unique(new_crime_rate_df$Year))
+col1 = colorspace::diverge_hcl(n_col)
+
+# Create the second color vector
+col2 = c("green","blue","red")
+
+```
+
+
 ### 5) Histogram of the Crime Rate using the Year
 
-This is the histogram of the crime rate using Year and the first selection of colors. 
+This is the histogram of the crime rate using Year and the first selection of colors.This is variable **col1** from the previous section. 
 This histogram includes all the years that were included in the provided data set.The years ran from 2007 to 2018.  
 
 ```{r}
@@ -124,7 +127,7 @@ new_crime_rate_df %>%
   geom_histogram(position = "dodge", alpha=0.5, bins=10) +
   scale_color_manual(values=col1) +
   scale_fill_manual(values=col1, name="Year") +
-  labs(title="Crime Rate Histogram Plots", x="Crime rate per 100, 1000 people",
+  labs(title="Crime Rate Histogram Plot By Year", x="Crime rate per 100, 1000 people",
        y="Count", color="Year") +
   theme(plot.title=element_text(hjust=0.5))
 
@@ -132,7 +135,7 @@ new_crime_rate_df %>%
 
 ### 6) Histogram of the Crime Rate using Range Group
 
-This is the histogram of the crime rate using Range Group and the second selection of colors.
+This is the histogram of the crime rate using Range Group and the second selection of colors. The second color variable is **col2**.
 This histogram displays a ranged group based on the range into which the crime rate falls.   
 
 ```{r}
@@ -141,7 +144,7 @@ new_crime_rate_df %>%
   geom_histogram(position = "dodge", alpha=0.5, bins=10) +
   scale_color_manual(values=col2) +
   scale_fill_manual(values=col2, name="Range Group") +
-  labs(title="Crime Rate Histogram Plots", x="Crime rate per 100, 1000 people",
+  labs(title="Crime Rate Histogram Plot (Range Group)", x="Crime rate per 100, 1000 people",
        y="Count", color="Range Group") +
   theme(plot.title=element_text(hjust=0.5))
 ```
