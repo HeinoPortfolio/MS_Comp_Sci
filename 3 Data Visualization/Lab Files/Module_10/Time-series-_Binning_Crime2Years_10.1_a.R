@@ -46,3 +46,4 @@ bat_train_weekly%>%
                                 max(bat_train_weekly$yearweek),
                                 10))
 
+write.csv(bat_train_weekly, "specify_path_and_file_name.csv")
