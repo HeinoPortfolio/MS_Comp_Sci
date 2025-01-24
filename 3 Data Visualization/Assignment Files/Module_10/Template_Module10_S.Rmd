@@ -1,0 +1,60 @@
+---
+title: "Integrate time series data at hourly scale to monthly scale"
+output: bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+# Load the library
+
+```{r libraries}
+# Load the libraries
+library(tidyverse)
+library(zoo)
+library(knitr)
+```
+
+# Read the data provided
+```{r readdata}
+#Set the working directory
+setwd("Your code")
+
+######Read the Three-year crime data from 2017-09-01 to 2020-08-31 into R
+"Your code"
+
+```
+
+## Select two-year data
+
+```{r select data}
+"Your code"
+
+```
+
+
+# Integrate the two-year hourly data into monthly data
+
+```{r integration}
+
+"Your code"
+
+```
+
+# kable() for a table
+
+```{r kable}
+
+"Your code"
+
+```
+
+# Save the data in the required format
+
+```{r save data}
+
+"Your code"
+
+```
+

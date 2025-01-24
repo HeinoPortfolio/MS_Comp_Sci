@@ -1,0 +1,71 @@
+---
+title: "Integrate time series data at hourly scale to monthly scale"
+output: bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+# Load the library
+
+```{r libraries}
+# Load the libraries
+library(tidyverse)
+library(zoo)
+library(knitr)
+```
+
+# Read the data provided
+```{r readdata}
+#Set the working directory
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+######Read the Three-year crime data from 2017-09-01 to 2020-08-31 into R
+crime_bat <- readRDS("Crime3years.rds")
+
+```
+
+## Select two-year data
+
+```{r select data}
+
+two_years = 365*24*2
+start_date = 553
+end_date = start_date + two_years - 1
+
+new_crime_bat <- crime_bat[start_date:end_date, ]
+
+```
+
+
+# Integrate the two-year hourly data into monthly data
+
+```{r integration}
+
+bat_month <- new_crime_bat %>% 
+  mutate(hour = hour(new_crime_bat$Date), week=weekdays(new_crime_bat$Date),
+         month = month(new_crime_bat$Date), year=year(new_crime_bat$Date)) %>%
+  group_by(year, month) %>%
+  summarize(case_monthly=sum(Battery))
+
+bat_month <- head(bat_month, -1)
+
+```
+
+# kable() for a table
+
+```{r kable}
+
+kable(bat_month, format = "html", align = "c",
+      caption = "Battery Crime at a month scale from 2017-09-24 to 2020-08-31")
+
+```
+
+# Save the data in the required format
+
+```{r save data}
+
+saveRDS(bat_month, file="Crime2years_monthly.rds")
+
+```
