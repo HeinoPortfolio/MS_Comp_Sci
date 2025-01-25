@@ -1,0 +1,11 @@
+-- SELECT country.Name, Continent, Region, SurfaceArea FROM country;
+SELECT * FROM country;
+-- SELECT * FROM city;
+-- SELECT co.Name AS 'Country'
+-- FROM country co
+-- WHERE co.Continent = 'South America';
+-- SELECT * FROM countrylanguage;
+-- WHERe Language ='German';
+-- SELECT country.Name, IndepYear FROM country;
+-- SELECT country.Code FROM country WHERE country.Name = 'United Kingdom'; 
+-- SELECT city.Name FROM city WHERE CountryCode = "GBR";  
