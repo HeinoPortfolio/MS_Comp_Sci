@@ -34,16 +34,16 @@ two_year_crime_weekly <- two_year_crime_weekly[two_year_crime_weekly$year !=
                                                  2020, ]
 
 # Group the data into a monthly series 
-# Group data into monthly data
 two_year_crime_monthly <- two_year_crime_new %>% 
   mutate(hour = hour(two_year_crime_new$Date), week=weekdays(two_year_crime_new$Date),
          month = month(two_year_crime_new$Date), year=year(two_year_crime_new$Date)) %>%
   group_by(monthnum, year) %>%
   summarize(case_monthly=sum(Battery)) %>%
-  mutate(yearmonth=paste0(year, monthnum)) %>%
+  mutate(yearmonth=paste(year,monthnum,sep='-')) %>%
   mutate(first=1) %>%
+  mutate(yearandmonth = as.Date(format(as.Date(paste(year, monthnum, 1, sep="."),"%Y.%m.%d"),
+                                       "%Y-%m-%d"))) %>%
   mutate(myDate=as.Date(format(as.Date(paste(1,monthnum,year,sep="."),"%d.%m.%Y"),"%Y-%m-%d")))
-
 
 # Remove the rows required by the assignment
 two_year_crime_monthly <- 
@@ -63,25 +63,58 @@ two_year_crime %>% ggplot(aes(x = Date, y = Battery, lty="Battery")) +
   geom_point(col = "maroon") + 
   geom_line(col = "red") +
   scale_linetype('Crime') +
-  scale_x_datetime(date_breaks= "4 months",
-                   date_labels = "%m/%d/%y-00:00:00") +
+  scale_x_datetime(date_breaks= "4 months", date_labels = "%m/%d/%y-00:00:00") +
   theme(axis.text.x=element_text(angle=30, hjust=1)) +
   labs(title = "Battery Crime from 2018-01-01 to 2020-01-01 in Chicago",
        x = "Hourly", y = "Number of Crimes", shape='Battery')
 
 
-
-  
-  
+# graph the weekly data
 
 
 
 
 
+# Graph the Monthly data
+
+ggplot(two_year_crime_monthly, aes(x=yearandmonth, y=case_monthly, color="red")) +
+  geom_point() + 
+  geom_line() +
+  xlab("Month") +
+  ylab("Number of Grimes")+
+  ggtitle("Battery Crime in Chicago") +
+  scale_x_date(date_breaks = "2 month", date_labels = "%Y/%b")+
+  theme(axis.text.x=element_text(angle=90, hjust=1)) +
+  guides(color=guide_legend(title = "Year"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################################
 ####Stack the two years data by two lines 
 two_years <- two_year_crime_monthly %>% 
   mutate(monthDay= as.Date(paste(first, monthnum, sep="."), "%d.%m"))
 
+glimpse(two_years)
 
 ggplot(two_years, aes(x= monthDay, y=case_monthly, color=as.factor(year))) +
   geom_point() + 
