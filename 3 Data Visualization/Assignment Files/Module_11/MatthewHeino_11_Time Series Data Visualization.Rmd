@@ -1,0 +1,245 @@
+---
+title: "ggplot for Time Series Data"
+author: "Matthew Heino"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+```
+
+
+# Data Description
+
+The data is from the CSV file with the file name "Crime3years.rds". The data represents the crime rate of Chicago over a period of years.  The range of years is from 2017 to 2020. The data set is composed of three columns or variables. The columns are the following:
+
+* Variable 1: **Date** - (dttm) holds the date in the following format: 2017-09-01 00:00:00
+* Variable 2: **Battery** - (int) the number of battery incidents
+
+# Data Wrangling 
+
+The data needed to be prepared before it could be processed. The steps are the following:
+
+* Step 1: Read in the data from the rds file ("Crime3years.rds").
+* Step 2: View the contents of the data frame.
+* Step 3: Select two years from the data set
+* Step 4: Create the different parts of the date
+* Step 5: Aggregate the hourly data into the weekly data 
+* Step 6: Aggregate the data into monthly data
+* Step 7: Graph the data
+
+Loading the appropriate packages will be necessary.
+
+### Load and Install the Required Packages
+
+The required packages for this assignment were:
+
+* tidyverse
+* zoo
+* lubridate
+
+```{r}
+
+if(!require(tidyverse)) {install.packages('tidyverse')}; require(tidyverse)
+if(!require(zoo)) {install.packages('zoo')}; require(zoo)
+if(!require(lubridate)) {install.packages('lubridate')}; require(lubridate)
+
+library(tidyverse)
+library(zoo)
+library(lubridate)
+
+```
+
+Set the Working Directory.
+
+```{r}
+
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+Read in the data from the RDS File ("Crime3years.rds")
+
+```{r}
+
+crime_bat <- readRDS("Crime3years.rds")
+
+```
+
+### Step 2: View the Contents of the Data Frame
+
+```{r}
+
+glimpse(crime_bat)
+
+```
+
+### Step 3: Select Two Years from the Data Set
+```{r}
+
+two_year_crime <- crime_bat %>% filter(between(as_date(Date), 
+                                               as_date("2018-01-01"),
+                                               as_date("2018-01-01") + 730))
+
+```
+
+### Step 4: Create the Different Parts of the Date
+
+In this step the data will be decomposed into the parts that are needed to complete the assignment. New variables will be created. This will result in a new data frame that will contain this new variables.  This is the same procedure that was carried out Module 10. 
+ 
+``` {r}
+
+two_year_crime_new <- two_year_crime %>% 
+  mutate(hour = hour(two_year_crime$Date),week= weekdays(two_year_crime$Date),  
+         month = month(two_year_crime$Date),year=year(two_year_crime$Date)) %>% 
+  mutate(weeknum= strftime(Date, format = '%V')) %>%
+  mutate(monthnum= strftime(Date, format = '%m'))
+
+```
+
+### Step 5: Aggregate the Hourly Data into Weekly Data
+
+The hourly data will be aggregated into the weekly data and then this will be stored in a data frame.  This data frame will be used to to create the graphs in a the **Data Visualization** section of this document. 
+
+```{r}
+
+two_year_crime_weekly <- two_year_crime_new %>% 
+  group_by(weeknum,year) %>%
+  summarize(case_weekly=sum(Battery)) %>%
+  mutate(yearweek=paste(year,weeknum, 1, sep=''))
+
+```
+ 
+Remove the 2020 dates from the data frame.  They will not be used in the required graphs.
+ 
+ 
+```{r}
+ 
+two_year_crime_weekly <- two_year_crime_weekly[two_year_crime_weekly$year !=
+                                                 2020, ]
+
+two_year_crime_weekly <- arrange(two_year_crime_weekly,
+                                 two_year_crime_weekly$year, 
+                                 two_year_crime_weekly$weeknum)
+ 
+```
+
+Add an additional variable to help in graphing the weekly data.
+
+```{r}
+
+two_year_crime_weekly <- two_year_crime_weekly %>%
+  mutate(weeklydate = as.Date(yearweek,"%Y%W%w"))
+
+```
+
+### Step 6: Aggregate the Hourly Data Into Monthly Data
+
+The hourly data will be aggregated into the monthly data and then this will be stored in a data frame.  This data frame will be used to to create the graphs in a the Data Visualization section of this document.
+
+```{r}
+
+two_year_crime_monthly <- two_year_crime_new %>% 
+  mutate(hour = hour(two_year_crime_new$Date), week=weekdays(two_year_crime_new$Date),
+         month = month(two_year_crime_new$Date), year=year(two_year_crime_new$Date)) %>%
+  group_by(monthnum, year) %>%
+  summarize(case_monthly=sum(Battery)) %>%
+  mutate(yearmonth=paste(year,monthnum,sep='-')) %>%
+  mutate(first=1) %>%
+  mutate(yearandmonth = as.Date(format(as.Date(paste(year, monthnum, 1, sep="."),"%Y.%m.%d"),
+                                       "%Y-%m-%d"))) %>%
+  mutate(myDate=as.Date(format(as.Date(paste(1,monthnum,year,sep="."),"%d.%m.%Y"),"%Y-%m-%d")))
+
+```
+
+Remove the rows required by the assignment. Arrange the data in order and check the data to see the result is what is expected.
+
+```{r}
+
+two_year_crime_monthly <- 
+  two_year_crime_monthly[two_year_crime_monthly$year != 2020, ]
+
+# order by the year then by month
+two_year_crime_monthly <- arrange(two_year_crime_monthly,
+                                  two_year_crime_monthly$year, 
+                                  two_year_crime_monthly$monthnum)
+```
+
+# Data Visualizations
+
+The data visualization will make use of the ggplot library of functions for graphing. The graphs will use the **scale_x_datetime** and the **scale_x_date** to format the x-axis. The data visualizations that are required for the assignment are the following:
+
+* Time series visualization of the hourly data
+* Time series visualization of the weekly data
+* Time series visualization of the monthly data
+* A stacked time series visualization of the monthly using the years and months
+
+### Graph the hourly data
+
+
+```{r}
+
+two_year_crime %>% ggplot(aes(x = Date, y = Battery, lty="Battery")) +
+  geom_point(col = "maroon") + 
+  geom_line(col = "blue") +
+  scale_linetype('Crime') +
+  scale_x_datetime(date_breaks= "4 months", date_labels = "%m/%d/%y-00:00:00") +
+  theme(axis.text.x=element_text(angle=30, hjust=1)) +
+  labs(title = "Battery Crime from 2018-01-01 to 2020-01-01 in Chicago",
+       x = "Hourly", y = "Number of Crimes", shape='Battery')
+
+```
+
+### Graph the Weekly Data
+
+```{r}
+
+two_year_crime_weekly%>%
+  ggplot(aes(x = weeklydate, y = case_weekly, group=1, color="blue",lty="Battery")) +
+  geom_point(col = "maroon") +
+  geom_line(col = "blue") +
+  scale_linetype('Crime') +
+  labs(title = "Battery Crime from 2017-09-01 to 2019-08-31 in Chicago",
+       x = "Year-Week", y = "Number of Crimes")+
+  scale_x_date(date_labels = "%Y/%U")
+
+```
+
+### Graph the Monthly Data
+
+```{r}
+
+ggplot(two_year_crime_monthly, aes(x=yearandmonth, y=case_monthly, color="red")) +
+  geom_point() + 
+  geom_line() +
+  xlab("Month") +
+  ylab("Number of Grimes")+
+  ggtitle("Battery Crime in Chicago") +
+  labs(color="Crime") +
+  scale_color_manual(labels = c("Battery"), values = c("blue")) +
+  scale_x_date(date_breaks = "2 month", date_labels = "%Y-%b")+
+  theme(axis.text.x=element_text(angle=45, hjust=1)) 
+
+```
+
+### A Stacked Time Series Visualization of the Monthly Data Using the Years and Months
+
+An additional variable was created to allow the two years to be graphed in a stacked manner.  If this was not done the graph lines for each year will be displayed in a series manner and not stacked.
+
+```{r}
+
+two_years <- two_year_crime_monthly %>% 
+  mutate(monthDay= as.Date(paste(first, monthnum, sep="."), "%d.%m"))
+
+ggplot(two_years, aes(x= monthDay, y=case_monthly, color=as.factor(year))) +
+  geom_point() + 
+  geom_line() +
+  xlab("Month") +
+  ylab("Number of Grimes")+
+  ggtitle("Battery Crime in Chicago") +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b")+
+  theme(axis.text.x=element_text(angle=30, hjust=1)) +
+  guides(color=guide_legend(title = "Year"))
+
+```
