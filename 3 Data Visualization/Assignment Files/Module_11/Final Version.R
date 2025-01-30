@@ -68,7 +68,7 @@ two_year_crime_monthly <- arrange(two_year_crime_monthly,
 # Graph the hourly data
 two_year_crime %>% ggplot(aes(x = Date, y = Battery, lty="Battery")) +
   geom_point(col = "maroon") + 
-  geom_line(col = "red") +
+  geom_line(col = "blue") +
   scale_linetype('Crime') +
   scale_x_datetime(date_breaks= "4 months", date_labels = "%m/%d/%y-00:00:00") +
   theme(axis.text.x=element_text(angle=30, hjust=1)) +
@@ -79,11 +79,13 @@ two_year_crime %>% ggplot(aes(x = Date, y = Battery, lty="Battery")) +
 # graph the weekly data
 
 two_year_crime_weekly%>%
-  ggplot(aes(x = weeklydate, y = case_weekly,group=1)) +
-  geom_point(col = "maroon") + geom_line(col = "red") +
+  ggplot(aes(x = weeklydate, y = case_weekly, group=1, color="blue",lty="Battery")) +
+  geom_point(col = "maroon") +
+  geom_line(col = "blue") +
+  scale_linetype('Crime') +
   labs(title = "Battery Crime from 2017-09-01 to 2019-08-31 in Chicago",
        x = "Year-Week", y = "Number of Crimes")+
-  scale_x_date(date_labels = "%Y%U")
+  scale_x_date(date_labels = "%Y/%U")
 
 
 
@@ -98,8 +100,7 @@ ggplot(two_year_crime_monthly, aes(x=yearandmonth, y=case_monthly, color="red"))
   labs(color="Crime") +
   scale_color_manual(labels = c("Battery"), values = c("blue")) +
   scale_x_date(date_breaks = "2 month", date_labels = "%Y-%b")+
-  theme(axis.text.x=element_text(angle=45, hjust=1)) +
-  guides(fill=guide_legend(title = "Year"))
+  theme(axis.text.x=element_text(angle=45, hjust=1)) 
 
 
 
@@ -107,8 +108,6 @@ ggplot(two_year_crime_monthly, aes(x=yearandmonth, y=case_monthly, color="red"))
 ####Stack the two years data by two lines 
 two_years <- two_year_crime_monthly %>% 
   mutate(monthDay= as.Date(paste(first, monthnum, sep="."), "%d.%m"))
-
-glimpse(two_years)
 
 ggplot(two_years, aes(x= monthDay, y=case_monthly, color=as.factor(year))) +
   geom_point() + 
