@@ -27,11 +27,18 @@ two_year_crime_new <- two_year_crime %>%
 two_year_crime_weekly <- two_year_crime_new %>% 
   group_by(weeknum,year) %>%
   summarize(case_weekly=sum(Battery)) %>%
-  mutate(yearweek=paste0(year,weeknum))
+  mutate(yearweek=paste(year,weeknum, 1, sep=''))
 
 # Remove the 2020 year as required by the lab assignment
 two_year_crime_weekly <- two_year_crime_weekly[two_year_crime_weekly$year !=
                                                  2020, ]
+
+two_year_crime_weekly <- arrange(two_year_crime_weekly,
+                                 two_year_crime_weekly$year, 
+                                 two_year_crime_weekly$weeknum)
+
+two_year_crime_weekly <- two_year_crime_weekly %>%
+  mutate(weeklydate = as.Date(yearweek,"%Y%W%w"))
 
 # Group the data into a monthly series 
 two_year_crime_monthly <- two_year_crime_new %>% 
@@ -71,7 +78,12 @@ two_year_crime %>% ggplot(aes(x = Date, y = Battery, lty="Battery")) +
 
 # graph the weekly data
 
-
+two_year_crime_weekly%>%
+  ggplot(aes(x = weeklydate, y = case_weekly,group=1)) +
+  geom_point(col = "maroon") + geom_line(col = "red") +
+  labs(title = "Battery Crime from 2017-09-01 to 2019-08-31 in Chicago",
+       x = "Year-Week", y = "Number of Crimes")+
+  scale_x_date(date_labels = "%Y%U")
 
 
 
@@ -83,29 +95,11 @@ ggplot(two_year_crime_monthly, aes(x=yearandmonth, y=case_monthly, color="red"))
   xlab("Month") +
   ylab("Number of Grimes")+
   ggtitle("Battery Crime in Chicago") +
-  scale_x_date(date_breaks = "2 month", date_labels = "%Y/%b")+
-  theme(axis.text.x=element_text(angle=90, hjust=1)) +
-  guides(color=guide_legend(title = "Year"))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  labs(color="Crime") +
+  scale_color_manual(labels = c("Battery"), values = c("blue")) +
+  scale_x_date(date_breaks = "2 month", date_labels = "%Y-%b")+
+  theme(axis.text.x=element_text(angle=45, hjust=1)) +
+  guides(fill=guide_legend(title = "Year"))
 
 
 
