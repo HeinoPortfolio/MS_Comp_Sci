@@ -1,0 +1,116 @@
+---
+title: "Spatial Mapping"
+author: "Matthew Heino"
+date: "2025-02-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, results= FALSE)
+```
+
+## Load the packages
+```{r load packages}
+
+# Load the packages
+library(tidyverse)
+library(raster)          #raster()
+library(sf)              #st_read()
+library(ggspatial)       #annotation_scale,annotation_north_arrow
+library(ggnewscale)      #new_scale_color() 
+library(ggsn)            #scalebar()
+library(colorspace)
+
+```
+
+# Set the working directory
+
+```{r readdata}
+
+#Set the working directory
+
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+```{r readdata1}
+### Read all states in USA. Please note tl_2019_us_state.shp is located in the file folder "tl_2019_us_state". 
+all_states <- st_read("tl_2019_us_state/tl_2019_us_state.shp")
+
+##Select Indiana (IN) from the object "state". This process is analogous to working with data frames. You can perform a similar operation for the cities.
+
+IN <- all_states[all_states$STUSPS == "IN", ]
+
+##Read the Watershed in Indiana. Similar like the all states in USA.
+watersheds <- st_read("Watersheds_HUC08_2009/WATERSHEDS_HUC08_2009_USDA_IN.shp")
+
+##Read the Polygons of cities in Indiana. Similar like the all states in USA.
+places <- st_read("tl_2016_18_place/tl_2016_18_place.shp")
+
+##Select cities of interest
+
+two_cities <- places %>%
+  filter(NAME=="Muncie" | NAME == "Carmel")
+
+```
+
+
+## A basic spatial map like the one in the example file
+
+```{r plot1, fig.width=12,fig.height=10}
+
+ggplot() + geom_sf(data= IN) + 
+  geom_sf(data= watersheds, alpha= 0) + geom_sf(data=  places, alpha= 0) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  ggtitle("Map of Indiana", subtitle= paste0("(", length(unique(places$NAME)),
+                                             " places)"))
+
+```
+
+```{r colors}
+
+n_col = length(unique(watersheds$BASIN))
+col = colorspace::diverge_hcl(n_col)
+
+```
+
+
+## A professional spatial map like the one in the example file
+
+
+```{r plot2, fig.width=12,fig.height=10}
+
+ggplot(data= IN) +
+  geom_sf(data= watersheds, aes(fill= REGION)) +
+  scale_fill_manual(values= col) +
+  guides(fill= guide_legend(title= "Watershed Regions of Indiana")) +
+  new_scale_fill() +
+  geom_sf(data= IN, linewidth=1, alpha=0, aes(color="A"),
+          show.legend="polygon") +
+  geom_sf(data= watersheds, alpha=0, aes(color="B"),
+          show.legend= "polygon") +
+  scale_color_manual(values= c("A"= "red", "B"= "black" ), 
+                     labels= c("Indiana", "Watershed"),
+                     name= "") +
+  new_scale_color() + 
+  geom_sf(data= two_cities, aes(fill= as.factor(NAME))) +
+  scale_fill_manual(values= c("blue", "green")) +
+  theme(legend.position= "right", 
+        plot.title = element_text(hjust = 0.5, color="Gray40", size=12, 
+                                  face="bold"),
+        plot.subtitle= element_text(color="gray"),
+        plot.caption = element_text(color="Gray60")) +
+  guides(fill=guide_legend(title= "Cities")) + 
+  scalebar(data= IN, location="bottomleft", anchor= c(x= -88.5, y= 37), dist= 150,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  coord_sf(xlim = c(-89, -83), ylim = c(37, 43)) +
+  theme(text = element_text(size = 12)) +
+  xlab("Longitude") + ylab("Latitude") +
+  ggtitle("Map of Indiana Watershed and Major Cities", 
+          subtitle = paste0("(", length(unique(two_cities$NAME)), 
+                            " cities selected)"))
+  
+```
