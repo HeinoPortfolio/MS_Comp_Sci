@@ -124,7 +124,7 @@ def print_title(movies):
    
 def menu() -> str:
     
-    """ Defnines the menue options """
+    """ Defnines the menu options """
     
     print("\n\nPlease enter a menu options from the list below.\n")
     print("1: Title of movies with an imdb rating of 7 or more")

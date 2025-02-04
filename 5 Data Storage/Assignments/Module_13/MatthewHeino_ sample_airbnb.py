@@ -123,7 +123,7 @@ def print_information(properties):
 
 def menu() -> str:
     
-    """ Defnines the menue options """
+    """ Defnines the menu options """
     
     print("Please enter a menu options from the list below.\n")
     print("1: Name all the properties in the United States")
