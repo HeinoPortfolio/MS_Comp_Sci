@@ -20,7 +20,7 @@ Purpose of the file:
 # Load the required libraries
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
-import pprint
+
 
 # Create the connection client to the database.
 conn_str = "mongodb+srv://heinodevs:nelHmIxKERjHMi0T@cluster0.sv7cv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -35,27 +35,95 @@ airbnb_db = client['sample_airbnb']
 listings_coll = airbnb_db['listingsAndReviews']
 
 # Functions 
-def US_properties():  
+def US_properties():
+    
+    """ Returns the name of all US properties 
+    
+    Parameters:
+        
+        None
+        
+    Returns:
+        
+        list: List of all names of US properties 
+        
+    """
+    props = []
     
     for item in listings_coll.find({"address.country": "United States"},
                                {"_id":0, "name": 1}):
     
-        pprint.pprint(item)
+        props.append(item)
+        
+    return props
         
 def three_night_min():
+    """ Returns the name of all properties with a minimum of 3 night stay 
+    
+    Parameters:
+        
+        None
+        
+    Returns:
+        
+        list: List of all names of properties with a minimum 3 night stay 
+        
+    """
+    
+    props = []
     
     for item in listings_coll.find({"minimum_nights": "3"},
                                    {"_id":0, "name": 1}):
-        pprint.pprint(item)
+       props.append(item)
     
-def five_bedrooms():    
+    return props
+
+def five_bedrooms():  
+    """ Returns the name of all properties and description with at least 5 
+        bedrooms 
+    
+    Parameters:
+        
+        None
+        
+    Returns:
+        
+        list: List of all names of of all properties and description with at 
+            least 5 bedrooms properties 
+        
+    """
+    
+    props = []
+    
     for item in listings_coll.find({"beds": {"$gte": 5}}, {"_id":0, "name": 1,
                                                        "description": 1}):
     
-        pprint.pprint(item)
+        props.append(item)
     
+    return props
+
+def print_information(properties):
+    
+    """ prints all the infomation in the dictionary
+    
+    Parameters:
+        
+        properties: list of dictionaries
+        
+    Returns:
+        
+        None
+        
+    """
+    for property in properties:
+        print("\n", property['name'])
+        if "description" in property:
+            print(property['description'])
+
 
 def menu() -> str:
+    
+    """ Defnines the menue options """
     
     print("Please enter a menu options from the list below.\n")
     print("1: Name all the properties in the United States")
@@ -76,13 +144,13 @@ def main():
         # Process the user's choice
         if option == '1':
             print("Name all the properties in the United States")
-            US_properties()
+            print_information(US_properties())
         elif option == '2': 
             print("Name all properties with a minimum night stay of 3 nights")
-            three_night_min()
+            print_information(three_night_min())
         elif option == '3':
             print("Name and description of all properties with at least 5 bedrooms")
-            five_bedrooms()
+            print_information(five_bedrooms())
         elif option == '4':
             print("Quit")
             break
@@ -91,6 +159,7 @@ def main():
 
 
 if __name__=="__main__":
+    
     main()
 
 
