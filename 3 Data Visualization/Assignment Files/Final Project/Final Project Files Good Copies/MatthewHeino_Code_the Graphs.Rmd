@@ -1,0 +1,148 @@
+---
+title: "Code the Graphs"
+author: "Matthew Heino"
+date: "2/8/2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+```
+
+## Load the appropriate libraries
+
+```{r}
+
+library(tidyverse)
+library(raster)          
+library(sf)             
+library(ggspatial)       
+library(ggnewscale)      
+library(ggsn)            
+library(shiny)           
+library(plotly)          
+library(gridExtra)
+
+```
+
+## Set the working directory
+
+```{r}
+
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+## Read the data from the cleaned data set
+
+```{r}
+
+all_info_from_RDS <- readRDS("CS_Erate_Crate1.Rds")
+
+```
+## Create a spatial map over the contiguous USA for the unemployment rate and crime rate respectively for the specific year 2014 using ggplot()
+
+```{r}
+
+info_for_year_2014 <- all_info_from_RDS %>% filter(all_info_from_RDS$Year == 2014)
+
+# Graph for unemployment rate 
+ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Unemplyrate)) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Unemployment Rate for 2014")) + 
+  labs(title = "Unemployment Rate Over Contiguous USA ",
+       subtitle = "Unemployment Color Coded by State",
+       caption = "Data source: Unknown") +
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank())
+
+```
+### Map for crime rate
+
+```{r}
+
+ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Crimerate)) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Crime Rate for 2014")) + 
+  labs(title = "Crime Rate Over Contiguous USA ",
+       subtitle = "Crime Rate Color Coded by State",
+       caption = "Data source: Unknown") + 
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank())
+
+```
+
+## Scatterplot for the data relationship between the unemployment rate and crime rate
+
+```{r}
+
+# Create Scatter plot using Crime rate (x-axis) and unemployment rate (y-axis)
+fig <- plot_ly(data= info_for_year_2014, x= ~Crimerate, y= ~Unemplyrate,
+                color= ~REGION) %>%
+  add_markers() %>%
+  layout(title="Unemployment Rate and Crime Rate for 2014",  
+         xaxis=list(title= "Crime Rate Per 100,000 People"),
+         yaxis=list(title="Unemployment Rate Per 100 People"), showlegend=TRUE)
+  
+fig
+
+```
+## Create time series plot for the four states
+ 
+The data will be crime rate and unemployment rate over all the years from 2007 to 2014
+
+```{r}
+
+# Create new data frame for the states
+states <- c("California", "Idaho", "Illinois", "Indiana") 
+four_states_year_2014 <- all_info_from_RDS %>% filter(NAME %in% states)
+
+stats_df <-  as.data.frame(four_states_year_2014)
+
+```
+
+###  Plot the unemployment rate
+
+```{r}
+
+une <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Unemplyrate,color= ~NAME) %>%
+  #filter(NAME %in% states) %>%
+  #add_markers() %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="Unemployment Rate Changes by Year",  
+         xaxis=list(title= "Year"),
+         yaxis=list(title="Unemployment Rate"))
+
+une  
+
+```
+### Plot the crime rate for the four states
+```{r}
+
+cr <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Crimerate, color= ~NAME) %>%
+  #filter(NAME %in% states) %>%
+  #add_markers() %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="Crime Rate Changes by Year",  
+         xaxis=list(title= "Year"),
+         yaxis=list(title="Crime Rate"), list(range=c(0, .7)))
+
+cr  
+
+``` 

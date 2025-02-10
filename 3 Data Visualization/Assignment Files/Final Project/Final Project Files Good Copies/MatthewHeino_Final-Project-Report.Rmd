@@ -1,0 +1,377 @@
+---
+title: "Crime Rate and Unemployment Rate"
+author: "Matthew E. Heino"
+date: "2025-04-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+```
+
+Load the required modules for the project
+
+```{r}
+
+# Load the required modules
+library(tidyverse)
+library(raster)          #raster()
+library(sf)              #st_read()
+library(ggspatial)       #annotation_scale,annotation_north_arrow
+library(ggnewscale)      #new_scale_color() 
+library(ggsn)            #scalebar()
+library(shiny)           #Shiny app
+library(plotly)          #plot_ly()
+library(gridExtra)       #grid.arrange()
+
+```
+
+Set the working directory
+
+```{r}
+
+# Set the working directory 
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+# Crime Rate and Unemployment Rate
+
+
+
+## 1 Data
+
+
+
+## 2 Project Objectives
+
+
+## 3 Data Processing and data visualization
+### Data preprocessing: 
+
+Steps: 
+
+  - 1. Read the data from the CSV files into individual data frames.
+  - 2. Remove the parts of the United States that are not contiguous.
+  - 3. Process the unemployment rate data
+  - 4. Process the Crime rate
+  - 5. Join relational tables
+  - 6. Save the final combined and cleaned data.
+  
+
+### 1) Read in the data from the data files. 
+```{r}
+
+# Read in the unemployment rate from the CSV file
+Unemployrate <-  read_csv("data/unemployment_county.csv")
+
+# Read in the Crime rate from the CSV file
+Crimerate <- read_csv ("data/crime_and_incarceration_by_state.csv")
+
+# Read the states shape file
+States <- st_read("data/tl_2019_us_state/tl_2019_us_state.shp")
+
+Unemployrate <-  read_csv("data/unemployment_county.csv")
+
+```
+
+
+### 2) Remove the parts of the United States that are not contiguous.  
+
+The states of Alaska, American Samoa, Northern Mariana Islands, Puerto Rico, US Virgin Islands, Hawaii, and Guam.  The projects analysis will only focus on the contiguous United States or the mainland United States.  Analysis will focus on the lower 48 states. 
+
+
+```{r}
+
+Contiguous_state <- States %>% filter(STUSPS != "AK" & STUSPS != "AS" &
+                                        STUSPS != "MP" & STUSPS != "PR" &
+                                        STUSPS != "VI" & STUSPS != "HI" &
+                                        STUSPS != "GU")
+
+```
+
+### 3) Process the unemployment rate data
+
+
+The data will be grouped by state and then by the Year in which the data was collected. Three variables will created. These variables are the following:
+
+  - **TotalForce**: This variable will hold the total number of workers.  This includes all workers both employed and                                          unemployed.
+  
+  - **Totalemployed**: This variable will hold the total number of employed workers.
+  
+  - **Totalunemployed**: This variable will hold the total number of unemployed workers.
+  
+  - **Meanrate**: This variable will hold the mean rate of unemployment
+
+
+```{r}
+
+Unemployrate <- Unemployrate %>% filter(State != 'AK' & State != "HI") %>%
+  group_by(State, Year) %>% 
+  summarise(Totalforce = sum(`Labor Force`), Totalemployed=sum(Employed),
+            Totalunemployed=sum(Unemployed), Meanrate = mean(`Unemployment Rate`,
+                                                             rm.na=TRUE))
+
+
+```
+
+The column in this data frame will need to have a column name changed from "State" to "STUSPS".  The years that will required will be also filtered from the data set.  The years that are required for this project were from 2007 to 2014
+
+```{r}
+
+Unemployrate <- Unemployrate %>% rename("STUSPS" = "State") %>%
+  filter(Year %in% c(2007:2014))
+
+
+```
+
+### 4. Process the Crime rate
+
+In this step the crime rate will need to have two columns renamed using the **rename()** function.  The two columns are jurisdiction and the year columns. The "jurisdiction" column will be changed to "STUSPS".  This will aid joining the frames in a later step.  Changing "year" to "Year" will help keep the naming convention consistent among the data frames that are to be used in the final project.   
+
+```{r}
+
+Crimerate <- Crimerate %>% 
+  rename("STUSPS" = "jurisdiction") %>%
+  rename("Year" = "year") %>%
+  filter(STUSPS != "FEDERAL" & STUSPS != "ALASKA" & STUSPS != "HAWAII") %>%
+  filter(Year %in% c(2007:2014))
+
+```
+
+There will be a need to change the state names in the STUSPS column.
+
+```{r}
+
+Crimerate$STUSPS <- state.abb[match(str_to_title(Crimerate$STUSPS), state.name)]
+
+```
+
+Calculate the crime rate. The crime rate was calculated using two columns from the Crimerate data frame.  The columns were:
+
+  - **violent_crime_total**: the total number of violent crime in the state
+  
+  - **state_population**:  the population of the state
+
+
+```{r}
+
+Crimerate <- Crimerate %>% 
+  mutate(Crimerate=(violent_crime_total/state_population) * 100) %>%
+  dplyr::mutate_if(is.numeric, round, 1)
+
+```
+
+### 5. Join relational tables
+
+The data frames will be joined so all the data will be contained in one frame. Only unique columns will be included within the final data frame. From the joined data frames select columns that are relevant for final use in the creation of the final project.  
+
+```{r}
+
+CS_Erate <- right_join(Contiguous_state, Unemployrate, by= c("STUSPS"))
+
+CS_Erate_Crate <- right_join(CS_Erate, Crimerate, by= c("STUSPS", "Year"))
+
+CS_Erate_Crate1 <- CS_Erate_Crate %>% 
+  select(REGION, STUSPS, NAME, Year, Meanrate,Crimerate) %>% 
+  rename("Unemplyrate"="Meanrate")
+
+```
+
+### 6. Save the final combined and cleaned data.
+
+```{r}
+
+saveRDS(CS_Erate_Crate1, file = "CS_Erate_CrateCombined1.Rds")
+
+```
+
+## EDA analysis
+
+```{r}
+# You can use the table for the basic data statistics. Please explain the EDA results. 
+```
+
+### Data analytics method
+
+The data visualizations that were produced for the project were the following:
+
+  - 1) A spatial map over the contiguous USA for the unemployment rate for the specific year 2014.
+  
+  - 2) A spatial map over the contiguous USA for the crime rate for the specific year 2014.
+  
+  - 3) Scatter plot for the data relationship between the unemployment rate and crime rate.
+  
+  - 4) Time series plot for the four states for the unemployment rate
+  
+  - 5) Time series plot for the four states for the crime rate
+  
+Data for the creation of the graphs is loaded from the RDS file that was created in a previous section of the project. The file is a ".Rds" the name of the file is:
+
+  - **CS_Erate_CrateCombined1.Rds**
+  
+This file will read in using the **readRDS()**.  The data found in this will then be used to create the plots that are found in this section of the project.
+
+Read the cleaned data from the ".Rds" file.
+
+```{r}
+
+all_info_from_RDS <- readRDS("CS_Erate_Crate1.Rds")
+
+```
+
+
+### 1) A spatial map over the contiguous USA for the unemployment rate for the specific year 2014.
+
+This is a map of the unemployment rate for the year 2014. This will be an interactive plot using the **plot_ly** function to create it. 
+
+The only year that will plotted on this time series plot will be for the year 2014.  This data will be filtered from the **all_info_from_RDS**.
+
+**Note**:  This step could have been done using a pipe, but this makes it easier to see what is going on.
+
+```{r}
+
+info_for_year_2014 <- all_info_from_RDS %>% filter(all_info_from_RDS$Year == 2014)
+
+```
+
+Using the **info_for_year_2014** data frame a graph of the contiguous United States will be created showing unemployment rate as a layer on the graph.
+
+```{r}
+# Graph for unemployment rate 
+ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Unemplyrate)) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Unemployment Rate for 2014")) + 
+  labs(title = "Unemployment Rate Over Contiguous USA ",
+       subtitle = "Unemployment Color Coded by State",
+       caption = "Data source: Unknown") +
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank())
+
+```
+
+
+### 2) A spatial map over the contiguous USA for the crime rate for the specific year 2014.
+
+Using the **info_for_year_2014** data frame a graph of the contiguous United States will be created showing crime rate as a layer on the graph.
+
+```{r}
+
+ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Crimerate)) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Crime Rate for 2014")) + 
+  labs(title = "Crime Rate Over Contiguous USA ",
+       subtitle = "Crime Rate Color Coded by State",
+       caption = "Data source: Unknown") + 
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank())
+
+```
+
+
+### 3) Scatter plot for the data relationship between the unemployment rate and crime rate.
+
+Creates a scatter plot using crime rate (x-axis) and unemployment rate (y-axis).
+
+```{r}
+
+fig <- plot_ly(data= info_for_year_2014, x= ~Crimerate, y= ~Unemplyrate,
+                color= ~REGION) %>%
+  add_markers() %>%
+  layout(title="Unemployment Rate and Crime Rate for 2014",  
+         xaxis=list(title= "Crime Rate Per 100,000 People"),
+         yaxis=list(title="Unemployment Rate Per 100 People"), showlegend=TRUE)
+  
+fig
+
+```
+
+### 4) Time series plot for the four states for the unemployment rate
+
+This will be an interactive plot of the unemployment rate for four states:
+
+  - California
+  
+  - Idaho
+  
+  - Illinois
+  
+  - Indiana
+  
+Steps to create the time series plot:
+  
+  - 1) Data will be filtered from the **all_info_from_RDS** data frame and a new data frame will be created.
+  
+  - 2) The new data frame created is four_states_year_2014.
+  
+  - 3) Create the unemployment rate time series plot.
+  
+  - 4) Create the crime rate time series plot.
+
+
+1 and 2) Data filtered from the **all_info_from_RDS** data frame and a new data frame will be created. A vector of states was created to form the list of states that were to plotted on the graph.  These states will be used for this time series plot and the one that follows.
+
+```{r}
+
+states <- c("California", "Idaho", "Illinois", "Indiana") 
+four_states_year_2014 <- all_info_from_RDS %>% filter(NAME %in% states)
+
+stats_df <-  as.data.frame(four_states_year_2014)
+
+```
+
+3) Create the unemployment rate time series plot.
+
+```{r}
+
+une <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Unemplyrate,color= ~NAME) %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="Unemployment Rate Changes by Year",  
+         xaxis=list(title= "Year"),
+         yaxis=list(title="Unemployment Rate"))
+
+une  
+
+```
+
+4) Create the crime rate time series plot.
+
+**Note**: To better see the crime rate for California select it from the legend on the right of the plot.
+
+```{r}
+
+cr <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Crimerate, color= ~NAME) %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="Crime Rate Changes by Year",  
+         xaxis=list(title= "Year"),
+         yaxis=list(title="Crime Rate"), yaxis=list(range(c(0, .7))))
+
+cr  
+
+```
+
+## 4 Discussion and conclusion
+
+[What information you can get from the graphs? What you can do more in the future.]
+
+## 5 References
+
+[List all references articles you refer for the final project]
+
