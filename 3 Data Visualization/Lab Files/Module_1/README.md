@@ -19,19 +19,5 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|| |
-|||
-|| |
-|||  |
-|  |  |  |
-| | |  |
-||| |
-
-
-
-C
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
-- $`\textcolor{blue}{\text{???}}`$
-
-
+|Basic Math Calcuation.R| Demonstrates simple mathemtical operations| None
+|Data Structures.R|Introduction to different objects in R | Vectors and their methods
