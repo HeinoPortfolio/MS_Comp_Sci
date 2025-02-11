@@ -16,16 +16,9 @@ The concepts and technologies used to create and complete the assessments are th
 - R
 
 
-# Assignment Files 
+# Lab Directory Information
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|As_1.R| ???| None
-|As_2.R| ??? | ???
-|Module_2.R | | | 
-|Module_2_Lec.R | | | 
-|Module_2_Lec_B.R | | | 
-|Module_2_Lec_C.R | | | 
-|Module_2_Lec_D.R | | | 
-| | | | 
-| | | | 
+|Lecture_Code| Folder for the lecture code| All code that was covered in the lecture is found in this directory
+
