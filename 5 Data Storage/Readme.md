@@ -5,7 +5,7 @@ This directory will hold the assignments, the labs, and a brief description of t
 
 -  $`\textcolor{blue}{\text{Creating queries using SQL}}`$
 -  $`\textcolor{blue}{\text{Creating queries using a MongoDB}}`$
--  $`\textcolor{blue}{\text{Writing Python script to access the data in a Mongo DB}}`$
+-  $`\textcolor{blue}{\text{Writing Python scripts to access the data in a Mongo DB}}`$
 - 
 
 # Technologies and Concepts Used
