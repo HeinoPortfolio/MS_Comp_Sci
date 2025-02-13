@@ -37,6 +37,7 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**Directory  Name**|**Purpose**|**Additional Comments**|
 |:-----|:-----:|:-----|
+|Sampledata2.xlsx| The sample data that was used in the assignment.||
 |Module__assignment_WU.R|  Assignment workup file. | .
 |MatthewHeino_Multiple-view-layout.html||
 |MatthewHeino_Multiple-view layout.Rmd| | 
