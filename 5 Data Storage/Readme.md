@@ -1,5 +1,5 @@
 # Folder Overview
-TEXT HERE
+This directory will hold the assignments, the labs, and a brief description of the competencies that were acquired over the course of the term.
 
 # Competencies
 
