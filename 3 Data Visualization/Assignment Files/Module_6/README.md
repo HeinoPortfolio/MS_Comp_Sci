@@ -33,8 +33,8 @@ The concepts and technologies used to create and complete the assessments are th
 |**Directory  Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
 |MatthewHeino_GroupHistogram.Rmd| RMD file that is the final submission of the assignment | none
-|MatthewHeino_GroupHistogram.html|The HTML file that is the final output of the RMD file|  This file was "knitted" from the RMS file.
-|Assignment_Mod6_Hist.R|An R script that was used to create the assignment.  Code from this file was copied into the final RMS submission | none 
+|MatthewHeino_GroupHistogram.html|The HTML file that is the final output of the RMD file|  This file was "knitted" from the RMD file.
+|Assignment_Mod6_Hist.R|An R script that was used to create the assignment.  Code from this file was copied into the final RMD submission | none 
 |Sampledata2.csv|The sample data that was used in the assignment| none |
 |  |  |  |
 
