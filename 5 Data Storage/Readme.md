@@ -17,12 +17,8 @@ The concepts and technologies used to create and complete the assessments are th
 
 # Assignment Files 
 
-|**File Name**|**Purpose**|**Additional Comments**|
+|**Directory Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
+|Labs|Holds the lab files |
+|Assignments| Hols the graded assignment files.|
 || |
-|||
-|| |
-|||  |
-|  |  |  |
-| | |  |
-||| |
