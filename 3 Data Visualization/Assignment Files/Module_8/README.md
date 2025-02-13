@@ -11,7 +11,7 @@ Required to use the skills learned from this module to create an R Markdown. Gra
 
 Sample data used:
 
-- **Sampledata2.xlsx** --> it is in the form of an Excel spreadsheet 
+- **Sampledata2.xlsx** - it is in the form of an Excel spreadsheet 
 
 
 # Competencies Demonstrated
