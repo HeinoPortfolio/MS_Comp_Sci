@@ -23,6 +23,8 @@ The concepts and technologies used to create and complete the assessments are th
 - Data visualization
 - Data representation
 
+**Note**: Please see either the Labs or the Assignment Files folders for more information. 
+
 # Directories and a Brief Description of Their Purpose
 
 
