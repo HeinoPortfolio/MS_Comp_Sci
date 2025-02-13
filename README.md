@@ -6,6 +6,8 @@ The listing below does not reflect the order that they were taken.  Some directo
 
 The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. 
 
+Additional graduate work can be found below the list of courses.
+
 # Course Certificates
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.
 
@@ -31,3 +33,8 @@ You will find the course certificates of completion below.  **Note:** Some cours
 10 | []() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
 11 | []() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
 12 | []() | ???? |  ????  |  $`\textcolor{red}{\text{Need}}`$
+
+# Additional Graduate Level Work
+* For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
+* For master's work in **Data Analytics** [click here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
+  
