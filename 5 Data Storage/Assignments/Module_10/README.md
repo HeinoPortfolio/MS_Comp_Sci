@@ -25,9 +25,6 @@ What search criteria (filter) will you use to select the following documents fro
 # Competencies Demonstrated
 - $`\textcolor{blue}{\text{Querying a Mongo DB}}`$
 
-
-**Note**: 
-
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
