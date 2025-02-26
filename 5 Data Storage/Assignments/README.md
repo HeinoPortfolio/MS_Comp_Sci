@@ -22,7 +22,7 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**Directory  Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-||  | .
+|Module_6| Holds assignment #3 using MySQL and creating SQL queries| None
 |||
 || | 
 ||| |
