@@ -20,5 +20,5 @@ The concepts and technologies used to create and complete the assessments are th
 |**Directory Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
 |Labs|Holds the lab files |
-|Assignments| Hols the graded assignment files.|
+|Assignments| Holds the graded assignment files.|
 || |
