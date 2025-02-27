@@ -22,8 +22,8 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**Directory  Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|Module_6| Holds assignment #2 using MySQL and creating SQL queries| None
-|||
-|| | 
-||| |
+|Module_6|Holds assignment #2 using MySQL and creating SQL queries| None
+|Module_7|Holds assignment #3 using MySQL and creating SQL queries| None
+|Module_10|Holds assignment #5 using MongoDb and creating database queries for MongoDB| None
+|Module_13|Holds assignment #5 using MongoDb and creating database queries for MongoDB|Uses Python scripts to extract the information|
 |  |  |  |
