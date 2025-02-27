@@ -11,9 +11,9 @@ This directory holds the labs that were completed during each module.  Please no
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
-- R programming language
-- R markdown 
-- Data wrangling
+- SQL yntax
+- MySQL 
+- MongoDB
 
 # Directories and a Brief Description of Their Purpose
 
