@@ -1,15 +1,14 @@
 #  Assignments Directory Overview
 
-Will contain the assignments that were given out over the course of the term.
+Will contain the assignments that were given out over the course of the term. Please note that not all modules had assignments that could be saved to the repository.  Items like quizzes and tests will not be found in this directory.
 
 
 # Competencies Demonstrated
 - $`\textcolor{blue}{\text{Creating queries using SQL}}`$
 - $`\textcolor{blue}{\text{Creating queries using a MongoDB}}`$
 - $`\textcolor{blue}{\text{Writing Python script to access the data in a Mongo DB}}`$
-- $`\textcolor{blue}{\text{}}`$
 
-**Note**: 
+**Note**: None
 
 # Technologies and Concepts Used
 
