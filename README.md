@@ -2,7 +2,7 @@
 
 The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculum.  There were two research courses that were required. The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
 
-The listing below does not reflect the order that they were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
+The listing below does not reflect the order that the classes were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
 The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. 
 
@@ -11,11 +11,11 @@ Additional graduate work can be found below the list of courses.
 # Course Certificates
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.
 
-- [Introduction to Programming](https://coursera.org/verify/5TZTQ7N3KBV4) (Intro Prog)
-- [Foundations of Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (Data Analytics)
-- [DSCI 604]() (Data Storage)
-- [DSCI 605]() (Data Visualization)
-- [CS ???]() (Data Mining and Machine Learning)
+- [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (Introduction to Programming)
+- [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (Foundations of Data Analytics)
+- [Data Storage and Management]() 
+- [Data Visualization]() 
+- [Data Mining and Machine Learning]()
 
 # List of Courses
 
