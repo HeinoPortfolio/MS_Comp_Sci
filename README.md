@@ -4,7 +4,7 @@ The master's degree consisted of twelve courses. There were six core or foundati
 
 The listing below does not reflect the order that the classes were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
-The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. 
+The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below.  The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
 Additional graduate work can be found below the list of courses.
 
