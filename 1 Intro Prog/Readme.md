@@ -32,3 +32,6 @@ The concepts and technologies used to create and complete the assessments are th
 |Labs| Project labs |  Extensive projects that were assigned over the course of the term.  There were three in number.
 |Reflections|Reflection assignments| Relections on the topics that were covered during the weekly topics. |
 
+# Additional Graduate Level Work
+* For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
+* For master's work in **Data Analytics** [click here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
