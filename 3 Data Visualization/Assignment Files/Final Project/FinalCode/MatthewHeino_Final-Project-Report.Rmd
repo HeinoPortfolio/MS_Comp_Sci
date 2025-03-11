@@ -1,0 +1,593 @@
+---
+title: "Crime Rate and Unemployment Rate"
+author: "Matthew E. Heino"
+date: "`r Sys.Date()`"
+link-citations: yes
+output:
+  bookdown::html_document2
+ 
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning= FALSE, 
+                      fig.align= "center")
+
+```
+
+Load the required modules for the project
+
+```{r lib_load }
+
+library(tidyverse)
+library(raster)          
+library(sf)              
+library(ggspatial)       
+library(ggnewscale)     
+library(ggsn)            
+library(plotly)          
+
+```
+
+Set the working directory
+
+```{r set-dir}
+
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+```
+
+# Crime Rate and Unemployment Rate {-}
+
+# Data {#data-descr}
+
+The data used was for this analysis is from three files.  Each File contained data that needed to be joined in to a  single coherent data frame that contained all the relevant information.  The three files are the following:
+
+<br>
+
+- 1) **crime_and_incarceration_by_state.csv** - holds information about crime statistics for each state and other data.  It is composed of 18 different variables.  Only a few will be used in the analysis.  They are listed below. Variables, violent_crime_total and state_population, will be used to calculate the crime rate.  The calculation can be found in **Section**: \@ref(calc-crime). "jurisdiction" and "year" column names will be changed in **Section**: \@ref(proc-crime). Additional information about the processing can be found in subsequent sections.
+
+      The features that will be used from the file are:
+
+      * Variable 1: **violent_crime_total** - the total amount of violent crime in the state
+      * Variable 2: **state_population** - the total population of the state
+      * Variable 3: **jurisdiction** - holds the state name.
+      * Variable 4: **year** - holds the year the data was recorded
+
+<br>
+
+- 2) **unemployment_county.csv** - This data will be processed in **Section**: \@ref(unempl). Additional information will be found in this section.
+
+      The features that will be used from the file are:
+
+      * Variable 1: **Employed** - the number of people employed in each of the counties
+      * Variable 2: **Unemployed** - the number of people unemployed in each of the counties
+      * Variable 3: **Unemployment Rate** - the unemployment rate for each of the counties 
+
+<br>
+
+- 3) **tl_2019_us_state.shp** -  this is the shape file that will be used in the mapping the data in **Sections**: \@ref(unempUSA) and \@ref(crimeUSA)
+
+<br>
+**Note**: All other columns will not be used and will discarded during further processing. 
+
+<br>
+
+# Project Objectives
+
+The objective of this project is to determine if there is a correlation between the rate of crime and unemployment.  This project seeks to see if there is an observable correlation that be seen either graphically or seen in a mathematical supported way.  There will be a discussion of the findings. The data topic that will covered in this project will be the temporal-spatial changes of unemployment rate in the contiguous USA.
+
+
+# Data Processing and Data Visualization
+
+## Data preprocessing:  {-}
+
+Steps: 
+
+  * Read the data from the CSV files into individual data frames.  **Section**: \@ref(read-data) .
+  * Remove the parts of the United States that are not contiguous. **Section**: \@ref(remove-parts) .
+  * Process the unemployment rate data. **Section**: \@ref(unempl)
+  * Process the crime rate data.   **Section**: \@ref(proc-crime)
+  * Join relational tables. **Section**: \@ref(join-tbl)
+  * Save the final combined and cleaned data. **Section**: \@ref(save-file)
+
+### Read in the data from the data files. {#read-data}
+
+This code will read in data from the data files that were discussed in **Section** \@ref(data-descr)
+
+```{r}
+
+`File Name` <- c('crime_and_incarceration_by_state.csv', 
+                 'Murder Rates, States By Region_Full Data_data',
+                 'tl_2019_us_state.shp')
+
+file_df <- data.frame(`File Name`)
+
+knitr::kable(file_df,col.names = c("File Name"), caption = "Files Used",)
+
+```
+
+
+
+```{r read-data-files, results= FALSE}
+
+# Read in the unemployment rate from the CSV file
+Unemployrate <-  read_csv("data/unemployment_county.csv")
+
+# Read in the Crime rate from the CSV file
+Crimerate <- read_csv ("data/crime_and_incarceration_by_state.csv")
+
+# Read the states shape file
+States <- st_read("data/tl_2019_us_state/tl_2019_us_state.shp")
+
+```
+
+```{r out-files}
+
+knitr::kable(head(Unemployrate, 10), caption = "Unemployment Rate")
+
+knitr::kable(head(Crimerate[ , 1:9], 10), 
+             caption = "Crime and Incarceration by State Part 1")
+knitr::kable(head(Crimerate[ , 10: 17], 10),
+             caption = "Crime and Incarceration by State Part 2")
+
+knitr::kable(head(States, 10), caption = "States")
+
+```
+
+
+### Remove the parts of the United States that are not contiguous.  {#remove-parts}
+<br>
+The states of Alaska, American Samoa, Northern Mariana Islands, Puerto Rico, US Virgin Islands, Hawaii, and Guam.  The projects analysis will only focus on the contiguous United States or the mainland United States.  Analysis will focus on the lower 48 states. 
+<br>
+
+```{r remove_parts }
+
+Contiguous_state <- States %>% filter(STUSPS != "AK" & STUSPS != "AS" &
+                                        STUSPS != "MP" & STUSPS != "PR" &
+                                        STUSPS != "VI" & STUSPS != "HI" &
+                                        STUSPS != "GU")
+
+```
+
+### Process the unemployment rate data {#unempl}
+
+The data will be filtered to remove Alaska and Hawaii from the data set.  This analysis will only focus on the contiguous United States. It is not needed so it will be removed from the data.  The data will be grouped by state and then by the Year in which the data was collected. Three variables will created. These variables are the following:
+
+  - **TotalForce**: This variable will hold the total number of workers.  This includes all workers both employed and                                          unemployed.
+  - **Totalemployed**: This variable will hold the total number of employed workers.
+  - **Totalunemployed**: This variable will hold the total number of unemployed workers.
+  - **Meanrate**: This variable will hold the mean rate of unemployment
+
+```{r create_new_var}
+
+Unemployrate <- Unemployrate %>% filter(State != 'AK' & State != "HI") %>%
+  group_by(State, Year) %>% 
+  summarise(Totalforce = sum(`Labor Force`), Totalemployed=sum(Employed),
+            Totalunemployed=sum(Unemployed), Meanrate = mean(`Unemployment Rate`,
+                                                             rm.na=TRUE))
+
+```
+
+The column in this data frame will need to have a column name changed from "State" to "STUSPS".  The years that will required will be also filtered from the data set.  The years that are required for this project were from 2007 to 2014.
+
+```{r filter-by-year}
+
+Unemployrate <- Unemployrate %>% rename("STUSPS" = "State") %>%
+  filter(Year %in% c(2007:2014))
+
+```
+
+### Process the Crime rate {#proc-crime}
+
+In this step the crime rate will need to have two columns renamed using the **rename()** function.  The two columns are jurisdiction and the year columns. The "jurisdiction" column will be changed to "STUSPS".  This will aid joining the frames in a later step.  Changing "year" to "Year" will help keep the naming convention consistent among the data frames that are to be used in the final project. 
+
+
+```{r rename_crime}
+
+Crimerate <- Crimerate %>% 
+  rename("STUSPS" = "jurisdiction") %>%
+  rename("Year" = "year") %>%
+  filter(STUSPS != "FEDERAL" & STUSPS != "ALASKA" & STUSPS != "HAWAII") %>%
+  filter(Year %in% c(2007:2014))
+
+```
+
+
+There will be a need to change the state names in the STUSPS column.
+
+
+```{r change_state}
+
+Crimerate$STUSPS <- state.abb[match(str_to_title(Crimerate$STUSPS), state.name)]
+
+```
+
+### Calculate the crime rate {#calc-crime}
+
+The crime rate was calculated using two columns from the Crimerate data frame. The columns were:
+
+  - **violent_crime_total**: the total number of violent crime in the state
+  - **state_population**:  the population of the state
+
+```{r calc-crime-rate}
+
+Crimerate <- Crimerate %>% 
+  mutate(Crimerate=(violent_crime_total/state_population) * 100) %>%
+  dplyr::mutate_if(is.numeric, round, 1)
+
+```
+
+### Join relational tables {#join-tbl}
+
+The data frames will be joined so all the data will be contained in one frame. Only unique columns will be included within the final data frame. From the joined data frames select columns that are relevant for final use in the creation of the final project.  
+
+```{r join_frames}
+
+CS_Erate <- right_join(Contiguous_state, Unemployrate, by= c("STUSPS"))
+
+CS_Erate_Crate <- right_join(CS_Erate, Crimerate, by= c("STUSPS", "Year"))
+
+CS_Erate_Crate1 <- CS_Erate_Crate %>% 
+  select(REGION, STUSPS, NAME, Year, Meanrate,Crimerate) %>% 
+  rename("Unemplyrate"="Meanrate")
+
+```
+
+
+```{r combi-data}
+
+knitr::kable(head(CS_Erate_Crate1, 10), caption = "Combined Data")
+
+```
+
+### Save the final combined and cleaned data. {#save-file}
+
+```{r save-data}
+
+saveRDS(CS_Erate_Crate1, file = "CS_Erate_CrateCombined1.Rds")
+
+```
+
+## EDA analysis {#eda-analysis}
+
+```{r eda-analysis-unemp-one}
+
+# Create a copy of the data frame
+stats_df <- data.frame(CS_Erate_Crate1) %>% select(-geometry)
+
+region_unemploy <- stats_df %>%
+group_by(REGION) %>%
+  summarise(
+    `Region Mean` = mean(Unemplyrate),
+    `Maximum Unemployment Rate` = max(Unemplyrate),
+    `Minimum Unemployment Rate` = min(Unemplyrate),
+    `Quantiles Unemployment` = list(round(quantile(Unemplyrate, type=1), 2)),
+    `Standard Deviation` = sd(Unemplyrate),
+  )
+
+knitr::kable(region_unemploy, caption = "Regional Unemployment Statistics.", align = "cccc", digits = 2)
+ 
+```
+
+```{r reg-unemp-box, fig.cap= "Unemployment Rate by Region.", fig.height=7, fig.width=10}
+
+region_unemploy_box <- stats_df %>%
+group_by(REGION) %>% ggplot(mapping=aes(x=REGION, y=Unemplyrate, fill=REGION))+
+  geom_boxplot()+
+  labs(colour="Year", y="Unemployment Rate", x="Region", 
+       title="Unemployment Rate by Region") +
+  theme(panel.background = element_blank(), text=element_text(size=16),
+        plot.title=element_text(hjust=0.5, size=20))
+
+ggplotly(region_unemploy_box)
+
+```
+
+```{r eda-analysis-unemp-two}
+
+region_year_unemploy <-stats_df %>%
+group_by(Year, REGION) %>%
+  summarise(
+    `Region Mean` = mean(Unemplyrate),
+    `Maximum Unemployment Rate` = max(Unemplyrate),
+    `Minimum Unemployment Rate` = min(Unemplyrate),
+    `Quantiles: 0%  25%  50%  75%  100%` = 
+      list(round(quantile(Unemplyrate, type=1), 2)),
+    `Standard Deviation` = sd(Unemplyrate),
+  )
+
+knitr::kable(region_year_unemploy, caption = "Regional Unemployment Statistics by Year and Region.",
+             align = "cccc", digits = 2)
+
+```
+
+```{r reg-yr-unemp-box, fig.cap= "Unemployment Rate by Year and Region.", fig.height=7, fig.width=10}
+
+region_year_unemploy_box <-
+ ggplot(stats_df) + geom_boxplot(aes(x=REGION, y=Unemplyrate, fill=REGION)) + 
+  facet_wrap(~Year, ncol=2) +
+  labs(colour="Year", y="Unemployment Rate", x="Region", 
+       title="Unemployment Rate by Year and Region") + 
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size=20), 
+        text=element_text(size=16))
+
+ggplotly(region_year_unemploy_box)
+
+
+```
+
+
+
+```{r eda-analysis-region-cri}
+
+region_crime <- stats_df %>%
+group_by(REGION) %>%
+  summarise(
+    `Region Mean` = mean(Crimerate),
+    `Maximum Crime Rate` = max(Crimerate),
+    `Minimum Crime Rate` = min(Crimerate),
+    `Quantiles: 0%  25%  50%  75%  100%` = list(quantile(Crimerate, type=1)),
+    `Standard Deviation` = sd(Crimerate)
+  )
+
+knitr::kable(region_crime, caption = "Regional Crime Statistics.", 
+             align = "cccc", digits = 2)
+ 
+```
+
+
+```{r reg-cri-box, fig.cap= "Crime Rate by Region.", fig.height=7, fig.width=10 }
+region_crime_box <- stats_df %>%
+group_by(REGION) %>% ggplot(mapping=aes(x=REGION, y=Crimerate, fill=REGION))+
+  geom_boxplot() + 
+   labs(colour="Year", y="Crime Rate", x="Region", 
+       title="Crime Rate by Region") +
+  theme(panel.background = element_blank(), 
+        plot.title=element_text(hjust=0.5, size=20), text=element_text(size=16))
+
+ggplotly(region_crime_box)
+
+```
+
+```{r eda-analysis-region-year-cri}
+
+region_year_crime <-stats_df %>%
+group_by(Year, REGION) %>%
+  summarise(
+    `Region Mean` = mean(Crimerate),
+    `Maximum Crime Rate` = max(Crimerate),
+    `Minimum Crime Rate` = min(Crimerate),
+    `Quantiles: 0%  25%  50%  75%  100%` = list(quantile(Crimerate, type=1)),
+    `Standard Deviation` = sd(Crimerate),
+  )
+
+knitr::kable(region_year_crime, caption = "Regional Crime Statistics by Year and Region.",
+             align = "cccc", digits = 2)
+
+```
+
+```{r reg-yr-cri-box, fig.cap= "Crime Rate by Year and Region.", fig.height=7, fig.width=10}
+
+region_year_crime_box <-
+ ggplot(stats_df) + geom_boxplot(aes(x=REGION, y=Crimerate, fill=REGION)) + 
+  facet_wrap(~Year, ncol=2) +
+  labs(colour="Year", y="Crimet Rate", x="Region", 
+       title="Crime Rate by Year and Region") + 
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size=20), 
+        text=element_text(size=16))
+
+ggplotly(region_year_crime_box)
+
+```
+
+
+## Data analytics method 
+
+The data visualizations that were produced for the project were the following:
+
+  * A spatial map over the contiguous USA for the unemployment rate for the specific year 2014.
+  * A spatial map over the contiguous USA for the crime rate for the specific year 2014.
+  * Scatter plot for the data relationship between the unemployment rate and crime rate.
+  * Time series plot for the four states for the unemployment rate
+  * Time series plot for the four states for the crime rate
+  
+Data for the creation of the graphs is loaded from the RDS file that was created in a previous section of the project. The file is a ".Rds" the name of the file is:
+
+  - **CS_Erate_CrateCombined1.Rds**
+  
+This file will read in using the **readRDS()**.  The data found in this will then be used to create the plots that are found in this section of the project.
+
+Read the cleaned data from the ".Rds" file.
+
+```{r read-combined}
+
+all_info_from_RDS <- readRDS("CS_Erate_CrateCombined1.Rds")
+
+```
+
+
+### A spatial map over the contiguous USA for the unemployment rate for the specific year 2014. {#unempUSA}
+
+This is a map of the unemployment rate for the year 2014. This will be an interactive plot using the **plot_ly** function to create it. 
+
+The only year that will plotted on this time series plot will be for the year 2014.  This data will be filtered from the **all_info_from_RDS**.
+
+**Note**:  This step could have been done using a pipe, but this makes it easier to see what is going on.
+
+```{r}
+
+info_for_year_2014 <- all_info_from_RDS %>% filter(all_info_from_RDS$Year == 2014)
+
+```
+
+Using the **info_for_year_2014** data frame a graph of the contiguous United States will be created showing unemployment rate as a layer on the graph.
+
+```{r sp-unemp, fig.cap= "A spatial map over the contiguous USA for the unemployment rate for the year 2014", fig.height=7, fig.width=10}
+
+sp1 <- ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Unemplyrate, 
+              text=paste("State: ",info_for_year_2014$NAME ,
+                         "\nUnemployment Rate: ", 
+                         round(info_for_year_2014$Unemplyrate, 2 )))) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Unemployment Rate for 2014")) + 
+  labs(title = "Unemployment Rate Over Contiguous USA ",
+       subtitle = "Unemployment Color Coded by State",
+       caption = "Data source: Unknown") +
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank(), legend.position = "right", 
+        plot.title = element_text(hjust = 0.5, size=20),
+        plot.subtitle = element_text(hjust = 0.5, size=16),
+        text=element_text(size=16))
+
+sp1
+```
+
+
+### A spatial map over the contiguous USA for the crime rate for the specific year 2014. {#crimeUSA}
+
+Using the **info_for_year_2014** data frame a graph of the contiguous United States will be created showing crime rate as a layer on the graph.
+
+```{r sp-crime, fig.cap="Spatial map over the contiguous USA for the crime rate for the year 2014", fig.height=7, fig.width=10}
+
+ggplot(data=info_for_year_2014) + 
+  geom_sf(data= info_for_year_2014$geometry, 
+          aes(fill=info_for_year_2014$Crimerate)) + 
+  xlab("Longitude") +
+  ylab("Latitude") +
+  guides(fill=guide_legend(title= "Crime Rate for 2014")) + 
+  labs(title = "Crime Rate Over Contiguous USA ",
+       subtitle = "Crime Rate Color Coded by State",
+       caption = "Data source: Unknown") + 
+  scalebar(data= info_for_year_2014, location="bottomleft", dist= 500, st.size=2,
+           dist_unit = "km", transform= TRUE, model= "WGS84", st.dist=0.04) +
+  annotation_north_arrow(location = "br", which_north = "true", 
+                         style = north_arrow_fancy_orienteering) +
+  theme(panel.background = element_blank(), 
+        plot.title = element_text(hjust = 0.5, size=20),
+        plot.subtitle = element_text(hjust = 0.5, size=16),
+        text=element_text(size=16))
+
+```
+
+
+### Scatter plot for the data relationship between the unemployment rate and crime rate. {-}
+
+Creates a scatter plot using crime rate (x-axis) and unemployment rate (y-axis).
+
+
+
+
+
+```{r scatter-un-cr, fig.cap="Scatter plot for the data relationship between the unemployment rate and crime rate", fig.height=7,fig.width=7}
+
+fig <- plot_ly(data= info_for_year_2014, x= ~Crimerate, y= ~Unemplyrate,
+                color= ~REGION) %>%
+  add_markers() %>%
+  layout(title="<b>Unemployment Rate and Crime Rate for 2014 </b>", 
+         margin=list(b = 10, l= 10)) %>%
+  layout(xaxis=list(title= "<b>Crime Rate Per 100,000 People</b>"),
+         yaxis=list(title="<b>Unemployment Rate Per 100 People </b>"),
+         legend=list(title=list(text='<b> Region </b>'),
+                     showlegend=TRUE)) %>%
+  layout(xaxis=list(titlefont= list(size= 14)),
+         yaxis=list(titlefont= list(size= 14)))
+   
+
+fig
+
+```
+
+### 4) Time series plot for the four states for the unemployment rate. {-}
+
+This will be an interactive plot of the unemployment rate for four states:
+
+  - California
+  - Idaho
+  - Illinois
+  - Indiana
+  
+Steps to create the time series plot:
+  
+  * Data will be filtered from the **all_info_from_RDS** data frame and a new data frame will be created. **Section**: \@ref(four-sta)
+  * The new data frame created is four_states_year_2014. **Section**: \@ref(four-sta)
+  * Create the unemployment rate time series plot. **Section**: \@ref(ts-unemp)
+  * Create the crime rate time series plot.**Section**: \@ref(ts-cri)
+
+Section \@ref(four-sta) data filtered from the **all_info_from_RDS** data frame and a new data frame will be created. A vector of states was created to form the list of states that were to plotted on the graph.  These states will be used for this time series plot and the one that follows.
+
+## Data will be filtered from the all_info_from_RDS data frame and a new data frame will be created. {#four-sta}
+```{r four-states, fig.cap=""}
+
+states <- c("California", "Idaho", "Illinois", "Indiana") 
+four_states_year_2014 <- all_info_from_RDS %>% filter(NAME %in% states)
+
+stats_df <-  as.data.frame(four_states_year_2014)
+
+```
+
+## Create the unemployment rate time series plot. {#ts-unemp}
+
+```{r plotly-unemployment-rate, fig.cap= "Unemployment rate time series plot."}
+
+une <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Unemplyrate,color= ~NAME) %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="<b>Unemployment Rate Changes by Year</b>",  
+         xaxis=list(title= "<b>Year</b>"),
+         yaxis=list(title="<b>Unemployment Rate</b>"), 
+         legend=list(title=list(text='<b> State </b>'), showlegend=TRUE))
+
+une  
+
+```
+
+## Create the crime rate time series plot. {#ts-cri}
+
+**Note**: To better see the crime rate for California select it from the legend on the right of the plot.
+
+```{r plotly-crime-rate, fig.cap= "Crime rate time series plot."}
+
+cr <- plot_ly(data=stats_df, x= ~as.factor(Year), y= ~Crimerate, color= ~NAME) %>%
+  filter(NAME %in% states) %>%
+  group_by(NAME) %>%
+  add_lines() %>%
+  layout(title="<b>Crime Rate Changes by Year</b>",  
+         xaxis=list(title= "<b>Year</b>"),
+         yaxis=list(title="<b>Crime Rate</b>"), yaxis=list(range(c(0, .7))),
+         legend=list(title=list(text='<b> State </b>'), showlegend=TRUE))
+
+  
+cr
+```
+
+# Discussion and Conclusion 
+
+
+(See "Spatial unemployment" Figure \@ref(fig:sp-unemp))
+
+(See "Spatial crime" Figure \@ref(fig:sp-crime))
+ 
+Reviewing the scatter plot we see a plot the does not show a linear correlation between the crime rate and the unemployment rate. There is no dependence on the variables. If we change the one variable we cannot assume that a change in another variable will be seen. There is no dependence among the variable of (See "Scatter" Figure \@ref(fig:scatter-un-cr)) (Question Video: Identifying the Linear Correlation from the Scattergraph, Nagwa, n.d.).
+
+If we look at the correlation coefficient `r round(cor(stats_df$Unemplyrate, stats_df$Crimerate, method = "spearman"), 2)`. The value of 0.17 indicates that there is almost no correlation between the variables to indicate that there is a meaningful correlation between crime and the unemployment rates. This value is very close to the value zero. In order for there to be a correlation between the variables the value needs to fall closer to either -1 or to 1.  With values closer to -1 indicating a negative correlation indicating that the variables change in a negative relation to each other.  If one of the variables increase the other will decrease and vice versa (Soetewey, 2020).   
+ 
+(See "Crime rate" Figure \@ref(fig:plotly-crime-rate))
+
+(See "Unemployment Rate" Figure \@ref(fig:plotly-unemployment-rate))
+
+# References 
+
+Question Video: Identifying the Linear Correlation from the Scattergraph, Nagwa. (n.d.). *Identifying the Linear Correlation from the Scattergraph [Video]*. Nagwa. https://www.nagwa.com/en/videos/909167139353/
+
+Soetewey, A. (2020, May 28). *Correlation coefficient and correlation test in R. Stats and R.* Retrieved February 13, 2025, from https://statsandr.com/blog/correlation-coefficient-and-correlation-test-in-r/
+
