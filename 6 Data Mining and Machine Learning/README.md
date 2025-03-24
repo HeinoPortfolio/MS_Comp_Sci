@@ -8,7 +8,7 @@ Software implementation of data mining algorithms. Data mining applications on r
 - $`\textcolor{blue}{\text{Data clustering}}`$
 - $`\textcolor{blue}{\text{Data classification}}`$
 - $`\textcolor{blue}{\text{Mining association rules}}`$
-- $`\textcolor{blue}{\text{ Anomaly detection}}`$
+- $`\textcolor{blue}{\text{Anomaly detection}}`$
 
 # Technologies and Concepts Used
 
