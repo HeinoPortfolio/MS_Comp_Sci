@@ -13,7 +13,7 @@ You will find the course certificates of completion below.  **Note:** Some cours
 
 - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (Introduction to Programming)
 - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (Foundations of Data Analytics)
-- [Data Storage and Management]() 
+- [Data Storage]() (Data Storage and Management)
 - [Data Visualization]() 
 - [Data Mining and Machine Learning]()
 
