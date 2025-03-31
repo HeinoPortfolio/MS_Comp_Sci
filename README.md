@@ -27,11 +27,11 @@ You will find the course certificates of completion below.  **Note:** Some cours
 4 | [Data Analytics](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics)|Core | Graduate course in data analytics. The course covered data acquisition, transformation, manipulation, and how these were applied to large-scale unstructured, structured, and semi-structured data. The course introduced the application of different data analytics methods and algorithms to accomplish the preparation and analysis of the data.  | $`\textcolor{blue}{\text{Completed}}`$
 5 |[Data Storage](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/5%20Data%20Storage) | Core | An introduction to data storage and management used in data analytics systems. Topics include relational and NoSQL database systems, data storage and retrieval, data manipulation and transformation between different formats, and database integration within big data eco-systems. | $`\textcolor{blue}{\text{Completed}}`$
 6 | [Data Mining and Machine Learning](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/Data%20Mining%20and%20Machine%20Learning) |Elective | Discussed data mining algorithms, implementations, systems, and applications. Topics included data preprocessing, data clustering, data classification, mining association rules, and anomaly detection. Implementation of data mining algorithms. Data mining applications on real data in various domains.  | $`\textcolor{red}{\text{Need}}`$
-7 | []()|  ??? | ??? |  $`\textcolor{red}{\text{Need}}`$
-8 | []()| ??? |  ???? |  $`\textcolor{red}{\text{Need}}`$
-9 | []() | ??? |  ???? |  $`\textcolor{red}{\text{Need}}`$
+7 | [Introduction to Cloud Computing]() |  Elective | Provided an introduction to understanding the concepts, capabilities, and underlying technologies of cloud computing, which enables students to effectively evaluate and exploit the business and technical benefits of cloud-based solutions. In addition, hands-on experience through projects exposes students to the application programming interfaces offered by leading cloud providers (e.g., Amazon Web Services, Microsoft Azure) and teaches students how to build and deploy powerful and efficient data-intensive applications in the cloud. |  $`\textcolor{red}{\text{Need}}`$
+8| [Full Stack Web Development]()|  Elective | Introduction to full stack web development, which involves three interwoven areas: front-end web development, back-end web development, and database support for the web application. A modern web application framework will be studied, and projects implementing a full web application will be required |  $`\textcolor{red}{\text{Need}}`$
+9 | [Artificial Intelligence ]() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
 10 | []() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
-11 | []() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
+11 | []() | ???? |  ????  |  $`\textcolor{red}{\text{Need}}`$
 12 | []() | ???? |  ????  |  $`\textcolor{red}{\text{Need}}`$
 
 # Additional Graduate Level Work
