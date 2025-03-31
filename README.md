@@ -4,20 +4,29 @@ The master's degree consisted of twelve courses. There were six core or foundati
 
 The listing below does not reflect the order that the classes were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
 
-The program emphasized applications and specializations with hands-on learning experience in areas such as Machine Learning, Data Analytics, Cybersecurity, and Software Engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below.  The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
+The program emphasized applications and specializations with hands-on learning experience in areas such as machine learning, data analytics, cybersecurity, and software engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below.  The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
 Additional graduate work can be found below the list of courses.
 
 # Course Certificates
-You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.
+You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
+The name in the **()** is the name that will appear on the certificate of completion.
 
 - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (Introduction to Programming)
 - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (Foundations of Data Analytics)
 - [Data Storage]() (Data Storage and Management)
-- [Data Visualization]() 
-- [Data Mining and Machine Learning]()
+- [Data Visualization]() (Data Visualization)
+- [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
+- [Cloud Computing]() (Intro to Cloud Computing)
+- [Full Stack Development]() (Full Stack Web Development)
+- [Artificial Intellingence]() (Artificial Intelligence)
+- [Software Engineering]() (Software Engineering)
+- [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
+- [Applications of Computability]() (Applications of Computability)
 
 # List of Courses
+
+The list of courses is in no particular order.  The list was created based on a list of required courses provided by the school. Please do not assume that there is a chronological order for the courses. 
 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
@@ -29,10 +38,11 @@ You will find the course certificates of completion below.  **Note:** Some cours
 6 | [Data Mining and Machine Learning](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/Data%20Mining%20and%20Machine%20Learning) |Elective | Discussed data mining algorithms, implementations, systems, and applications. Topics included data preprocessing, data clustering, data classification, mining association rules, and anomaly detection. Implementation of data mining algorithms. Data mining applications on real data in various domains.  | $`\textcolor{red}{\text{Need}}`$
 7 | [Introduction to Cloud Computing]() |  Elective | Provided an introduction to understanding the concepts, capabilities, and underlying technologies of cloud computing, which enables students to effectively evaluate and exploit the business and technical benefits of cloud-based solutions. In addition, hands-on experience through projects exposes students to the application programming interfaces offered by leading cloud providers (e.g., Amazon Web Services, Microsoft Azure) and teaches students how to build and deploy powerful and efficient data-intensive applications in the cloud. |  $`\textcolor{red}{\text{Need}}`$
 8| [Full Stack Web Development]()|  Elective | Introduction to full stack web development, which involves three interwoven areas: front-end web development, back-end web development, and database support for the web application. A modern web application framework will be studied, and projects implementing a full web application will be required |  $`\textcolor{red}{\text{Need}}`$
-9 | [Artificial Intelligence ]() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
-10 | []() | ??? |  ????  |  $`\textcolor{red}{\text{Need}}`$
-11 | []() | ???? |  ????  |  $`\textcolor{red}{\text{Need}}`$
-12 | []() | ???? |  ????  |  $`\textcolor{red}{\text{Need}}`$
+9 | [Artificial Intelligence ]() | Research| Covered basic concepts and techniques of artificial intelligence, including intelligent agents, search, reasoning, knowledge representation, planning, and human-robot interaction. Examples from a variety of applications will be used to illustrate the use of these techniques as well as their current limitations.  |  $`\textcolor{red}{\text{Need}}`$
+10 | [Software Engineering]() | Core |  Software engineering principles and concepts. The software life cycle, structured specifications, design tools and techniques, software reliability, and verifying program correctness.  |  $`\textcolor{red}{\text{Need}}`$
+11 | [Cybersecurity and Secure Software Design]() |Core|  Introduction of basic principles and applications of cybersecurity. Topics include symmetric and asymmetric encryption and decryption algorithms, hashing techniques, digital certificates, digital signatures, message authentication codes, authentication, malware, and security of systems such as networks, operating systems, software, and databases. |  $`\textcolor{red}{\text{Need}}`$
+12 | [Applications of Computability]() | Research | Introduction to computability, finite state machines, regular languages, context free grammars and parsing, Turing machines, complexity classes, applications including programming languages and compilers, network protocols, and natural language processing. Limits of computation. Quantum, hyper-computation and other models of computation.  |  $`\textcolor{red}{\text{Need}}`$
+Alternative | [Advanced Operating Systems and Networking]() | Elective | Investigation on concepts, models, and algorithms in computer operating systems and networking. Topics include process and thread management, memory management, I/O, internetworking, and networked applications. |  $`\textcolor{red}{\text{Need}}`$
 
 # Additional Graduate Level Work
 * For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
