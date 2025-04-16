@@ -14,8 +14,8 @@ The name in the **()** is the name that will appear on the certificate of comple
 
 - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
 - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
-- [Data Storage]() (Data Storage and Management)
-- [Data Visualization]() (Data Visualization)
+- [Data Storage]() (DSCI 604 Data Storage and Management)
+- [Data Visualization]() (DSCI 605 Data Visualization)
 - [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
 - [Cloud Computing]() (Intro to Cloud Computing)
 - [Full Stack Development]() (Full Stack Web Development)
