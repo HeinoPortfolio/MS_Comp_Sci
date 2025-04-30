@@ -10,6 +10,15 @@ Software implementation of data mining algorithms. Data mining applications on r
 - $`\textcolor{blue}{\text{Mining association rules}}`$
 - $`\textcolor{blue}{\text{Anomaly detection}}`$
 
+# Outcomes 
+- $`\textcolor{blue}{\text{Explain the basics of machine learning and data mining, their applications and opportunities.}}`$
+- $`\textcolor{blue}{\text{Process and prepare data for machine learning and data mining tasks.}}`$
+- $`\textcolor{blue}{\text{Perform data clustering on real data using unsupervised machine learning algorithms.}}`$
+- $`\textcolor{blue}{\text{Perform data classification on real data using supervised machine learning algorithms.}}`$
+- $`\textcolor{blue}{\text{Perform association rule mining on shopping basket data.}}`$
+- $`\textcolor{blue}{\text{Perform text mining and outlier detection using data classification methods.}}`$
+- $`\textcolor{blue}{\text{Explain the key concepts of deep learning and large language models and their applications.}}`$
+
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
