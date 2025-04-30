@@ -13,11 +13,15 @@ Software implementation of data mining algorithms. Data mining applications on r
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
+
 - Python
--
-- 
-- 
-- 
+- Unsupervised learning
+- Supervised learning
+- Reinforcement learning
+- Data Processing
+- Data classification
+- Mining association rules
+- Anomaly detection
 
 # Directory Description
 
