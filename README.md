@@ -6,23 +6,7 @@ The listing below does not reflect the order that the classes were taken.  Some 
 
 The program emphasized applications and specializations with hands-on learning experience in areas such as machine learning, data analytics, cybersecurity, and software engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below.  The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
-Additional graduate work can be found below the list of courses.
-
-# Course Certificates
-You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
-The name in the **()** is the name that will appear on the certificate of completion.
-
-- [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
-- [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
-- [Data Storage]() (DSCI 604 Data Storage and Management)
-- [Data Visualization]() (DSCI 605 Data Visualization)
-- [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
-- [Cloud Computing]() (Intro to Cloud Computing)
-- [Full Stack Development]() (Full Stack Web Development)
-- [Artificial Intellingence]() (Artificial Intelligence)
-- [Software Engineering]() (Software Engineering)
-- [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
-- [Applications of Computability]() (Applications of Computability)
+Additional graduate work can be found below the list of course certificates.
 
 # List of Courses
 
@@ -43,6 +27,23 @@ The list of courses is in no particular order.  The list was created based on a 
 11 | [Cybersecurity and Secure Software Design]() |Core|  Introduction of basic principles and applications of cybersecurity. Topics include symmetric and asymmetric encryption and decryption algorithms, hashing techniques, digital certificates, digital signatures, message authentication codes, authentication, malware, and security of systems such as networks, operating systems, software, and databases. |  $`\textcolor{red}{\text{Need}}`$
 12 | [Applications of Computability]() | Research | Introduction to computability, finite state machines, regular languages, context free grammars and parsing, Turing machines, complexity classes, applications including programming languages and compilers, network protocols, and natural language processing. Limits of computation. Quantum, hyper-computation and other models of computation.  |  $`\textcolor{red}{\text{Need}}`$
 Alternative | [Advanced Operating Systems and Networking]() | Elective | Investigation on concepts, models, and algorithms in computer operating systems and networking. Topics include process and thread management, memory management, I/O, internetworking, and networked applications. |  $`\textcolor{red}{\text{Need}}`$
+
+# Course Certificates
+You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
+The name in the **()** is the name that will appear on the certificate of completion.
+
+- [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
+- [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
+- [Data Storage]() (DSCI 604 Data Storage and Management)
+- [Data Visualization]() (DSCI 605 Data Visualization)
+- [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
+- [Cloud Computing]() (Intro to Cloud Computing)
+- [Full Stack Development]() (Full Stack Web Development)
+- [Artificial Intellingence]() (Artificial Intelligence)
+- [Software Engineering]() (Software Engineering)
+- [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
+- [Applications of Computability]() (Applications of Computability)
+
 
 # Additional Graduate Level Work
 * For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
