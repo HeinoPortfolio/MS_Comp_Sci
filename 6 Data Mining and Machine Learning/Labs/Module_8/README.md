@@ -3,13 +3,13 @@ This directory will hold the files that were created during the lecture and duri
 # Competencies
 Competencies and objectives completed in Module 7:
 
-- Decision Tree Classfier
+- Decision Tree Classifier
 
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
 - Python
-- Decision Tree Classfier
+- Decision Tree Classifier
 
 # Assignment Files 
 
