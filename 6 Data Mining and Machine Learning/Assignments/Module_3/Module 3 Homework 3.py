@@ -10,9 +10,7 @@ import pandas as pd
 
 # read in the file
 
-
 sales_df = pd.read_csv("cs654_homework_3_dataset.csv")
-
 
 # verify the dataframe
 print(sales_df)
@@ -32,8 +30,8 @@ import copy
 #print("\n\nQuestion 1: \n\nNumber of distinct values in 'Platform' attribute: ", 
 #      len(pd.unique(sales_df['Platform'])))
 
-# ----------------------------------------------------------------------------
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 #
 # Question 2:
 #
@@ -104,9 +102,9 @@ print("\n\n\n The number of values with values greater than 0.5 is: ",
       count_gt_05)
     
  """   
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 #
-# Qeustion 4 
+# Question 4 
 #
 # After applying min-max normalization on EU_Sales column values, how many of 
 # them are less than 0.5?
@@ -128,7 +126,6 @@ normalized_list = []
 
 for element in eu_sales_list:
     
-   #print(round((element - min_val) / (max_val - min_val), 4))
    
    normalized_list.append(round((element - min_val) / (max_val - min_val), 4))
 
@@ -147,8 +144,8 @@ print("\n\n\n The number of values with values less than 0.5 is: ",
       count_lt_05)
 
 
-# ----------------------------------------------------------------------------
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 #
 # Question 5
 #
@@ -167,7 +164,7 @@ print("\n\n\n The number of values with values less than 0.5 is: ",
 
 
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 #
 # Question 6
