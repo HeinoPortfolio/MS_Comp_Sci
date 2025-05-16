@@ -33,11 +33,11 @@ test_10_labels_df =  pd.read_csv("cs654_homework14_test_10_labels.csv",
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #
-# Question 5:
+# Question 6:
 #
 # Use dataset1 and dataset 2 to train a scikit learn MLP Classifier and test 
 # the neural network on dataset 3 and dataset 4. If we specify the following: 
-# logistic activation, what is the accuracy?
+# relu activation, what is the accuracy?
 #
 
 
