@@ -17,9 +17,8 @@ import numpy as np
 import pandas as pd
 
 
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
 
 all_data_df = pd.read_csv("cs654_module_13_homework_dataset.csv")
@@ -158,12 +157,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.5,
 
 # Create the model. -----------------------------------------------------------
 
-NB_model = MultinomialNB()
+LR_model = LogisticRegression(random_state = 42)
 
-NB_model = NB_model.fit(X_train, y_train)
+
+LR_model = LR_model.fit(X_train, y_train)
+
+
 
 # Using CV = 2 ----------------------------------------------------------------
-scores_2 = cross_val_score(NB_model, X, y, cv = 2)
+scores_2 = cross_val_score(LR_model, X, y, cv = 2)
 
 print("\nUsing CV=2: \n")
 print("Cross Validation Scores: ", scores_2)
@@ -174,18 +176,9 @@ print("Number of CV Scores used in Average: ", len(scores_2))
 
 # Using CV =5 -----------------------------------------------------------------
 
-scores_5 = cross_val_score(NB_model, X, y, cv = 5)
+scores_5 = cross_val_score(LR_model, X, y, cv = 5)
 
 print("\nUsing CV=5: \n")
 print("Cross Validation Scores: ", scores_5)
 print("Average CV Score: ", scores_5.mean())
 print("Number of CV Scores used in Average: ", len(scores_5))
-
-
-
-
-
-
-
-
-
