@@ -164,34 +164,6 @@ final_distance_df = pd.DataFrame(final_distance_list)
 
 
 
-"""
-
-distance_matrix_final = []
-  
-for i in range(len(distance_matrix_list_gs)):
-    
-    distance_row = []
-      
-    print("i value:", i)
-      
-    for j in range(len(distance_matrix_list_gs[i])):
-        
-        print(j)
-        
-        distance =(distance_matrix_list_gs[i][j] * 0.5 + 
-                     distance_matrix_list_eu[i][j] * 0.5 )
-     
-        distance_row.append(round(distance, 2))
-      
-    distance_matrix_final.append(distance_row)
-
-"""
-
-
-
-
-
-
 
 
 
