@@ -93,8 +93,6 @@ dt_clf = dt_clf.fit(X_train, Y_train)
 predicted_labels = dt_clf.predict(X_test)
 
 
-
-
 #------------------------------------------------------------------------------
 # Compute the accuracy scores -------------------------------------------------
 

@@ -108,5 +108,5 @@ accuracy_score = lr_clf.score(X_test, Y_test)
 
 # Show the accuracy of the model ---------------------------------------------
  
-print("\n\nQuestion 5: \nAccuracy [using accuracy_score]:", accuracy)
-print("\n\nQuestion 5: \nAccuracy [using .score]:", accuracy_score)
+print("\n\nQuestion 7: \nAccuracy [using accuracy_score]:", accuracy)
+print("\n\nQuestion 7: \nAccuracy [using .score]:", accuracy_score)

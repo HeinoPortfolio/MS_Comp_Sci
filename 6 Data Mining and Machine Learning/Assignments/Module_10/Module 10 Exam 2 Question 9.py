@@ -20,7 +20,6 @@ import warnings
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-
 #------------------------------------------------------------------------------
 # Pre-question tasks ----------------------------------------------------------
 
@@ -108,6 +107,6 @@ accuracy_score = knn_clf.score(X_test, Y_test)
 
 # Show the accuracy of the model ---------------------------------------------
  
-print("\n\nQuestion 5: \nAccuracy [using accuracy_score]:", accuracy)
-print("\n\nQuestion 5: \nAccuracy [using .score]:", accuracy_score)
+print("\n\nQuestion 9: \nAccuracy [using accuracy_score]:", accuracy)
+print("\n\nQuestion 9: \nAccuracy [using .score]:", accuracy_score)
 
