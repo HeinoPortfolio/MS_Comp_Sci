@@ -94,7 +94,7 @@ y_values_q =  get_y_values(cluster_q)
 x_values_r =  get_x_values(cluster_r)
 y_values_r =  get_y_values(cluster_r)
 
-"""
+
 plt.ylim([0,105])
 plt.xlim([0,105])
 
@@ -105,17 +105,15 @@ plt.scatter(x_values_r, y_values_r, color="blue")
 
 
 plt.show()
-"""
+
 
 # Verify the min method is working -------------------------------------------
 
 A = [[8,9]]
 B = [[4,6]]
 
-print("Value returned from distance_min_meth(): \n", distance_min_meth(A, B))
-
-
-
+print("[Check] Value returned from distance_min_meth(): \n", 
+      distance_min_meth(A, B))
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------

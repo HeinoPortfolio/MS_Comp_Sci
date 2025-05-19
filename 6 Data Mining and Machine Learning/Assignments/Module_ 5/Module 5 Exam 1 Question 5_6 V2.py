@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun May 18 00:30:16 2025
+Created on Sun May 18 22:07:49 2025
 
 @author: ntcrw
 """
@@ -46,7 +46,8 @@ def distance_matrix(normalized_list):
     
     return distance_matrix_list
 
-#------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------
 
 def final_distance_matrix(distance_matrix_1,  distance_matrix_2): 
     
@@ -69,10 +70,6 @@ def final_distance_matrix(distance_matrix_1,  distance_matrix_2):
     
 #------------------------------------------------------------------------------
 
-    
-#------------------------------------------------------------------------------
-# Pre-question tasks ----------------------------------------------------------
-# -----------------------------------------------------------------------------
 
 # Read the data into a dataframe ---------------------------------------------
 
@@ -81,36 +78,42 @@ points_df = pd.read_csv("cs654_exam1_dataset.csv", header=None)
 
 # Extract the x-values from the dataframe -------------------------------------
 
-X_values = points_df.iloc[:, 0].to_numpy()
+X_values = points_df.iloc[:, 0].to_numpy().reshape(-1, 1)
 
 # Extract the y-values from the dataframe -------------------------------------
 
-Y_values = points_df.iloc[:, 1].to_numpy()
+Y_values = points_df.iloc[:, 1].to_numpy().reshape(-1, 1)
 
 
-# -----------------------------------------------------------------------------
-# Normalize the points in X and Y ---------------------------------------------
-#------------------------------------------------------------------------------
+# Scale the x values ---------------------------------------------------------
 
-# Normalize the x values ------------------------------------------------------
+mm_scaler_x =  MinMaxScaler()
 
-x_norm =  min_max_formula(X_values)
+mm_scaler_x.fit(X_values)
+
+# Transform the data ----------------------------------------------------------
+
+x_norm = mm_scaler_x.transform(X_values)
 
 
-# Normalize the y values ------------------------------------------------------
+# Scale the x values ---------------------------------------------------------
 
-y_norm = min_max_formula(Y_values)
+mm_scaler_y =  MinMaxScaler()
+
+mm_scaler_y.fit(Y_values)
+
+# Transform the data ----------------------------------------------------------
+
+y_norm= mm_scaler_y.transform(Y_values)
 
 
 # Create the distance vectors for the normalized  X and Y values --------------
 
 distance_x = distance_matrix(x_norm)
 
-
 # Convert to a dataframe to visualize the matrix ------------------------------
  
 distance_matrix_x_df = pd.DataFrame(distance_x)
-
 
 
 # Create the distance vectors for the normalized Y values ---------------------
@@ -128,7 +131,7 @@ final_distance_matrix_results =  final_distance_matrix(distance_x,
                                                distance_y)
 
 
-
+#------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #
 # Question 5 
@@ -142,9 +145,10 @@ final_distance_matrix_results =  final_distance_matrix(distance_x,
 # 
 
 
-# Visualizee the final distance matrix ----------------------------------------
+# Visualize the final distance matrix ----------------------------------------
 
 final_distance_matrix_df = pd.DataFrame(final_distance_matrix_results)
+
 
 
 # Results of the distance matrix ----------------------------------------------
@@ -163,8 +167,6 @@ print("Question 5:  \n The value is: ", final_distance_matrix_df.iloc[0, 18])
 #
  
 print("Question 6:  \n The value is: ", final_distance_matrix_df.iloc[8, 11])
-
-
 
 
 
