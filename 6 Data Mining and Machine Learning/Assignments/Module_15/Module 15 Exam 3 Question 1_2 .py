@@ -84,7 +84,7 @@ for review in all_reviews_list:
  
 # Show the results -----------------------------------------------------------
 
-print("\n\nQuestion 1: The longest review after punctuation removal is:  ",
+print("\n\nQuestion 1:\n The longest review after punctuation removal is:  ",
       max(list_of_lengths))
    
 #------------------------------------------------------------------------------
@@ -96,7 +96,7 @@ print("\n\nQuestion 1: The longest review after punctuation removal is:  ",
 # words after punctuation removal?
 #
 
-print("\n\nQuestion 1: The shortest review after punctuation removal is:  ",
+print("\n\nQuestion 2:\n The shortest review after punctuation removal is:  ",
       min(list_of_lengths))
 
 

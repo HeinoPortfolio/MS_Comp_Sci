@@ -37,6 +37,7 @@ import pandas as pd
 
 from transformers import pipeline
 
+
 #------------------------------------------------------------------------------
 # Prequestion tasks------------------------------------------------------------
 
@@ -63,7 +64,6 @@ model_predictions_dict = classifier(reviews_to_be_used)
 # Extract prediction values from the model_predictions ------------------------
 # add the data to the dataframe -----------------------------------------------
 
-
 predicted_reviews = [dt['label'] for dt in model_predictions_dict]
 
 
@@ -79,29 +79,32 @@ reviews_df["Predicted_Reviews_Scores"] = prediction_scores
 
 
 #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 #
-# Question 3
+# Question 6
 #
 # For the correct positive predictions (true label is positive, prediction is 
 # positive), 
-# what is the average score?
+# 
+# How many scores are less than or equal to 0.7?
 #
 
 pos_pos_pred_df = reviews_df[(reviews_df['label'] == 1) &
-                             (reviews_df['Predicted_Reviews_Enc'] == 1)]
+                             (reviews_df['Predicted_Reviews_Enc'] == 1) &
+                             (reviews_df['Predicted_Reviews_Scores'] <= 0.7)]
 
 # Compute the average of the score column -------------------------------------
 
-score_col_avg = pos_pos_pred_df['Predicted_Reviews_Scores'].mean()
+num_scores_70 = len(pos_pos_pred_df)
+
+print("\n\nQuestion 6: \n")
+print("\nThe number of scores that are greater than or equal to 0.7 is [x >= 0.7]:\n",
+      num_scores_70)
 
 
-print("\n\n Question 3: \n")
 
-print("\nThe average score for both a positive label and positive prediction is: \n",
-      score_col_avg)
 
-print("\n\nThe average score for both a positive label and positive prediction is [rounded]: \n",
-      round(score_col_avg, 2))
+
 
 
 

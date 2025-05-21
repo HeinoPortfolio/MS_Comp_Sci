@@ -79,30 +79,29 @@ reviews_df["Predicted_Reviews_Scores"] = prediction_scores
 
 
 #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 #
-# Question 3
+# Question 4
 #
-# For the correct positive predictions (true label is positive, prediction is 
-# positive), 
-# what is the average score?
+# For the wrong positive predictions (true label is positive, prediction 
+# is negative),
+#
+# #hat is the average score? 
 #
 
-pos_pos_pred_df = reviews_df[(reviews_df['label'] == 1) &
-                             (reviews_df['Predicted_Reviews_Enc'] == 1)]
+pos_neg_pred_df = reviews_df[(reviews_df['label'] == 1) &
+                             (reviews_df['Predicted_Reviews_Enc'] == 0)]
 
 # Compute the average of the score column -------------------------------------
 
-score_col_avg = pos_pos_pred_df['Predicted_Reviews_Scores'].mean()
+score_col_avg = pos_neg_pred_df['Predicted_Reviews_Scores'].mean()
 
-
-print("\n\n Question 3: \n")
-
-print("\nThe average score for both a positive label and positive prediction is: \n",
+print("\n\n Question 4: \n")
+print("\nThe average score for both a positive label and negative lablel is: \n",
       score_col_avg)
 
-print("\n\nThe average score for both a positive label and positive prediction is [rounded]: \n",
+print("\n\nThe average score for both a positive label and negative lablel is [rounded]: \n",
       round(score_col_avg, 2))
-
 
 
 

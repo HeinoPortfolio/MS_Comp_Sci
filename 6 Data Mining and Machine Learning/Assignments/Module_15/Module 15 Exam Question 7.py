@@ -42,7 +42,7 @@ from transformers import pipeline
 
 # Read in the data from the positive reviews ----------------------------------
 
-reviews_df = pd.read_csv("movie_reviews_500_positive.csv")
+reviews_df = pd.read_csv("movie_reviews_500_negative.csv")
 
 # Extract the text from the reviews dataframe ---------------------------------
 
@@ -79,29 +79,31 @@ reviews_df["Predicted_Reviews_Scores"] = prediction_scores
 
 
 #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 #
-# Question 3
+# Question 7
 #
-# For the correct positive predictions (true label is positive, prediction is 
-# positive), 
-# what is the average score?
+# For the correct negative predictions (true label is negative, and prediction 
+# is also negative), 
+#
+# What is the average score?
 #
 
-pos_pos_pred_df = reviews_df[(reviews_df['label'] == 1) &
-                             (reviews_df['Predicted_Reviews_Enc'] == 1)]
+neg_neg_pred_df = reviews_df[(reviews_df['label'] == 0) &
+                             (reviews_df['Predicted_Reviews_Enc'] == 0)]
 
-# Compute the average of the score column -------------------------------------
+# Compute the average of the score column
 
-score_col_avg = pos_pos_pred_df['Predicted_Reviews_Scores'].mean()
+score_col_avg = neg_neg_pred_df['Predicted_Reviews_Scores'].mean()
 
-
-print("\n\n Question 3: \n")
-
-print("\nThe average score for both a positive label and positive prediction is: \n",
+print("\n\n Question 7: \n")
+print("\nThe average score for both a negative label and negative prediction is: \n",
       score_col_avg)
 
 print("\n\nThe average score for both a positive label and positive prediction is [rounded]: \n",
       round(score_col_avg, 2))
+
+
 
 
 
