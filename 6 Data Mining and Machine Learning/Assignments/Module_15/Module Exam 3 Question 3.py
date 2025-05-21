@@ -84,7 +84,8 @@ reviews_df["Predicted_Reviews_Scores"] = prediction_scores
 #
 # For the correct positive predictions (true label is positive, prediction is 
 # positive), 
-# what is the average score?
+#
+# What is the average score?
 #
 
 pos_pos_pred_df = reviews_df[(reviews_df['label'] == 1) &

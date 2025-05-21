@@ -96,7 +96,7 @@ neg_neg_pred_df = reviews_df[(reviews_df['label'] == 0) &
 
 score_col_avg = neg_neg_pred_df['Predicted_Reviews_Scores'].mean()
 
-print("\n\n Question 7: \n")
+print("\n\nQuestion 7: \n")
 print("\nThe average score for both a negative label and negative prediction is: \n",
       score_col_avg)
 

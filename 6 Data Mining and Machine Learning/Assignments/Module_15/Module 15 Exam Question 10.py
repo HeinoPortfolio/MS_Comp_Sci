@@ -86,7 +86,7 @@ reviews_df["Predicted_Reviews_Scores"] = prediction_scores
 # For the correct negative predictions (true label is negative, and prediction
 # is also negative), 
 #
-# How many scores are more than or equal to 0.9?
+# How many scores are more than or equal to 0.7?
 #
 
 neg_neg_pred_df = reviews_df[(reviews_df['label'] == 0) &

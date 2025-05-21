@@ -97,7 +97,7 @@ pos_pos_pred_df = reviews_df[(reviews_df['label'] == 1) &
 
 num_scores_90 = len(pos_pos_pred_df)
 
-print("\n\n Question 5: \n")
+print("\n\nQuestion 5: \n")
 print("\nThe number of scores that are greater than or equal to 0.9 is [x >= 0.9]: \n",
       num_scores_90)
 
