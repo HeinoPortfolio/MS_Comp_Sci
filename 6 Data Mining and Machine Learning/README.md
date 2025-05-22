@@ -37,7 +37,7 @@ The concepts and technologies used to create and complete the assessments are th
 |**Directory Name**|**Purpose**|**Additional Comments**|
 |:-----|:-----|:-----|
 |Assignments| Holds graded assignments for the course.  These assignmets were assessments that were given out over the course of the term to reinforce concpets that were covered during the module's lecture and reading assignmments| Additional notes can be found within the directory.  
-|Labs| Labs that were completed during the term. | Please note that not all code found in the labs were created by me.  Portions of the code base were created by the instructor.  Notes to this will be included as needed within each file.  
+|Labs| Labs that were completed during the term. | Please note that not all of the code were created by me.  Portions of the code base were created by the instructor.  Notes to this will be included as needed within each file.  
 || ||
 
 # Additional Graduate Level Work
