@@ -8,6 +8,13 @@ The program emphasized applications and specializations with hands-on learning e
 
 Additional graduate work can be found below the list of course certificates.
 
+# Competencies and Objectives:
+
+- $`\textcolor{blue}{\text{Developed programming skills and understanding data structures for efficient problem solving}}`$
+- $`\textcolor{blue}{\text{Employed advanced database systems and data storage solutions for effective data management}}`$
+- $`\textcolor{blue}{\text{Applying artificial intelligence and machine learning techniques to draw insights from data}}`$
+- $`\textcolor{blue}{\text{Designing secure software and implementing robust cybersecurity measures to protect digital environments}}`$
+
 # List of Courses
 
 The list of courses is in no particular order.  The list was created based on a list of required courses provided by the school. Please do not assume that there is a chronological order for the courses. 
