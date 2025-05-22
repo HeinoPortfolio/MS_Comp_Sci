@@ -15,7 +15,8 @@ The concepts and technologies used to create and complete the assessments are th
 # Assignment Files 
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
+|:-----|:-----:|:-----|
+|Module 1 Lab Jupyter Pandas.ipynb| |
+|Module 1 Lab.ipynb||
 
 
