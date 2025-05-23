@@ -20,6 +20,9 @@ The concepts and technologies used to create and complete the assessments are th
 # Assignment Files 
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|Module 9 Bayes.ipynb| |
-|Module 9 Logisic Regression.ipynb||
+|:-----|:-----:|:-----|
+|Module 9 Question 1 .py| |
+|Module 9 Question 2 .py||
+|Module 9 Question 3.py||
+|Module 9 Question 4.py||
+
