@@ -1,9 +1,11 @@
 This directory will hold the files that were created during the lecture and during the practice labs. 
 
 # Competencies
-Competencies and objectives completed in Module 7:
+Competencies and objectives completed in Module 8:
 
-- Decision Tree Classifier
+- Understand and describe how decision tree works in classifying data.
+- Understand and explain how decision tree is constructed using information gain.
+- Be able to use decision tree APIs in scikit-learn.
 
 # Technologies and Concepts Used
 
