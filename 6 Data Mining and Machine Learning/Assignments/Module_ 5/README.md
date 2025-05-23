@@ -19,6 +19,14 @@ The concepts and technologies used to create and complete the assessments are th
 # Assignment Files 
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
-|||
+|:-----|:-----:|:-----|
+|Module 5 Exam 1.py| |
+|Module 5 Exam Question 3_4 V2.py||
+|Module 5 Exam Question 3_4.py||
+|Module 5 Exam 1 Question 5.py||
+|Module 5 Exam 1 Question 5_6 V2.py||
+|Module 5 Exam 1 Question 5_6.py||
+|Module 5 Exam 1 Question 7_8.py||
+|Module 5 Exam 1 Question 9.py||
+|Module 5 Exam 1 Question 9_10.py||
+|Module 5 Exam 1 Question 10.py||
