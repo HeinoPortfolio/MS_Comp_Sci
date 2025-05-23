@@ -2,7 +2,7 @@ This directory will hold the files that were created during the lecture and duri
 
 # Competencies
 
-Competencies and objectives completed in Module 12:
+Competencies and objectives completed in Module 13:
 
 - Understand the basics of sentiment analysis and list its applications.
 - Be able to extend the knowledge of text classification on sentiment analysis.
