@@ -1,8 +1,11 @@
 This directory will hold the files that were created during the lecture and during the practice labs. 
 
 # Competencies
-Competencies and objectives completed in Module 1:
-- 
+Competencies and objectives completed in Module 3:
+- Define data matrix, distance matrix, and similariy matrix.
+- Compute distances between numerical values.
+- Compute distances between non-numerical values.
+- Compute distances between data points with mixed types.
 
 # Technologies and Concepts Used
 
