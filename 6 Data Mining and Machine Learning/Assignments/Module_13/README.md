@@ -19,7 +19,9 @@ The concepts and technologies used to create and complete the assessments are th
 # Assignment Files 
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
-|||
-
+|:-----|:-----:|:-----|
+|Module 13 Question 1.py| |
+|Module 13 Aside.py||
+|Module 13 Questions 1_2.py||
+|Module 13 Questions 3_4.py||
+|Module 13 Questions 5_6.py||
