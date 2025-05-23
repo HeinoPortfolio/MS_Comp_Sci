@@ -19,6 +19,8 @@ The concepts and technologies used to create and complete the assessments are th
 # Assignment Files 
 
 |**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
-||
+|:-----|:-----:|:-----|
+|Example of conversion of df to array.py| |
+|Module 14 Aside.py||
+|Module 14 Question 5.py||
+|Module 14 Question 6.py||
