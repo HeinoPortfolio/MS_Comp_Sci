@@ -19,6 +19,8 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**File Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|| |
-|||
-|||
+|Module 12 Question 1.py| |
+|Module 12 Question 2.py||
+|Module 12 Question 3.py||
+|Module 12 Questions.py||
+
