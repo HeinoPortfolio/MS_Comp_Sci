@@ -1,14 +1,14 @@
 # Full Stack Web Development
 
 Provided an introduction to full-stack web development, which involves three interwoven areas: 
-- front-end web development,
-- back-end web development
-- database support for the web application
 
-A modern web application framework will be studied, and projects implementing a full web application will be required.
+- Front-end web development,
+- Back-end web development
+- Database support for the web application
+
+???? application framework was studied, and projects implementing a full web application were required.
  
 # Competencies
-Competencies and objectives completed in Module 1:
 - 
 - 
 - 
@@ -17,24 +17,16 @@ Competencies and objectives completed in Module 1:
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
-- 
+- Python
+- ??? framework
 
 # Course Files 
 
-|**File Name**|**Purpose**|**Additional Comments**|
+|**Directory Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
+|Labs| |
+Assignments|||
 || |
-|||
-|| |
-|||  |
-|  |  |  |
-| | |  |
-||| |
-
-
-
-
-
 
 # Additional Graduate Level Work
 * For master's work in **data science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
