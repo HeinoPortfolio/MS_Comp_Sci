@@ -6,10 +6,10 @@ This is the repository for the **Introduction to Programming** course. This page
 **Note:** A certificate of completion can be found on my LinkedIn page.  The certificate can be found in the Licenses & certifications section of the page. It will show my grade for the course as well as listing it as a Ball State University credential that has been applied to a master's degree.  Click [here](https://www.coursera.org/account/accomplishments/verify/5TZTQ7N3KBV4?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course) to be taken to the LinkedIn page.
 
 # Competencies
-- $`\textcolor{blue}{\text{Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.}}`$
-- $`\textcolor{blue}{\text{Calculate the value of expressions and explain the effect of statements in the python programming language.}}`$
-- $`\textcolor{blue}{\text{Identify, compare, evaluate, and use the formal elements of procedural abstraction including parameters, local variables, and return values.}}`$
-- $`\textcolor{blue}{\text{Write programs that use 1- and 2-dimensional data structures to represent aggregate data and iteration to compute over the structures.}}`$
+- Identify, compare, evaluate, and write programs that use the sequencing, iteration, and selection constructs in the python programming language.
+- Calculate the value of expressions and explain the effect of statements in the python programming language.
+- Identify, compare, evaluate, and use the formal elements of procedural abstraction including parameters, local variables, and return values.
+- Write programs that use 1- and 2-dimensional data structures to represent aggregate data and iteration to compute over the structures.
 
 
 # Technologies and Concepts Used
