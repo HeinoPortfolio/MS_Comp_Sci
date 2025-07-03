@@ -39,17 +39,20 @@ Alternative | [Advanced Operating Systems and Networking]() | Elective | Investi
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
 The name in the **()** is the name that will appear on the certificate of completion.
 
-- [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
-- [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
-- [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
-- [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
-- [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
-- [Cloud Computing]() (Intro to Cloud Computing)
-- [Full Stack Development]() (Full Stack Web Development)
-- [Artificial Intellingence]() (Artificial Intelligence)
-- [Software Engineering]() (Software Engineering)
-- [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
-- [Applications of Computability]() (Applications of Computability)
+- Completed:
+  - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
+  - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
+  - [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
+  - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
+  - [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
+
+- In progress:
+  - [Cloud Computing]() (Intro to Cloud Computing)
+  - [Full Stack Development]() (Full Stack Web Development)
+  - [Artificial Intellingence]() (Artificial Intelligence)
+  - [Software Engineering]() (Software Engineering)
+  - [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
+  - [Applications of Computability]() (Applications of Computability)
 
 
 # Additional Graduate Level Work
