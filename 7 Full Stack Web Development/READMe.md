@@ -1,12 +1,12 @@
 # Full Stack Web Development
 
-Provided an introduction to full-stack web development, which involves three interwoven areas: 
+Provided an introduction to full-stack web development, which involved three interwoven areas: 
 
 - Front-end web development
 - Back-end web development
 - Database support for the web application
 
-???? application framework was studied, and projects implementing a full web application were created.
+???? web application framework was studied, and projects implementing a full web application were created.
  
 # Competencies
 - 
