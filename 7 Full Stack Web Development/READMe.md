@@ -6,7 +6,7 @@ Provided an introduction to full-stack web development, which involves three int
 - Back-end web development
 - Database support for the web application
 
-???? application framework was studied, and projects implementing a full web application were required.
+???? application framework was studied, and projects implementing a full web application were created.
  
 # Competencies
 - 
