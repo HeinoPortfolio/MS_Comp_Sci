@@ -17,7 +17,7 @@ Additional graduate work can be found below the list of course certificates.
 
 # List of Courses
 
-The list of courses is in no particular order.  The list was created based on a list of required courses provided by the school. Please do not assume that there is a chronological order for the courses. 
+The list of courses is in no particular order.  The list was created based on a list of required courses provided by the university. Please do not assume that there is a chronological order for the courses. 
 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
