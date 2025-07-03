@@ -2,7 +2,7 @@
 
 Provided an introduction to full-stack web development, which involves three interwoven areas: 
 
-- Front-end web development,
+- Front-end web development
 - Back-end web development
 - Database support for the web application
 
