@@ -6,19 +6,22 @@ Provided an introduction to full-stack web development, which involved three int
 - Back-end web development
 - Database support for the web application
 
-???? web application framework was studied, and projects implementing a full web application were created.
- 
 # Competencies
-- 
-- 
-- 
-- 
+
+- Able to design and develop full-scale web applications.
+- Apply security requirements for web applications.
+- Able to design and develop multi-tiered web architectures.
+- Able to design and implement data-driven web applications.
+- Design and develop web applications that allow user interactions.
 
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
-- Python
-- ??? framework
+
+- React
+- MongoDB
+- Express
+- Node.js
 
 # Course Files 
 
