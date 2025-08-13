@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{
+				font-family:sans-serif;
+				text-align:center;
+				margin-top:100px;
+			}
+			button{
+				padding: 10px 20px;
+				background: purple;
+				color: white;
+				border: none;
+				font-size:16px
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Hello!</h1>
+		<p>This is my first webpage.</p>
+		<p id="message">Click the button to update this text.</p>
+		<button onclick="updateText()"> Click Me </button>
+		<script>
+			function updateText(){
+				document.getElementById("message").innerText="Hello from JavaScript!";
+			}
+		</script
+	</body>
+</html>	
