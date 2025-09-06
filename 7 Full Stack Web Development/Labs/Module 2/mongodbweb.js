@@ -1,3 +1,6 @@
+// Connects to MongoDB through NodeJS
+// The database is named mydb
+
 import {createServer} from 'node:http'
 import {MongoClient} from 'mongodb'
 
