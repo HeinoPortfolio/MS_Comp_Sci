@@ -1,4 +1,3 @@
-//import { Post } from './components/Post.jsx'
 import { PostList } from './components/PostList.jsx'
 import { CreatePost } from './components/CreatePost.jsx'
 import { PostFilter } from './components/PostFilter.jsx'
@@ -14,27 +13,7 @@ const posts = [
 {title: 'Hello React!'},
 ]
 
-
-/*
-export function App() {
-	return(
-		<Post 
-			title='Full-Stack React Projects'
-			contents="Let's become full-stack developers!"
-			author='Daniel Bugl'
-		/> 
-	)*
-	return <PostList posts={posts} />
-} */
-
-// Component for creating the Post
-/*
-export function App() {
-	return <CreatePost />
-}
-*/
-
-export function App(){
+export function Blog(){
 	return (
 		<div style={{padding: 8}}>
 			<CreatePost />
