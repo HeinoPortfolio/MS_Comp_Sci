@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+	body{
+		font-family: sans-serif;
+		text-align: center;
+		margin-top: 100px;
+	}
+	button {
+		padding: 10px  20px;
+		background: purple;
+		color: white;
+		border: none;
+		font-size: 16px;
+	}
+  </style>
+</head>	
+<body>
+	<h1>Hello CORS!</h1>
+	<p id="message"> Click on the button to receive from the backend!</p>
+	<button onclick="upDateText()">Click Me</button>
+	<script>
+		function upDateText () {
+			fetch('https://glowing-space-dollop-65qpwjg9r7425g66-3000.app.github.dev/api/v1/posts')
+				.then(res => res.json())
+				.then(res => JSON.stringify(res))
+				.then(alert)
+				.catch(err => alert(err))
+		}
+	</script>
+</body>
+</html>
