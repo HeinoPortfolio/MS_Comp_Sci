@@ -17,22 +17,4 @@ For addititional coursework in algorithms go to my **Graphs, Algorithms and Appl
 - ???.
 - ???.
 
-# Technologies and Concepts Used
-The concepts and technologies used to create and complete the assessment are the following:
-- ????.
-- ???.
-- ???.
-- ????.
 
-# Files and a Brief Description of Their Purpose
-
-|**File Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|| |
-|||
-|| |
-|||  |
-|  |  |  |
-| | |  |
-||| |
-||| |
