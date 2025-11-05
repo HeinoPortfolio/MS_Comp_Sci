@@ -1,8 +1,9 @@
 # Folder Overview
 
-Introduced to the concpets of data mining algorithms, implementations, systems, and applications. Topics include data preprocessing, data clustering, data classification, mining association rules, and anomaly detection.
+Introduced to the concepts of data mining algorithms, implementations, systems, and applications. Topics include data preprocessing, data clustering, data classification, mining association rules, and anomaly detection.
 
 Software implementation of data mining algorithms. Data mining applications on real data in various domains. Students enrolling in this course are expected to have completed an undergraduate introductory programming sequence.
+
 # Competencies
 - $`\textcolor{blue}{\text{Data preprocessing}}`$
 - $`\textcolor{blue}{\text{Data clustering}}`$
