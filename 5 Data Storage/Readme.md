@@ -3,17 +3,20 @@ This directory will hold the assignments, the labs, and a brief description of t
 
 # Competencies
 
--  Creating queries using SQL
--  Relational and non-relational databases, e.g. MySQL and MongoDB
--  Creating queries using a MongoDB
--  Writing Python scripts to access the data in a Mongo DB
+-  $`\textcolor{blue}{\text{Creating queries using SQL}}`$
+-  $`\textcolor{blue}{\text{Relational and non-relational databases, e.g. MySQL and MongoDB}}`$
+-  $`\textcolor{blue}{\text{Creating queries using a MongoDB}}`$
+-  $`\textcolor{blue}{\text{Writing Python scripts to access the data in a Mongo DB}}`$
 
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessments are the following:
-- SQL
-- MySQL Workbench
-- MongoDB
+- $`\textcolor{blue}{\text{SQL}}`$
+- $`\textcolor{blue}{\text{MySQL Workbench}}`$
+- $`\textcolor{blue}{\text{MongoDB}}`$
+- $`\textcolor{blue}{\text{MongoDB Atlas}}`$
+- $`\textcolor{blue}{\text{MongoDB Compass}}`$
+- $`\textcolor{blue}{\text{Python}}`$
 
 # Assignment Files 
 
