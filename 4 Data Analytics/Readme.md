@@ -9,13 +9,13 @@ This course covered the processes of data acquisition, transformation, manipulat
 - For addititional coursework in data analytics go to my master's degree in data analytics repository.  [Click Here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
 
 # Competencies
-- Identify possible data sources and data opportunities.
-- Acquire, transform, and manipulate data using the Python programming language.
-- Retrieve and process unstructured, semi-structured, and structured data.
-- Perform data analytics
-- Create and evaluate data visualizations
-- Perform text analytics and visualizations
-- Develop a standard pipeline for data analytics
+- $`\textcolor{blue}{\text{Identify possible data sources and data opportunities.}}`$
+- $`\textcolor{blue}{\text{Acquire, transform, and manipulate data using the Python programming language.}}`$ 
+- $`\textcolor{blue}{\text{Retrieve and process unstructured, semi-structured, and structured data.}}`$
+- $`\textcolor{blue}{\text{Perform data analytics}}`$ 
+- $`\textcolor{blue}{\text{Create and evaluate data visualizations}}`$
+- $`\textcolor{blue}{\text{Perform text analytics and visualizations}}`$
+- $`\textcolor{blue}{\text{Develop a standard pipeline for data analytics}}`$ 
 
 # Objectives
 - Become proficient in using the Python programming language as applied to data analysis and analytics.
@@ -24,15 +24,15 @@ This course covered the processes of data acquisition, transformation, manipulat
 # Technologies and Concepts Used
 
 The concepts and technologies used to create and complete the assessment are the following:
-- Python 3.11
+- $`\textcolor{blue}{\text{Python 3.11}}`$
 - Various modules and/or libraries.  For example the following modules were used (Note: This is not an exhaustive list, but only a sample.):
-  - Pandas
-  - sklearn
-  - WordCloud
-  - Data visualization
-  - Data cleaning (Data munging)
-  - Using Jupyter Notbook to view and execute code
-  - Using Python libraries and their associated functions to accomplish required tasks
+  - $`\textcolor{blue}{\text{Pandas}}`$
+  - $`\textcolor{blue}{\text{sklearn}}`$
+  - $`\textcolor{blue}{\text{WordCloud}}`$
+  - $`\textcolor{blue}{\text{Data visualization}}`$
+  - $`\textcolor{blue}{\text{Data cleaning (Data munging)}}`$
+  - $`\textcolor{blue}{\text{Using Jupyter Notbook to view and execute code}}`$
+  - $`\textcolor{blue}{\text{Using Python libraries and their associated functions to accomplish required tasks}}`$
 
 # Files and a Brief Description of Their Purpose
 
