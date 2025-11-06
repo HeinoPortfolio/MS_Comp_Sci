@@ -28,9 +28,8 @@ The concepts and technologies used to create and complete the assessments are th
 
 |**Directory Name**|**Purpose**|**Additional Comments**|
 |:-----:|:-----:|:-----|
-|Labs| |
-Assignments|||
-|| |
+|Final Project| [Final](https://github.com/HeinoPortfolio/CS618-Final-Project-Home) |  Final project for the course |
+Assignments| [Assignments](https://github.com/HeinoPortfolio/CS618-Lec-Home)|  Labs and assignments for the course |
 
 # Additional Graduate Level Work
 * For master's work in **data science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
