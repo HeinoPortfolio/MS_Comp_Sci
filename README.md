@@ -10,10 +10,10 @@ Additional graduate work can be found below the list of course certificates.
 
 # Competencies and Objectives:
 
-- Developed programming skills and understanding data structures for efficient problem solving
-- Employed advanced database systems and data storage solutions for effective data management
-- Applying artificial intelligence and machine learning techniques to draw insights from data
-- Designing secure software and implementing robust cybersecurity measures to protect digital environments
+- $`\textcolor{blue}{\text{Developed programming skills and understanding data structures for efficient problem solving}}`$
+- $`\textcolor{blue}{\text{Employed advanced database systems and data storage solutions for effective data management}}`$
+- $`\textcolor{blue}{\text{Applying artificial intelligence and machine learning techniques to draw insights from data}}`$
+- $`\textcolor{blue}{\text{Designing secure software and implementing robust cybersecurity measures to protect digital environments}}`$
 
 # List of Courses
 
@@ -39,14 +39,14 @@ Alternative | [Advanced Operating Systems and Networking]() | Elective | Investi
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
 The name in the **()** is the name that will appear on the certificate of completion.
 
-- Completed:
+- **Completed**:
   - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
   - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
   - [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
   - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
   - [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
 
-- In progress:
+- **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
   - [Full Stack Development]() (Full Stack Web Development)
   - [Artificial Intellingence]() (Artificial Intelligence)
