@@ -24,12 +24,11 @@ The concepts and technologies used to create and complete the assessments are th
 - $`\textcolor{blue}{\text{Node.js}}`$
 - $`\textcolor{blue}{\text{Other}}`$
 
-# Course Repository 
+# Course Repository List
 
-|**Directory Name**|**Purpose**|**Additional Comments**|
-|:-----:|:-----:|:-----|
-|Final Project| [Final](https://github.com/HeinoPortfolio/CS618-Final-Project-Home) |  Final project for the course |
-Assignments| [Assignments](https://github.com/HeinoPortfolio/CS618-Lec-Home)|  Labs and assignments for the course |
+Below you will find a list of repositories that were created over the course of the term.
+
+* To be completed at a later date 
 
 # Additional Graduate Level Work
 * For master's work in **data science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
