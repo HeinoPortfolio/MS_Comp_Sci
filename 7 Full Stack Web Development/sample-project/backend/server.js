@@ -41,12 +41,11 @@ app.post("/api/posts", async (req, res) => {
     const { title, content } = req.body;
 
     const newPost = new Post({ title, content });
-    await newPost.save(); // Save the document first to get the _id
+    //await newPost.save(); // Save the document first to get the _id
+    const new_post = await newPost.save();
 
     // newPost.link = `/posts/${newPost._id}`;
     newPost.link = "https://heinoportfolio.github.io/";
-
-    const new_post = await newPost.save();
 
     io.emit(
       "newPostNotification",
@@ -56,8 +55,8 @@ app.post("/api/posts", async (req, res) => {
         postId: newPost._id,
       },
       console.log("Created the new post nofication backend!!! "),
-      console.log("Value of the new post with title: \n", new_post.title),
-      console.log("Value of the new post content: ", new_post.content)
+      console.log("Value of the new post with title: ", new_post.title),
+      console.log("Value of the new post content: \n", new_post.content)
     );
 
     res.status(201).json(newPost);
