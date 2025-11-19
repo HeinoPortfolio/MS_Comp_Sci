@@ -46,13 +46,19 @@ app.post("/api/posts", async (req, res) => {
     // newPost.link = `/posts/${newPost._id}`;
     newPost.link = "https://heinoportfolio.github.io/";
 
-    await newPost.save();
+    const new_post = await newPost.save();
 
-    io.emit("newPostNotification", {
-      message: `A new post titled "${newPost.title}" has been added!`,
-      postLink: newPost.link,
-      postId: newPost._id,
-    });
+    io.emit(
+      "newPostNotification",
+      {
+        message: `A new post titled "${newPost.title}" has been added!`,
+        postLink: newPost.link,
+        postId: newPost._id,
+      },
+      console.log("Created the new post nofication backend!!! "),
+      console.log("Value of the new post with title: \n", new_post.title),
+      console.log("Value of the new post content: ", new_post.content)
+    );
 
     res.status(201).json(newPost);
   } catch (error) {
