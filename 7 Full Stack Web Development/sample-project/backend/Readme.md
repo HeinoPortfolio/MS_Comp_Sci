@@ -2,7 +2,7 @@
 
 - The purpose of this directoryis to hold the files that make up the backend of a simple socket.io server and a simple database. 
 - The server can be run using the following command:
-  - **node server.js**
+  - **npm start**
 
 ### File Directory
 
