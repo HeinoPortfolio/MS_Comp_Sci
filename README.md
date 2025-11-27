@@ -43,7 +43,7 @@ The name in the **()** is the name that will appear on the certificate of comple
   - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
   - [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
   - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
-  - [Data Mining and Machine Learning]() (Machine Learning and Data Mining)
+  - [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining)
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
