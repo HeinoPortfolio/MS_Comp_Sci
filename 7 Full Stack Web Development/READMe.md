@@ -28,9 +28,13 @@ The concepts and technologies used to create and complete the assessments are th
 
 Below you will find a list of repositories that were created over the course of the term.
 
-* To be completed at a later date 
+* Assignments Reposistory
+  * For assignments please review:   [Click Here](https://github.com/HeinoPortfolio/CS618-Lec-Home)
+* Milestone Repository
+  * For milestones 1 and 2 see this respository: [Click Here](https://github.com/HeinoPortfolio/CS618-Final-Project-V2)
+  * For milestone 3 see this repository: [Click Here](https://github.com/HeinoPortfolio/Milestone-3/tree/Milestone-3-socketio)
 
 # Additional Graduate Level Work
-* For master's work in **data science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
-* For master's work in **computer science** [click here](https://github.com/HeinoPortfolio/MS_Comp_Sci).
+* For master's work in **data science** [Click Here](https://github.com/HeinoPortfolio/Graduate-Work).
+* For master's work in **computer science** [Click Here](https://github.com/HeinoPortfolio/MS_Comp_Sci).
   * **Note:** The link above will be active for job interviews and by request.  This is to meet school requirements on academic work privacy.
