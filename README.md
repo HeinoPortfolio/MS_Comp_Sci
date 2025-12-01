@@ -44,10 +44,10 @@ The name in the **()** is the name that will appear on the certificate of comple
   - [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
   - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
   - [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining)
+  - [Full Stack Development](https://coursera.org/share/09111505ed77070ceb0d6494e728ed02) (Full Stack Web Development)
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
-  - [Full Stack Development]() (Full Stack Web Development)
   - [Artificial Intellingence]() (Artificial Intelligence)
   - [Software Engineering]() (Software Engineering)
   - [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
