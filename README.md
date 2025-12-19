@@ -21,7 +21,7 @@ The list of courses is in no particular order.  The list was created based on a 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
 1 |[Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) | Core |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries.  |$`\textcolor{green}{\text{Completed }}`$
-2 |[Discrete Structures](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/2%20Discrete%20Structures) | Core | The basics of discrete structures and algorithms such as relations, functions, basic logic, combinatorial techniques, sorting, and searching. Regular languages and Finite State Automata. |$`\textcolor{green}{\text{Completed }}`$
+2 |[Discrete Structures and Algorithms](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/2%20Discrete%20Structures) | Core | The basics of discrete structures and algorithms such as relations, functions, basic logic, combinatorial techniques, sorting, and searching. Regular languages and Finite State Automata. |$`\textcolor{green}{\text{Completed }}`$
 3 |[Data Visualization](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/3%20Data%20Visualization)| Elective |An introduction to the needs and tasks of data visualization. Topics include general principles and techniques to create effective data visualization, various kinds of data for visualization, and how to communicate with the audience through visualization. | $`\textcolor{green}{\text{Completed }}`$
 4 | [Data Analytics](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/4%20Data%20Analytics)|Core | Graduate course in data analytics. The course covered data acquisition, transformation, manipulation, and how these were applied to large-scale unstructured, structured, and semi-structured data. The course introduced the application of different data analytics methods and algorithms to accomplish the preparation and analysis of the data.  | $`\textcolor{green}{\text{Completed }}`$
 5 |[Data Storage](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/5%20Data%20Storage) | Core | An introduction to data storage and management used in data analytics systems. Topics include relational and NoSQL database systems, data storage and retrieval, data manipulation and transformation between different formats, and database integration within big data eco-systems. | $`\textcolor{green}{\text{Completed }}`$
@@ -45,6 +45,7 @@ The name in the **()** is the name that will appear on the certificate of comple
   - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
   - [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining)
   - [Full Stack Development](https://coursera.org/share/09111505ed77070ceb0d6494e728ed02) (Full Stack Web Development)
+  - [Discrete Structures and Algorithms](https://coursera.org/share/b79b28d57cbb890373417d44f13def43) (CS 602: Discrete Structures and Algorithms)
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
