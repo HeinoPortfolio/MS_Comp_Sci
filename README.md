@@ -46,6 +46,7 @@ The name in the **()** is the name that will appear on the certificate of comple
   - [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining)
   - [Full Stack Development](https://coursera.org/share/09111505ed77070ceb0d6494e728ed02) (Full Stack Web Development)
   - [Discrete Structures and Algorithms](https://coursera.org/share/b79b28d57cbb890373417d44f13def43) (CS 602: Discrete Structures and Algorithms)
+  -  [Advanced Operating Systems and Networking]()   ()
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
