@@ -1,11 +1,16 @@
 # MS_Comp_Sci
 
-The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculum.  There were two research courses that were required. The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
+> The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculum.  There were two research courses that were required.
+> The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
 
-The listing below does not reflect the order that the classes were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.  The appropriate content will be uploaded at that time.
+> The listing below does not reflect the order that the classes were taken.  Some directories may be empty.  The reason for the directories being empty is that they have not been completed.  These courses are in the process of being completed.
+> The appropriate content will be uploaded at that time.
 
-The program emphasized applications and specializations with hands-on learning experience in areas such as machine learning, data analytics, cybersecurity, and software engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below. 
-Additional graduate work can be found below the list of course certificates.
+> The program emphasized applications and specializations with hands-on learning experience in areas such as machine learning, data analytics, cybersecurity, and software engineering. The course certificates are hosted on Coursera. There are free versions of some of the the courses listed below. 
+> Additional graduate work can be found below the list of course certificates.
+
+------------------
+
 
 # Competencies and Objectives:
 
@@ -13,6 +18,8 @@ Additional graduate work can be found below the list of course certificates.
 - $`\textcolor{blue}{\text{Employed advanced database systems and data storage solutions for effective data management}}`$
 - $`\textcolor{blue}{\text{Applying artificial intelligence and machine learning techniques to draw insights from data}}`$
 - $`\textcolor{blue}{\text{Designing secure software and implementing robust cybersecurity measures to protect digital environments}}`$
+
+------------------------------------------
 
 # List of Courses
 
@@ -33,6 +40,9 @@ The list of courses is in no particular order.  The list was created based on a 
 Alternative | [Introduction to Cloud Computing]() |  Elective | Provided an introduction to understanding the concepts, capabilities, and underlying technologies of cloud computing, which enables students to effectively evaluate and exploit the business and technical benefits of cloud-based solutions. In addition, hands-on experience through projects exposes students to the application programming interfaces offered by leading cloud providers (e.g., Amazon Web Services, Microsoft Azure) and teaches students how to build and deploy powerful and efficient data-intensive applications in the cloud. | Alternate - Not needed for degree.
 12 | [Applications of Computability]() | Research | Introduction to computability, finite state machines, regular languages, context free grammars and parsing, Turing machines, complexity classes, applications including programming languages and compilers, network protocols, and natural language processing. Limits of computation. Quantum, hyper-computation and other models of computation.  |  Need
 11 | [Advanced Operating Systems and Networking]() | Elective | Investigation on concepts, models, and algorithms in computer operating systems and networking. Topics include process and thread management, memory management, I/O, internetworking, and networked applications. | $`\textcolor{green}{\text{Completed }}`$
+
+--------------------------
+
 
 # Course Certificates
 You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
@@ -55,6 +65,7 @@ The name in the **()** is the name that will appear on the certificate of comple
   - [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
   - [Applications of Computability]() (Applications of Computability)
 
+------------------------------------------------------------------------------
 
 # Additional Graduate Level Work
 * For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
