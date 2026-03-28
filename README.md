@@ -45,7 +45,8 @@ Alternative | [Introduction to Cloud Computing]() |  Elective | Provided an intr
 
 
 # Course Certificates
-You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
+
+> You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
 The name in the **()** is the name that will appear on the certificate of completion. The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
 - **Completed**:
