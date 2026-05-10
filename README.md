@@ -71,4 +71,9 @@ The name in the **()** is the name that will appear on the certificate of comple
 # Additional Graduate Level Work
 * For master's work in **Data Science** [click here](https://github.com/HeinoPortfolio/Graduate-Work).
 * For master's work in **Data Analytics** [click here](https://github.com/HeinoPortfolio/Data-Analytics-Grad-Work)
+
+-----------------------------------------
+
+# Complete Resume
+* To view a complete resume [click here](https://github.com/HeinoPortfolio/Resume) 
   
