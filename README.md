@@ -50,15 +50,16 @@ Alternative | [Introduction to Cloud Computing]() |  Elective | Provided an intr
 The name in the **()** is the name that will appear on the certificate of completion. The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
 - **Completed**:
-  - [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming)
-  - [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics)
-  - [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management)
-  - [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization)
-  - [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining)
-  - [Full Stack Development](https://coursera.org/share/09111505ed77070ceb0d6494e728ed02) (Full Stack Web Development)
-  - [Discrete Structures and Algorithms](https://coursera.org/share/b79b28d57cbb890373417d44f13def43) (CS 602: Discrete Structures and Algorithms)
-  - [Advanced Operating Systems and Networking](https://www.coursera.org/account/accomplishments/verify/7Z1XJE3ADI40?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)   (CS 619 Advanced Operating Systems and Networking)
-  - [Software Engineering](https://coursera.org/share/7636178071700aafaa7c374b6f56af7c) (CS 690 Software Engineering)
+
+> [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming) <br>
+> [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics) <br>
+> [Data Storage](https://coursera.org/share/1fb4aba48a9764d984a993f2f32c86e4) (DSCI 604 Data Storage and Management) <br>
+> [Data Visualization](https://coursera.org/share/900dccabb012bf5fef22b70cf8ac25a8) (DSCI 605 Data Visualization) <br>
+> [Data Mining and Machine Learning](https://coursera.org/share/a02e006c780dc586914d47cbecc6e6b3) (Machine Learning and Data Mining) <br>
+> [Full Stack Development](https://coursera.org/share/09111505ed77070ceb0d6494e728ed02) (Full Stack Web Development) <br>
+> [Discrete Structures and Algorithms](https://coursera.org/share/b79b28d57cbb890373417d44f13def43) (CS 602: Discrete Structures and Algorithms) <br>
+> [Advanced Operating Systems and Networking](https://www.coursera.org/account/accomplishments/verify/7Z1XJE3ADI40?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)   (CS 619 Advanced Operating Systems and Networking) <br>
+> [Software Engineering](https://coursera.org/share/7636178071700aafaa7c374b6f56af7c) (CS 690 Software Engineering) <br>
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
