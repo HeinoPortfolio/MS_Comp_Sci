@@ -1,4 +1,4 @@
-# MS_Comp_Sci
+# MS Computer Science
 
 > The master's degree consisted of twelve courses. There were six core or foundational courses.  These courses formed the basis of knowledge for all future courses in the curriculum.  There were two research courses that were required.
 > The final set of courses were the elective courses.  There were four of these courses.  You can find the course type in the table below.
