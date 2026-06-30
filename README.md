@@ -49,7 +49,7 @@ Alternative | [Introduction to Cloud Computing](https://github.com/HeinoPortfoli
 > You will find the course certificates of completion below.  **Note:** Some courses did not come with a certificate of completion.  
 The name in the **()** is the name that will appear on the certificate of completion. The courses that I have completed were for credit at the university.  Although, if you review the certificate it may say otherwise.
 
-- **Completed**:
+**Completed**:
 
 > [Intro Prog](https://coursera.org/verify/5TZTQ7N3KBV4) (CS 617 Introduction to Programming) <br>
 > [Data Analytics](https://coursera.org/verify/DSKUBSR9G09A) (CS 621 Foundations of Data Analytics) <br>
