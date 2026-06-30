@@ -25,6 +25,8 @@
 
 The list of courses is in no particular order.  The list was created based on a list of required courses provided by the university. Please do not assume that there is a chronological order for the courses. 
 
+:memo: **Note:** Some of the courses may not be available.  The coureses are currently private and maybe only made available by request.
+
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
 1 |[Intro Prog](https://github.com/HeinoPortfolio/MS_Comp_Sci/tree/main/1%20Intro%20Prog) | Core |Introduction to programming in a contemporary, mainstream, high-level programming language using Python. Use of numeric and textual data. Use of data structures such as arrays, lists, and dictionaries.  |$`\textcolor{green}{\text{Completed }}`$
