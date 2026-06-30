@@ -60,10 +60,10 @@ The name in the **()** is the name that will appear on the certificate of comple
 > [Discrete Structures and Algorithms](https://coursera.org/share/b79b28d57cbb890373417d44f13def43) (CS 602: Discrete Structures and Algorithms) <br>
 > [Advanced Operating Systems and Networking](https://www.coursera.org/account/accomplishments/verify/7Z1XJE3ADI40?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)   (CS 619 Advanced Operating Systems and Networking) <br>
 > [Software Engineering](https://coursera.org/share/7636178071700aafaa7c374b6f56af7c) (CS 690 Software Engineering) <br>
+> [Artificial Intellingence]() (Artificial Intelligence)
 
 - **In progress**:
   - [Cloud Computing]() (Intro to Cloud Computing)
-  - [Artificial Intellingence]() (Artificial Intelligence)
   - [Cybersecurity and Secure Software Design]() (Cybersecurity and Secure Software Design)
   - [Applications of Computability]() (Applications of Computability)
 
