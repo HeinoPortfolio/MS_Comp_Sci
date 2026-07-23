@@ -25,7 +25,7 @@
 
 The list of courses is in no particular order.  The list was created based on a list of required courses provided by the university. Please do not assume that there is a chronological order for the courses. 
 
-:memo: **Note:** Some of the courses may not be available.  The coureses are currently private and maybe only made available by request.
+:memo: **Note:** Some of the courses may not be available.  The coureses are currently private and may only made available by request.
 
 **Course Number** | **Directory** | Course Type |**Course Description** | Status
 |:-----:|:-----:|:-----: | :----- | :-----:|
